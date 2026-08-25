@@ -1,0 +1,255 @@
+{
+  "blut_path": "blut_files/regression_multi_corner_sref_ldo.bin",
+  "good_corners": 126,
+  "total_corners": 135,
+  "meta_key_kind": {
+    "corner": "categorical",
+    "temp": "continuous",
+    "vsup_max": "continuous"
+  },
+  "categorical_codes": {
+    "corner": {
+      "nn": 0.4417314695718987,
+      "ss": -0.5190006678807445,
+      "ww": -1.134284773661927
+    }
+  },
+  "feature_names": [
+    "VPWR",
+    "VREF",
+    "FUN_DC",
+    "VDD_1V2_EXT",
+    "V_SUPPLY",
+    "meta_corner",
+    "meta_temp",
+    "meta_vsup_max"
+  ],
+  "output_names": [
+    "VDD_1V2"
+  ],
+  "equation_source": "degree-2 polynomial",
+  "equation_parameters": {
+    "meta_corner": 1.7884944407614462e-08,
+    "meta_temp": -4.293647960265167,
+    "meta_vsup_max": 5.04992848711764
+  },
+  "states": {
+    "0": {
+      "name": "DISABLED",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 0.39180490925684636
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.00547834*VPWR + 1.14309*VREF + -0.00547834*FUN_DC + -0.00547834*V_SUPPLY + 0.206063*meta_corner + -0.000924674*meta_temp + 0.0317382*meta_vsup_max + 0.00229878*VPWR*VPWR + -0.00491295*VPWR*VREF + 0.00229878*VPWR*FUN_DC + 0.00229878*VPWR*V_SUPPLY + 0.000841768*VPWR*meta_corner + 3.39e-05*VPWR*meta_temp + -0.00472898*VPWR*meta_vsup_max + -1.91452*VREF*VREF + -0.00491295*VREF*FUN_DC + -0.00491295*VREF*V_SUPPLY + 0.479383*VREF*meta_corner + 0.000294587*VREF*meta_temp + -0.00491295*VREF*meta_vsup_max + 0.00229878*FUN_DC*FUN_DC + 0.00229878*FUN_DC*V_SUPPLY + 0.000841768*FUN_DC*meta_corner + 3.39e-05*FUN_DC*meta_temp + -0.00472898*FUN_DC*meta_vsup_max + 0.00229878*V_SUPPLY*V_SUPPLY + 0.000841768*V_SUPPLY*meta_corner + 3.39e-05*V_SUPPLY*meta_temp + -0.00472898*V_SUPPLY*meta_vsup_max + 0.335755*meta_corner*meta_corner + 4.60385e-05*meta_corner*meta_temp + 0.00477243*meta_corner*meta_vsup_max + -7.89592e-07*meta_temp*meta_temp + -5.79678e-05*meta_temp*meta_vsup_max + -0.00035051*meta_vsup_max*meta_vsup_max + -0.0324437",
+          "r2": 0.19796620463486891,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "1": {
+      "name": "REGULATION",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 0.5663326618706928
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.242475*VPWR + -0.188868*VREF + 0.114826*FUN_DC + -5.32943*VDD_1V2_EXT + 0.114826*V_SUPPLY + 0.810819*meta_corner + 0.000946263*meta_temp + 0.114826*meta_vsup_max + 0.0811481*VPWR*VPWR + -0.169733*VPWR*VREF + -0.0124547*VPWR*FUN_DC + -0.0679356*VPWR*VDD_1V2_EXT + -0.0124547*VPWR*V_SUPPLY + -0.248007*VPWR*meta_corner + -0.00143595*VPWR*meta_temp + -0.0124547*VPWR*meta_vsup_max + -0.132208*VREF*VREF + 0.0803782*VREF*FUN_DC + -3.7306*VREF*VDD_1V2_EXT + 0.0803782*VREF*V_SUPPLY + 0.567573*VREF*meta_corner + 0.000662384*VREF*meta_temp + 0.0803782*VREF*meta_vsup_max + -0.00786694*FUN_DC*FUN_DC + -0.0679356*FUN_DC*VDD_1V2_EXT + -0.00786694*FUN_DC*V_SUPPLY + 0.0630482*FUN_DC*meta_corner + 5.89732e-05*FUN_DC*meta_temp + -0.00786694*FUN_DC*meta_vsup_max + 10.4857*VDD_1V2_EXT*VDD_1V2_EXT + -0.0679356*VDD_1V2_EXT*V_SUPPLY + -1.42363*VDD_1V2_EXT*meta_corner + 0.000678801*VDD_1V2_EXT*meta_temp + -0.0679356*VDD_1V2_EXT*meta_vsup_max + -0.00786694*V_SUPPLY*V_SUPPLY + 0.0630482*V_SUPPLY*meta_corner + 5.89732e-05*V_SUPPLY*meta_temp + -0.00786694*V_SUPPLY*meta_vsup_max + 0.410015*meta_corner*meta_corner + -0.00393699*meta_corner*meta_temp + 0.0630482*meta_corner*meta_vsup_max + 3.4986e-05*meta_temp*meta_temp + 5.89732e-05*meta_temp*meta_vsup_max + -0.00786694*meta_vsup_max*meta_vsup_max + -0.269812",
+          "r2": 0.5576351893274425,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "2": {
+      "name": "REGULATION_2",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.6247774765582252
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-18.0678*VPWR + -0.0797521*VREF + 0.217019*FUN_DC + 0.001497*VDD_1V2_EXT + 8.97692*V_SUPPLY + 0.468348*meta_corner + 0.00156447*meta_temp + 8.97695*meta_vsup_max + 138717*VPWR*VPWR + -12.6475*VPWR*VREF + -79224.3*VPWR*FUN_DC + 0.00663762*VPWR*VDD_1V2_EXT + -99044.5*VPWR*V_SUPPLY + -275.761*VPWR*meta_corner + -0.238886*VPWR*meta_temp + -99044.5*VPWR*meta_vsup_max + -0.0530593*VREF*VREF + 0.154581*VREF*FUN_DC + 0.00103241*VREF*VDD_1V2_EXT + 6.28388*VREF*V_SUPPLY + 0.327849*VREF*meta_corner + 0.000225492*VREF*meta_temp + 6.28388*VREF*meta_vsup_max + 1.15576*FUN_DC*FUN_DC + 0.00663751*FUN_DC*VDD_1V2_EXT + 39611.1*FUN_DC*V_SUPPLY + -1.09396*FUN_DC*meta_corner + -0.000211413*FUN_DC*meta_temp + 39611.1*FUN_DC*meta_vsup_max + 0.00663747*VDD_1V2_EXT*V_SUPPLY + -0.000765269*VDD_1V2_EXT*meta_corner + -0.0589817*VDD_1V2_EXT*meta_temp + 0.00663747*VDD_1V2_EXT*meta_vsup_max + 19790.9*V_SUPPLY*V_SUPPLY + 138.472*V_SUPPLY*meta_corner + 0.117582*V_SUPPLY*meta_temp + 19790.9*V_SUPPLY*meta_vsup_max + 0.711628*meta_corner*meta_corner + 0.000780507*meta_corner*meta_temp + 138.472*meta_corner*meta_vsup_max + 5.98388e-06*meta_temp*meta_temp + 0.121236*meta_temp*meta_vsup_max + 19790.9*meta_vsup_max*meta_vsup_max + -0.108291",
+          "r2": 0.4141604812471258,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "3": {
+      "name": "REGULATION_3",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 0.2347536380294999
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "267.321*VPWR + 0.14345*VREF + -89.0599*FUN_DC + 0.000202342*VDD_1V2_EXT + -89.0611*V_SUPPLY + 0.0565745*meta_corner + 0.00325058*meta_temp + -89.0609*meta_vsup_max + 63995.9*VPWR*VPWR + 187.125*VPWR*VREF + -42669.6*VPWR*FUN_DC + 0.000908845*VPWR*VDD_1V2_EXT + -42669.6*VPWR*V_SUPPLY + -437.813*VPWR*meta_corner + 0.888427*VPWR*meta_temp + -42669.6*VPWR*meta_vsup_max + 0.0782034*VREF*VREF + -62.3426*VREF*FUN_DC + 0.000141325*VREF*VDD_1V2_EXT + -62.3426*VREF*V_SUPPLY + 0.0395864*VREF*meta_corner + 0.00185878*VREF*meta_temp + -62.3426*VREF*meta_vsup_max + 10668.8*FUN_DC*FUN_DC + 0.000908775*FUN_DC*VDD_1V2_EXT + 10668.8*FUN_DC*V_SUPPLY + 145.951*FUN_DC*meta_corner + -0.295862*FUN_DC*meta_temp + 10668.8*FUN_DC*meta_vsup_max + 0.000908775*VDD_1V2_EXT*V_SUPPLY + -0.0001048*VDD_1V2_EXT*meta_corner + -0.0080848*VDD_1V2_EXT*meta_temp + 0.000908775*VDD_1V2_EXT*meta_vsup_max + 10668.8*V_SUPPLY*V_SUPPLY + 145.951*V_SUPPLY*meta_corner + -0.295862*V_SUPPLY*meta_temp + 10668.8*V_SUPPLY*meta_vsup_max + 0.384497*meta_corner*meta_corner + 0.000837773*meta_corner*meta_temp + 145.951*meta_corner*meta_vsup_max + -2.18849e-05*meta_temp*meta_temp + -0.296447*meta_temp*meta_vsup_max + 10668.8*meta_vsup_max*meta_vsup_max + 0.159601",
+          "r2": 0.2524754779001438,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "4": {
+      "name": "REGULATION_4",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 0.7918961762135348
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.168959*VPWR + 0.910838*VREF + 0.0642021*FUN_DC + 27066*VDD_1V2_EXT + -0.131035*V_SUPPLY + 1.06443*meta_corner + 0.0805602*meta_temp + -0.134159*meta_vsup_max + 0.00744901*VPWR*VPWR + -0.0940181*VPWR*VREF + 0.0074466*VPWR*FUN_DC + 121797*VPWR*VDD_1V2_EXT + 0.0074466*VPWR*V_SUPPLY + -0.0566304*VPWR*meta_corner + 0.0274793*VPWR*meta_temp + 0.0074466*VPWR*meta_vsup_max + 0.496253*VREF*VREF + -0.0940051*VREF*FUN_DC + 18946.2*VREF*VDD_1V2_EXT + -0.0940051*VREF*V_SUPPLY + 0.748687*VREF*meta_corner + -0.0880267*VREF*meta_temp + -0.0940051*VREF*meta_vsup_max + 0.0074466*FUN_DC*FUN_DC + 121797*FUN_DC*VDD_1V2_EXT + 0.0074466*FUN_DC*V_SUPPLY + -0.0570456*FUN_DC*meta_corner + 0.0257939*FUN_DC*meta_temp + 0.0074466*FUN_DC*meta_vsup_max + -0.000553635*VDD_1V2_EXT*VDD_1V2_EXT + 121797*VDD_1V2_EXT*V_SUPPLY + -14047.2*VDD_1V2_EXT*meta_corner + -1.08264e+06*VDD_1V2_EXT*meta_temp + 121797*VDD_1V2_EXT*meta_vsup_max + 0.0074466*V_SUPPLY*V_SUPPLY + -0.0570456*V_SUPPLY*meta_corner + 0.0257939*V_SUPPLY*meta_temp + 0.0074466*V_SUPPLY*meta_vsup_max + 0.299977*meta_corner*meta_corner + -0.000514322*meta_corner*meta_temp + -0.0570456*meta_corner*meta_vsup_max + -1.51198e-05*meta_temp*meta_temp + -0.0815034*meta_temp*meta_vsup_max + 0.00655392*meta_vsup_max*meta_vsup_max + 1.01089",
+          "r2": 0.6568671571268823,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "5": {
+      "name": "REGULATION_5",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.4106253977273013
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-1.25204*VPWR + -0.202616*VREF + 0.460221*FUN_DC + 0.460221*V_SUPPLY + 0.460065*meta_corner + 0.00319633*meta_temp + 0.460221*meta_vsup_max + -0.861659*VPWR*VPWR + -0.876426*VPWR*VREF + 0.559503*VPWR*FUN_DC + 0.559503*VPWR*V_SUPPLY + -0.0229198*VPWR*meta_corner + -0.000731649*VPWR*meta_temp + 0.559503*VPWR*meta_vsup_max + -0.141832*VREF*VREF + 0.322155*VREF*FUN_DC + 0.322155*VREF*V_SUPPLY + 0.322045*VREF*meta_corner + 0.00223743*VREF*meta_temp + 0.322155*VREF*meta_vsup_max + -0.135569*FUN_DC*FUN_DC + -0.135569*FUN_DC*V_SUPPLY + -0.0214448*FUN_DC*meta_corner + 0.000514924*FUN_DC*meta_temp + -0.135569*FUN_DC*meta_vsup_max + -0.135569*V_SUPPLY*V_SUPPLY + -0.0214448*V_SUPPLY*meta_corner + 0.000514924*V_SUPPLY*meta_temp + -0.135569*V_SUPPLY*meta_vsup_max + -0.0490937*meta_corner*meta_corner + -0.00097426*meta_corner*meta_temp + -0.0214448*meta_corner*meta_vsup_max + -8.54072e-05*meta_temp*meta_temp + 0.000514924*meta_temp*meta_vsup_max + -0.135569*meta_vsup_max*meta_vsup_max + -0.289452",
+          "r2": 0.23803318333554635,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "6": {
+      "name": "DISABLED_2",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.7343926420432179
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.169296*VPWR + -1.35135*VREF + 0.169296*FUN_DC + 0.169296*V_SUPPLY + 0.597741*meta_corner + 0.00537797*meta_temp + 0.169296*meta_vsup_max + -0.0101481*VPWR*VPWR + 0.118507*VPWR*VREF + -0.0101481*VPWR*FUN_DC + -0.0101481*VPWR*V_SUPPLY + 0.0271306*VPWR*meta_corner + -0.000293493*VPWR*meta_temp + -0.0101481*VPWR*meta_vsup_max + -0.945945*VREF*VREF + 0.118507*VREF*FUN_DC + 0.118507*VREF*V_SUPPLY + 0.418419*VREF*meta_corner + 0.00376458*VREF*meta_temp + 0.118507*VREF*meta_vsup_max + -0.0101481*FUN_DC*FUN_DC + -0.0101481*FUN_DC*V_SUPPLY + 0.0271306*FUN_DC*meta_corner + -0.000293493*FUN_DC*meta_temp + -0.0101481*FUN_DC*meta_vsup_max + -0.0101481*V_SUPPLY*V_SUPPLY + 0.0271306*V_SUPPLY*meta_corner + -0.000293493*V_SUPPLY*meta_temp + -0.0101481*V_SUPPLY*meta_vsup_max + 0.843676*meta_corner*meta_corner + 0.00157113*meta_corner*meta_temp + 0.0271306*meta_corner*meta_vsup_max + -6.47686e-06*meta_temp*meta_temp + -0.000293493*meta_temp*meta_vsup_max + -0.0101481*meta_vsup_max*meta_vsup_max + -1.9305",
+          "r2": 0.5867004207508699,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "7": {
+      "name": "REGULATION_6",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 0.7967393192447545
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.303427*VPWR + -2.17094*VREF + 0.303427*FUN_DC + 0.303427*V_SUPPLY + 1.48857*meta_corner + 0.00486614*meta_temp + 0.303427*meta_vsup_max + -0.0164483*VPWR*VPWR + 0.212399*VPWR*VREF + -0.0164483*VPWR*FUN_DC + -0.0164483*VPWR*V_SUPPLY + 0.028249*VPWR*meta_corner + -0.000281004*VPWR*meta_temp + -0.0164483*VPWR*meta_vsup_max + -1.51966*VREF*VREF + 0.212399*VREF*FUN_DC + 0.212399*VREF*V_SUPPLY + 1.042*VREF*meta_corner + 0.0034063*VREF*meta_temp + 0.212399*VREF*meta_vsup_max + -0.0164483*FUN_DC*FUN_DC + -0.0164483*FUN_DC*V_SUPPLY + 0.028249*FUN_DC*meta_corner + -0.000281004*FUN_DC*meta_temp + -0.0164483*FUN_DC*meta_vsup_max + -0.0164483*V_SUPPLY*V_SUPPLY + 0.028249*V_SUPPLY*meta_corner + -0.000281004*V_SUPPLY*meta_temp + -0.0164483*V_SUPPLY*meta_vsup_max + 1.65892*meta_corner*meta_corner + 0.00039898*meta_corner*meta_temp + 0.028249*meta_corner*meta_vsup_max + -5.67969e-06*meta_temp*meta_temp + -0.000281004*meta_temp*meta_vsup_max + -0.0164483*meta_vsup_max*meta_vsup_max + -3.10134",
+          "r2": 0.9911006538523013,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "8": {
+      "name": "REGULATION_7",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 2.1230496467446303
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.417133*VPWR + -2.95025*VREF + 0.417133*FUN_DC + 0.417133*V_SUPPLY + 1.12184*meta_corner + 0.00638081*meta_temp + 0.417133*meta_vsup_max + -0.0222914*VPWR*VPWR + 0.291993*VPWR*VREF + -0.0222914*VPWR*FUN_DC + -0.0222914*VPWR*V_SUPPLY + 0.0527057*VPWR*meta_corner + -0.000366891*VPWR*meta_temp + -0.0222914*VPWR*meta_vsup_max + -2.06517*VREF*VREF + 0.291993*VREF*FUN_DC + 0.291993*VREF*V_SUPPLY + 0.785289*VREF*meta_corner + 0.00446657*VREF*meta_temp + 0.291993*VREF*meta_vsup_max + -0.0222914*FUN_DC*FUN_DC + -0.0222914*FUN_DC*V_SUPPLY + 0.0527057*FUN_DC*meta_corner + -0.000366891*FUN_DC*meta_temp + -0.0222914*FUN_DC*meta_vsup_max + -0.0222914*V_SUPPLY*V_SUPPLY + 0.0527057*V_SUPPLY*meta_corner + -0.000366891*V_SUPPLY*meta_temp + -0.0222914*V_SUPPLY*meta_vsup_max + 1.62403*meta_corner*meta_corner + 0.000892711*meta_corner*meta_temp + 0.0527057*meta_corner*meta_vsup_max + -6.96938e-06*meta_temp*meta_temp + -0.000366891*meta_temp*meta_vsup_max + -0.0222914*meta_vsup_max*meta_vsup_max + -4.21464",
+          "r2": 0.9903827090853943,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "9": {
+      "name": "REGULATION_8",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.158066199918559
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.789413*VPWR + -5.37215*VREF + 0.789413*FUN_DC + 0.789413*V_SUPPLY + 0.562028*meta_corner + 0.0139785*meta_temp + 0.789413*meta_vsup_max + -0.0426014*VPWR*VPWR + 0.552589*VPWR*VREF + -0.0426014*VPWR*FUN_DC + -0.0426014*VPWR*V_SUPPLY + 0.0888299*VPWR*meta_corner + -0.000857187*VPWR*meta_temp + -0.0426014*VPWR*meta_vsup_max + -3.76051*VREF*VREF + 0.552589*VREF*FUN_DC + 0.552589*VREF*V_SUPPLY + 0.393419*VREF*meta_corner + 0.00978493*VREF*meta_temp + 0.552589*VREF*meta_vsup_max + -0.0426014*FUN_DC*FUN_DC + -0.0426014*FUN_DC*V_SUPPLY + 0.0888299*FUN_DC*meta_corner + -0.000857187*FUN_DC*meta_temp + -0.0426014*FUN_DC*meta_vsup_max + -0.0426014*V_SUPPLY*V_SUPPLY + 0.0888299*V_SUPPLY*meta_corner + -0.000857187*V_SUPPLY*meta_temp + -0.0426014*V_SUPPLY*meta_vsup_max + 1.5798*meta_corner*meta_corner + 0.00135121*meta_corner*meta_temp + 0.0888299*meta_corner*meta_vsup_max + -1.96947e-05*meta_temp*meta_temp + -0.000857187*meta_temp*meta_vsup_max + -0.0426014*meta_vsup_max*meta_vsup_max + -7.6745",
+          "r2": 0.9603906490638232,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "10": {
+      "name": "REGULATION_9",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.821957028028972
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.157741*VPWR + -1.72784*VREF + 0.157741*FUN_DC + 0.157741*V_SUPPLY + 0.259482*meta_corner + 0.0154*meta_temp + 0.157741*meta_vsup_max + -0.00407501*VPWR*VPWR + 0.110419*VPWR*VREF + -0.00407501*VPWR*FUN_DC + -0.00407501*VPWR*V_SUPPLY + 0.103613*VPWR*meta_corner + -0.000869798*VPWR*meta_temp + -0.00407501*VPWR*meta_vsup_max + -1.20949*VREF*VREF + 0.110419*VREF*FUN_DC + 0.110419*VREF*V_SUPPLY + 0.181637*VREF*meta_corner + 0.01078*VREF*meta_temp + 0.110419*VREF*meta_vsup_max + -0.00407501*FUN_DC*FUN_DC + -0.00407501*FUN_DC*V_SUPPLY + 0.103613*FUN_DC*meta_corner + -0.000869798*FUN_DC*meta_temp + -0.00407501*FUN_DC*meta_vsup_max + -0.00407501*V_SUPPLY*V_SUPPLY + 0.103613*V_SUPPLY*meta_corner + -0.000869798*V_SUPPLY*meta_temp + -0.00407501*V_SUPPLY*meta_vsup_max + 1.52064*meta_corner*meta_corner + 0.00291403*meta_corner*meta_temp + 0.103613*meta_corner*meta_vsup_max + -2.29338e-05*meta_temp*meta_temp + -0.000869798*meta_temp*meta_vsup_max + -0.00407501*meta_vsup_max*meta_vsup_max + -2.46834",
+          "r2": 0.9749512320031197,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "11": {
+      "name": "REGULATION_10",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.4534140280969163
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.0176347*VPWR + -0.628573*VREF + 0.0176347*FUN_DC + 0.0176347*V_SUPPLY + 0.8358*meta_corner + 0.0104936*meta_temp + 0.0176347*meta_vsup_max + 0.00165369*VPWR*VPWR + 0.0123443*VPWR*VREF + 0.00165369*VPWR*FUN_DC + 0.00165369*VPWR*V_SUPPLY + 0.0545839*VPWR*meta_corner + -0.000443621*VPWR*meta_temp + 0.00165369*VPWR*meta_vsup_max + -0.440001*VREF*VREF + 0.0123443*VREF*FUN_DC + 0.0123443*VREF*V_SUPPLY + 0.58506*VREF*meta_corner + 0.00734554*VREF*meta_temp + 0.0123443*VREF*meta_vsup_max + 0.00165369*FUN_DC*FUN_DC + 0.00165369*FUN_DC*V_SUPPLY + 0.0545839*FUN_DC*meta_corner + -0.000443621*FUN_DC*meta_temp + 0.00165369*FUN_DC*meta_vsup_max + 0.00165369*V_SUPPLY*V_SUPPLY + 0.0545839*V_SUPPLY*meta_corner + -0.000443621*V_SUPPLY*meta_temp + 0.00165369*V_SUPPLY*meta_vsup_max + 1.44993*meta_corner*meta_corner + 0.00369394*meta_corner*meta_temp + 0.0545839*meta_corner*meta_vsup_max + -2.96591e-05*meta_temp*meta_temp + -0.000443621*meta_temp*meta_vsup_max + 0.00165369*meta_vsup_max*meta_vsup_max + -0.897962",
+          "r2": 0.9705934476471789,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "12": {
+      "name": "REGULATION_11",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.4450667182606112
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.110869*VPWR + -1.32188*VREF + 0.110869*FUN_DC + 0.110869*V_SUPPLY + 0.504752*meta_corner + 0.01339*meta_temp + 0.110869*meta_vsup_max + -0.00276129*VPWR*VPWR + 0.0776081*VPWR*VREF + -0.00276129*VPWR*FUN_DC + -0.00276129*VPWR*V_SUPPLY + 0.0755622*VPWR*meta_corner + -0.000603764*VPWR*meta_temp + -0.00276129*VPWR*meta_vsup_max + -0.925316*VREF*VREF + 0.0776081*VREF*FUN_DC + 0.0776081*VREF*V_SUPPLY + 0.353327*VREF*meta_corner + 0.00937299*VREF*meta_temp + 0.0776081*VREF*meta_vsup_max + -0.00276129*FUN_DC*FUN_DC + -0.00276129*FUN_DC*V_SUPPLY + 0.0755622*FUN_DC*meta_corner + -0.000603764*FUN_DC*meta_temp + -0.00276129*FUN_DC*meta_vsup_max + -0.00276129*V_SUPPLY*V_SUPPLY + 0.0755622*V_SUPPLY*meta_corner + -0.000603764*V_SUPPLY*meta_temp + -0.00276129*V_SUPPLY*meta_vsup_max + 1.43577*meta_corner*meta_corner + 0.00437203*meta_corner*meta_temp + 0.0755622*meta_corner*meta_vsup_max + -3.503e-05*meta_temp*meta_temp + -0.000603764*meta_temp*meta_vsup_max + -0.00276129*meta_vsup_max*meta_vsup_max + -1.8884",
+          "r2": 0.9617148744769598,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "13": {
+      "name": "REGULATION_12",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.4106883746770749
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.0730259*VPWR + -0.111003*VREF + -0.0730259*FUN_DC + -0.0730259*V_SUPPLY + 0.846319*meta_corner + 0.0111659*meta_temp + -0.0730259*meta_vsup_max + 0.00724598*VPWR*VPWR + -0.0511181*VPWR*VREF + 0.00724598*VPWR*FUN_DC + 0.00724598*VPWR*V_SUPPLY + 0.0531928*VPWR*meta_corner + -0.000465962*VPWR*meta_temp + 0.00724598*VPWR*meta_vsup_max + -0.0777024*VREF*VREF + -0.0511181*VREF*FUN_DC + -0.0511181*VREF*V_SUPPLY + 0.592423*VREF*meta_corner + 0.00781616*VREF*meta_temp + -0.0511181*VREF*meta_vsup_max + 0.00724598*FUN_DC*FUN_DC + 0.00724598*FUN_DC*V_SUPPLY + 0.0531928*FUN_DC*meta_corner + -0.000465962*FUN_DC*meta_temp + 0.00724598*FUN_DC*meta_vsup_max + 0.00724598*V_SUPPLY*V_SUPPLY + 0.0531928*V_SUPPLY*meta_corner + -0.000465962*V_SUPPLY*meta_temp + 0.00724598*V_SUPPLY*meta_vsup_max + 1.45499*meta_corner*meta_corner + 0.00389135*meta_corner*meta_temp + 0.0531928*meta_corner*meta_vsup_max + -3.27784e-05*meta_temp*meta_temp + -0.000465962*meta_temp*meta_vsup_max + 0.00724598*meta_vsup_max*meta_vsup_max + -0.158576",
+          "r2": 0.9678173225132803,
+          "source": "polynomial_deg2"
+        }
+      }
+    }
+  },
+  "fsm_validation": {
+    "reachability": true,
+    "completeness": true,
+    "determinism": true,
+    "speckg_coverage": 0.25
+  },
+  "analog_skeleton_equations_embedded": true
+}

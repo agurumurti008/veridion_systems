@@ -1,0 +1,9 @@
+Complexity,Loss,Equation
+1,1.170138e-11,"2.7129654e-6"
+3,1.0242679e-11,"8.106726e-8 / MOST_POS_idt"
+5,4.3369323e-12,"(-96.12062 * MOST_POS_I_idt) + 8.924276e-6"
+7,3.7108845e-12,"8.163233e-6 + ((V_SUPPLY * MOST_POS_I_idt) / -0.060317844)"
+8,3.5436365e-12,"(exp(VPWR) * -5.0000168e-8) + 1.0861057e-5"
+9,2.1357178e-12,"((MOST_POS_I_idt * V_SUPPLY) + -4.921449e-7) / (meta_corner * 1.5008647)"
+11,2.120516e-12,"VDD_1V2_EXT_I + (((MOST_POS_I_idt * FUN_DC) + -4.921449e-7) / (meta_corner * 1.5008647))"
+12,2.098885e-12,"((MOST_POS * MOST_POS_I_idt) + -4.992814e-7) / (log(meta_vsup_max) * meta_corner)"

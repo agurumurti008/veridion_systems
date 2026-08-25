@@ -1,0 +1,8 @@
+Complexity,Loss,Equation
+1,1.862782e-8,"0.00018654764"
+3,1.7443659e-8,"meta_vsup_max * 3.7863574e-5"
+5,1.631602e-8,"(meta_corner * 0.00026183217) + 0.00019025279"
+7,1.5907306e-8,"3.8215534e-5 * (V_SUPPLY + (meta_corner * 2.8921578))"
+8,1.5253306e-8,"(exp(meta_corner) * 3.8215534e-5) * V_SUPPLY"
+10,1.432496e-8,"(exp(meta_corner) * (3.2246032 - V_SUPPLY)) * -0.000106635"
+12,1.3843219e-8,"((exp(meta_corner) * (3.728355 - V_SUPPLY)) * -2.2408942e-5) / MOST_POS_idt"

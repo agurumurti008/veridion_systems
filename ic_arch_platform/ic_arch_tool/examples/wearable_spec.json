@@ -1,0 +1,15 @@
+{
+  "_comment": "Example 1: Wearable health monitor",
+  "app_domain": "iot_sensor",
+  "process_node": "28nm",
+  "supply_voltage": 1.5,
+  "target_frequency": 32.0,
+  "power_budget": 3.0,
+  "area_budget": 3.5,
+  "interface_standards": ["I2C", "SPI", "UART"],
+  "performance_targets": {
+    "adc_resolution": 16,
+    "sleep_current_ua": 0.5
+  },
+  "operating_temp_range": [-10, 55]
+}

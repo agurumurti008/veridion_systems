@@ -1,0 +1,16 @@
+# --- Python / uv ---
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# uv's local cache should never be committed. uv.lock, however, MUST be
+# committed — it's what makes `uv sync --locked` reproducible in Codespaces.
+.uv_cache/
+
+# --- Codespaces / devcontainer runtime artifacts ---
+*.log
+/tmp/uv-sync.log

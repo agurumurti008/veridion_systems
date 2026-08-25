@@ -1,0 +1,817 @@
+{
+  "blut_path": "blut_files/regression_multi_corner_sref_ldo.bin",
+  "good_corners": 126,
+  "total_corners": 135,
+  "meta_key_kind": {
+    "corner": "categorical",
+    "temp": "continuous",
+    "vsup_max": "continuous"
+  },
+  "categorical_codes": {
+    "corner": {
+      "nn": -0.036318490369777245,
+      "ss": 0.22272396846096396,
+      "ww": -0.22945740956440552
+    }
+  },
+  "candidate_inputs": [
+    "AVSS",
+    "AVSS_I",
+    "EN_LDO",
+    "EN_LDO_I",
+    "EN_SCAN_MODE_MPOS",
+    "EN_SCAN_MODE_MPOS_I",
+    "EN_UVLO_1V2",
+    "EN_UVLO_1V2_I",
+    "FS_V_SUPPLY_TO_MOST_POS",
+    "FS_V_SUPPLY_TO_MOST_POS_I",
+    "FUN_DC",
+    "GND",
+    "HIGH_POWER_MODE",
+    "HIGH_POWER_MODE_I",
+    "ISO",
+    "ISO_I",
+    "MOST_POS",
+    "MOST_POS_I",
+    "PAD_VDD1V2_SEL",
+    "PAD_VDD1V2_SEL_I",
+    "PBKG",
+    "PBKG_I",
+    "SCAN_MODE_VSUPPLY",
+    "SCAN_MODE_VSUPPLY_I",
+    "SREF_ADD_LDO1V2_LOAD_MPOS",
+    "SREF_ADD_LDO1V2_LOAD_MPOS_I",
+    "SREF_LDO1V2_LP_TB.IBIAS_SNK_25nA_[0]",
+    "SREF_LDO1V2_LP_TB.IBIAS_SNK_25nA_[1]",
+    "SREF_LDO1V2_LP_TB.IBIAS_SNK_25nA_[2]",
+    "SREF_LDO1V2_LP_TB.ICONST_75A[0]",
+    "SREF_LDO1V2_LP_TB.SREF_EN_ISENSE_LDO1V2_MPOS",
+    "SREF_LDO1V2_LP_TB.SREF_LDO_ISNS_DIS_MPOS",
+    "SREF_LDO1V2_LP_TB.X_DUT.IBIAS_SNK_25nA_[0]",
+    "SREF_LDO1V2_LP_TB.X_DUT.IBIAS_SNK_25nA_[1]",
+    "SREF_LDO1V2_LP_TB.X_DUT.IBIAS_SNK_25nA_[2]",
+    "SREF_LDO1V2_LP_TB.X_DUT.ICONST_75A[0]",
+    "SREF_LDO1V2_LP_TB.X_DUT.SREF_EN_ISENSE_LDO1V2_MPOS_",
+    "SREF_LDO1V2_LP_TB.X_DUT.SREF_LDO_ISNS_DIS_MPOS_",
+    "UVLO_GD_OR_OVERRIDE_MPOS",
+    "UVLO_GD_OR_OVERRIDE_MPOS_I",
+    "VDD_1V2_EXT",
+    "VDD_1V2_EXT_I",
+    "VDD_1V2_I",
+    "VFB",
+    "VFB_I",
+    "VPWR",
+    "VPWR_SEL",
+    "VPWR_SEL_I",
+    "VREF",
+    "VREF_I",
+    "V_SUPPLY",
+    "floop_in",
+    "floop_in_I",
+    "floop_out",
+    "floop_out_I"
+  ],
+  "selected_inputs": [
+    "AVSS_I",
+    "ISO_I",
+    "MOST_POS_I",
+    "PBKG_I",
+    "VDD_1V2_EXT_I",
+    "VDD_1V2_I",
+    "VFB",
+    "floop_out_I"
+  ],
+  "dropped_inputs": [
+    "AVSS",
+    "EN_LDO",
+    "EN_LDO_I",
+    "EN_SCAN_MODE_MPOS",
+    "EN_SCAN_MODE_MPOS_I",
+    "EN_UVLO_1V2",
+    "EN_UVLO_1V2_I",
+    "FS_V_SUPPLY_TO_MOST_POS",
+    "FS_V_SUPPLY_TO_MOST_POS_I",
+    "FUN_DC",
+    "GND",
+    "HIGH_POWER_MODE",
+    "HIGH_POWER_MODE_I",
+    "ISO",
+    "MOST_POS",
+    "PAD_VDD1V2_SEL",
+    "PAD_VDD1V2_SEL_I",
+    "PBKG",
+    "SCAN_MODE_VSUPPLY",
+    "SCAN_MODE_VSUPPLY_I",
+    "SREF_ADD_LDO1V2_LOAD_MPOS",
+    "SREF_ADD_LDO1V2_LOAD_MPOS_I",
+    "SREF_LDO1V2_LP_TB_IBIAS_SNK_25nA__0_",
+    "SREF_LDO1V2_LP_TB_IBIAS_SNK_25nA__1_",
+    "SREF_LDO1V2_LP_TB_IBIAS_SNK_25nA__2_",
+    "SREF_LDO1V2_LP_TB_ICONST_75A_0_",
+    "SREF_LDO1V2_LP_TB_SREF_EN_ISENSE_LDO1V2_MPOS",
+    "SREF_LDO1V2_LP_TB_SREF_LDO_ISNS_DIS_MPOS",
+    "SREF_LDO1V2_LP_TB_X_DUT_IBIAS_SNK_25nA__0_",
+    "SREF_LDO1V2_LP_TB_X_DUT_IBIAS_SNK_25nA__1_",
+    "SREF_LDO1V2_LP_TB_X_DUT_IBIAS_SNK_25nA__2_",
+    "SREF_LDO1V2_LP_TB_X_DUT_ICONST_75A_0_",
+    "SREF_LDO1V2_LP_TB_X_DUT_SREF_EN_ISENSE_LDO1V2_MPOS_",
+    "SREF_LDO1V2_LP_TB_X_DUT_SREF_LDO_ISNS_DIS_MPOS_",
+    "UVLO_GD_OR_OVERRIDE_MPOS",
+    "UVLO_GD_OR_OVERRIDE_MPOS_I",
+    "VDD_1V2_EXT",
+    "VFB_I",
+    "VPWR",
+    "VPWR_SEL",
+    "VPWR_SEL_I",
+    "VREF",
+    "VREF_I",
+    "V_SUPPLY",
+    "floop_in",
+    "floop_in_I",
+    "floop_out"
+  ],
+  "force_included_inputs": [
+    "AVSS_I",
+    "FUN_DC_I",
+    "ISO_I",
+    "MOST_POS_I",
+    "PBKG_I",
+    "VDD_1V2_EXT_I",
+    "VDD_1V2_I",
+    "VPWR_I",
+    "V_SUPPLY_I",
+    "floop_out_I"
+  ],
+  "relevance_scores": {
+    "AVSS": 2.39658186393004,
+    "AVSS_I": 3.3432091681774985,
+    "EN_LDO": 0.6580911682127129,
+    "EN_LDO_I": 3.2333468201319953,
+    "EN_SCAN_MODE_MPOS": 0.2537019364454971,
+    "EN_SCAN_MODE_MPOS_I": 3.3364622402644306,
+    "EN_UVLO_1V2": 2.189764927896327,
+    "EN_UVLO_1V2_I": 0.000491417795409177,
+    "FS_V_SUPPLY_TO_MOST_POS": 2.39612564494412,
+    "FS_V_SUPPLY_TO_MOST_POS_I": 3.4635568222359696,
+    "FUN_DC": 1.1352895855467855,
+    "GND": 0.0008028258511219022,
+    "HIGH_POWER_MODE": 0.749973391854704,
+    "HIGH_POWER_MODE_I": 3.2652674015639604,
+    "ISO": 0.0016725132989363622,
+    "ISO_I": 3.6735752711059435,
+    "MOST_POS": 1.136235243238164,
+    "MOST_POS_I": 3.21423421246325,
+    "PAD_VDD1V2_SEL": 0.020185478446942184,
+    "PAD_VDD1V2_SEL_I": 3.246405007781006,
+    "PBKG": 2.395757770261829,
+    "PBKG_I": 3.5042850090397444,
+    "SCAN_MODE_VSUPPLY": 0.25947297537786307,
+    "SCAN_MODE_VSUPPLY_I": 3.3565288714651436,
+    "SREF_ADD_LDO1V2_LOAD_MPOS": 0.39041885815986177,
+    "SREF_ADD_LDO1V2_LOAD_MPOS_I": 4.783200756464846,
+    "SREF_LDO1V2_LP_TB_IBIAS_SNK_25nA__0_": 7.202309967968827,
+    "SREF_LDO1V2_LP_TB_IBIAS_SNK_25nA__1_": 7.237165635168622,
+    "SREF_LDO1V2_LP_TB_IBIAS_SNK_25nA__2_": 6.727393401057796,
+    "SREF_LDO1V2_LP_TB_ICONST_75A_0_": 3.616571548575478,
+    "SREF_LDO1V2_LP_TB_SREF_EN_ISENSE_LDO1V2_MPOS": 0.24471206706953197,
+    "SREF_LDO1V2_LP_TB_SREF_LDO_ISNS_DIS_MPOS": 0.315682141858574,
+    "SREF_LDO1V2_LP_TB_X_DUT_IBIAS_SNK_25nA__0_": 7.201950129503817,
+    "SREF_LDO1V2_LP_TB_X_DUT_IBIAS_SNK_25nA__1_": 7.237021139495212,
+    "SREF_LDO1V2_LP_TB_X_DUT_IBIAS_SNK_25nA__2_": 6.72749559006143,
+    "SREF_LDO1V2_LP_TB_X_DUT_ICONST_75A_0_": 3.618051232735457,
+    "SREF_LDO1V2_LP_TB_X_DUT_SREF_EN_ISENSE_LDO1V2_MPOS_": 3.273863696229583,
+    "SREF_LDO1V2_LP_TB_X_DUT_SREF_LDO_ISNS_DIS_MPOS_": 3.2241908689730447,
+    "UVLO_GD_OR_OVERRIDE_MPOS": 2.396213958721832,
+    "UVLO_GD_OR_OVERRIDE_MPOS_I": 3.364838783173142,
+    "VDD_1V2_EXT": 0.025018584708474734,
+    "VDD_1V2_EXT_I": 4.717677667707112,
+    "VDD_1V2_I": 5.499601576780508,
+    "VFB": 9.28561361353542,
+    "VFB_I": 4.186397844009873,
+    "VPWR": 1.200116144500731,
+    "VPWR_SEL": 1.5298556643812056,
+    "VPWR_SEL_I": 3.3383519074951664,
+    "VREF": 0.14164164647783162,
+    "VREF_I": 3.324691665957988,
+    "V_SUPPLY": 1.135563955264244,
+    "floop_in": 4.467758941961269,
+    "floop_in_I": 3.4139297771953476,
+    "floop_out": 4.467807865752307,
+    "floop_out_I": 3.413403608753396
+  },
+  "feature_names": [
+    "AVSS_I",
+    "ISO_I",
+    "MOST_POS_I",
+    "PBKG_I",
+    "VDD_1V2_EXT_I",
+    "VDD_1V2_I",
+    "VFB",
+    "floop_out_I",
+    "meta_corner",
+    "meta_temp",
+    "meta_vsup_max",
+    "dAVSS_I_dt",
+    "dISO_I_dt",
+    "dMOST_POS_I_dt",
+    "dPBKG_I_dt",
+    "dVDD_1V2_EXT_I_dt",
+    "dVDD_1V2_I_dt",
+    "dVFB_dt",
+    "dfloop_out_I_dt",
+    "AVSS_I_idt",
+    "ISO_I_idt",
+    "MOST_POS_I_idt",
+    "PBKG_I_idt",
+    "VDD_1V2_EXT_I_idt",
+    "VDD_1V2_I_idt",
+    "VFB_idt",
+    "floop_out_I_idt"
+  ],
+  "output_names": [
+    "VDD_1V2",
+    "VPWR_I",
+    "FUN_DC_I",
+    "V_SUPPLY_I"
+  ],
+  "equation_source": "PySR (--include_symbolic)",
+  "equation_parameters": {
+    "meta_corner": 8.277961096171441e-10,
+    "meta_temp": -4.293647960265167,
+    "meta_vsup_max": 5.04992848711764,
+    "t_transition": 0.00020000129025017494
+  },
+  "t_transition": 0.00020000129025017494,
+  "states": {
+    "0": {
+      "name": "DISABLED",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 6.461746108361838e-05,
+        "PINN": 0.270395238658623,
+        "NODE": 4569830492.841902
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "transition(VFB - (zzzDdtPh11zzz * 0.017136196), 0, t_transition, t_transition)",
+          "raw_equation": "VFB - (PBKG_I_idt * 0.017136196)",
+          "r2": 0.9999999999999984,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "VPWR_I": {
+          "equation": "transition((((zzzDdtPh24zzz - VDD_1V2_I) / 0.8704175) - (AVSS_I + MOST_POS_I)) - PBKG_I, 0, t_transition, t_transition)",
+          "raw_equation": "(((AVSS_I_idt - VDD_1V2_I) / 0.8704175) - (AVSS_I + MOST_POS_I)) - PBKG_I",
+          "r2": 0.9984817793981944,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "FUN_DC_I": {
+          "equation": "transition(PBKG_I * 0.4028349, 0, t_transition, t_transition)",
+          "raw_equation": "PBKG_I * 0.4028349",
+          "r2": 0.9201979880788047,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "V_SUPPLY_I": {
+          "equation": "transition((((-0.42297634 * AVSS_I) - VDD_1V2_I) * 0.0015900381) + 7.5745214e-5, 0, t_transition, t_transition)",
+          "raw_equation": "(((-0.42297634 * AVSS_I) - VDD_1V2_I) * 0.0015900381) + 7.5745214e-5",
+          "r2": 0.13686026147425268,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        }
+      }
+    },
+    "1": {
+      "name": "REGULATION",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.008275119657602898,
+        "PINN": 0.4793107694163892,
+        "NODE": 56369472649.01091
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "transition(VFB + -1.1297981e-8, 0, t_transition, t_transition)",
+          "raw_equation": "VFB + -1.1297981e-8",
+          "r2": 0.9999999999999987,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "VPWR_I": {
+          "equation": "transition(((AVSS_I * -0.8027296) - VDD_1V2_I) - (PBKG_I / 0.049315475), 0, t_transition, t_transition)",
+          "raw_equation": "((AVSS_I * -0.8027296) - VDD_1V2_I) - (PBKG_I / 0.049315475)",
+          "r2": 0.999321476979712,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "FUN_DC_I": {
+          "equation": "transition(zzzDdtPh111zzz / 4.3430577e-5, 0, t_transition, t_transition)",
+          "raw_equation": "floop_out_I_idt / 4.3430577e-5",
+          "r2": 0.22265280208895166,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "V_SUPPLY_I": {
+          "equation": "transition(VDD_1V2_I * -0.00038813206, 0, t_transition, t_transition)",
+          "raw_equation": "VDD_1V2_I * -0.00038813206",
+          "r2": 0.18680132388556847,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        }
+      }
+    },
+    "2": {
+      "name": "REGULATION_2",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.0002217252756823851,
+        "PINN": 0.42234141486969873,
+        "NODE": 18575959898.385067
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "transition(VFB + -4.307104e-9, 0, t_transition, t_transition)",
+          "raw_equation": "VFB + -4.307104e-9",
+          "r2": 0.9999999999999989,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "VPWR_I": {
+          "equation": "transition(VDD_1V2_I * VDD_1V2_I, 0, t_transition, t_transition)",
+          "raw_equation": "VDD_1V2_I * VDD_1V2_I",
+          "r2": 0.13411256709439734,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "FUN_DC_I": {
+          "equation": "transition((VDD_1V2_I + AVSS_I) * -0.67262954, 0, t_transition, t_transition)",
+          "raw_equation": "(VDD_1V2_I + AVSS_I) * -0.67262954",
+          "r2": 0.44607053825581855,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "V_SUPPLY_I": {
+          "equation": "transition((MOST_POS_I * 0.003064618) + 4.8849266e-5, 0, t_transition, t_transition)",
+          "raw_equation": "(MOST_POS_I * 0.003064618) + 4.8849266e-5",
+          "r2": 0.10233090052153793,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        }
+      }
+    },
+    "3": {
+      "name": "REGULATION_3",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 1.8423807018264718e-05,
+        "PINN": 0.22393603671960524,
+        "NODE": 3230603389.9780293
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "transition(VFB - ((zzzDdtPh201zzz * zzzDdtPh201zzz) * 0.24271438), 0, t_transition, t_transition)",
+          "raw_equation": "VFB - ((ISO_I_idt * ISO_I_idt) * 0.24271438)",
+          "r2": 1.0,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "VPWR_I": {
+          "equation": "transition(zzzDdtPh217zzz * (VDD_1V2_I * -2716.511), 0, t_transition, t_transition)",
+          "raw_equation": "ISO_I_idt * (VDD_1V2_I * -2716.511)",
+          "r2": 0.9891720443139225,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "FUN_DC_I": {
+          "equation": "transition(zzzDdtPh237zzz - (exp(zzzDdtPh232zzz / -0.00012479122) * VDD_1V2_I), 0, t_transition, t_transition)",
+          "raw_equation": "VDD_1V2_I_idt - (exp(AVSS_I_idt / -0.00012479122) * VDD_1V2_I)",
+          "r2": 0.9983000376480943,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "V_SUPPLY_I": {
+          "equation": "transition(zzzDdtPh248zzz * 0.33909696, 0, t_transition, t_transition)",
+          "raw_equation": "AVSS_I_idt * 0.33909696",
+          "r2": 0.35826407222588263,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        }
+      }
+    },
+    "4": {
+      "name": "REGULATION_4",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 1.4612831935200364e-05,
+        "PINN": 0.2034765280182274,
+        "NODE": 13223236600.485146
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "transition(VFB + ((PBKG_I * PBKG_I) / ((zzzDdtPh259zzz * zzzDdtPh270zzz) - 0.3030057)), 0, t_transition, t_transition)",
+          "raw_equation": "VFB + ((PBKG_I * PBKG_I) / ((dPBKG_I_dt * VFB_idt) - 0.3030057))",
+          "r2": 1.0,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "VPWR_I": {
+          "equation": "transition(zzzDdtPh286zzz * -0.00031338894, 0, t_transition, t_transition)",
+          "raw_equation": "VFB_idt * -0.00031338894",
+          "r2": 0.34403876845699355,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "FUN_DC_I": {
+          "equation": "transition(0.00021562823 - (VDD_1V2_I - (ISO_I * -0.6882507)), 0, t_transition, t_transition)",
+          "raw_equation": "0.00021562823 - (VDD_1V2_I - (ISO_I * -0.6882507))",
+          "r2": 0.9999990833097387,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "V_SUPPLY_I": {
+          "equation": "transition(zzzDdtPh319zzz * exp((meta_vsup_max + meta_vsup_max) * VFB), 0, t_transition, t_transition)",
+          "raw_equation": "floop_out_I_idt * exp((meta_vsup_max + meta_vsup_max) * VFB)",
+          "r2": 0.3947460878176533,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        }
+      }
+    },
+    "5": {
+      "name": "REGULATION_5",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 5.890546439940386e-05,
+        "PINN": 0.4472402331725012,
+        "NODE": 4539144746.43997
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "transition(VFB + -2.3957293e-8, 0, t_transition, t_transition)",
+          "raw_equation": "VFB + -2.3957293e-8",
+          "r2": 0.9999999999999981,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "VPWR_I": {
+          "equation": "transition((AVSS_I / ((AVSS_I / -0.20200954) + -0.7047099)) - VDD_1V2_I, 0, t_transition, t_transition)",
+          "raw_equation": "(AVSS_I / ((AVSS_I / -0.20200954) + -0.7047099)) - VDD_1V2_I",
+          "r2": 0.9998211384135026,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "FUN_DC_I": {
+          "equation": "transition(zzzDdtPh362zzz * -33.81346, 0, t_transition, t_transition)",
+          "raw_equation": "MOST_POS_I_idt * -33.81346",
+          "r2": 0.23162812398441013,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "V_SUPPLY_I": {
+          "equation": "transition((2.456354e-6 - ((VFB * VDD_1V2_I) * -1.9561021e-5)) * meta_vsup_max, 0, t_transition, t_transition)",
+          "raw_equation": "(2.456354e-6 - ((VFB * VDD_1V2_I) * -1.9561021e-5)) * meta_vsup_max",
+          "r2": 0.11020061529728264,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        }
+      }
+    },
+    "6": {
+      "name": "DISABLED_2",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.00018060482661363657,
+        "PINN": 0.47141842362716035,
+        "NODE": 4821930082.329681
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "transition(VFB + ((VDD_1V2_EXT_I * (meta_corner + -0.1910172)) / (zzzDdtPh389zzz + -0.17658988)), 0, t_transition, t_transition)",
+          "raw_equation": "VFB + ((VDD_1V2_EXT_I * (meta_corner + -0.1910172)) / (dVDD_1V2_I_dt + -0.17658988))",
+          "r2": 0.9999999999841888,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "VPWR_I": {
+          "equation": "transition(((ISO_I * 0.24811971) - ((VDD_1V2_I + AVSS_I) + MOST_POS_I)) - PBKG_I, 0, t_transition, t_transition)",
+          "raw_equation": "((ISO_I * 0.24811971) - ((VDD_1V2_I + AVSS_I) + MOST_POS_I)) - PBKG_I",
+          "r2": 0.9946642510037654,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "FUN_DC_I": {
+          "equation": "transition(PBKG_I * 0.45148864, 0, t_transition, t_transition)",
+          "raw_equation": "PBKG_I * 0.45148864",
+          "r2": 0.6163213250070101,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "V_SUPPLY_I": {
+          "equation": "transition(exp(meta_corner - VDD_1V2_I) * 0.00017446004, 0, t_transition, t_transition)",
+          "raw_equation": "exp(meta_corner - VDD_1V2_I) * 0.00017446004",
+          "r2": 0.16308305030681702,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        }
+      }
+    },
+    "7": {
+      "name": "REGULATION_6",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 9.919477961178495e-05,
+        "PINN": 0.4449675853657926,
+        "NODE": 4721759580.6183605
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "transition(VFB - ((PBKG_I * 0.4969576) * zzzDdtPh456zzz), 0, t_transition, t_transition)",
+          "raw_equation": "VFB - ((PBKG_I * 0.4969576) * AVSS_I_idt)",
+          "r2": 0.9999999999999996,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "VPWR_I": {
+          "equation": "transition((VDD_1V2_I * -1.1355114) + (-0.00196049 - AVSS_I), 0, t_transition, t_transition)",
+          "raw_equation": "(VDD_1V2_I * -1.1355114) + (-0.00196049 - AVSS_I)",
+          "r2": 0.9208265464390627,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "FUN_DC_I": {
+          "equation": "transition((0.00017670373 / meta_vsup_max) - 3.2582488e-5, 0, t_transition, t_transition)",
+          "raw_equation": "(0.00017670373 / meta_vsup_max) - 3.2582488e-5",
+          "r2": 0.5548236613143992,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "V_SUPPLY_I": {
+          "equation": "transition((exp(meta_vsup_max * meta_vsup_max) * zzzDdtPh508zzz) * 2.8230106e-11, 0, t_transition, t_transition)",
+          "raw_equation": "(exp(meta_vsup_max * meta_vsup_max) * VDD_1V2_EXT_I_idt) * 2.8230106e-11",
+          "r2": 0.9036685984405218,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        }
+      }
+    },
+    "8": {
+      "name": "REGULATION_7",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 1.4597039634219956e-05,
+        "PINN": 0.3148692021527388,
+        "NODE": 3869398848.5972047
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "transition(VFB - (((meta_corner * 0.01577519) + AVSS_I) * 6.5698987e-7), 0, t_transition, t_transition)",
+          "raw_equation": "VFB - (((meta_corner * 0.01577519) + AVSS_I) * 6.5698987e-7)",
+          "r2": 0.9999999999999994,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "VPWR_I": {
+          "equation": "transition(sqrt(((zzzDdtPh541zzz - VDD_1V2_I) * 0.013886548) - zzzDdtPh536zzz), 0, t_transition, t_transition)",
+          "raw_equation": "sqrt(((VDD_1V2_I_idt - VDD_1V2_I) * 0.013886548) - AVSS_I_idt)",
+          "r2": 0.7717080843826528,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "FUN_DC_I": {
+          "equation": "transition(((zzzDdtPh555zzz * -2.9281387) + (zzzDdtPh554zzz * -66.68577)) + 7.774343e-6, 0, t_transition, t_transition)",
+          "raw_equation": "((PBKG_I_idt * -2.9281387) + (MOST_POS_I_idt * -66.68577)) + 7.774343e-6",
+          "r2": 0.8426490454533109,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "V_SUPPLY_I": {
+          "equation": "transition(exp(meta_vsup_max * meta_vsup_max) * (zzzDdtPh572zzz * 2.72089e-11), 0, t_transition, t_transition)",
+          "raw_equation": "exp(meta_vsup_max * meta_vsup_max) * (VDD_1V2_EXT_I_idt * 2.72089e-11)",
+          "r2": 0.9532004575785687,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        }
+      }
+    },
+    "9": {
+      "name": "REGULATION_8",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 1.9084213173379017e-06,
+        "PINN": 0.2593201824731876,
+        "NODE": 3919562117.710241
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "transition(VFB - (zzzDdtPh584zzz * (PBKG_I * 0.27811757)), 0, t_transition, t_transition)",
+          "raw_equation": "VFB - (AVSS_I_idt * (PBKG_I * 0.27811757))",
+          "r2": 0.9999999999999997,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "VPWR_I": {
+          "equation": "transition(((AVSS_I * 8.941733) * VDD_1V2_I) - VDD_1V2_I, 0, t_transition, t_transition)",
+          "raw_equation": "((AVSS_I * 8.941733) * VDD_1V2_I) - VDD_1V2_I",
+          "r2": 0.9918592670269727,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "FUN_DC_I": {
+          "equation": "transition((meta_vsup_max * -1.20147415e-5) + 6.427437e-5, 0, t_transition, t_transition)",
+          "raw_equation": "(meta_vsup_max * -1.20147415e-5) + 6.427437e-5",
+          "r2": 0.7969496628673496,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "V_SUPPLY_I": {
+          "equation": "transition((zzzDdtPh636zzz / (VDD_1V2_I + (VDD_1V2_I + 0.21092561))) * 0.5165726, 0, t_transition, t_transition)",
+          "raw_equation": "(VDD_1V2_EXT_I_idt / (VDD_1V2_I + (VDD_1V2_I + 0.21092561))) * 0.5165726",
+          "r2": 0.6448075379368132,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        }
+      }
+    },
+    "10": {
+      "name": "REGULATION_9",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.0017288784512616369,
+        "PINN": 0.44015543694906833,
+        "NODE": 4796482877.828402
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "transition(VFB - ((0.17274351 ^ VFB) * floop_out_I), 0, t_transition, t_transition)",
+          "raw_equation": "VFB - ((0.17274351 ^ VFB) * floop_out_I)",
+          "r2": 0.9999999999999989,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "VPWR_I": {
+          "equation": "transition(((zzzDdtPh664zzz * -33.48179) - (VDD_1V2_I * 0.73200613)) + 0.003918482, 0, t_transition, t_transition)",
+          "raw_equation": "((AVSS_I_idt * -33.48179) - (VDD_1V2_I * 0.73200613)) + 0.003918482",
+          "r2": 0.9469988854453069,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "FUN_DC_I": {
+          "equation": "transition(zzzDdtPh682zzz * -10.570317, 0, t_transition, t_transition)",
+          "raw_equation": "MOST_POS_I_idt * -10.570317",
+          "r2": 0.19766088238598467,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "V_SUPPLY_I": {
+          "equation": "transition(((exp(meta_vsup_max) * 0.0925021) - meta_vsup_max) * (meta_vsup_max * zzzDdtPh700zzz), 0, t_transition, t_transition)",
+          "raw_equation": "((exp(meta_vsup_max) * 0.0925021) - meta_vsup_max) * (meta_vsup_max * VDD_1V2_EXT_I_idt)",
+          "r2": 0.7536000767108599,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        }
+      }
+    },
+    "11": {
+      "name": "REGULATION_10",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 3.2074368041516776e-05,
+        "PINN": 0.654893804720534,
+        "NODE": 4570526544.582757
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "transition(VFB + (-1.9876415e-8 - (AVSS_I * 4.954097e-7)), 0, t_transition, t_transition)",
+          "raw_equation": "VFB + (-1.9876415e-8 - (AVSS_I * 4.954097e-7))",
+          "r2": 0.9999999999999981,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "VPWR_I": {
+          "equation": "transition(VDD_1V2_I * ((zzzDdtPh728zzz / (zzzDdtPh733zzz / -0.70151025)) + -0.8635841), 0, t_transition, t_transition)",
+          "raw_equation": "VDD_1V2_I * ((AVSS_I_idt / (VDD_1V2_I_idt / -0.70151025)) + -0.8635841)",
+          "r2": 0.9730441078538749,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "FUN_DC_I": {
+          "equation": "transition(zzzDdtPh751zzz * -27898.295, 0, t_transition, t_transition)",
+          "raw_equation": "floop_out_I_idt * -27898.295",
+          "r2": 0.09994260436001023,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "V_SUPPLY_I": {
+          "equation": "transition(((meta_vsup_max ^ meta_vsup_max) * 0.011032492) * zzzDdtPh764zzz, 0, t_transition, t_transition)",
+          "raw_equation": "((meta_vsup_max ^ meta_vsup_max) * 0.011032492) * VDD_1V2_EXT_I_idt",
+          "r2": 0.844486074005713,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        }
+      }
+    },
+    "12": {
+      "name": "REGULATION_11",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 5.3826996738733484e-05,
+        "PINN": 0.57597527508064,
+        "NODE": 4405267569.4084835
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "transition(VFB - (zzzDdtPh776zzz * (zzzDdtPh779zzz / 0.2200517)), 0, t_transition, t_transition)",
+          "raw_equation": "VFB - (AVSS_I_idt * (PBKG_I_idt / 0.2200517))",
+          "r2": 0.9999999999999981,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "VPWR_I": {
+          "equation": "transition(MOST_POS_I * -0.44996876, 0, t_transition, t_transition)",
+          "raw_equation": "MOST_POS_I * -0.44996876",
+          "r2": 0.27777700269103867,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "FUN_DC_I": {
+          "equation": "transition((VDD_1V2_I + AVSS_I) * -0.7555813, 0, t_transition, t_transition)",
+          "raw_equation": "(VDD_1V2_I + AVSS_I) * -0.7555813",
+          "r2": 0.452075732530446,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "V_SUPPLY_I": {
+          "equation": "transition(((-6.0067437e-6 / (0.03566902 - zzzDdtPh819zzz)) * 0.4065019) + 0.0001248202, 0, t_transition, t_transition)",
+          "raw_equation": "((-6.0067437e-6 / (0.03566902 - dPBKG_I_dt)) * 0.4065019) + 0.0001248202",
+          "r2": 0.23243594700652237,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        }
+      }
+    },
+    "13": {
+      "name": "REGULATION_12",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 2.7111018701464363e-05,
+        "PINN": 0.5345710597376088,
+        "NODE": 4582798525.005354
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "transition((VFB + -0.22990982) - -0.22990982, 0, t_transition, t_transition)",
+          "raw_equation": "(VFB + -0.22990982) - -0.22990982",
+          "r2": 0.999999999999997,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "VPWR_I": {
+          "equation": "transition((-0.00021562983 / meta_temp) - ((meta_vsup_max / VFB) * -2.3255157e-7), 0, t_transition, t_transition)",
+          "raw_equation": "(-0.00021562983 / meta_temp) - ((meta_vsup_max / VFB) * -2.3255157e-7)",
+          "r2": 0.3786111531932703,
+          "source": "pysr_requested",
+          "has_differential_term": false
+        },
+        "FUN_DC_I": {
+          "equation": "transition((zzzDdtPh873zzz * -28.996588) - (((ISO_I / AVSS_I) * -0.09622708) + -0.015027411), 0, t_transition, t_transition)",
+          "raw_equation": "(ISO_I_idt * -28.996588) - (((ISO_I / AVSS_I) * -0.09622708) + -0.015027411)",
+          "r2": 0.9540494811399491,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        },
+        "V_SUPPLY_I": {
+          "equation": "transition((1.2917763 * zzzDdtPh895zzz) / ((zzzDdtPh895zzz / zzzDdtPh892zzz) + 0.0047646975), 0, t_transition, t_transition)",
+          "raw_equation": "(1.2917763 * floop_out_I_idt) / ((floop_out_I_idt / VDD_1V2_EXT_I_idt) + 0.0047646975)",
+          "r2": 0.8959154733670673,
+          "source": "pysr_requested",
+          "has_differential_term": true
+        }
+      }
+    }
+  },
+  "fsm_validation": {
+    "reachability": true,
+    "completeness": true,
+    "determinism": true,
+    "speckg_coverage": 0.25
+  },
+  "analog_skeleton_equations_embedded": true,
+  "has_ddt": true,
+  "has_idt": true,
+  "has_transition": true
+}

@@ -1,0 +1,259 @@
+{
+  "signal_map": [
+    {
+      "speckg_name": "AVSS",
+      "blut_signal": "SREF_LDO1V2_LP_TB.AVSS",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "AVSS_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.AVSS_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "EN_LDO",
+      "blut_signal": "SREF_LDO1V2_LP_TB.EN_LDO",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "EN_LDO_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.EN_LDO_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "EN_SCAN_MODE_MPOS",
+      "blut_signal": "SREF_LDO1V2_LP_TB.EN_SCAN_MODE_MPOS",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "EN_SCAN_MODE_MPOS_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.EN_SCAN_MODE_MPOS_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "EN_UVLO_1V2",
+      "blut_signal": "SREF_LDO1V2_LP_TB.EN_UVLO_1V2",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "EN_UVLO_1V2_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.EN_UVLO_1V2_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "FS_V_SUPPLY_TO_MOST_POS",
+      "blut_signal": "SREF_LDO1V2_LP_TB.FS_V_SUPPLY_TO_MOST_POS",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "FS_V_SUPPLY_TO_MOST_POS_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.FS_V_SUPPLY_TO_MOST_POS_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "FUN_DC",
+      "blut_signal": "SREF_LDO1V2_LP_TB.FUN_DC",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "FUN_DC_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.FUN_DC_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "HIGH_POWER_MODE",
+      "blut_signal": "SREF_LDO1V2_LP_TB.HIGH_POWER_MODE",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "HIGH_POWER_MODE_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.HIGH_POWER_MODE_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "ISO",
+      "blut_signal": "SREF_LDO1V2_LP_TB.ISO",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "ISO_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.ISO_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "MOST_POS",
+      "blut_signal": "SREF_LDO1V2_LP_TB.MOST_POS",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "MOST_POS_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.MOST_POS_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "PAD_VDD1V2_SEL",
+      "blut_signal": "SREF_LDO1V2_LP_TB.PAD_VDD1V2_SEL",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "PAD_VDD1V2_SEL_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.PAD_VDD1V2_SEL_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "PBKG",
+      "blut_signal": "SREF_LDO1V2_LP_TB.PBKG",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "PBKG_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.PBKG_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "SCAN_MODE_VSUPPLY",
+      "blut_signal": "SREF_LDO1V2_LP_TB.SCAN_MODE_VSUPPLY",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "SCAN_MODE_VSUPPLY_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.SCAN_MODE_VSUPPLY_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "SREF_ADD_LDO1V2_LOAD_MPOS",
+      "blut_signal": "SREF_LDO1V2_LP_TB.SREF_ADD_LDO1V2_LOAD_MPOS",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "SREF_ADD_LDO1V2_LOAD_MPOS_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.SREF_ADD_LDO1V2_LOAD_MPOS_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "UVLO_GD_OR_OVERRIDE_MPOS",
+      "blut_signal": "SREF_LDO1V2_LP_TB.UVLO_GD_OR_OVERRIDE_MPOS",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "UVLO_GD_OR_OVERRIDE_MPOS_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.UVLO_GD_OR_OVERRIDE_MPOS_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "VDD_1V2",
+      "blut_signal": "SREF_LDO1V2_LP_TB.VDD_1V2",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "VDD_1V2_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.VDD_1V2_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "VDD_1V2_EXT",
+      "blut_signal": "SREF_LDO1V2_LP_TB.VDD_1V2_EXT",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "VDD_1V2_EXT_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.VDD_1V2_EXT_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "VFB",
+      "blut_signal": "SREF_LDO1V2_LP_TB.VFB",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "VFB_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.VFB_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "VPWR",
+      "blut_signal": "SREF_LDO1V2_LP_TB.VPWR",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "VPWR_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.VPWR_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "VPWR_SEL",
+      "blut_signal": "SREF_LDO1V2_LP_TB.VPWR_SEL",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "VPWR_SEL_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.VPWR_SEL_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "VREF",
+      "blut_signal": "SREF_LDO1V2_LP_TB.VREF",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "VREF_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.VREF_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "V_SUPPLY",
+      "blut_signal": "SREF_LDO1V2_LP_TB.V_SUPPLY",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "V_SUPPLY_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.V_SUPPLY_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "floop_in",
+      "blut_signal": "SREF_LDO1V2_LP_TB.floop_in",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "floop_in_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.floop_in_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "floop_out",
+      "blut_signal": "SREF_LDO1V2_LP_TB.floop_out",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "floop_out_I",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.floop_out_$flow",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "GND",
+      "blut_signal": "cds_globals.gnd!",
+      "kind": "voltage"
+    },
+    {
+      "speckg_name": "IBIAS_SNK_25nA_0",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.IBIAS_SNK_25nA_[0]",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "IBIAS_SNK_25nA_1",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.IBIAS_SNK_25nA_[1]",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "IBIAS_SNK_25nA_2",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.IBIAS_SNK_25nA_[2]",
+      "kind": "current"
+    },
+    {
+      "speckg_name": "ICONST_75A",
+      "blut_signal": "SREF_LDO1V2_LP_TB.X_DUT.ICONST_75A[0]",
+      "kind": "current"
+    }
+  ]
+}

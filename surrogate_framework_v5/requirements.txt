@@ -1,0 +1,15 @@
+# surrogate_framework requirements
+# Core (required)
+numpy>=1.22
+scipy>=1.9
+pandas>=1.5
+scikit-learn>=1.1
+networkx>=2.8
+matplotlib>=3.5
+
+# Optional — graceful fallbacks exist if not installed
+# torch>=2.0          # deep learning; falls back to torch_shim (NumPy)
+# pysr>=0.18          # symbolic regression; falls back to linear regression
+# shap>=0.42          # feature attribution; falls back to numerical Jacobian
+# torchdiffeq>=0.2    # ODE solver; falls back to Euler integration in shim
+# wandb>=0.15         # experiment logging; gracefully skipped

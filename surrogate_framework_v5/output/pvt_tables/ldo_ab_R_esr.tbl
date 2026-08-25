@@ -1,0 +1,6 @@
+# $table_model data for parameter R_esr
+# columns: p_idx vdd temp value
+# p_idx: 0=FF, 1=SS, 2=TT
+0 2 -40 0.297491496
+1 1.5 125 0.305127712
+2 1.8 27 0.299999991

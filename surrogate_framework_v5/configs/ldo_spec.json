@@ -1,0 +1,217 @@
+{
+  "ip_type": "LDO",
+  "ports": [
+    {
+      "name": "VIN",
+      "port_type": "supply",
+      "domain": "power",
+      "voltage_range": [1.5, 6.0],
+      "current_range": [0.0, 2.0],
+      "is_state_signal": false,
+      "fsm_role": null
+    },
+    {
+      "name": "VOUT",
+      "port_type": "output",
+      "domain": "analog",
+      "voltage_range": [0.5, 5.0],
+      "current_range": [0.0, 1.5],
+      "is_state_signal": false,
+      "fsm_role": null
+    },
+    {
+      "name": "GND",
+      "port_type": "ground",
+      "domain": "power",
+      "voltage_range": [0.0, 0.0],
+      "current_range": [0.0, 5.0],
+      "is_state_signal": false,
+      "fsm_role": null
+    },
+    {
+      "name": "EN",
+      "port_type": "enable",
+      "domain": "digital",
+      "voltage_range": [0.0, 1.8],
+      "current_range": [0.0, 0.001],
+      "is_state_signal": true,
+      "fsm_role": "enable"
+    },
+    {
+      "name": "POK",
+      "port_type": "output",
+      "domain": "digital",
+      "voltage_range": [0.0, 1.8],
+      "current_range": [0.0, 0.001],
+      "is_state_signal": true,
+      "fsm_role": "ready"
+    },
+    {
+      "name": "FAULT",
+      "port_type": "output",
+      "domain": "digital",
+      "voltage_range": [0.0, 1.8],
+      "current_range": [0.0, 0.001],
+      "is_state_signal": true,
+      "fsm_role": "fault"
+    }
+  ],
+  "specs": [
+    {
+      "spec_type": "dc",
+      "name": "Output_Voltage",
+      "min_val": 1.75,
+      "max_val": 1.85,
+      "nominal": 1.80,
+      "unit": "V",
+      "frequency": 0.0,
+      "condition": "Iload=100mA",
+      "transient_weight": 0.9
+    },
+    {
+      "spec_type": "dc",
+      "name": "Dropout_Voltage",
+      "min_val": 0.0,
+      "max_val": 0.35,
+      "nominal": 0.20,
+      "unit": "V",
+      "frequency": 0.0,
+      "condition": "Iload=500mA",
+      "transient_weight": 0.7
+    },
+    {
+      "spec_type": "dc",
+      "name": "Quiescent_Current",
+      "min_val": 0.0,
+      "max_val": 0.10,
+      "nominal": 0.05,
+      "unit": "mA",
+      "frequency": 0.0,
+      "condition": "no load",
+      "transient_weight": 0.3
+    },
+    {
+      "spec_type": "psrr",
+      "name": "PSRR_1kHz",
+      "min_val": 60.0,
+      "max_val": 120.0,
+      "nominal": 80.0,
+      "unit": "dB",
+      "frequency": 1000.0,
+      "condition": "",
+      "transient_weight": 0.6
+    },
+    {
+      "spec_type": "psrr",
+      "name": "PSRR_1MHz",
+      "min_val": 30.0,
+      "max_val": 80.0,
+      "nominal": 50.0,
+      "unit": "dB",
+      "frequency": 1000000.0,
+      "condition": "",
+      "transient_weight": 0.5
+    },
+    {
+      "spec_type": "stability",
+      "name": "Phase_Margin",
+      "min_val": 45.0,
+      "max_val": 90.0,
+      "nominal": 60.0,
+      "unit": "deg",
+      "frequency": 0.0,
+      "condition": "",
+      "transient_weight": 0.8
+    },
+    {
+      "spec_type": "noise",
+      "name": "Output_Noise",
+      "min_val": 0.0,
+      "max_val": 50.0,
+      "nominal": 20.0,
+      "unit": "uVrms",
+      "frequency": 0.0,
+      "condition": "10Hz-100kHz",
+      "transient_weight": 0.4
+    },
+    {
+      "spec_type": "dc",
+      "name": "Load_Regulation",
+      "min_val": 0.0,
+      "max_val": 5.0,
+      "nominal": 2.0,
+      "unit": "mV/A",
+      "frequency": 0.0,
+      "condition": "",
+      "transient_weight": 0.5
+    },
+    {
+      "spec_type": "transient",
+      "name": "Load_Transient_Peak",
+      "min_val": 0.0,
+      "max_val": 100.0,
+      "nominal": 50.0,
+      "unit": "mV",
+      "frequency": 0.0,
+      "condition": "0-500mA step",
+      "transient_weight": 0.9
+    },
+    {
+      "spec_type": "transient",
+      "name": "Settling_Time",
+      "min_val": 0.0,
+      "max_val": 10.0,
+      "nominal": 5.0,
+      "unit": "us",
+      "frequency": 0.0,
+      "condition": "to 1%",
+      "transient_weight": 0.8
+    }
+  ],
+  "physics_rules": [],
+  "fsm_states": ["DISABLED", "STARTUP", "REGULATION", "DROPOUT", "FAULT", "SHUTDOWN"],
+  "bridges": {
+    "AC.phase_margin": {
+      "transient_effect": "overshoot_percent",
+      "formula": "exp(-pi*zeta/sqrt(1-zeta**2))*100  where zeta=PM/100",
+      "enabled": true,
+      "transient_weight": 0.8
+    },
+    "AC.gain_bandwidth": {
+      "transient_effect": "settling_time",
+      "formula": "-ln(0.02)/(zeta*wn)",
+      "enabled": true,
+      "transient_weight": 0.7
+    },
+    "AC.unity_gain_freq": {
+      "transient_effect": "rise_time",
+      "formula": "0.35/BW_3dB",
+      "enabled": true,
+      "transient_weight": 0.6
+    },
+    "PSRR.psrr_dc": {
+      "transient_effect": "supply_ripple_at_output",
+      "formula": "V_ripple_in / 10^(PSRR_dB/20)",
+      "enabled": true,
+      "transient_weight": 0.5
+    },
+    "NOISE.thermal_noise": {
+      "transient_effect": "wideband_noise_floor",
+      "formula": "sigma_v = sqrt(kT/C)",
+      "enabled": true,
+      "transient_weight": 0.4
+    },
+    "DC.operating_point": {
+      "transient_effect": "initial_condition",
+      "formula": "x0 = DC_OP(params)",
+      "enabled": true,
+      "transient_weight": 0.9
+    },
+    "CMRR.cmrr_dc": {
+      "transient_effect": "cm_disturbance_rejection",
+      "formula": "V_cm_out = V_cm_in / 10^(CMRR/20)",
+      "enabled": false,
+      "transient_weight": 0.3
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "ip_type": "OTA",
+  "ports": [
+    {
+      "name": "VINP",
+      "port_type": "input",
+      "domain": "analog",
+      "voltage_range": [0.0, 3.3],
+      "current_range": [0.0, 1e-06],
+      "is_state_signal": false,
+      "fsm_role": null
+    },
+    {
+      "name": "VINN",
+      "port_type": "input",
+      "domain": "analog",
+      "voltage_range": [0.0, 3.3],
+      "current_range": [0.0, 1e-06],
+      "is_state_signal": false,
+      "fsm_role": null
+    },
+    {
+      "name": "VOUT",
+      "port_type": "output",
+      "domain": "analog",
+      "voltage_range": [0.0, 3.3],
+      "current_range": [-0.01, 0.01],
+      "is_state_signal": false,
+      "fsm_role": null
+    },
+    {
+      "name": "VDD",
+      "port_type": "supply",
+      "domain": "power",
+      "voltage_range": [1.8, 3.6],
+      "current_range": [0.0, 0.005],
+      "is_state_signal": false,
+      "fsm_role": null
+    },
+    {
+      "name": "VSS",
+      "port_type": "ground",
+      "domain": "power",
+      "voltage_range": [0.0, 0.0],
+      "current_range": [0.0, 0.005],
+      "is_state_signal": false,
+      "fsm_role": null
+    },
+    {
+      "name": "EN",
+      "port_type": "enable",
+      "domain": "digital",
+      "voltage_range": [0.0, 1.8],
+      "current_range": [0.0, 0.0001],
+      "is_state_signal": true,
+      "fsm_role": "enable"
+    }
+  ],
+  "specs": [
+    {
+      "spec_type": "ac",
+      "name": "GBW",
+      "min_val": 10.0,
+      "max_val": 200.0,
+      "nominal": 50.0,
+      "unit": "MHz",
+      "frequency": 0.0,
+      "condition": "",
+      "transient_weight": 0.7
+    },
+    {
+      "spec_type": "stability",
+      "name": "Phase_Margin",
+      "min_val": 45.0,
+      "max_val": 90.0,
+      "nominal": 65.0,
+      "unit": "deg",
+      "frequency": 0.0,
+      "condition": "",
+      "transient_weight": 0.8
+    },
+    {
+      "spec_type": "cmrr",
+      "name": "CMRR",
+      "min_val": 60.0,
+      "max_val": 120.0,
+      "nominal": 80.0,
+      "unit": "dB",
+      "frequency": 0.0,
+      "condition": "",
+      "transient_weight": 0.5
+    },
+    {
+      "spec_type": "psrr",
+      "name": "PSRR",
+      "min_val": 50.0,
+      "max_val": 100.0,
+      "nominal": 70.0,
+      "unit": "dB",
+      "frequency": 0.0,
+      "condition": "",
+      "transient_weight": 0.5
+    },
+    {
+      "spec_type": "slew",
+      "name": "Slew_Rate",
+      "min_val": 10.0,
+      "max_val": 500.0,
+      "nominal": 50.0,
+      "unit": "V/us",
+      "frequency": 0.0,
+      "condition": "",
+      "transient_weight": 0.6
+    },
+    {
+      "spec_type": "dc",
+      "name": "Offset_Voltage",
+      "min_val": 0.0,
+      "max_val": 5.0,
+      "nominal": 1.0,
+      "unit": "mV",
+      "frequency": 0.0,
+      "condition": "",
+      "transient_weight": 0.4
+    },
+    {
+      "spec_type": "dc",
+      "name": "Gm",
+      "min_val": 0.5,
+      "max_val": 20.0,
+      "nominal": 5.0,
+      "unit": "mA/V",
+      "frequency": 0.0,
+      "condition": "",
+      "transient_weight": 0.6
+    },
+    {
+      "spec_type": "dc",
+      "name": "Output_Resistance",
+      "min_val": 10.0,
+      "max_val": 10000.0,
+      "nominal": 1000.0,
+      "unit": "kOhm",
+      "frequency": 0.0,
+      "condition": "",
+      "transient_weight": 0.5
+    }
+  ],
+  "physics_rules": [],
+  "fsm_states": ["DISABLED", "STARTUP", "ACTIVE", "SLEWING", "SETTLED"],
+  "bridges": {
+    "AC.phase_margin": {
+      "transient_effect": "overshoot_percent",
+      "formula": "exp(-pi*zeta/sqrt(1-zeta**2))*100  where zeta=PM/100",
+      "enabled": true,
+      "transient_weight": 0.8
+    },
+    "AC.gain_bandwidth": {
+      "transient_effect": "settling_time",
+      "formula": "-ln(0.02)/(zeta*wn)",
+      "enabled": true,
+      "transient_weight": 0.7
+    },
+    "AC.unity_gain_freq": {
+      "transient_effect": "rise_time",
+      "formula": "0.35/BW_3dB",
+      "enabled": true,
+      "transient_weight": 0.6
+    },
+    "PSRR.psrr_dc": {
+      "transient_effect": "supply_ripple_at_output",
+      "formula": "V_ripple_in / 10^(PSRR_dB/20)",
+      "enabled": true,
+      "transient_weight": 0.5
+    },
+    "NOISE.thermal_noise": {
+      "transient_effect": "wideband_noise_floor",
+      "formula": "sigma_v = sqrt(kT/C)",
+      "enabled": false,
+      "transient_weight": 0.4
+    },
+    "DC.operating_point": {
+      "transient_effect": "initial_condition",
+      "formula": "x0 = DC_OP(params)",
+      "enabled": true,
+      "transient_weight": 0.9
+    },
+    "CMRR.cmrr_dc": {
+      "transient_effect": "cm_disturbance_rejection",
+      "formula": "V_cm_out = V_cm_in / 10^(CMRR/20)",
+      "enabled": true,
+      "transient_weight": 0.3
+    }
+  }
+}

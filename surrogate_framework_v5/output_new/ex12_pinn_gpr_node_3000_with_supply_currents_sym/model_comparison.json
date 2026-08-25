@@ -1,0 +1,567 @@
+{
+  "blut_path": "blut_files/regression_multi_corner_sref_ldo.bin",
+  "good_corners": 126,
+  "total_corners": 135,
+  "meta_key_kind": {
+    "corner": "categorical",
+    "temp": "continuous",
+    "vsup_max": "continuous"
+  },
+  "categorical_codes": {
+    "corner": {
+      "nn": NaN,
+      "ss": NaN,
+      "ww": NaN
+    }
+  },
+  "feature_names": [
+    "VPWR",
+    "VREF",
+    "FUN_DC",
+    "VDD_1V2_EXT",
+    "V_SUPPLY",
+    "meta_corner",
+    "meta_temp",
+    "meta_vsup_max"
+  ],
+  "output_names": [
+    "VDD_1V2",
+    "VDD_1V2_I",
+    "VPWR_I",
+    "FUN_DC_I",
+    "V_SUPPY_I"
+  ],
+  "equation_source": "PySR (--include_symbolic)",
+  "equation_parameters": {
+    "meta_corner": NaN,
+    "meta_temp": -4.293647960265167,
+    "meta_vsup_max": 5.04992848711764
+  },
+  "states": {
+    "0": {
+      "name": "DISABLED",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": NaN,
+        "PINN": NaN,
+        "NODE": NaN
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "V_SUPPY_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "1": {
+      "name": "REGULATION",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": NaN,
+        "PINN": NaN,
+        "NODE": NaN
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "V_SUPPY_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "2": {
+      "name": "REGULATION_2",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": NaN,
+        "PINN": NaN,
+        "NODE": NaN
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "V_SUPPY_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "3": {
+      "name": "REGULATION_3",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": NaN,
+        "PINN": NaN,
+        "NODE": NaN
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "V_SUPPY_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "4": {
+      "name": "REGULATION_4",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": NaN,
+        "PINN": NaN,
+        "NODE": NaN
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "V_SUPPY_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "5": {
+      "name": "REGULATION_5",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": NaN,
+        "PINN": NaN,
+        "NODE": NaN
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "V_SUPPY_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "6": {
+      "name": "DISABLED_2",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": NaN,
+        "PINN": NaN,
+        "NODE": NaN
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "V_SUPPY_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "7": {
+      "name": "REGULATION_6",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": NaN,
+        "PINN": NaN,
+        "NODE": NaN
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "V_SUPPY_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "8": {
+      "name": "REGULATION_7",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": NaN,
+        "PINN": NaN,
+        "NODE": NaN
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "V_SUPPY_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "9": {
+      "name": "REGULATION_8",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": NaN,
+        "PINN": NaN,
+        "NODE": NaN
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "V_SUPPY_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "10": {
+      "name": "REGULATION_9",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": NaN,
+        "PINN": NaN,
+        "NODE": NaN
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "V_SUPPY_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "11": {
+      "name": "REGULATION_10",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": NaN,
+        "PINN": NaN,
+        "NODE": NaN
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "V_SUPPY_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "12": {
+      "name": "REGULATION_11",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": NaN,
+        "PINN": NaN,
+        "NODE": NaN
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "V_SUPPY_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "13": {
+      "name": "REGULATION_12",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": NaN,
+        "PINN": NaN,
+        "NODE": NaN
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        },
+        "V_SUPPY_I": {
+          "equation": "0",
+          "r2": NaN,
+          "source": "pysr_requested"
+        }
+      }
+    }
+  },
+  "fsm_validation": {
+    "reachability": true,
+    "completeness": true,
+    "determinism": true,
+    "speckg_coverage": 0.25
+  },
+  "analog_skeleton_equations_embedded": true
+}

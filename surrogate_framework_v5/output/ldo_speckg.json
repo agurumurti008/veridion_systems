@@ -1,0 +1,662 @@
+{
+  "ip_type": "LDO",
+  "ports": [
+    {
+      "name": "VPWR",
+      "port_type": "supply",
+      "domain": "power",
+      "voltage_range": [
+        4.5,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.25
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "GND",
+      "port_type": "ground",
+      "domain": "power",
+      "voltage_range": [
+        0.0,
+        0.0
+      ],
+      "current_range": [
+        0.0,
+        0.25
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "floop_out",
+      "port_type": "output",
+      "domain": "analog",
+      "voltage_range": [
+        1.1,
+        1.3
+      ],
+      "current_range": [
+        0.0,
+        0.2
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "floop_in",
+      "port_type": "feedback",
+      "domain": "analog",
+      "voltage_range": [
+        1.1,
+        1.3
+      ],
+      "current_range": [
+        0.0,
+        0.0001
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "EN_LDO",
+      "port_type": "enable",
+      "domain": "digital",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.001
+      ],
+      "is_state_signal": true,
+      "fsm_role": "enable",
+      "direction": null
+    },
+    {
+      "name": "EN_UVLO_1V2",
+      "port_type": "status",
+      "domain": "digital",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.001
+      ],
+      "is_state_signal": true,
+      "fsm_role": "ready",
+      "direction": null
+    },
+    {
+      "name": "VPWR_SEL",
+      "port_type": "select",
+      "domain": "digital",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.001
+      ],
+      "is_state_signal": true,
+      "fsm_role": "supply_select",
+      "direction": null
+    },
+    {
+      "name": "PAD_VDD1V2_SEL",
+      "port_type": "select",
+      "domain": "digital",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.001
+      ],
+      "is_state_signal": true,
+      "fsm_role": "output_select",
+      "direction": null
+    },
+    {
+      "name": "UVLO_GD_OR_OVERRIDE_MPOS",
+      "port_type": "control",
+      "domain": "digital",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.001
+      ],
+      "is_state_signal": true,
+      "fsm_role": "override",
+      "direction": null
+    },
+    {
+      "name": "HIGH_POWER_MODE",
+      "port_type": "control",
+      "domain": "digital",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.001
+      ],
+      "is_state_signal": true,
+      "fsm_role": "mode_select",
+      "direction": null
+    },
+    {
+      "name": "SCAN_MODE_VSUPPLY",
+      "port_type": "control",
+      "domain": "digital",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.001
+      ],
+      "is_state_signal": true,
+      "fsm_role": "scan_mode",
+      "direction": null
+    },
+    {
+      "name": "EN_SCAN_MODE_MPOS",
+      "port_type": "control",
+      "domain": "digital",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.001
+      ],
+      "is_state_signal": true,
+      "fsm_role": "scan_mode",
+      "direction": null
+    },
+    {
+      "name": "FS_V_SUPPLY_TO_MOST_POS",
+      "port_type": "control",
+      "domain": "digital",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.001
+      ],
+      "is_state_signal": true,
+      "fsm_role": "domain_crossing",
+      "direction": null
+    },
+    {
+      "name": "SREF_ADD_LDO1V2_LOAD_MPOS",
+      "port_type": "control",
+      "domain": "digital",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.001
+      ],
+      "is_state_signal": true,
+      "fsm_role": "load_control",
+      "direction": null
+    },
+    {
+      "name": "SREF_EN_ISENSE_LDO1V2_MPOS",
+      "port_type": "control",
+      "domain": "digital",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.001
+      ],
+      "is_state_signal": true,
+      "fsm_role": "isense_enable",
+      "direction": null
+    },
+    {
+      "name": "SREF_LDO_ISNS_DIS_MPOS",
+      "port_type": "control",
+      "domain": "digital",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.001
+      ],
+      "is_state_signal": true,
+      "fsm_role": "isense_disable",
+      "direction": null
+    },
+    {
+      "name": "IBIAS_SNK_25nA_0",
+      "port_type": "bias_current_sink",
+      "domain": "analog",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        2.5e-08
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "IBIAS_SNK_25nA_1",
+      "port_type": "bias_current_sink",
+      "domain": "analog",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        2.5e-08
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "IBIAS_SNK_25nA_2",
+      "port_type": "bias_current_sink",
+      "domain": "analog",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        2.5e-08
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "ICONST_75A",
+      "port_type": "bias_current_source",
+      "domain": "analog",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.75
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "VFB",
+      "port_type": "feedback_input",
+      "domain": "analog",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.0001
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "VREF",
+      "port_type": "reference_input",
+      "domain": "analog",
+      "voltage_range": [
+        0.0,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.0001
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "AVSS",
+      "port_type": "ground",
+      "domain": "power",
+      "voltage_range": [
+        0.0,
+        0.0
+      ],
+      "current_range": [
+        0.0,
+        0.25
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "PBKG",
+      "port_type": "bulk",
+      "domain": "power",
+      "voltage_range": [
+        0.0,
+        0.0
+      ],
+      "current_range": [
+        0.0,
+        0.05
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "FUN_DC",
+      "port_type": "supply",
+      "domain": "power",
+      "voltage_range": [
+        4.5,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.25
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "ISO",
+      "port_type": "supply",
+      "domain": "power",
+      "voltage_range": [
+        4.5,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.25
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "MOST_POS",
+      "port_type": "supply",
+      "domain": "power",
+      "voltage_range": [
+        4.5,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.25
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "VDD_1V2",
+      "port_type": "supply",
+      "domain": "power",
+      "voltage_range": [
+        1.1,
+        1.3
+      ],
+      "current_range": [
+        0.0,
+        0.2
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "VDD_1V2_EXT",
+      "port_type": "supply",
+      "domain": "power",
+      "voltage_range": [
+        1.1,
+        1.3
+      ],
+      "current_range": [
+        0.0,
+        0.2
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    },
+    {
+      "name": "V_SUPPLY",
+      "port_type": "supply",
+      "domain": "power",
+      "voltage_range": [
+        4.5,
+        5.5
+      ],
+      "current_range": [
+        0.0,
+        0.25
+      ],
+      "is_state_signal": false,
+      "fsm_role": null,
+      "direction": null
+    }
+  ],
+  "specs": [
+    {
+      "spec_type": "dc",
+      "name": "Output_Voltage",
+      "min_val": 1.176,
+      "max_val": 1.224,
+      "nominal": 1.2,
+      "unit": "V",
+      "frequency": 0.0,
+      "condition": "Iload=100mA,VIN=5.0V,Temp=27C",
+      "transient_weight": 0.9
+    },
+    {
+      "spec_type": "dc",
+      "name": "Dropout_Voltage",
+      "min_val": 0.0,
+      "max_val": 0.2,
+      "nominal": 0.15,
+      "unit": "V",
+      "frequency": 0.0,
+      "condition": "Iload=200mA,Temp=27C,Corner=SS",
+      "transient_weight": 0.9
+    },
+    {
+      "spec_type": "dc",
+      "name": "Load_Regulation",
+      "min_val": 0.0,
+      "max_val": 25.1,
+      "nominal": 12.5,
+      "unit": "mV/A",
+      "frequency": 0.0,
+      "condition": "Iload_range=1mA_to_200mA",
+      "transient_weight": 0.9
+    },
+    {
+      "spec_type": "dc",
+      "name": "Line_Regulation",
+      "min_val": 0.0,
+      "max_val": 3.0,
+      "nominal": 1.5,
+      "unit": "mV/V",
+      "frequency": 0.0,
+      "condition": "Iload=100mA",
+      "transient_weight": 0.6
+    },
+    {
+      "spec_type": "psrr",
+      "name": "PSRR_at_1kHz",
+      "min_val": 60.0,
+      "max_val": 100.0,
+      "nominal": 80.0,
+      "unit": "dB",
+      "frequency": 1000.0,
+      "condition": "Iload=100mA",
+      "transient_weight": 0.9
+    },
+    {
+      "spec_type": "psrr",
+      "name": "PSRR_at_1MHz",
+      "min_val": 30.0,
+      "max_val": 60.0,
+      "nominal": 40.0,
+      "unit": "dB",
+      "frequency": 1000000.0,
+      "condition": "Iload=100mA",
+      "transient_weight": 0.6
+    },
+    {
+      "spec_type": "noise",
+      "name": "Output_Noise_RMS",
+      "min_val": 0.0,
+      "max_val": 30.0,
+      "nominal": 15.0,
+      "unit": "uVrms",
+      "frequency": 0.0,
+      "condition": "BW=10Hz_100kHz",
+      "transient_weight": 0.6
+    },
+    {
+      "spec_type": "transient",
+      "name": "Transient_Undershoot",
+      "min_val": 0.0,
+      "max_val": 100.0,
+      "nominal": 50.0,
+      "unit": "mV",
+      "frequency": 0.0,
+      "condition": "Iload_step=10mA_to_200mA,Slew=1A/us",
+      "transient_weight": 0.9
+    },
+    {
+      "spec_type": "transient",
+      "name": "Transient_Settling",
+      "min_val": 0.0,
+      "max_val": 5.0,
+      "nominal": 2.5,
+      "unit": "us",
+      "frequency": 0.0,
+      "condition": "Iload_step=10mA_to_200mA,Band_1pct=true",
+      "transient_weight": 0.6
+    },
+    {
+      "spec_type": "ac",
+      "name": "Output_Impedance_10MHz",
+      "min_val": 0.0,
+      "max_val": 50.0,
+      "nominal": 25.0,
+      "unit": "mOhm",
+      "frequency": 10000000.0,
+      "condition": "",
+      "transient_weight": 0.9
+    },
+    {
+      "spec_type": "dc",
+      "name": "Quiescent_Current",
+      "min_val": 0.0,
+      "max_val": 0.08,
+      "nominal": 0.05,
+      "unit": "mA",
+      "frequency": 0.0,
+      "condition": "Iload=0,VIN=1.8V",
+      "transient_weight": 0.3
+    },
+    {
+      "spec_type": "dc",
+      "name": "Max_Load_Current",
+      "min_val": 200.0,
+      "max_val": 250.0,
+      "nominal": 220.0,
+      "unit": "mA",
+      "frequency": 0.0,
+      "condition": "VIN=1.5V,Corner=SS",
+      "transient_weight": 0.9
+    }
+  ],
+  "physics_rules": [],
+  "fsm_states": [
+    "DISABLED",
+    "UVLO",
+    "STARTUP",
+    "REGULATION",
+    "HIGH_POWER_MODE",
+    "SCAN_MODE",
+    "OVERRIDE",
+    "SHUTDOWN"
+  ],
+  "bridges": {
+    "DC.operating_point": {
+      "transient_effect": "initial_condition",
+      "formula": "x0 = DC_OP(params)",
+      "enabled": true,
+      "transient_weight": 0.9
+    },
+    "DC.dropout_constrains_vout": {
+      "transient_effect": "output_voltage_floor",
+      "formula": "VOUT_min = VIN_min - Vdropout_max",
+      "enabled": true,
+      "transient_weight": 0.9
+    },
+    "AC.output_impedance_to_psrr": {
+      "transient_effect": "psrr_at_1mhz",
+      "formula": "PSRR_dB = 20*log10(Zout_open / Zout_closed)",
+      "enabled": true,
+      "transient_weight": 0.8
+    },
+    "PSRR.psrr_1mhz_to_noise": {
+      "transient_effect": "output_noise_rms",
+      "formula": "Noise_out = Noise_in / 10^(PSRR_dB/20)",
+      "enabled": true,
+      "transient_weight": 0.8
+    },
+    "TRANSIENT.undershoot_to_settling": {
+      "transient_effect": "settling_time",
+      "formula": "settling_time increases with undershoot amplitude through the dominant pole-zero pair",
+      "enabled": true,
+      "transient_weight": 0.5
+    }
+  }
+}

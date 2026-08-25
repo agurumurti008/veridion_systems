@@ -1,0 +1,27 @@
+[project]
+name = "surrogate-framework-v5"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "matplotlib>=3.5",
+    "networkx>=2.8",
+    "numba>=0.59.0",
+    "numpy>=1.22",
+    "pandas>=1.5",
+    "pysr",
+    "scikit-learn>=1.1",
+    "scipy>=1.9",
+    "shap>=0.45.0",
+    "smt>=2.14.1",
+    "torch",
+    "wandb",
+]
+
+[project.scripts]
+surrogate-framework-v5 = "surrogate_framework_v5:main"
+
+[build-system]
+requires = ["uv_build>=0.11.26,<0.12.0"]
+build-backend = "uv_build"

@@ -1,0 +1,252 @@
+{
+  "blut_path": "blut_files/regression_multi_corner_sref_ldo.bin",
+  "good_corners": 126,
+  "total_corners": 135,
+  "meta_key_kind": {
+    "corner": "categorical",
+    "temp": "continuous",
+    "vsup_max": "continuous"
+  },
+  "feature_names": [
+    "VPWR",
+    "VREF",
+    "FUN_DC",
+    "VDD_1V2_EXT",
+    "V_SUPPLY",
+    "meta_corner_nn",
+    "meta_corner_ss",
+    "meta_corner_ww",
+    "meta_temp",
+    "meta_vsup_max"
+  ],
+  "output_names": [
+    "VDD_1V2"
+  ],
+  "equation_source": "linear",
+  "equation_parameters": {
+    "meta_corner_nn": 0.6259932034870619,
+    "meta_corner_ss": 0.24006684948379078,
+    "meta_corner_ww": 0.13393994702914735,
+    "meta_temp": -4.293647960265167,
+    "meta_vsup_max": 5.04992848711764
+  },
+  "states": {
+    "0": {
+      "name": "DISABLED",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 0.40307820578218684
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.000625388*VPWR + -0.539243*VREF + -0.000625388*FUN_DC + -0.000625388*V_SUPPLY + 0.289696*meta_corner_nn + -0.125726*meta_corner_ss + -0.060394*meta_corner_ww + -0.000739809*meta_temp + 0.00565349*meta_vsup_max + 0.103575",
+          "r2": 0.16905754698300268,
+          "source": "linear"
+        }
+      }
+    },
+    "1": {
+      "name": "REGULATION",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.3051712674740683
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.347055*VPWR + -0.180099*VREF + -0.0661307*FUN_DC + -2.83789*VDD_1V2_EXT + -0.0661307*V_SUPPLY + 0.603709*meta_corner_nn + -0.384059*meta_corner_ss + -0.476934*meta_corner_ww + -0.000679873*meta_temp + -0.0661307*meta_vsup_max + -0.257284",
+          "r2": 0.5203719438723476,
+          "source": "linear"
+        }
+      }
+    },
+    "2": {
+      "name": "REGULATION_2",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 0.8716792243674134
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "240.937*VPWR + -0.061652*VREF + 0.755759*FUN_DC + 3.41813e-09*VDD_1V2_EXT + -120.794*V_SUPPLY + 0.711071*meta_corner_nn + -0.376355*meta_corner_ss + -0.42279*meta_corner_ww + 0.00081182*meta_temp + -120.794*meta_vsup_max + -0.0880743",
+          "r2": 0.39223077648195936,
+          "source": "linear"
+        }
+      }
+    },
+    "3": {
+      "name": "REGULATION_3",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 0.6604417935956122
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "271.242*VPWR + 0.342753*VREF + -90.4162*FUN_DC + 6.43415e-09*VDD_1V2_EXT + -90.4162*V_SUPPLY + 0.27985*meta_corner_nn + 0.0325252*meta_corner_ss + 0.177272*meta_corner_ww + 0.00387862*meta_temp + -90.4162*meta_vsup_max + 0.489647",
+          "r2": 0.19809490830831866,
+          "source": "linear"
+        }
+      }
+    },
+    "4": {
+      "name": "REGULATION_4",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 0.31818409635096506
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-2.50272*VPWR + 12.8813*VREF + 1.6383*FUN_DC + 5.28439e+07*VDD_1V2_EXT + 0.825232*V_SUPPLY + -2.50145*meta_corner_nn + -2.98935*meta_corner_ss + -2.99396*meta_corner_ww + 0.00638068*meta_temp + 0.180577*meta_vsup_max + -6.29263",
+          "r2": 0.6394979570737558,
+          "source": "linear"
+        }
+      }
+    },
+    "5": {
+      "name": "REGULATION_5",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 0.5527004000653737
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.505899*VPWR + -0.788833*VREF + 0.323842*FUN_DC + 0.323842*V_SUPPLY + -0.257236*meta_corner_nn + -0.236318*meta_corner_ss + -0.63335*meta_corner_ww + 0.00155289*meta_temp + 0.323842*meta_vsup_max + -1.1269",
+          "r2": 0.1446555775878896,
+          "source": "linear"
+        }
+      }
+    },
+    "6": {
+      "name": "DISABLED_2",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.5771577966089927
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.0234411*VPWR + -0.187962*VREF + -0.0234411*FUN_DC + -0.0234411*V_SUPPLY + 0.843141*meta_corner_nn + -0.522731*meta_corner_ss + -0.588927*meta_corner_ww + 0.00095618*meta_temp + -0.0234411*meta_vsup_max + -0.268517",
+          "r2": 0.5766173147594331,
+          "source": "linear"
+        }
+      }
+    },
+    "7": {
+      "name": "REGULATION_6",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.4566112502059918
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.058592*VPWR + -0.697571*VREF + 0.058592*FUN_DC + 0.058592*V_SUPPLY + 1.37377*meta_corner_nn + -1.15*meta_corner_ss + -1.2203*meta_corner_ww + 0.00110155*meta_temp + 0.058592*meta_vsup_max + -0.99653",
+          "r2": 0.9882475836384972,
+          "source": "linear"
+        }
+      }
+    },
+    "8": {
+      "name": "REGULATION_7",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.3353320244879823
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.0660861*VPWR + -0.759431*VREF + 0.0660861*FUN_DC + 0.0660861*V_SUPPLY + 1.32837*meta_corner_nn + -1.17738*meta_corner_ss + -1.23589*meta_corner_ww + 0.00134804*meta_temp + 0.0660861*meta_vsup_max + -1.0849",
+          "r2": 0.9874105822340759,
+          "source": "linear"
+        }
+      }
+    },
+    "9": {
+      "name": "REGULATION_8",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 0.45470012857372394
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.122812*VPWR + -1.20735*VREF + 0.122812*FUN_DC + 0.122812*V_SUPPLY + 1.03556*meta_corner_nn + -1.38267*meta_corner_ss + -1.37767*meta_corner_ww + 0.00144444*meta_temp + 0.122812*meta_vsup_max + -1.72478",
+          "r2": 0.9496971807140856,
+          "source": "linear"
+        }
+      }
+    },
+    "10": {
+      "name": "REGULATION_9",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.0822929107033634
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.0734001*VPWR + -0.851329*VREF + 0.0734001*FUN_DC + 0.0734001*V_SUPPLY + 1.18072*meta_corner_nn + -1.18183*meta_corner_ss + -1.21507*meta_corner_ww + 0.00219913*meta_temp + 0.0734001*meta_vsup_max + -1.21618",
+          "r2": 0.9602007152105513,
+          "source": "linear"
+        }
+      }
+    },
+    "11": {
+      "name": "REGULATION_10",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.9466973721540466
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.0282429*VPWR + -0.518905*VREF + 0.0282429*FUN_DC + 0.0282429*V_SUPPLY + 1.27838*meta_corner_nn + -0.987734*meta_corner_ss + -1.03194*meta_corner_ww + 0.00261616*meta_temp + 0.0282429*meta_vsup_max + -0.741292",
+          "r2": 0.9399869401516406,
+          "source": "linear"
+        }
+      }
+    },
+    "12": {
+      "name": "REGULATION_11",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 1.5225569842907771
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.0473129*VPWR + -0.681833*VREF + 0.0473129*FUN_DC + 0.0473129*V_SUPPLY + 1.14581*meta_corner_nn + -1.04788*meta_corner_ss + -1.07197*meta_corner_ww + 0.00305313*meta_temp + 0.0473129*meta_vsup_max + -0.974047",
+          "r2": 0.9114873602619755,
+          "source": "linear"
+        }
+      }
+    },
+    "13": {
+      "name": "REGULATION_12",
+      "n_samples": 3000,
+      "metrics": {
+        "PINN": 2.192436998197943
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.0317925*VPWR + -0.552369*VREF + 0.0317925*FUN_DC + 0.0317925*V_SUPPLY + 1.25026*meta_corner_nn + -1.00131*meta_corner_ss + -1.03805*meta_corner_ww + 0.00278923*meta_temp + 0.0317925*meta_vsup_max + -0.789099",
+          "r2": 0.9319079923581148,
+          "source": "linear"
+        }
+      }
+    }
+  },
+  "fsm_validation": {
+    "reachability": true,
+    "completeness": true,
+    "determinism": true,
+    "speckg_coverage": 0.25
+  },
+  "analog_skeleton_equations_embedded": true
+}

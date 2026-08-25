@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import numpy, torch\")",
+      "Bash(python3 tests/test_framework.py)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -u examples/example12_phase2_refined_modeling.py --correlation_json output/per_corner_correlation.json --blut_path blut_files/regression_multi_corner_sref_ldo.bin --signal_map_json configs/signal_map_ldo.json --fsm_strategy hybrid --fsm_tree_depth 4 --ip_type LDO --blut_input_signals VPWR,VREF,FUN_DC,VDD_1V2_EXT,V_SUPPLY --blut_output_signals VDD_1V2,VPWR_I,FUN_DC_I,V_SUPPLY_I,VDD_1V2_EXT_I --models gpr,smt,pinn,node --min_state_samples 30 --max_state_samples 400 --pinn_epochs 15 --node_epochs 10 --output_dir output_phase2_2)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(echo \"started PID $!\")",
+      "Bash(python3 -c \"import ast; ast.parse\\(open\\('/workspaces/Veridion_Systems/surrogate_framework_v5/examples/example15_curated_inputs_full_data_modeling.py'\\).read\\(\\)\\)\")",
+      "Bash(nohup python3 -u examples/example15_curated_inputs_full_data_modeling.py --correlation_json output/per_corner_correlation.json --blut_path blut_files/regression_multi_corner_sref_ldo.bin --signal_map_json configs/signal_map_ldo.json --fsm_strategy hybrid --fsm_tree_depth 4 --ip_type LDO --blut_output_signals VDD_1V2,VPWR_I --blut_input_signals VPWR,EN_LDO,VPWR_SEL,HIGH_POWER_MODE,VREF --models gpr,pinn,node --pinn_epochs 100 --node_epochs 20 --min_state_samples 30 --max_state_samples 3000 --max_gpr_smt_samples 1500 --evaluate_denoising --smoothing_window 11 --auto_transition_time --output_dir /tmp/claude-1000/-workspaces-Veridion-Systems/8786fb66-87ae-4070-af79-64a0626b4379/scratchpad/ex15_v2)"
+    ]
+  }
+}

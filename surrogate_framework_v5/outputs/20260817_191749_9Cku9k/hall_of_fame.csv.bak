@@ -1,0 +1,9 @@
+Complexity,Loss,Equation
+1,4.7008834e-6,"0.00011646189"
+3,1.8036286e-6,"PBKG_I * 0.45149"
+5,1.7204211e-6,"(PBKG_I / MOST_POS_idt) * 0.070773736"
+7,1.6875059e-6,"PBKG_I * (MOST_POS_I + (0.07091821 / MOST_POS_idt))"
+9,1.6797749e-6,"((MOST_POS_I / FUN_DC) + 0.070454456) * (PBKG_I / MOST_POS_idt)"
+10,1.667003e-6,"(exp(meta_corner) * 0.06705027) * (PBKG_I / VPWR_idt)"
+11,1.6599996e-6,"(PBKG_I * (((meta_corner * -0.048042953) / -0.9793968) + 0.06964602)) / MOST_POS_idt"
+12,1.637333e-6,"(PBKG_I * ((0.067047 / VPWR_idt) + PBKG_I)) * exp(meta_corner)"

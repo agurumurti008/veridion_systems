@@ -1,0 +1,7 @@
+Complexity,Loss,Equation
+1,9.809325e-5,"0.022769012"
+3,8.979382e-5,"0.021390423 - VDD_1V2_I_idt"
+5,4.491341e-5,"(PBKG_I * meta_temp) + 0.022541212"
+7,1.750514e-5,"(PBKG_I_idt * (meta_temp / 0.026066337)) + 0.01914764"
+9,1.4069686e-5,"(((PBKG_I_idt * meta_temp) + 0.00050239085) / 0.027516192) + AVSS_I_idt"
+11,9.342675e-6,"(AVSS_I_idt + (((PBKG_I_idt * meta_temp) / 0.13117203) + 0.0027573549)) * VPWR"

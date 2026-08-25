@@ -1,0 +1,33 @@
+# Root pyproject.toml — defines a single uv workspace spanning every
+# sub-project folder in the monorepo. This is what lets ONE `uv sync`
+# resolve and install dependencies for every folder into ONE shared
+# .venv, instead of you managing a separate venv per project.
+[project]
+name = "workspace-root"
+version = "0.0.0"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.uv.workspace]
+members = [
+    "surrogate_framework",
+    "digitwin_blut",
+    "ms_vip",
+    "vbip",
+    "rlc_pdn_sysid",
+    "sva_methodology",
+    "eda_tb_framework",
+    "surrogate_framework_v5",
+]
+
+# Shared dev tooling available across every member.
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+    "ipykernel>=6.29",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

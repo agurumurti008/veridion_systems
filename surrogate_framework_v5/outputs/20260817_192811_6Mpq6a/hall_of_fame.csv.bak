@@ -1,0 +1,8 @@
+Complexity,Loss,Equation
+1,1.6800541e-15,"VDD_1V2_EXT_I_idt"
+3,1.4089843e-15,"VDD_1V2_EXT_I_idt * 71.179245"
+5,1.342083e-15,"(V_SUPPLY * VDD_1V2_EXT_I_idt) / 0.06272935"
+6,1.1128827e-15,"exp(meta_vsup_max) * VDD_1V2_EXT_I_idt"
+8,1.0026377e-15,"(exp(FUN_DC) * VDD_1V2_EXT_I_idt) * 0.7146627"
+10,1.6243921e-16,"(2.8286871e-11 * VDD_1V2_EXT_I_idt) * exp(meta_vsup_max * V_SUPPLY)"
+12,1.0402125e-16,"(ISO_I_idt * (VDD_1V2_EXT_I * exp(V_SUPPLY * V_SUPPLY))) * 6.4329797e-10"

@@ -1,0 +1,451 @@
+{
+  "scorecard": {
+    "state_pct": 42.9,
+    "transition_pct": 14.3,
+    "richness_pct": 100.0,
+    "n_missing_states": 4,
+    "n_missing_transitions": 12,
+    "n_clipped": 0,
+    "n_current_gaps": 1,
+    "n_output_contradictions": 0,
+    "n_corners": 3
+  },
+  "gaps": [
+    {
+      "gap": "state STARTUP never observed",
+      "why": "reference state absent from all runs",
+      "recommended_run": {
+        "stimulus": "exercise entry into STARTUP",
+        "pins": [
+          "EN_LDO=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "STARTUP behavior defaults to nearest state; unmodeled"
+    },
+    {
+      "gap": "state DROPOUT never observed",
+      "why": "reference state absent from all runs",
+      "recommended_run": {
+        "stimulus": "exercise entry into DROPOUT",
+        "pins": [
+          "EN_LDO=1",
+          "V_SUPPLY->dropout"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "DROPOUT behavior defaults to nearest state; unmodeled"
+    },
+    {
+      "gap": "state FAULT never observed",
+      "why": "reference state absent from all runs",
+      "recommended_run": {
+        "stimulus": "exercise entry into FAULT",
+        "pins": [
+          "fault-inject"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "FAULT behavior defaults to nearest state; unmodeled"
+    },
+    {
+      "gap": "state SCAN never observed",
+      "why": "reference state absent from all runs",
+      "recommended_run": {
+        "stimulus": "exercise entry into SCAN",
+        "pins": [
+          "SCAN_MODE_VSUPPLY=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "SCAN behavior defaults to nearest state; unmodeled"
+    },
+    {
+      "gap": "transition DISABLED->STARTUP never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive DISABLED->STARTUP event",
+        "pins": [
+          "EN_LDO=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition DROPOUT->REGULATION_HP never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive DROPOUT->REGULATION_HP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition DROPOUT->REGULATION_LP never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive DROPOUT->REGULATION_LP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition FAULT->DISABLED never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive FAULT->DISABLED event",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition REGULATION_HP->DISABLED never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive REGULATION_HP->DISABLED event",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition REGULATION_HP->DROPOUT never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive REGULATION_HP->DROPOUT event",
+        "pins": [
+          "EN_LDO=1",
+          "V_SUPPLY->dropout"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition REGULATION_HP->FAULT never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive REGULATION_HP->FAULT event",
+        "pins": [
+          "fault-inject"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition REGULATION_LP->DISABLED never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive REGULATION_LP->DISABLED event",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition REGULATION_LP->DROPOUT never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive REGULATION_LP->DROPOUT event",
+        "pins": [
+          "EN_LDO=1",
+          "V_SUPPLY->dropout"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition REGULATION_LP->FAULT never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive REGULATION_LP->FAULT event",
+        "pins": [
+          "fault-inject"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition STARTUP->REGULATION_HP never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive STARTUP->REGULATION_HP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition STARTUP->REGULATION_LP never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive STARTUP->REGULATION_LP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "state DISABLED dwell insufficient",
+      "why": "dwell < 3x settling; analog response not captured",
+      "recommended_run": {
+        "stimulus": "hold DISABLED longer",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "DISABLED steady-state params under-constrained"
+    },
+    {
+      "gap": "mux path VPWR_SEL,VPWR,FUN_DC,ISO,MOST_POS,V_SUPPLY not current-verified",
+      "why": "SEL path never current-verified (functional gap even if voltage-covered)",
+      "recommended_run": {
+        "stimulus": "SEL toggle, all candidate supplies live",
+        "pins": [
+          "VPWR_SEL",
+          "VPWR",
+          "FUN_DC",
+          "ISO",
+          "MOST_POS",
+          "V_SUPPLY"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "selected supply path unproven; possible untested-mux bug"
+    }
+  ],
+  "decision": {
+    "option_1_provide_runs": [
+      {
+        "id": "R1",
+        "stimulus": "enter STARTUP",
+        "pins": [
+          "EN_LDO=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R2",
+        "stimulus": "enter DROPOUT",
+        "pins": [
+          "EN_LDO=1",
+          "V_SUPPLY->dropout"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R3",
+        "stimulus": "enter FAULT",
+        "pins": [
+          "fault-inject"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R4",
+        "stimulus": "enter SCAN",
+        "pins": [
+          "SCAN_MODE_VSUPPLY=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R5",
+        "stimulus": "DISABLED->STARTUP event",
+        "pins": [
+          "EN_LDO=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R6",
+        "stimulus": "DROPOUT->REGULATION_HP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R7",
+        "stimulus": "DROPOUT->REGULATION_LP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R8",
+        "stimulus": "FAULT->DISABLED event",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R9",
+        "stimulus": "REGULATION_HP->DISABLED event",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R10",
+        "stimulus": "REGULATION_HP->DROPOUT event",
+        "pins": [
+          "EN_LDO=1",
+          "V_SUPPLY->dropout"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R11",
+        "stimulus": "REGULATION_HP->FAULT event",
+        "pins": [
+          "fault-inject"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R12",
+        "stimulus": "REGULATION_LP->DISABLED event",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R13",
+        "stimulus": "REGULATION_LP->DROPOUT event",
+        "pins": [
+          "EN_LDO=1",
+          "V_SUPPLY->dropout"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R14",
+        "stimulus": "REGULATION_LP->FAULT event",
+        "pins": [
+          "fault-inject"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R15",
+        "stimulus": "STARTUP->REGULATION_HP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R16",
+        "stimulus": "STARTUP->REGULATION_LP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R17",
+        "stimulus": "SEL toggle w/ candidates live",
+        "pins": [
+          "VPWR_SEL",
+          "VPWR",
+          "FUN_DC",
+          "ISO",
+          "MOST_POS",
+          "V_SUPPLY"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      }
+    ],
+    "option_2_proceed_limitations": [
+      "state STARTUP not characterized (no run enters it)",
+      "state DROPOUT not characterized (no run enters it)",
+      "state FAULT not characterized (no run enters it)",
+      "state SCAN not characterized (no run enters it)",
+      "transition DISABLED->STARTUP unverified",
+      "transition DROPOUT->REGULATION_HP unverified",
+      "transition DROPOUT->REGULATION_LP unverified",
+      "transition FAULT->DISABLED unverified",
+      "transition REGULATION_HP->DISABLED unverified",
+      "transition REGULATION_HP->DROPOUT unverified",
+      "transition REGULATION_HP->FAULT unverified",
+      "transition REGULATION_LP->DISABLED unverified",
+      "transition REGULATION_LP->DROPOUT unverified",
+      "transition REGULATION_LP->FAULT unverified",
+      "transition STARTUP->REGULATION_HP unverified",
+      "transition STARTUP->REGULATION_LP unverified",
+      "DISABLED dwell too short for steady-state fit",
+      "mux VPWR_SEL,VPWR,FUN_DC,ISO,MOST_POS,V_SUPPLY path not current-verified"
+    ]
+  },
+  "notices": []
+}

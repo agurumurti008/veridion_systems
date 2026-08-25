@@ -1,0 +1,219 @@
+// ============================================================================
+// VERA — Verification Engine for Runtime & Autonomous Checking
+// FILE: core/sv/vera_verilogams_monitor.vams
+// DESC: Verilog-AMS / Verilog-A analog monitor for AMS environments.
+//       Embeds parametric checks on analog nets, triggers VERA log events
+//       at threshold crossings — zero invasiveness to DUT.
+// VERSION: 1.0
+// TOOL:  Cadence Spectre AMS, Synopsys HSPICE RF, Mentor AMS Designer
+// ============================================================================
+
+`include "disciplines.vams"
+`include "constants.vams"
+
+// ============================================================================
+// MODULE: vera_voltage_monitor
+// Purpose: Monitor an analog net for min/max voltage bounds, trigger events
+// ============================================================================
+module vera_voltage_monitor #(
+  parameter real   vmin        = 0.0,      // V minimum
+  parameter real   vmax        = 1.8,      // V maximum
+  parameter real   filter_time = 1e-9,     // noise filter (s)
+  parameter string ip_name     = "UNKNOWN",
+  parameter string node_name   = "vout"
+) (
+  input  electrical monitor_node,
+  input  electrical gnd
+);
+  // Local parameters
+  real v_measured;
+  real t_violation;
+
+  analog begin
+    // Continuously measure voltage
+    v_measured = V(monitor_node, gnd);
+
+    // Upper limit check — trigger at crossing
+    @(above(V(monitor_node, gnd) - vmax, filter_time)) begin
+      $strobe("VERA_FAIL | IP=%s | CHECK=vera_%s_vmax | EXPECTED=<=%gV | ACTUAL=%gV | TIME=%g",
+              ip_name, node_name, vmax, v_measured, $abstime);
+    end
+
+    // Lower limit check
+    @(above(vmin - V(monitor_node, gnd), filter_time)) begin
+      $strobe("VERA_FAIL | IP=%s | CHECK=vera_%s_vmin | EXPECTED=>=%gV | ACTUAL=%gV | TIME=%g",
+              ip_name, node_name, vmin, v_measured, $abstime);
+    end
+  end
+
+endmodule
+
+// ============================================================================
+// MODULE: vera_current_monitor
+// Purpose: Monitor branch current against spec limits
+// ============================================================================
+module vera_current_monitor #(
+  parameter real   imin        = 0.0,
+  parameter real   imax        = 500e-6,
+  parameter real   filter_time = 10e-9,
+  parameter string ip_name     = "UNKNOWN",
+  parameter string branch_name = "ibranch"
+) (
+  input electrical p_node,
+  input electrical n_node
+);
+  real i_measured;
+
+  analog begin
+    i_measured = I(p_node, n_node);
+
+    @(above(I(p_node, n_node) - imax, filter_time)) begin
+      $strobe("VERA_FAIL | IP=%s | CHECK=vera_%s_imax | EXPECTED=<=%gA | ACTUAL=%gA | TIME=%g",
+              ip_name, branch_name, imax, i_measured, $abstime);
+    end
+
+    @(above(imin - I(p_node, n_node), filter_time)) begin
+      $strobe("VERA_FAIL | IP=%s | CHECK=vera_%s_imin | EXPECTED=>=%gA | ACTUAL=%gA | TIME=%g",
+              ip_name, branch_name, imin, i_measured, $abstime);
+    end
+  end
+
+endmodule
+
+// ============================================================================
+// MODULE: vera_frequency_monitor
+// Purpose: Monitors a signal's instantaneous frequency vs spec
+// Uses zero-crossing detection with period measurement
+// ============================================================================
+module vera_frequency_monitor #(
+  parameter real   fmin        = 950e6,
+  parameter real   fmax        = 1050e6,
+  parameter string ip_name     = "UNKNOWN",
+  parameter string sig_name    = "clkout",
+  parameter real   vthresh     = 0.9,
+  parameter int    settle_n    = 5       // skip first N periods during settling
+) (
+  input electrical clk_node,
+  input electrical gnd
+);
+  real t_rise_prev, t_rise_curr, measured_period, measured_freq;
+  integer n_edges;
+
+  analog begin
+    @(cross(V(clk_node, gnd) - vthresh, +1)) begin
+      n_edges = n_edges + 1;
+      t_rise_curr = $abstime;
+
+      if (n_edges > settle_n && t_rise_prev > 0) begin
+        measured_period = t_rise_curr - t_rise_prev;
+        measured_freq   = 1.0 / measured_period;
+
+        if (measured_freq < fmin) begin
+          $strobe("VERA_FAIL | IP=%s | CHECK=vera_%s_freq_low | EXPECTED=>=%gHz | ACTUAL=%gHz | TIME=%g",
+                  ip_name, sig_name, fmin, measured_freq, $abstime);
+        end
+        if (measured_freq > fmax) begin
+          $strobe("VERA_FAIL | IP=%s | CHECK=vera_%s_freq_high | EXPECTED=<=%gHz | ACTUAL=%gHz | TIME=%g",
+                  ip_name, sig_name, fmax, measured_freq, $abstime);
+        end
+      end
+
+      t_rise_prev = t_rise_curr;
+    end
+  end
+
+endmodule
+
+// ============================================================================
+// MODULE: vera_slew_monitor
+// Purpose: Measures rise/fall slew rate and checks against spec
+// ============================================================================
+module vera_slew_monitor #(
+  parameter real   slew_min_vns = 0.1,   // V/ns minimum
+  parameter real   slew_max_vns = 10.0,  // V/ns maximum
+  parameter real   vlo          = 0.18,  // 10% of 1.8V
+  parameter real   vhi          = 1.62,  // 90% of 1.8V
+  parameter string ip_name      = "UNKNOWN",
+  parameter string node_name    = "vout"
+) (
+  input electrical mon_node,
+  input electrical gnd
+);
+  real t_lo, t_hi, dt, slew;
+  integer rising;
+
+  analog begin
+    // Rising slew
+    @(cross(V(mon_node, gnd) - vlo, +1)) begin
+      t_lo  = $abstime;
+      rising = 1;
+    end
+
+    @(cross(V(mon_node, gnd) - vhi, +1)) begin
+      if (rising) begin
+        t_hi  = $abstime;
+        dt    = t_hi - t_lo;
+        slew  = (vhi - vlo) / (dt * 1e9);   // V/ns
+        if (slew < slew_min_vns || slew > slew_max_vns) begin
+          $strobe("VERA_FAIL | IP=%s | CHECK=vera_%s_rise_slew | EXPECTED=%g-%gV/ns | ACTUAL=%gV/ns | TIME=%g",
+                  ip_name, node_name, slew_min_vns, slew_max_vns, slew, $abstime);
+        end else begin
+          $strobe("VERA_PASS | IP=%s | CHECK=vera_%s_rise_slew | ACTUAL=%gV/ns | TIME=%g",
+                  ip_name, node_name, slew, $abstime);
+        end
+        rising = 0;
+      end
+    end
+  end
+
+endmodule
+
+// ============================================================================
+// MODULE: vera_settling_monitor
+// Purpose: Checks that vout settles within spec time and accuracy
+// ============================================================================
+module vera_settling_monitor #(
+  parameter real   vtarget       = 0.9,     // target voltage
+  parameter real   tolerance_pct = 1.0,     // ±1%
+  parameter real   max_settle_ns = 100.0,   // max settling time
+  parameter string ip_name       = "UNKNOWN",
+  parameter string node_name     = "vout"
+) (
+  input electrical mon_node,
+  input electrical gnd,
+  input logic      trigger          // digital trigger: rising = start settle timer
+);
+  real t_trigger, t_settled, settle_ns;
+  real vband_hi, vband_lo;
+  integer triggered, settled;
+
+  initial begin
+    vband_hi = vtarget * (1.0 + tolerance_pct / 100.0);
+    vband_lo = vtarget * (1.0 - tolerance_pct / 100.0);
+    triggered = 0;
+    settled   = 0;
+  end
+
+  always @(posedge trigger) begin
+    t_trigger = $realtime;
+    triggered = 1;
+    settled   = 0;
+  end
+
+  analog begin
+    if (triggered && !settled) begin
+      if (V(mon_node, gnd) >= vband_lo && V(mon_node, gnd) <= vband_hi) begin
+        settle_ns = ($abstime - t_trigger) * 1e9;
+        if (settle_ns > max_settle_ns) begin
+          $strobe("VERA_FAIL | IP=%s | CHECK=vera_%s_settling | EXPECTED=<=%gns | ACTUAL=%gns | TIME=%g",
+                  ip_name, node_name, max_settle_ns, settle_ns, $abstime);
+        end else begin
+          $strobe("VERA_PASS | IP=%s | CHECK=vera_%s_settling | ACTUAL=%gns | TIME=%g",
+                  ip_name, node_name, settle_ns, $abstime);
+        end
+        settled = 1;
+      end
+    end
+  end
+
+endmodule

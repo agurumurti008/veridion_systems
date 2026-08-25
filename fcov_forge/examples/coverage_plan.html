@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FCovForge — example_soc Coverage Plan</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --surface2: #22263a;
+    --border: #2d3148; --text: #e2e8f0; --muted: #64748b;
+    --accent: #6366f1; --accent2: #22d3ee; --green: #10b981;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif;
+          font-size: 14px; line-height: 1.6; }
+  a { color: var(--accent2); text-decoration: none; }
+  code { font-family: var(--font-mono); font-size: 12px; color: var(--accent2);
+          background: rgba(34,211,238,0.08); padding: 1px 5px; border-radius: 3px; }
+
+  /* Header */
+  .header { background: linear-gradient(135deg, #1a1d27 0%, #0f1629 100%);
+             border-bottom: 1px solid var(--border); padding: 24px 40px; }
+  .header h1 { font-size: 28px; font-weight: 700; color: var(--accent2);
+                letter-spacing: -0.5px; }
+  .header .sub { color: var(--muted); font-size: 13px; margin-top: 4px; }
+  .stats-row { display: flex; gap: 24px; margin-top: 16px; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border);
+                border-radius: 8px; padding: 12px 20px; text-align: center; }
+  .stat-card .num { font-size: 28px; font-weight: 700; color: var(--accent); }
+  .stat-card .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+  /* Nav sidebar */
+  .layout { display: flex; min-height: calc(100vh - 120px); }
+  .sidebar { width: 240px; background: var(--surface); border-right: 1px solid var(--border);
+              padding: 16px; position: sticky; top: 0; height: 100vh; overflow-y: auto;
+              flex-shrink: 0; }
+  .sidebar h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+                 color: var(--muted); margin-bottom: 8px; }
+  .nav-item { display: block; padding: 6px 10px; border-radius: 5px; color: var(--text);
+               font-size: 13px; cursor: pointer; transition: background 0.15s; }
+  .nav-item:hover { background: var(--surface2); }
+
+  /* Main */
+  .main { flex: 1; padding: 32px 40px; max-width: 1200px; }
+  .section-title { font-size: 20px; font-weight: 700; margin-bottom: 16px;
+                    color: var(--accent2); border-bottom: 1px solid var(--border);
+                    padding-bottom: 8px; }
+
+  /* Feature cards */
+  .feature-card { background: var(--surface); border: 1px solid var(--border);
+                   border-radius: 12px; margin-bottom: 24px; overflow: hidden; }
+  .feature-header { padding: 16px 20px; display: flex; justify-content: space-between;
+                     align-items: center; background: var(--surface2);
+                     border-bottom: 1px solid var(--border); }
+  .feature-title { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .feat-icon { color: var(--accent); font-size: 18px; }
+  .feat-name { font-size: 16px; color: var(--text); }
+  .feat-desc { padding: 10px 20px; color: var(--muted); font-size: 13px;
+                border-bottom: 1px solid var(--border); }
+  .feature-stats { display: flex; gap: 12px; }
+  .stat { font-size: 12px; color: var(--muted); background: var(--bg);
+           padding: 3px 10px; border-radius: 20px; border: 1px solid var(--border); }
+  .tag { font-size: 11px; background: rgba(99,102,241,0.15); color: var(--accent);
+          padding: 2px 8px; border-radius: 20px; border: 1px solid rgba(99,102,241,0.3); }
+  .source { font-size: 11px; color: var(--muted); }
+
+  /* CoverGroup */
+  .cg-list { padding: 12px 16px; }
+  .covergroup { margin-bottom: 10px; border: 1px solid var(--border);
+                 border-radius: 8px; overflow: hidden; }
+  .cg-header { padding: 10px 14px; background: var(--bg); cursor: pointer;
+                display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+                transition: background 0.15s; user-select: none; }
+  .cg-header:hover { background: var(--surface2); }
+  .toggle-icon { color: var(--muted); font-size: 10px; transition: transform 0.2s; }
+  .cg-header.open .toggle-icon { transform: rotate(90deg); }
+  .cg-name { font-weight: 600; color: var(--accent2); font-family: var(--font-mono); }
+  .cg-meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .cg-comment { font-size: 12px; }
+  .badge { font-size: 11px; background: var(--surface2); color: var(--muted);
+            padding: 2px 8px; border-radius: 20px; border: 1px solid var(--border); }
+  .badge.goal { color: var(--green); border-color: rgba(16,185,129,0.3);
+                 background: rgba(16,185,129,0.08); }
+
+  .cg-body { padding: 12px; background: var(--surface); }
+  .cg-body.collapsed { display: none; }
+
+  /* CoverPoint */
+  .coverpoint { margin-bottom: 12px; background: var(--bg);
+                 border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .cp-header { padding: 8px 12px; font-family: var(--font-mono);
+                font-size: 13px; border-bottom: 1px solid var(--border);
+                background: rgba(99,102,241,0.04); }
+  .cp-name { color: #a5b4fc; font-weight: 600; }
+  .var { color: #34d399; }
+  .iff { color: #fbbf24; font-size: 12px; }
+  .muted { color: var(--muted); font-size: 12px; }
+
+  /* Bin table */
+  .bin-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .bin-table th { text-align: left; padding: 6px 12px; color: var(--muted);
+                   font-weight: 500; border-bottom: 1px solid var(--border);
+                   background: var(--surface); }
+  .bin-table td { padding: 5px 12px; border-bottom: 1px solid rgba(45,49,72,0.5); }
+  .bin-table tr:last-child td { border-bottom: none; }
+  .bin-name { color: #fcd34d; }
+  .bin-comment { color: var(--muted); }
+
+  /* CG Crosses */
+  .cg-cross { padding: 8px 12px; font-size: 12px; background: rgba(219,39,119,0.05);
+               border: 1px solid rgba(219,39,119,0.15); border-radius: 5px;
+               margin-top: 8px; }
+  .cross-icon { color: #db2777; }
+
+  /* Feature Crosses section */
+  .feature-cross-card { background: var(--surface); border: 1px solid rgba(99,102,241,0.3);
+                         border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; }
+  .fc-name { font-size: 15px; margin-bottom: 8px; }
+  .fc-targets { display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+                 margin-bottom: 8px; font-size: 13px; }
+  .cross-addr { color: #c084fc; }
+
+  .section { margin-bottom: 48px; }
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>⬡ FCovForge Coverage Plan</h1>
+  <div class="sub">Project: <strong>example_soc</strong> &nbsp;·&nbsp; Generated: 2026-06-03 09:18</div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="num">3</div><div class="lbl">Features</div></div>
+    <div class="stat-card"><div class="num">7</div><div class="lbl">CoverGroups</div></div>
+    <div class="stat-card"><div class="num">15</div><div class="lbl">CoverPoints</div></div>
+    <div class="stat-card"><div class="num">63</div><div class="lbl">Bins</div></div>
+    <div class="stat-card"><div class="num">4</div><div class="lbl">Feature Crosses</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="sidebar">
+    <h3>Features</h3>
+    <a class="nav-item" href="#feat-dma_transfer">◈ dma_transfer</a><a class="nav-item" href="#feat-interrupt_handling">◈ interrupt_handling</a><a class="nav-item" href="#feat-power_management">◈ power_management</a>
+    <h3 style="margin-top:16px">Crosses</h3>
+    <a class="nav-item" href="#crosses">⊗ dma_width_x_irq_priority</a><a class="nav-item" href="#crosses">⊗ dma_mode_x_irq_nesting</a><a class="nav-item" href="#crosses">⊗ power_x_dma</a><a class="nav-item" href="#crosses">⊗ dma_dir_x_irq_src_x_power</a>
+  </div>
+
+  <div class="main">
+    <div class="section">
+      <div class="section-title">Features & Coverage Definitions</div>
+      
+        <div class="feature-card" id="feat-dma_transfer">
+            <div class="feature-header">
+                <div class="feature-title">
+                    <span class="feat-icon">◈</span>
+                    <strong class="feat-name">dma_transfer</strong>
+                    <span class="tag">dma</span><span class="tag">transfer</span><span class="tag">bus</span>
+                    <span class="source">📄 specs/dma_spec_v2.1.pdf</span>
+                </div>
+                <div class="feature-stats">
+                    <span class="stat">3 CoverGroups</span>
+                    <span class="stat">8 CoverPoints</span>
+                    <span class="stat">31 Bins</span>
+                </div>
+            </div>
+            <div class="feat-desc">DMA channel data transfer feature — covers width, burst, direction, and address alignment</div>
+            <div class="cg-list">
+            <div class="covergroup">
+                <div class="cg-header" onclick="toggleCG(this)">
+                    <span class="toggle-icon">▶</span>
+                    <span class="cg-name">data_width_cg</span>
+                    <span class="cg-meta">
+                        <code>@(posedge clk)</code>
+                        <code>iff (dma_enable)</code>
+                        <span class="badge">2 CPs</span>
+                        <span class="badge goal">goal=100%</span>
+                    </span>
+                    <span class="muted cg-comment"> — Covers all legal DMA transfer widths</span>
+                </div>
+                <div class="cg-body collapsed">
+                    
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">width_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">dma_width</code>
+                        <span class="muted"> — Transfer data width in bits</span>
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_8BIT</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>8</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_16BIT</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>16</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_32BIT</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>32</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_64BIT</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>64</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_128BIT</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>128</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_ILLEGAL_WIDTH</code></td>
+                        <td><span style="background:#dc2626;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">ILLEGAL</span></td>
+                        <td><code>0</code>, <code>1</code>, <code>2</code>, <code>4</code>, <code>7</code>, <code>9</code></td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">burst_len_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">dma_burst_len</code>
+                        <span class="muted"> — Number of beats in a burst</span>
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_SINGLE</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>1</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_SHORT</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>[2:4]</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_MEDIUM</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>[5:16]</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_LONG</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>[17:256]</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_MAX</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>256</code></td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                    
+                <div class="cg-cross">
+                    <span class="cross-icon">⊗</span> <strong>width_x_burst</strong>: <code>width_cp</code> × <code>burst_len_cp</code>
+                    <span class="muted"> — Cross width with burst length</span>
+                </div>
+                </div>
+            </div>
+            <div class="covergroup">
+                <div class="cg-header" onclick="toggleCG(this)">
+                    <span class="toggle-icon">▶</span>
+                    <span class="cg-name">transfer_mode_cg</span>
+                    <span class="cg-meta">
+                        <code>@(posedge clk)</code>
+                        <code>iff (dma_enable)</code>
+                        <span class="badge">3 CPs</span>
+                        <span class="badge goal">goal=100%</span>
+                    </span>
+                    <span class="muted cg-comment"> — Transfer direction, mode, and address increment</span>
+                </div>
+                <div class="cg-body collapsed">
+                    
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">direction_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">dma_direction</code>
+                        
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_MEM_TO_MEM</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>0</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_MEM_TO_PERIPH</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>1</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_PERIPH_TO_MEM</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>2</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_PERIPH_TO_PERIPH</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>3</code></td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">addr_increment_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">dma_addr_inc</code>
+                        
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_FIXED</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>0</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_INCREMENT</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>1</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_DECREMENT</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>2</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_AUTO</code></td>
+                        <td><span style="background:#6b7280;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">DEFAULT</span></td>
+                        <td><em>default</em></td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">state_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">dma_state</code>
+                        <span class="muted"> — DMA state machine — state transitions</span>
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_IDLE_TO_ACTIVE</code></td>
+                        <td><span style="background:#db2777;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">TRANS</span></td>
+                        <td><code>IDLE → ACTIVE</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_ACTIVE_TO_DONE</code></td>
+                        <td><span style="background:#db2777;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">TRANS</span></td>
+                        <td><code>ACTIVE → DONE</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_ACTIVE_TO_ERROR</code></td>
+                        <td><span style="background:#db2777;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">TRANS</span></td>
+                        <td><code>ACTIVE → ERROR</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_FULL_TRANSFER</code></td>
+                        <td><span style="background:#db2777;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">TRANS</span></td>
+                        <td><code>IDLE → ACTIVE → DONE | IDLE → ACTIVE → ACTIVE → DONE</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_ABORT_SEQ</code></td>
+                        <td><span style="background:#db2777;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">TRANS</span></td>
+                        <td><code>IDLE → ACTIVE → ERROR → IDLE</code></td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                    
+                </div>
+            </div>
+            <div class="covergroup">
+                <div class="cg-header" onclick="toggleCG(this)">
+                    <span class="toggle-icon">▶</span>
+                    <span class="cg-name">addr_alignment_cg</span>
+                    <span class="cg-meta">
+                        <code>@(posedge clk)</code>
+                        <code>iff (dma_start)</code>
+                        <span class="badge">3 CPs</span>
+                        <span class="badge goal">goal=100%</span>
+                    </span>
+                    <span class="muted cg-comment"> — Source and destination address alignment</span>
+                </div>
+                <div class="cg-body collapsed">
+                    
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">src_align_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">dma_src_addr[2:0]</code>
+                        
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_ALIGNED_8B</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>0</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_UNALIGNED</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>[1:7]</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_IGNORE_RSV</code></td>
+                        <td><span style="background:#d97706;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">IGNORE</span></td>
+                        <td><code>8</code>, <code>9</code>, <code>10</code>, <code>11</code>, <code>12</code>, <code>13</code>, <code>14</code>, <code>15</code></td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">dst_align_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">dma_dst_addr[2:0]</code>
+                        
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_ALIGNED_8B</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>0</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_UNALIGNED</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>[1:7]</code></td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">addr_wildcard_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">dma_src_addr[7:0]</code>
+                        <span class="muted"> — Wildcard-based address pattern coverage</span>
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_UPPER_HALF</code></td>
+                        <td><span style="background:#059669;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">WILD</span></td>
+                        <td><code>8'b1???????</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_LOWER_HALF</code></td>
+                        <td><span style="background:#059669;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">WILD</span></td>
+                        <td><code>8'b0???????</code></td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                    
+                </div>
+            </div></div>
+        </div>
+        <div class="feature-card" id="feat-interrupt_handling">
+            <div class="feature-header">
+                <div class="feature-title">
+                    <span class="feat-icon">◈</span>
+                    <strong class="feat-name">interrupt_handling</strong>
+                    <span class="tag">interrupt</span><span class="tag">isr</span><span class="tag">priority</span>
+                    <span class="source">📄 specs/interrupt_spec_v1.5.pdf</span>
+                </div>
+                <div class="feature-stats">
+                    <span class="stat">3 CoverGroups</span>
+                    <span class="stat">5 CoverPoints</span>
+                    <span class="stat">22 Bins</span>
+                </div>
+            </div>
+            <div class="feat-desc">Interrupt controller — priority, masking, nesting, and source coverage</div>
+            <div class="cg-list">
+            <div class="covergroup">
+                <div class="cg-header" onclick="toggleCG(this)">
+                    <span class="toggle-icon">▶</span>
+                    <span class="cg-name">priority_cg</span>
+                    <span class="cg-meta">
+                        <code>@(posedge clk)</code>
+                        <code>iff (irq_valid)</code>
+                        <span class="badge">2 CPs</span>
+                        <span class="badge goal">goal=100%</span>
+                    </span>
+                    <span class="muted cg-comment"> — Interrupt priority levels</span>
+                </div>
+                <div class="cg-body collapsed">
+                    
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">priority_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">irq_priority</code>
+                        
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_CRITICAL</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>0</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_HIGH</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>1</code>, <code>2</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_MEDIUM</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>[3:7]</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_LOW</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>[8:15]</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_DEFAULT_PRIO</code></td>
+                        <td><span style="background:#6b7280;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">DEFAULT</span></td>
+                        <td><em>default</em></td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">source_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">irq_source</code>
+                        <span class="muted"> — Interrupt source ID</span>
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_DMA_IRQ</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>0</code>, <code>1</code>, <code>2</code>, <code>3</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_UART_IRQ</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>4</code>, <code>5</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_SPI_IRQ</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>6</code>, <code>7</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_TIMER_IRQ</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>8</code>, <code>9</code>, <code>10</code>, <code>11</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_GPIO_IRQ</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>[12:31]</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_RSVD</code></td>
+                        <td><span style="background:#d97706;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">IGNORE</span></td>
+                        <td><code>[32:63]</code></td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                    
+                <div class="cg-cross">
+                    <span class="cross-icon">⊗</span> <strong>prio_x_source</strong>: <code>priority_cp</code> × <code>source_cp</code>
+                    <span class="muted"> — Priority vs source cross</span>
+                </div>
+                </div>
+            </div>
+            <div class="covergroup">
+                <div class="cg-header" onclick="toggleCG(this)">
+                    <span class="toggle-icon">▶</span>
+                    <span class="cg-name">mask_cg</span>
+                    <span class="cg-meta">
+                        <code>@(posedge clk)</code>
+                        
+                        <span class="badge">1 CPs</span>
+                        <span class="badge goal">goal=100%</span>
+                    </span>
+                    <span class="muted cg-comment"> — Interrupt mask register coverage</span>
+                </div>
+                <div class="cg-body collapsed">
+                    
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">mask_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">irq_mask</code>
+                        
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_ALL_UNMASKED</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>0</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_ALL_MASKED</code></td>
+                        <td><span style="background:#059669;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">WILD</span></td>
+                        <td><code>32'hFFFFFFFF</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_PARTIAL</code></td>
+                        <td><span style="background:#0891b2;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">AUTO</span></td>
+                        <td>auto (max=16)</td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                    
+                </div>
+            </div>
+            <div class="covergroup">
+                <div class="cg-header" onclick="toggleCG(this)">
+                    <span class="toggle-icon">▶</span>
+                    <span class="cg-name">nesting_cg</span>
+                    <span class="cg-meta">
+                        <code>@(posedge clk)</code>
+                        <code>iff (isr_active)</code>
+                        <span class="badge">2 CPs</span>
+                        <span class="badge goal">goal=100%</span>
+                    </span>
+                    <span class="muted cg-comment"> — Nested interrupt scenarios</span>
+                </div>
+                <div class="cg-body collapsed">
+                    
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">nest_depth_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">isr_nest_depth</code>
+                        
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_DEPTH_0</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>0</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_DEPTH_1</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>1</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_DEPTH_2</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>2</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_DEPTH_3_PLUS</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>[3:7]</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_OVERFLOW</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>8</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_ILLEGAL_DEPTH</code></td>
+                        <td><span style="background:#dc2626;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">ILLEGAL</span></td>
+                        <td><code>[9:255]</code></td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">nesting_state_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">isr_state</code>
+                        
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_PREEMPT</code></td>
+                        <td><span style="background:#db2777;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">TRANS</span></td>
+                        <td><code>ISR_ACTIVE → ISR_PREEMPT → ISR_RESUME</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_LATE_ARRIVAL</code></td>
+                        <td><span style="background:#db2777;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">TRANS</span></td>
+                        <td><code>ISR_ACTIVE → ISR_PENDING</code></td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                    
+                </div>
+            </div></div>
+        </div>
+        <div class="feature-card" id="feat-power_management">
+            <div class="feature-header">
+                <div class="feature-title">
+                    <span class="feat-icon">◈</span>
+                    <strong class="feat-name">power_management</strong>
+                    <span class="tag">power</span><span class="tag">clk_gate</span><span class="tag">retention</span>
+                    <span class="source">📄 specs/power_spec_v1.0.pdf</span>
+                </div>
+                <div class="feature-stats">
+                    <span class="stat">1 CoverGroups</span>
+                    <span class="stat">2 CoverPoints</span>
+                    <span class="stat">10 Bins</span>
+                </div>
+            </div>
+            <div class="feat-desc">Device power states and transitions</div>
+            <div class="cg-list">
+            <div class="covergroup">
+                <div class="cg-header" onclick="toggleCG(this)">
+                    <span class="toggle-icon">▶</span>
+                    <span class="cg-name">power_state_cg</span>
+                    <span class="cg-meta">
+                        <code>@(posedge clk)</code>
+                        
+                        <span class="badge">2 CPs</span>
+                        <span class="badge goal">goal=100%</span>
+                    </span>
+                    <span class="muted cg-comment"> — Power state machine coverage</span>
+                </div>
+                <div class="cg-body collapsed">
+                    
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">pstate_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">power_state</code>
+                        
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_ACTIVE</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>0</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_IDLE</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>1</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_SLEEP</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>2</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_DEEP_SLEEP</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>3</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_OFF</code></td>
+                        <td><span style="background:#2563eb;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">VALUES</span></td>
+                        <td><code>4</code></td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                <div class="coverpoint">
+                    <div class="cp-header">
+                        <span class="cp-name">pstate_trans_cp</span>
+                        <span class="muted"> coverpoint </span>
+                        <code class="var">power_state</code>
+                        
+                    </div>
+                    <table class="bin-table">
+                        <thead><tr><th>Bin</th><th>Type</th><th>Values</th><th>Notes</th></tr></thead>
+                        <tbody>
+                    <tr>
+                        <td><code class="bin-name">BIN_ACTIVE_TO_IDLE</code></td>
+                        <td><span style="background:#db2777;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">TRANS</span></td>
+                        <td><code>ACTIVE → IDLE</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_IDLE_TO_SLEEP</code></td>
+                        <td><span style="background:#db2777;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">TRANS</span></td>
+                        <td><code>IDLE → SLEEP</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_SLEEP_TO_DEEP</code></td>
+                        <td><span style="background:#db2777;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">TRANS</span></td>
+                        <td><code>SLEEP → DEEP_SLEEP</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_WAKE_FROM_SLEEP</code></td>
+                        <td><span style="background:#db2777;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">TRANS</span></td>
+                        <td><code>SLEEP → ACTIVE | DEEP_SLEEP → IDLE → ACTIVE</code></td>
+                        <td class="muted"></td>
+                    </tr>
+                    <tr>
+                        <td><code class="bin-name">BIN_FULL_POWER_CYCLE</code></td>
+                        <td><span style="background:#db2777;color:white;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600">TRANS</span></td>
+                        <td><code>ACTIVE → IDLE → SLEEP → DEEP_SLEEP → IDLE → ACTIVE</code></td>
+                        <td class="muted"></td>
+                    </tr></tbody>
+                    </table>
+                </div>
+                    
+                </div>
+            </div></div>
+        </div>
+    </div>
+
+    <div class="section" id="crosses">
+      <div class="section-title">Feature-Level Crosses</div>
+      
+        <div class="feature-cross-card">
+            <div class="fc-name"><span class="cross-icon">⊗</span> <strong>dma_width_x_irq_priority</strong></div>
+            <div class="fc-targets"><code class="cross-addr">dma_transfer.data_width_cg.width_cp</code> × <code class="cross-addr">interrupt_handling.priority_cg.priority_cp</code></div>
+            <div class="muted">Verify DMA transfer width behavior under all interrupt priority levels</div>
+            <div class="badge">goal=100%</div>
+        </div>
+        <div class="feature-cross-card">
+            <div class="fc-name"><span class="cross-icon">⊗</span> <strong>dma_mode_x_irq_nesting</strong></div>
+            <div class="fc-targets"><code class="cross-addr">dma_transfer.transfer_mode_cg</code> × <code class="cross-addr">interrupt_handling.nesting_cg</code></div>
+            <div class="muted">DMA transfer modes under nested interrupt scenarios</div>
+            <div class="badge">goal=90%</div>
+        </div>
+        <div class="feature-cross-card">
+            <div class="fc-name"><span class="cross-icon">⊗</span> <strong>power_x_dma</strong></div>
+            <div class="fc-targets"><code class="cross-addr">power_management.power_state_cg.pstate_cp</code> × <code class="cross-addr">dma_transfer.data_width_cg.width_cp</code></div>
+            <div class="muted">DMA transfer widths in different power states</div>
+            <div class="badge">goal=85%</div>
+        </div>
+        <div class="feature-cross-card">
+            <div class="fc-name"><span class="cross-icon">⊗</span> <strong>dma_dir_x_irq_src_x_power</strong></div>
+            <div class="fc-targets"><code class="cross-addr">dma_transfer.transfer_mode_cg.direction_cp</code> × <code class="cross-addr">interrupt_handling.priority_cg.source_cp</code> × <code class="cross-addr">power_management.power_state_cg.pstate_cp</code></div>
+            <div class="muted">Three-way cross: DMA direction, interrupt source, and power state</div>
+            <div class="badge">goal=80%</div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleCG(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
+  body.classList.toggle('collapsed');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# $table_model data for parameter Cc
+# columns: p_idx vdd temp value
+# p_idx: 0=FF, 1=SS, 2=TT
+0 2 -40 3.01839507e-11
+1 1.5 125 1.91149518e-11
+2 1.8 27 2.99999992e-11

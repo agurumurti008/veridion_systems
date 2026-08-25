@@ -1,0 +1,118 @@
+# SREF_LDO1V2_LP architecture questionnaire
+#
+# Every SREF-specific behavior the A+B build could NOT infer from the spec
+# JSON, the BLUT waveforms, or the pin names is listed here as a precise
+# question with the SAFE DEFAULT the model currently uses. Nothing below
+# was silently invented (template-honesty contract). Answering a question
+# updates: core/templates/pin_taxonomy.py (hooks), the LdoPmosTemplate
+# manifest defaults, and/or core/ab_integration/ab_codegen.py emission.
+
+uvlo:
+  question: >
+    What are the real UVLO thresholds on the 5 V input (rising/falling),
+    and is UVLO referenced to V_SUPPLY, VPWR, or the selected mux output?
+  safe_default: "V_uvlo_r = 3.6 V, V_uvlo_f = 3.4 V, referenced to V_SUPPLY"
+  affected: [LdoPmosTemplate manifest V_uvlo_r/V_uvlo_f]
+
+uvlo_override:
+  question: >
+    UVLO_GD_OR_OVERRIDE_MPOS — does driving it high FORCE uvlo_ok = 1
+    (override) regardless of V_in, does it merely report UVLO-good, and
+    which priority does it have against EN_UVLO_1V2?
+  safe_default: "observed as a status bit only; never forces uvlo_ok"
+  affected: [pin_taxonomy UVLO_GD_OR_OVERRIDE_MPOS, ABModel mode mapping]
+
+en_uvlo_1v2:
+  question: >
+    EN_UVLO_1V2 (spec fsm_role=ready) — is it an ENABLE INPUT to the UVLO
+    comparator or the comparator's READY OUTPUT?
+  safe_default: "treated as an observed ready/status bit (per spec fsm_role)"
+  affected: [pin_taxonomy EN_UVLO_1V2, FSM state naming]
+
+hp_lp_deltas:
+  question: >
+    What are the designed HP-vs-LP scaling factors for EA gm, EA slew
+    current, current limit, and quiescent current?
+  safe_default: "hp_gm_scale=3.0, hp_ilim_scale=2.0, lp_iq_scale=0.25
+    (fitted per corner when HP-state waveforms exist; these are the seeds)"
+  affected: [manifest hp_gm_scale/hp_ilim_scale/lp_iq_scale]
+
+supply_mux:
+  question: >
+    VPWR_SEL — exact mux semantics: which level selects VPWR vs V_SUPPLY,
+    is switchover make-before-break, and what is the switchover time?
+  safe_default: "ignored by the analog core; V_SUPPLY assumed the active
+    source at all times"
+  affected: [pin_taxonomy VPWR_SEL, ABModel pin_map, ab_codegen]
+
+output_mux:
+  question: >
+    PAD_VDD1V2_SEL — which node does the pad follow per level
+    (internal VDD_1V2 vs VDD_1V2_EXT), and is the regulator unloaded when
+    the external supply is selected?
+  safe_default: "ignored; internal VDD_1V2 assumed the regulated node"
+  affected: [pin_taxonomy PAD_VDD1V2_SEL, ABModel pin_map]
+
+isense:
+  question: >
+    SREF_EN_ISENSE_LDO1V2_MPOS / SREF_LDO_ISNS_DIS_MPOS — what is the
+    current-sense architecture (series shunt vs mirror), its burden
+    voltage/accuracy, and where does the sensed value leave the block?
+  safe_default: "isense modeled as ideal (zero burden) when enabled;
+    disable pin observed only"
+  affected: [pin_taxonomy isense pins, template odes if a burden exists]
+
+test_load:
+  question: >
+    SREF_ADD_LDO1V2_LOAD_MPOS — what load does it switch in (resistive or
+    current, value, ramp rate)?
+  safe_default: "adds 0 A (no-op) until the value is supplied"
+  affected: [pin_taxonomy test_load hook, ABModel simulate]
+
+scan_pins:
+  question: >
+    SCAN_MODE_VSUPPLY / EN_SCAN_MODE_MPOS / FS_V_SUPPLY_TO_MOST_POS —
+    what analog topology do the scan/test crossings force?
+  safe_default: "scan=1 treated as a DISABLED-class switch state with zero
+    analog deltas; FS crossing ignored"
+  affected: [state_delta_fitter switch-state rule, pin_taxonomy]
+
+trim:
+  question: >
+    Do IBIAS_SNK_25nA[2:0] act as a 3-bit trim word (and on what: V_ref,
+    I_q, I_lim?), or are they independent bias sinks? Is there any other
+    trim map (e.g. fuse-driven Vout trim)?
+  safe_default: "window-checked bias pins only; no trim dependence modeled"
+  affected: [manifest (new trim params), ab_codegen _ok windows]
+
+bias_windows:
+  question: >
+    What tolerance should the bias-pin _ok current windows use? The spec
+    gives max values (25 nA, 0.75 A); the emitted checks use
+    [min, 1.2*max].
+  safe_default: "[current_range.min, 1.2 * current_range.max]"
+  affected: [ABModel.ok_windows, ab_codegen _ok emission]
+
+ground_bounce_window:
+  question: >
+    AVSS/GND/PBKG carry degenerate [0, 0] ranges in the spec JSON — what
+    ground-bounce window should the <pin>_ok checks allow?
+  safe_default: "+/- 100 mV around 0"
+  affected: [ABModel.ok_windows, ab_codegen _ok emission]
+
+logic_domain_supplies:
+  question: >
+    The spec JSON does not name each logic pin's supply net. Connect-module
+    emission groups logic pins by identical voltage_range and references
+    the supply whose range covers the domain (preferring V_SUPPLY, ground
+    AVSS). Please confirm or supply an explicit pin -> (supply, ground)
+    map.
+  safe_default: "all [0, 5.5] V logic pins convert against V_SUPPLY/AVSS"
+  affected: [ab_codegen _domain_supply_nets]
+
+floop_pins:
+  question: >
+    floop_in/floop_out — confirm these are the STB loop-probe pair and are
+    shorted in mission mode (floop_in = floop_out = feedback node).
+  safe_default: "observed only; VFB used as the template feedback node"
+  affected: [pin_taxonomy floop_in/floop_out]

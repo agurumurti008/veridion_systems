@@ -1,0 +1,8 @@
+Complexity,Loss,Equation
+1,4.108071e-10,"4.0046257e-6"
+3,2.6363006e-10,"AVSS_I_idt * 0.3393371"
+5,2.1179455e-10,"(AVSS_I_idt * 0.04192746) / MOST_POS_idt"
+7,2.0381251e-10,"((AVSS_I_idt - -7.638193e-6) * 0.038146783) / MOST_POS_idt"
+9,2.0256503e-10,"(((AVSS_I_idt / MOST_POS_idt) - AVSS_I_idt) * 0.04676395) - -2.6226044e-6"
+11,2.0125228e-10,"(((AVSS_I_idt / MOST_POS_idt) - AVSS_I_idt) * 0.046153802) - (VDD_1V2_EXT_I - 2.6623356e-6)"
+12,2.0099823e-10,"((AVSS_I_idt / exp(MOST_POS_idt)) - -6.0791144e-6) * (0.045423817 / MOST_POS_idt)"

@@ -1,0 +1,717 @@
+{
+  "blut_path": "blut_files/regression_multi_corner_sref_ldo.bin",
+  "good_corners": 126,
+  "total_corners": 135,
+  "meta_key_kind": {
+    "corner": "categorical",
+    "temp": "continuous",
+    "vsup_max": "continuous"
+  },
+  "feature_names": [
+    "VPWR",
+    "VREF",
+    "FUN_DC",
+    "VDD_1V2_EXT",
+    "V_SUPPLY",
+<<<<<<< HEAD
+    "meta_corner=nn",
+    "meta_corner=ss",
+    "meta_corner=ww",
+=======
+    "meta_corner_nn",
+    "meta_corner_ss",
+    "meta_corner_ww",
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+    "meta_temp",
+    "meta_vsup_max"
+  ],
+  "output_names": [
+    "VDD_1V2",
+    "VPWR_I",
+    "FUN_DC_I",
+    "V_SUPPLY_I",
+    "VDD_1V2_EXT_I"
+  ],
+<<<<<<< HEAD
+  "states": {
+    "0": {
+      "name": "DISABLED",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.06814922620441186,
+        "SMT": 0.061140077793872157
+      },
+      "best_model": "SMT",
+      "symbolic_reference": {
+        "state": "DISABLED",
+        "state_id": 0
+=======
+  "equation_source": "linear",
+  "equation_parameters": {
+    "meta_corner_nn": 0.6259932034870619,
+    "meta_corner_ss": 0.24006684948379078,
+    "meta_corner_ww": 0.13393994702914735,
+    "meta_temp": -4.293647960265167,
+    "meta_vsup_max": 5.04992848711764
+  },
+  "states": {
+    "0": {
+      "name": "DISABLED",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.07065856862172698
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.00468134*VPWR + -0.3371*VREF + -0.00468134*FUN_DC + -0.00468134*V_SUPPLY + 0.342512*meta_corner_nn + -0.0529652*meta_corner_ss + 0.0248052*meta_corner_ww + -0.000497252*meta_temp + -0.0427433*meta_vsup_max + 0.314352",
+          "r2": 0.12726138154885835,
+          "source": "linear"
+        },
+        "VPWR_I": {
+          "equation": "0.000674408*VPWR + 0.0437707*VREF + 0.000674408*FUN_DC + 0.000674408*V_SUPPLY + -0.0234894*meta_corner_nn + -0.0179934*meta_corner_ss + -0.0165931*meta_corner_ww + -0.000113455*meta_temp + 0.0150349*meta_vsup_max + -0.0580758",
+          "r2": 0.12009408741816585,
+          "source": "linear"
+        },
+        "FUN_DC_I": {
+          "equation": "-1.53149e-05*VPWR + -0.000211149*VREF + -1.53149e-05*FUN_DC + -1.53149e-05*V_SUPPLY + 0.000384694*meta_corner_nn + 0.000411258*meta_corner_ss + 0.000507553*meta_corner_ww + 2.37007e-06*meta_temp + -0.000343235*meta_vsup_max + 0.00130351",
+          "r2": 0.05688378121185078,
+          "source": "linear"
+        },
+        "V_SUPPLY_I": {
+          "equation": "1.01248e-06*VPWR + 0.000218845*VREF + 1.01248e-06*FUN_DC + 1.01248e-06*V_SUPPLY + -3.68412e-05*meta_corner_nn + -2.9131e-05*meta_corner_ss + -7.19334e-05*meta_corner_ww + -2.5303e-07*meta_temp + 3.70151e-05*meta_vsup_max + -0.000137906",
+          "r2": 0.5779251846418206,
+          "source": "linear"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "1.56235e-08*VPWR + 1.12863e-07*VREF + 1.56235e-08*FUN_DC + 1.56235e-08*V_SUPPLY + -1.37144e-09*meta_corner_nn + -1.12686e-08*meta_corner_ss + 8.54243e-08*meta_corner_ww + -4.42565e-10*meta_temp + -7.2204e-08*meta_vsup_max + 7.27842e-08",
+          "r2": 0.13623999199867765,
+          "source": "linear"
+        }
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+      }
+    },
+    "1": {
+      "name": "REGULATION",
+<<<<<<< HEAD
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.043675092244166276,
+        "SMT": 1.2341967769450564
+      },
+      "best_model": "GPR",
+      "symbolic_reference": {
+        "state": "REGULATION",
+        "state_id": 1
+=======
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.03759394200348816
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.42086*VPWR + -0.243405*VREF + -0.0766068*FUN_DC + -2.35626*VDD_1V2_EXT + -0.0766068*V_SUPPLY + 0.464146*meta_corner_nn + -0.386717*meta_corner_ss + -0.425151*meta_corner_ww + -0.00248596*meta_temp + -0.0766068*meta_vsup_max + -0.347722",
+          "r2": 0.5721777768816714,
+          "source": "linear"
+        },
+        "VPWR_I": {
+          "equation": "-0.00396325*VPWR + 0.00843318*VREF + 0.00132766*FUN_DC + -0.00848656*VDD_1V2_EXT + 0.00132766*V_SUPPLY + -0.00175754*meta_corner_nn + 0.00864236*meta_corner_ss + 0.00516258*meta_corner_ww + 9.72403e-05*meta_temp + 0.00132766*meta_vsup_max + 0.0120474",
+          "r2": 0.18322853697834562,
+          "source": "linear"
+        },
+        "FUN_DC_I": {
+          "equation": "2.5299e-06*VPWR + -2.86404e-06*VREF + -2.53811e-07*FUN_DC + -1.11834e-05*VDD_1V2_EXT + -2.53811e-07*V_SUPPLY + -5.74085e-07*meta_corner_nn + -2.5864e-06*meta_corner_ss + -9.31002e-07*meta_corner_ww + -3.23067e-09*meta_temp + -2.53811e-07*meta_vsup_max + -4.09149e-06",
+          "r2": 0.07091649619321205,
+          "source": "linear"
+        },
+        "V_SUPPLY_I": {
+          "equation": "5.01789e-06*VPWR + -4.65026e-06*VREF + -1.07317e-07*FUN_DC + 8.26314e-05*VDD_1V2_EXT + -1.07317e-07*V_SUPPLY + -6.90621e-06*meta_corner_nn + 4.79188e-06*meta_corner_ss + -4.5289e-06*meta_corner_ww + 1.49711e-07*meta_temp + -1.07317e-07*meta_vsup_max + -6.64323e-06",
+          "r2": 0.18214717624794197,
+          "source": "linear"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "-2.17148e-07*VPWR + 2.61433e-06*VREF + -3.94861e-07*FUN_DC + 0.000114083*VDD_1V2_EXT + -3.94861e-07*V_SUPPLY + 1.88194e-06*meta_corner_nn + 9.39032e-07*meta_corner_ss + 9.13792e-07*meta_corner_ww + 1.24257e-08*meta_temp + -3.94861e-07*meta_vsup_max + 3.73476e-06",
+          "r2": 0.3448076998147074,
+          "source": "linear"
+        }
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+      }
+    },
+    "2": {
+      "name": "REGULATION_2",
+<<<<<<< HEAD
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.23500359291909767,
+        "SMT": 0.121201110706919
+      },
+      "best_model": "SMT",
+      "symbolic_reference": {
+        "state": "REGULATION_2",
+        "state_id": 2
+=======
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.20170629300177859
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "286.645*VPWR + -0.490544*VREF + -0.0456862*FUN_DC + -3.43931e-09*VDD_1V2_EXT + -143.121*V_SUPPLY + 0.349269*meta_corner_nn + -0.628177*meta_corner_ss + -0.421868*meta_corner_ww + 0.000529939*meta_temp + -143.121*meta_vsup_max + -0.700777",
+          "r2": 0.37576443182016694,
+          "source": "linear"
+        },
+        "VPWR_I": {
+          "equation": "-5.42207*VPWR + 0.00635863*VREF + -0.000409332*FUN_DC + 2.70955*V_SUPPLY + 0.00247187*meta_corner_nn + 0.00209399*meta_corner_ss + 0.0045179*meta_corner_ww + 1.28632e-06*meta_temp + 2.70955*meta_vsup_max + 0.00908376",
+          "r2": 0.08826239047389883,
+          "source": "linear"
+        },
+        "FUN_DC_I": {
+          "equation": "-4.59111*VPWR + 0.0174739*VREF + 0.00172497*FUN_DC + 2.29117*V_SUPPLY + 0.00908058*meta_corner_nn + 0.00821958*meta_corner_ss + 0.0076625*meta_corner_ww + -3.74607e-06*meta_temp + 2.29117*meta_vsup_max + 0.0249627",
+          "r2": 0.039742350323417,
+          "source": "linear"
+        },
+        "V_SUPPLY_I": {
+          "equation": "-0.0477343*VPWR + -6.18055e-05*VREF + 1.99703e-05*FUN_DC + 0.02388*V_SUPPLY + -6.38466e-05*meta_corner_nn + 1.59431e-05*meta_corner_ss + -4.03901e-05*meta_corner_ww + 2.4038e-07*meta_temp + 0.02388*meta_vsup_max + -8.82935e-05",
+          "r2": 0.4040279887578573,
+          "source": "linear"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "5.97363e-05*VPWR + -5.16249e-08*VREF + 9.8866e-09*FUN_DC + -2.98572e-05*V_SUPPLY + -3.04725e-08*meta_corner_nn + -7.64659e-09*meta_corner_ss + -3.56308e-08*meta_corner_ww + -2.98572e-05*meta_vsup_max + -7.37499e-08",
+          "r2": 0.05572323154457581,
+          "source": "linear"
+        }
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+      }
+    },
+    "3": {
+      "name": "REGULATION_3",
+<<<<<<< HEAD
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.013541856944350197,
+        "SMT": 14995.477268082992
+      },
+      "best_model": "GPR",
+      "symbolic_reference": {
+        "state": "REGULATION_3",
+        "state_id": 3
+=======
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.005410431186924251
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "169.956*VPWR + 0.264947*VREF + -56.6403*FUN_DC + 9.13147e-10*VDD_1V2_EXT + -56.6403*V_SUPPLY + 0.331749*meta_corner_nn + -0.0155907*meta_corner_ss + 0.0623365*meta_corner_ww + 0.00308559*meta_temp + -56.6403*meta_vsup_max + 0.378495",
+          "r2": 0.18344541515802015,
+          "source": "linear"
+        },
+        "VPWR_I": {
+          "equation": "-47.9613*VPWR + 0.0112847*VREF + 15.985*FUN_DC + -2.57677e-10*VDD_1V2_EXT + 15.985*V_SUPPLY + -0.000511433*meta_corner_nn + 0.00971831*meta_corner_ss + 0.00691416*meta_corner_ww + 2.84024e-05*meta_temp + 15.985*meta_vsup_max + 0.016121",
+          "r2": 0.5484083798632,
+          "source": "linear"
+        },
+        "FUN_DC_I": {
+          "equation": "36.0618*VPWR + 0.00310647*VREF + -12.0133*FUN_DC + 1.93725e-10*VDD_1V2_EXT + -12.0133*V_SUPPLY + -0.00649332*meta_corner_nn + 0.012555*meta_corner_ss + -0.00162386*meta_corner_ww + 0.000313123*meta_temp + -12.0133*meta_vsup_max + 0.00443781",
+          "r2": 0.30855062120206755,
+          "source": "linear"
+        },
+        "V_SUPPLY_I": {
+          "equation": "-0.0526782*VPWR + 1.17555e-05*VREF + 0.0175576*FUN_DC + 0.0175576*V_SUPPLY + 6.55985e-06*meta_corner_nn + 5.86338e-06*meta_corner_ss + 4.3704e-06*meta_corner_ww + 1.6256e-08*meta_temp + 0.0175576*meta_vsup_max + 1.67936e-05",
+          "r2": 0.6642632521036902,
+          "source": "linear"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "0.000330381*VPWR + -6.83388e-08*VREF + -0.000110114*FUN_DC + -0.000110114*V_SUPPLY + 4.91841e-09*meta_corner_nn + -5.8342e-08*meta_corner_ss + -4.42032e-08*meta_corner_ww + -0.000110114*meta_vsup_max + -9.76268e-08",
+          "r2": 0.44477496560797725,
+          "source": "linear"
+        }
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+      }
+    },
+    "4": {
+      "name": "REGULATION_4",
+<<<<<<< HEAD
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.003142253491054268,
+        "SMT": 0.003386258957548841
+      },
+      "best_model": "GPR",
+      "symbolic_reference": {
+        "state": "REGULATION_4",
+        "state_id": 4
+=======
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.00332579742100175
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.0230376*VPWR + 0.0519324*VREF + 0.0230376*FUN_DC + 0.0230376*V_SUPPLY + 0.367411*meta_corner_nn + -0.0623395*meta_corner_ss + -0.230882*meta_corner_ww + 0.00503502*meta_temp + 0.0230376*meta_vsup_max + 0.0741891",
+          "r2": 0.5693496429097593,
+          "source": "linear"
+        },
+        "VPWR_I": {
+          "equation": "-1.48165e-06*VPWR + 1.07106e-05*VREF + -1.48165e-06*FUN_DC + -1.48165e-06*V_SUPPLY + -1.80971e-06*meta_corner_nn + 7.62728e-06*meta_corner_ss + 9.48333e-06*meta_corner_ww + -1.71179e-07*meta_temp + -1.48165e-06*meta_vsup_max + 1.53009e-05",
+          "r2": 0.4718631525872683,
+          "source": "linear"
+        },
+        "FUN_DC_I": {
+          "equation": "0.0119513*VPWR + -0.0576996*VREF + 0.0119513*FUN_DC + 0.0119513*V_SUPPLY + 0.0187451*meta_corner_nn + -0.0283202*meta_corner_ss + -0.0728529*meta_corner_ww + 0.00130517*meta_temp + 0.0119513*meta_vsup_max + -0.082428",
+          "r2": 0.5159143376640996,
+          "source": "linear"
+        },
+        "V_SUPPLY_I": {
+          "equation": "8.82428e-08*VPWR + -6.58135e-07*VREF + 8.82428e-08*FUN_DC + 8.82428e-08*V_SUPPLY + -3.15191e-07*meta_corner_nn + -1.50894e-07*meta_corner_ss + -4.74107e-07*meta_corner_ww + 4.6638e-09*meta_temp + 8.82428e-08*meta_vsup_max + -9.40193e-07",
+          "r2": 0.9262303155637629,
+          "source": "linear"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "-6.70047e-09*VPWR + 3.07028e-08*VREF + -6.70047e-09*FUN_DC + -6.70047e-09*V_SUPPLY + 6.45584e-08*meta_corner_nn + 7.24066e-08*meta_corner_ss + -9.31038e-08*meta_corner_ww + 3.03309e-10*meta_temp + -6.70047e-09*meta_vsup_max + 4.38612e-08",
+          "r2": 0.17400389905407998,
+          "source": "linear"
+        }
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+      }
+    },
+    "5": {
+      "name": "REGULATION_5",
+<<<<<<< HEAD
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.021120538529771,
+        "SMT": 0.02788196044143442
+      },
+      "best_model": "GPR",
+      "symbolic_reference": {
+        "state": "REGULATION_5",
+        "state_id": 5
+=======
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.04910154731521148
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.974884*VPWR + -0.623153*VREF + 0.457305*FUN_DC + 0.457305*V_SUPPLY + 0.046606*meta_corner_nn + -0.216145*meta_corner_ss + -0.72068*meta_corner_ww + 0.000905853*meta_temp + 0.457305*meta_vsup_max + -0.890219",
+          "r2": 0.14674893447593695,
+          "source": "linear"
+        },
+        "VPWR_I": {
+          "equation": "0.0127462*VPWR + -0.0277594*VREF + 0.0049877*FUN_DC + 0.0049877*V_SUPPLY + -0.0737642*meta_corner_nn + 0.0474682*meta_corner_ss + -0.0133603*meta_corner_ww + 5.18337e-05*meta_temp + 0.0049877*meta_vsup_max + -0.0396562",
+          "r2": 0.510636360154544,
+          "source": "linear"
+        },
+        "FUN_DC_I": {
+          "equation": "-2.68613e-06*VPWR + 7.95089e-06*VREF + -6.12377e-07*FUN_DC + -6.12377e-07*V_SUPPLY + 5.74988e-06*meta_corner_nn + -7.15157e-07*meta_corner_ss + 6.32369e-06*meta_corner_ww + 2.3993e-08*meta_temp + -6.12377e-07*meta_vsup_max + 1.13584e-05",
+          "r2": 0.34175004372168194,
+          "source": "linear"
+        },
+        "V_SUPPLY_I": {
+          "equation": "2.36833e-05*VPWR + -1.88433e-05*VREF + -3.99929e-06*FUN_DC + -3.99929e-06*V_SUPPLY + 9.80631e-06*meta_corner_nn + -1.85709e-05*meta_corner_ss + -1.81544e-05*meta_corner_ww + 8.03282e-08*meta_temp + -3.99929e-06*meta_vsup_max + -2.69189e-05",
+          "r2": 0.07140151689386187,
+          "source": "linear"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "4.39221e-08*VPWR + 1.53275e-07*VREF + -4.38167e-08*FUN_DC + -4.38167e-08*V_SUPPLY + 5.5811e-08*meta_corner_nn + 1.16194e-07*meta_corner_ss + 4.69586e-08*meta_corner_ww + 1.05076e-09*meta_temp + -4.38167e-08*meta_vsup_max + 2.18964e-07",
+          "r2": 0.02956802834886041,
+          "source": "linear"
+        }
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+      }
+    },
+    "6": {
+      "name": "DISABLED_2",
+<<<<<<< HEAD
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.039429960775539216,
+        "SMT": 0.03307564186588823
+      },
+      "best_model": "SMT",
+      "symbolic_reference": {
+        "state": "DISABLED_2",
+        "state_id": 6
+=======
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.04311821773063103
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.03369*VPWR + -0.111512*VREF + -0.03369*FUN_DC + -0.03369*V_SUPPLY + 0.879404*meta_corner_nn + -0.472225*meta_corner_ss + -0.566481*meta_corner_ww + 0.00157277*meta_temp + -0.03369*meta_vsup_max + -0.159302",
+          "r2": 0.5904285389858861,
+          "source": "linear"
+        },
+        "VPWR_I": {
+          "equation": "-0.00207654*VPWR + 0.0371427*VREF + -0.00207654*FUN_DC + -0.00207654*V_SUPPLY + -0.0141216*meta_corner_nn + 0.0288851*meta_corner_ss + 0.0382975*meta_corner_ww + -0.000166247*meta_temp + -0.00207654*meta_vsup_max + 0.0530611",
+          "r2": 0.0941285506213857,
+          "source": "linear"
+        },
+        "FUN_DC_I": {
+          "equation": "-0.000118762*VPWR + 0.000922793*VREF + -0.000118762*FUN_DC + -0.000118762*V_SUPPLY + 0.000204319*meta_corner_nn + 0.000989778*meta_corner_ss + 0.000124178*meta_corner_ww + 3.71477e-06*meta_temp + -0.000118762*meta_vsup_max + 0.00131828",
+          "r2": 0.03887156946942805,
+          "source": "linear"
+        },
+        "V_SUPPLY_I": {
+          "equation": "3.35555e-05*VPWR + -0.000174485*VREF + 3.35555e-05*FUN_DC + 3.35555e-05*V_SUPPLY + -9.38481e-05*meta_corner_nn + -8.3757e-06*meta_corner_ss + -0.00014704*meta_corner_ww + -5.05867e-07*meta_temp + 3.35555e-05*meta_vsup_max + -0.000249264",
+          "r2": 0.43013950228500053,
+          "source": "linear"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "-1.48893e-08*VPWR + 9.17635e-08*VREF + -1.48893e-08*FUN_DC + -1.48893e-08*V_SUPPLY + -1.55068e-08*meta_corner_nn + 2.84707e-07*meta_corner_ss + -1.3811e-07*meta_corner_ww + 2.55085e-09*meta_temp + -1.48893e-08*meta_vsup_max + 1.31091e-07",
+          "r2": 0.11887241053228059,
+          "source": "linear"
+        }
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+      }
+    },
+    "7": {
+      "name": "REGULATION_6",
+<<<<<<< HEAD
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.0009385348458617369,
+        "SMT": 0.0004986881636287534
+      },
+      "best_model": "SMT",
+      "symbolic_reference": {
+        "state": "REGULATION_6",
+        "state_id": 7
+=======
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.004454456038461893
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.0603476*VPWR + -0.70828*VREF + 0.0603476*FUN_DC + 0.0603476*V_SUPPLY + 1.36258*meta_corner_nn + -1.21731*meta_corner_ss + -1.1571*meta_corner_ww + 0.00112776*meta_temp + 0.0603476*meta_vsup_max + -1.01183",
+          "r2": 0.9888315308778031,
+          "source": "linear"
+        },
+        "VPWR_I": {
+          "equation": "-0.000323112*VPWR + 0.0103328*VREF + -0.000323112*FUN_DC + -0.000323112*V_SUPPLY + 0.000440004*meta_corner_nn + 0.00981746*meta_corner_ss + 0.00450368*meta_corner_ww + 6.81095e-05*meta_temp + -0.000323112*meta_vsup_max + 0.0147611",
+          "r2": 0.3864215983143584,
+          "source": "linear"
+        },
+        "FUN_DC_I": {
+          "equation": "-1.95082e-06*VPWR + 1.59095e-05*VREF + -1.95082e-06*FUN_DC + -1.95082e-06*V_SUPPLY + 8.37308e-06*meta_corner_nn + 8.36129e-06*meta_corner_ss + 5.99345e-06*meta_corner_ww + 1.39047e-09*meta_temp + -1.95082e-06*meta_vsup_max + 2.27278e-05",
+          "r2": 0.6805612421275755,
+          "source": "linear"
+        },
+        "V_SUPPLY_I": {
+          "equation": "3.08854e-09*VPWR + -2.15088e-09*VREF + 3.08854e-09*FUN_DC + 3.08854e-09*V_SUPPLY + -1.53459e-08*meta_corner_nn + 6.29378e-08*meta_corner_ss + -5.06646e-08*meta_corner_ww + 1.18166e-09*meta_temp + 3.08854e-09*meta_vsup_max + -3.07268e-09",
+          "r2": 0.3464422922655376,
+          "source": "linear"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "4.91006e-09*VPWR + -1.79944e-08*VREF + 4.91006e-09*FUN_DC + 4.91006e-09*V_SUPPLY + -2.84648e-08*meta_corner_nn + 5.52282e-08*meta_corner_ss + -5.24697e-08*meta_corner_ww + 3.67186e-10*meta_temp + 4.91006e-09*meta_vsup_max + -2.57063e-08",
+          "r2": 0.2144151297575041,
+          "source": "linear"
+        }
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+      }
+    },
+    "8": {
+      "name": "REGULATION_7",
+<<<<<<< HEAD
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.0004175324418478586,
+        "SMT": 0.000256235240678887
+      },
+      "best_model": "SMT",
+      "symbolic_reference": {
+        "state": "REGULATION_7",
+        "state_id": 8
+=======
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.0003903759637080567
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.0657784*VPWR + -0.758403*VREF + 0.0657784*FUN_DC + 0.0657784*V_SUPPLY + 1.30699*meta_corner_nn + -1.17485*meta_corner_ss + -1.21557*meta_corner_ww + 0.000777008*meta_temp + 0.0657784*meta_vsup_max + -1.08343",
+          "r2": 0.9921527051878495,
+          "source": "linear"
+        },
+        "VPWR_I": {
+          "equation": "-0.000760225*VPWR + 0.0142232*VREF + -0.000760225*FUN_DC + -0.000760225*V_SUPPLY + 0.00274536*meta_corner_nn + 0.012399*meta_corner_ss + 0.00517459*meta_corner_ww + 0.000106128*meta_temp + -0.000760225*meta_vsup_max + 0.0203189",
+          "r2": 0.6635303103243329,
+          "source": "linear"
+        },
+        "FUN_DC_I": {
+          "equation": "-2.78052e-06*VPWR + 2.17147e-05*VREF + -2.78052e-06*FUN_DC + -2.78052e-06*V_SUPPLY + 1.45351e-05*meta_corner_nn + 8.16824e-06*meta_corner_ss + 8.3177e-06*meta_corner_ww + 2.28278e-08*meta_temp + -2.78052e-06*meta_vsup_max + 3.1021e-05",
+          "r2": 0.7001591107776642,
+          "source": "linear"
+        },
+        "V_SUPPLY_I": {
+          "equation": "6.63165e-09*VPWR + -4.02366e-08*VREF + 6.63165e-09*FUN_DC + 6.63165e-09*V_SUPPLY + -2.01767e-08*meta_corner_nn + 4.81034e-08*meta_corner_ss + -8.54076e-08*meta_corner_ww + 8.72495e-10*meta_temp + 6.63165e-09*meta_vsup_max + -5.74809e-08",
+          "r2": 0.18847710994997235,
+          "source": "linear"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "7.4168e-09*VPWR + -2.73991e-08*VREF + 7.4168e-09*FUN_DC + 7.4168e-09*V_SUPPLY + -4.42022e-08*meta_corner_nn + 1.28609e-07*meta_corner_ss + -1.23548e-07*meta_corner_ww + 8.1422e-10*meta_temp + 7.4168e-09*meta_vsup_max + -3.91416e-08",
+          "r2": 0.504898018334694,
+          "source": "linear"
+        }
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+      }
+    },
+    "9": {
+      "name": "REGULATION_8",
+<<<<<<< HEAD
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.0013463175157073736,
+        "SMT": 0.001509383417600495
+      },
+      "best_model": "GPR",
+      "symbolic_reference": {
+        "state": "REGULATION_8",
+        "state_id": 9
+=======
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.002901252271268086
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.124892*VPWR + -1.25471*VREF + 0.124892*FUN_DC + 0.124892*V_SUPPLY + 1.18469*meta_corner_nn + -1.39292*meta_corner_ss + -1.5842*meta_corner_ww + 0.0037015*meta_temp + 0.124892*meta_vsup_max + -1.79244",
+          "r2": 0.9623753713765869,
+          "source": "linear"
+        },
+        "VPWR_I": {
+          "equation": "-0.000836997*VPWR + 0.0142818*VREF + -0.000836997*FUN_DC + -0.000836997*V_SUPPLY + 0.00532474*meta_corner_nn + 0.0125099*meta_corner_ss + 0.00256798*meta_corner_ww + 0.000111106*meta_temp + -0.000836997*meta_vsup_max + 0.0204026",
+          "r2": 0.4995557399609052,
+          "source": "linear"
+        },
+        "FUN_DC_I": {
+          "equation": "-3.3197e-06*VPWR + 2.53797e-05*VREF + -3.3197e-06*FUN_DC + -3.3197e-06*V_SUPPLY + 1.63748e-05*meta_corner_nn + 6.49793e-06*meta_corner_ss + 1.3384e-05*meta_corner_ww + -1.40808e-08*meta_temp + -3.3197e-06*meta_vsup_max + 3.62567e-05",
+          "r2": 0.9522275692456857,
+          "source": "linear"
+        },
+        "V_SUPPLY_I": {
+          "equation": "-1.87254e-09*VREF + 3.9443e-10*meta_corner_nn + -3.92171e-10*meta_corner_ss + -2.67731e-09*meta_corner_ww + -2.67506e-09",
+          "r2": 0.7297303895662541,
+          "source": "linear"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "1.18748e-08*VPWR + -8.66325e-08*VREF + 1.18748e-08*FUN_DC + 1.18748e-08*V_SUPPLY + 2.80835e-08*meta_corner_nn + 1.29985e-07*meta_corner_ss + -2.81829e-07*meta_corner_ww + 1.97902e-09*meta_temp + 1.18748e-08*meta_vsup_max + -1.23761e-07",
+          "r2": 0.46455233092756987,
+          "source": "linear"
+        }
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+      }
+    },
+    "10": {
+      "name": "REGULATION_9",
+<<<<<<< HEAD
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.0015195508228590063,
+        "SMT": 0.000509779605179665
+      },
+      "best_model": "SMT",
+      "symbolic_reference": {
+        "state": "REGULATION_9",
+        "state_id": 10
+=======
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.0005326295336878368
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.0701622*VPWR + -0.82312*VREF + 0.0701622*FUN_DC + 0.0701622*V_SUPPLY + 1.19261*meta_corner_nn + -1.15576*meta_corner_ss + -1.21274*meta_corner_ww + 0.00193459*meta_temp + 0.0701622*meta_vsup_max + -1.17589",
+          "r2": 0.9571370360901907,
+          "source": "linear"
+        },
+        "VPWR_I": {
+          "equation": "0.00141782*VPWR + -0.00294989*VREF + 0.00141782*FUN_DC + 0.00141782*V_SUPPLY + -0.00778553*meta_corner_nn + 0.00473424*meta_corner_ss + -0.00116284*meta_corner_ww + 8.01251e-05*meta_temp + 0.00141782*meta_vsup_max + -0.00421413",
+          "r2": 0.7481517373349091,
+          "source": "linear"
+        },
+        "FUN_DC_I": {
+          "equation": "-5.5158e-07*VPWR + 4.23704e-06*VREF + -5.5158e-07*FUN_DC + -5.5158e-07*V_SUPPLY + 1.43313e-06*meta_corner_nn + 2.6179e-06*meta_corner_ss + 2.00188e-06*meta_corner_ww + 8.2141e-09*meta_temp + -5.5158e-07*meta_vsup_max + 6.05291e-06",
+          "r2": 0.23697707887492947,
+          "source": "linear"
+        },
+        "V_SUPPLY_I": {
+          "equation": "2.89703e-08*VPWR + -2.14716e-07*VREF + 2.89703e-08*FUN_DC + 2.89703e-08*V_SUPPLY + -1.46783e-07*meta_corner_nn + 8.68509e-10*meta_corner_ss + -1.60822e-07*meta_corner_ww + 8.73958e-10*meta_temp + 2.89703e-08*meta_vsup_max + -3.06737e-07",
+          "r2": 0.3751187611647814,
+          "source": "linear"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "1.16324e-08*VPWR + -6.919e-08*VREF + 1.16324e-08*FUN_DC + 1.16324e-08*V_SUPPLY + -7.83539e-08*meta_corner_nn + 8.60233e-08*meta_corner_ss + -1.06512e-07*meta_corner_ww + 5.74519e-10*meta_temp + 1.16324e-08*meta_vsup_max + -9.88429e-08",
+          "r2": 0.5287953230254172,
+          "source": "linear"
+        }
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+      }
+    },
+    "11": {
+      "name": "REGULATION_10",
+<<<<<<< HEAD
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.000622350343981098,
+        "SMT": 8.554012953559467e-06
+      },
+      "best_model": "SMT",
+      "symbolic_reference": {
+        "state": "REGULATION_10",
+        "state_id": 11
+=======
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 1.2457559234472384e-05
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.02799*VPWR + -0.513283*VREF + 0.02799*FUN_DC + 0.02799*V_SUPPLY + 1.27667*meta_corner_nn + -0.981639*meta_corner_ss + -1.02829*meta_corner_ww + 0.00264515*meta_temp + 0.02799*meta_vsup_max + -0.733262",
+          "r2": 0.9440326018779608,
+          "source": "linear"
+        },
+        "VPWR_I": {
+          "equation": "0.000601074*VPWR + 0.00271649*VREF + 0.000601074*FUN_DC + 0.000601074*V_SUPPLY + -0.00655*meta_corner_nn + 0.00763826*meta_corner_ss + 0.00279244*meta_corner_ww + 9.08862e-05*meta_temp + 0.000601074*meta_vsup_max + 0.00388069",
+          "r2": 0.7111357773361474,
+          "source": "linear"
+        },
+        "FUN_DC_I": {
+          "equation": "-3.43804e-08*VPWR + 3.08066e-07*VREF + -3.43804e-08*FUN_DC + -3.43804e-08*V_SUPPLY + 4.68066e-07*meta_corner_nn + 2.10908e-08*meta_corner_ss + -4.90622e-08*meta_corner_ww + 4.85982e-09*meta_temp + -3.43804e-08*meta_vsup_max + 4.40095e-07",
+          "r2": 0.011984794737610271,
+          "source": "linear"
+        },
+        "V_SUPPLY_I": {
+          "equation": "4.83045e-08*VPWR + -3.60714e-07*VREF + 4.83045e-08*FUN_DC + 4.83045e-08*V_SUPPLY + -2.15832e-07*meta_corner_nn + -7.85862e-08*meta_corner_ss + -2.20888e-07*meta_corner_ww + 9.39671e-10*meta_temp + 4.83045e-08*meta_vsup_max + -5.15306e-07",
+          "r2": 0.28783296067355857,
+          "source": "linear"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "-4.9695e-09*VPWR + 4.96515e-08*VREF + -4.9695e-09*FUN_DC + -4.9695e-09*V_SUPPLY + -5.50076e-08*meta_corner_nn + 1.61642e-07*meta_corner_ss + -3.57039e-08*meta_corner_ww + 9.56256e-10*meta_temp + -4.9695e-09*meta_vsup_max + 7.09307e-08",
+          "r2": 0.572693049036238,
+          "source": "linear"
+        }
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+      }
+    },
+    "12": {
+      "name": "REGULATION_11",
+<<<<<<< HEAD
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.00015475138375553596,
+        "SMT": 0.00013418654882155152
+      },
+      "best_model": "SMT",
+      "symbolic_reference": {
+        "state": "REGULATION_11",
+        "state_id": 12
+=======
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.00017177137963135067
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.0283434*VPWR + -0.513803*VREF + 0.0283434*FUN_DC + 0.0283434*V_SUPPLY + 1.31769*meta_corner_nn + -1.01032*meta_corner_ss + -1.04137*meta_corner_ww + 0.0024505*meta_temp + 0.0283434*meta_vsup_max + -0.734005",
+          "r2": 0.9441264936034505,
+          "source": "linear"
+        },
+        "VPWR_I": {
+          "equation": "-0.000415034*VPWR + 0.00320648*VREF + -0.000415034*FUN_DC + -0.000415034*V_SUPPLY + -0.000141913*meta_corner_nn + 0.00255738*meta_corner_ss + 0.00216521*meta_corner_ww + 1.75232e-05*meta_temp + -0.000415034*meta_vsup_max + 0.00458068",
+          "r2": 0.0165412384070166,
+          "source": "linear"
+        },
+        "FUN_DC_I": {
+          "equation": "0.000932792*VPWR + -0.00292507*VREF + 0.000932792*FUN_DC + 0.000932792*V_SUPPLY + -0.00348609*meta_corner_nn + 0.00192566*meta_corner_ss + -0.00261824*meta_corner_ww + 3.05667e-05*meta_temp + 0.000932792*meta_vsup_max + -0.00417867",
+          "r2": 0.05208033748175578,
+          "source": "linear"
+        },
+        "V_SUPPLY_I": {
+          "equation": "4.9459e-06*VPWR + -8.67543e-06*VREF + 4.9459e-06*FUN_DC + 4.9459e-06*V_SUPPLY + -8.97941e-06*meta_corner_nn + 1.56516e-05*meta_corner_ss + -1.90656e-05*meta_corner_ww + -8.83186e-08*meta_temp + 4.9459e-06*meta_vsup_max + -1.23935e-05",
+          "r2": 0.06596056679406959,
+          "source": "linear"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "1.66368e-09*VPWR + 1.86951e-08*VREF + 1.66368e-09*FUN_DC + 1.66368e-09*V_SUPPLY + -1.1601e-07*meta_corner_nn + 1.999e-07*meta_corner_ss + -5.71822e-08*meta_corner_ww + 1.43541e-09*meta_temp + 1.66368e-09*meta_vsup_max + 2.67073e-08",
+          "r2": 0.530218410786768,
+          "source": "linear"
+        }
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+      }
+    },
+    "13": {
+      "name": "REGULATION_12",
+<<<<<<< HEAD
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 1.2582275197667269e-06,
+        "SMT": 6.464348874081551e-06
+      },
+      "best_model": "GPR",
+      "symbolic_reference": {
+        "state": "REGULATION_12",
+        "state_id": 13
+=======
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 5.247311838201406e-06
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.0296271*VPWR + -0.534494*VREF + 0.0296271*FUN_DC + 0.0296271*V_SUPPLY + 1.26539*meta_corner_nn + -0.994444*meta_corner_ss + -1.03451*meta_corner_ww + 0.00262607*meta_temp + 0.0296271*meta_vsup_max + -0.763562",
+          "r2": 0.9372231722550428,
+          "source": "linear"
+        },
+        "VPWR_I": {
+          "equation": "-1.00247e-06*VPWR + 7.82325e-06*VREF + -1.00247e-06*FUN_DC + -1.00247e-06*V_SUPPLY + 6.04158e-06*meta_corner_nn + -2.78853e-07*meta_corner_ss + 5.41334e-06*meta_corner_ww + -5.43524e-08*meta_temp + -1.00247e-06*meta_vsup_max + 1.11761e-05",
+          "r2": 0.19805957105137606,
+          "source": "linear"
+        },
+        "FUN_DC_I": {
+          "equation": "0.000965294*VPWR + 0.000157409*VREF + 0.000965294*FUN_DC + 0.000965294*V_SUPPLY + -0.00750708*meta_corner_nn + 0.0069691*meta_corner_ss + 0.000762854*meta_corner_ww + 9.51815e-05*meta_temp + 0.000965294*meta_vsup_max + 0.000224871",
+          "r2": 0.7609113169276931,
+          "source": "linear"
+        },
+        "V_SUPPLY_I": {
+          "equation": "4.01662e-08*VPWR + -3.03517e-07*VREF + 4.01662e-08*FUN_DC + 4.01662e-08*V_SUPPLY + -1.84618e-07*meta_corner_nn + -5.08755e-08*meta_corner_ss + -1.98103e-07*meta_corner_ww + 9.39801e-10*meta_temp + 4.01662e-08*meta_vsup_max + -4.33596e-07",
+          "r2": 0.313090783705702,
+          "source": "linear"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "-1.04435e-09*VPWR + 2.28008e-08*VREF + -1.04435e-09*FUN_DC + -1.04435e-09*V_SUPPLY + -6.16527e-08*meta_corner_nn + 1.54779e-07*meta_corner_ss + -6.05538e-08*meta_corner_ww + 9.32806e-10*meta_temp + -1.04435e-09*meta_vsup_max + 3.25726e-08",
+          "r2": 0.6078293395313263,
+          "source": "linear"
+        }
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+      }
+    }
+  },
+  "fsm_validation": {
+    "reachability": true,
+    "completeness": true,
+    "determinism": true,
+    "speckg_coverage": 0.25
+<<<<<<< HEAD
+  }
+=======
+  },
+  "analog_skeleton_equations_embedded": true
+>>>>>>> 7928143 (updated code to add pinn, pysr and slowness)
+}

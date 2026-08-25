@@ -1,0 +1,8 @@
+Complexity,Loss,Equation
+1,5.124002e-11,"-4.802672e-6"
+3,3.9375392e-11,"MOST_POS_I_idt / -0.029282376"
+5,3.194235e-11,"MOST_POS_I_idt / (MOST_POS_idt * -0.1876001)"
+7,2.8891186e-11,"MOST_POS_I_idt / ((MOST_POS_idt * -0.17687455) - ISO_I)"
+9,2.7621318e-11,"(((meta_vsup_max * MOST_POS_I_idt) / MOST_POS_idt) / -0.66736585) - -3.504947e-6"
+10,2.7146788e-11,"MOST_POS_I_idt / ((V_SUPPLY_idt * -0.20249641) / exp(meta_corner))"
+11,2.1298375e-11,"(((MOST_POS_I_idt * V_SUPPLY) / V_SUPPLY_idt) / (meta_corner + -0.788054)) - -4.3131868e-6"

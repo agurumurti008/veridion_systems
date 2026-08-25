@@ -1,0 +1,7 @@
+Complexity,Loss,Equation
+1,2.7277387e-11,"5.5941996e-7"
+3,2.5970032e-11,"VDD_1V2_EXT_I_idt / -0.0002621527"
+5,2.414832e-11,"(meta_temp * VDD_1V2_EXT_I_idt) / -0.011170451"
+7,1.8634734e-11,"(VDD_1V2_EXT_I_idt / (VPWR_idt + -0.15424047)) / VPWR_idt"
+9,1.8545722e-11,"((VDD_1V2_EXT_I_idt * 1.1258842) / (V_SUPPLY_idt + -0.15424047)) / MOST_POS_idt"
+11,1.3062193e-11,"(1.1258842 * ((-0.6003273 * floop_out_I) / (-0.15424047 + MOST_POS_idt))) / MOST_POS_idt"

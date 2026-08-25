@@ -1,0 +1,8 @@
+Complexity,Loss,Equation
+1,1.1516641e-10,"-2.0040177e-6"
+3,9.573905e-11,"-0.0001821667 / meta_temp"
+5,9.558575e-11,"-0.0001821667 / (meta_temp - meta_corner)"
+7,9.5233876e-11,"(meta_temp * MOST_POS_I_idt) * (4.510337 - V_SUPPLY)"
+8,9.331524e-11,"-0.0001821667 / (meta_temp / exp(meta_corner))"
+9,9.16109e-11,"(meta_temp * MOST_POS_I_idt) * ((meta_corner + 4.510337) - V_SUPPLY)"
+11,8.964054e-11,"(MOST_POS_I_idt * (meta_temp * (4.4083676 - (MOST_POS - meta_corner)))) + -1.4204401e-6"

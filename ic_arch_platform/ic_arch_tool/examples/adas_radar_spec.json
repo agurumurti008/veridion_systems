@@ -1,0 +1,21 @@
+{
+  "_comment": "Example 2: Automotive ADAS perception chip",
+  "app_domain": "radar_chip",
+  "process_node": "7nm",
+  "supply_voltage": 0.85,
+  "target_frequency": 2000.0,
+  "power_budget": 15000.0,
+  "area_budget": 200.0,
+  "interface_standards": ["Ethernet", "CAN"],
+  "performance_targets": {
+    "range_m": 300,
+    "velocity_mps": 80,
+    "angular_res_deg": 0.5,
+    "object_detection_fps": 100
+  },
+  "reliability_targets": {
+    "iso26262_asil": "D",
+    "mtbf_hours": 200000
+  },
+  "operating_temp_range": [-40, 105]
+}

@@ -1,0 +1,216 @@
+{
+  "blut_path": "blut_files/regression_multi_corner_sref_ldo.bin",
+  "good_corners": 126,
+  "total_corners": 135,
+  "meta_key_kind": {
+    "corner": "categorical",
+    "temp": "continuous",
+    "vsup_max": "continuous"
+  },
+  "feature_names": [
+    "VPWR",
+    "EN_LDO",
+    "VPWR_SEL",
+    "HIGH_POWER_MODE",
+    "meta_corner=nn",
+    "meta_corner=ss",
+    "meta_corner=ww",
+    "meta_temp",
+    "meta_vsup_max"
+  ],
+  "output_names": [
+    "VDD_1V2",
+    "VPWR_I",
+    "FUN_DC_I"
+  ],
+  "states": {
+    "0": {
+      "name": "DISABLED",
+      "n_samples": 600,
+      "metrics": {
+        "GPR": 0.14618185212687,
+        "SMT": 0.22359905917294634
+      },
+      "best_model": "GPR",
+      "symbolic_reference": {
+        "state": "DISABLED",
+        "state_id": 0
+      }
+    },
+    "1": {
+      "name": "REGULATION",
+      "n_samples": 600,
+      "metrics": {
+        "GPR": 0.12486907056176516,
+        "SMT": 0.9313818926476805
+      },
+      "best_model": "GPR",
+      "symbolic_reference": {
+        "state": "REGULATION",
+        "state_id": 1
+      }
+    },
+    "2": {
+      "name": "REGULATION_2",
+      "n_samples": 600,
+      "metrics": {
+        "GPR": 0.2433760743056151,
+        "SMT": 0.4271660445542104
+      },
+      "best_model": "GPR",
+      "symbolic_reference": {
+        "state": "REGULATION_2",
+        "state_id": 2
+      }
+    },
+    "3": {
+      "name": "REGULATION_3",
+      "n_samples": 600,
+      "metrics": {
+        "GPR": 0.037661977183451996,
+        "SMT": 0.03753276383917825
+      },
+      "best_model": "SMT",
+      "symbolic_reference": {
+        "state": "REGULATION_3",
+        "state_id": 3
+      }
+    },
+    "4": {
+      "name": "REGULATION_4",
+      "n_samples": 600,
+      "metrics": {
+        "GPR": 0.012488687766709385,
+        "SMT": 0.018359752165973287
+      },
+      "best_model": "GPR",
+      "symbolic_reference": {
+        "state": "REGULATION_4",
+        "state_id": 4
+      }
+    },
+    "5": {
+      "name": "REGULATION_5",
+      "n_samples": 600,
+      "metrics": {
+        "GPR": 0.14883872222270733,
+        "SMT": 0.23069938185287356
+      },
+      "best_model": "GPR",
+      "symbolic_reference": {
+        "state": "REGULATION_5",
+        "state_id": 5
+      }
+    },
+    "6": {
+      "name": "DISABLED_2",
+      "n_samples": 600,
+      "metrics": {
+        "GPR": 0.004704956412916874,
+        "SMT": 0.00696497220173344
+      },
+      "best_model": "GPR",
+      "symbolic_reference": {
+        "state": "DISABLED_2",
+        "state_id": 6
+      }
+    },
+    "7": {
+      "name": "REGULATION_6",
+      "n_samples": 600,
+      "metrics": {
+        "GPR": 0.00551465320752583,
+        "SMT": 0.0006834360557077983
+      },
+      "best_model": "SMT",
+      "symbolic_reference": {
+        "state": "REGULATION_6",
+        "state_id": 7
+      }
+    },
+    "8": {
+      "name": "REGULATION_7",
+      "n_samples": 600,
+      "metrics": {
+        "GPR": 0.00648041929847325,
+        "SMT": 0.0004880108114782395
+      },
+      "best_model": "SMT",
+      "symbolic_reference": {
+        "state": "REGULATION_7",
+        "state_id": 8
+      }
+    },
+    "9": {
+      "name": "REGULATION_8",
+      "n_samples": 600,
+      "metrics": {
+        "GPR": 0.0029791470512352683,
+        "SMT": 0.0009430143035065343
+      },
+      "best_model": "SMT",
+      "symbolic_reference": {
+        "state": "REGULATION_8",
+        "state_id": 9
+      }
+    },
+    "10": {
+      "name": "REGULATION_9",
+      "n_samples": 600,
+      "metrics": {
+        "GPR": 0.005064679920158024,
+        "SMT": 0.003334960698173858
+      },
+      "best_model": "SMT",
+      "symbolic_reference": {
+        "state": "REGULATION_9",
+        "state_id": 10
+      }
+    },
+    "11": {
+      "name": "REGULATION_10",
+      "n_samples": 600,
+      "metrics": {
+        "GPR": 1.181964261379209e-05,
+        "SMT": 5.146548958264087e-06
+      },
+      "best_model": "SMT",
+      "symbolic_reference": {
+        "state": "REGULATION_10",
+        "state_id": 11
+      }
+    },
+    "12": {
+      "name": "REGULATION_11",
+      "n_samples": 600,
+      "metrics": {
+        "GPR": 8.431617221273342e-05,
+        "SMT": 0.0002572157715316012
+      },
+      "best_model": "GPR",
+      "symbolic_reference": {
+        "state": "REGULATION_11",
+        "state_id": 12
+      }
+    },
+    "13": {
+      "name": "REGULATION_12",
+      "n_samples": 600,
+      "metrics": {
+        "GPR": 9.566387989538728e-07,
+        "SMT": 1.4148671585907156e-06
+      },
+      "best_model": "GPR",
+      "symbolic_reference": {
+        "state": "REGULATION_12",
+        "state_id": 13
+      }
+    }
+  },
+  "fsm_validation": {
+    "reachability": true,
+    "completeness": true,
+    "determinism": true,
+    "speckg_coverage": 0.25
+  }
+}

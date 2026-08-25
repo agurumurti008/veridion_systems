@@ -1,0 +1,53 @@
+# ============================================================================
+# VERA IP Specification — UART
+# FILE: examples/uart/uart_spec.yaml
+# ============================================================================
+
+ip_name:     UART_16550
+ip_type:     uart
+environment: dms
+block_name:  UART_TOP
+version:     1.0
+
+clock:
+  freq_mhz:  100.0
+  freq_tol:  0.02
+
+uart:
+  baud_div:    16
+  data_bits:   8
+  stop_bits:   1
+  parity:      NONE
+  baud_rate:   115200
+
+digital_bounds:
+  - signal: uart_tx
+    width:  1
+    min:    0
+    max:    1
+  - signal: uart_rx
+    width:  1
+    min:    0
+    max:    1
+  - signal: tx_fifo_count
+    width:  5
+    min:    0
+    max:    16
+
+parametric_checks:
+  - name:    vera_uart_tx_idle_high
+    signal:  uart_tx
+    measure: max
+    min:     1
+    max:     1
+    unit:    ""
+  
+integration:
+  sim_tool:  xcelium
+  uvm:       true
+  formal:    true
+
+report:
+  format:           json
+  path:             ./vera_reports/
+  waveform_loader:  simvision

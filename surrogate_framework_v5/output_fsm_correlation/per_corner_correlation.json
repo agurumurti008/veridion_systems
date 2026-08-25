@@ -1,0 +1,1348 @@
+{
+  "blut_path": "blut_files/regression_multi_corner_ldo.bin",
+  "fsm_strategy": "hybrid",
+  "findings": [
+    {
+      "analyzer": "per_corner_fsm_correlate",
+      "category": "meta-run_id-mismatch",
+      "severity": "high",
+      "summary": "RunMeta.meta disagrees with the run_id-encoded corner for 25/27 runs \u2014 meta is not a trustworthy per-run corner source for this file",
+      "evidence": {
+        "affected_run_ids": [
+          "corner_nn_n40c_vsup_4p5",
+          "corner_nn_27c_vsup_4p5",
+          "corner_nn_125c_vsup_4p5",
+          "corner_nn_n40c_vsup_5",
+          "corner_nn_27c_vsup_5",
+          "corner_nn_n40c_vsup_5p5",
+          "corner_nn_125c_vsup_5",
+          "corner_nn_27c_vsup_5p5",
+          "corner_nn_125c_vsup_5p5",
+          "corner_ss_n40c_vsup_4p5"
+        ],
+        "n_affected": 25,
+        "n_total": 27
+      },
+      "affected_pins": [],
+      "affected_states": [],
+      "recommended_action": "treat run_id (not meta) as ground truth for corner/temp/vsup in this BLUT file"
+    },
+    {
+      "analyzer": "per_corner_fsm_correlate",
+      "category": "corner-outlier",
+      "severity": "medium",
+      "summary": "corner_nn_27c_vsup_4p5: FSM validation: completeness=False",
+      "evidence": {
+        "run_id": "corner_nn_27c_vsup_4p5",
+        "n_signals": 32,
+        "ntime": 1657
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "DISABLED",
+        "REGULATION"
+      ],
+      "recommended_action": "inspect this corner's raw BLUT signals for truncated/missing capture before trusting its FSM/spec results"
+    },
+    {
+      "analyzer": "per_corner_fsm_correlate",
+      "category": "corner-outlier",
+      "severity": "medium",
+      "summary": "corner_ss_27c_vsup_4p5: FSM validation: completeness=False",
+      "evidence": {
+        "run_id": "corner_ss_27c_vsup_4p5",
+        "n_signals": 19,
+        "ntime": 2357
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "DISABLED",
+        "STARTUP",
+        "STARTUP_2",
+        "STARTUP_3",
+        "STARTUP_4"
+      ],
+      "recommended_action": "inspect this corner's raw BLUT signals for truncated/missing capture before trusting its FSM/spec results"
+    },
+    {
+      "analyzer": "per_corner_fsm_correlate",
+      "category": "corner-outlier",
+      "severity": "medium",
+      "summary": "corner_ss_n40c_vsup_5: FSM validation: completeness=False",
+      "evidence": {
+        "run_id": "corner_ss_n40c_vsup_5",
+        "n_signals": 19,
+        "ntime": 1030
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "DISABLED",
+        "UVLO"
+      ],
+      "recommended_action": "inspect this corner's raw BLUT signals for truncated/missing capture before trusting its FSM/spec results"
+    }
+  ],
+  "corners": [
+    {
+      "run_id": "corner_nn_n40c_vsup_4p5",
+      "corner_id": "",
+      "process": "nn",
+      "temp": "n40",
+      "vsup": "4p5",
+      "run_id_parsed": true,
+      "n_signals": 59,
+      "signal_completeness_pct": 115.7,
+      "ntime": 32916,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 5,
+      "state_names": [
+        "DISABLED",
+        "REGULATION",
+        "REGULATION_2",
+        "REGULATION_3",
+        "REGULATION_4"
+      ],
+      "output_signature_summary": {
+        "DISABLED": {
+          "EN_UVLO_1V2": 0.34972677595628415
+        },
+        "REGULATION": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_2": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_3": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_4": {
+          "EN_UVLO_1V2": 1.0
+        }
+      },
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "UVLO",
+        "STARTUP",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_nn_27c_vsup_4p5",
+      "corner_id": "",
+      "process": "nn",
+      "temp": "27",
+      "vsup": "4p5",
+      "run_id_parsed": true,
+      "n_signals": 32,
+      "signal_completeness_pct": 62.7,
+      "ntime": 1657,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 2,
+      "state_names": [
+        "DISABLED",
+        "REGULATION"
+      ],
+      "output_signature_summary": {
+        "DISABLED": {
+          "EN_UVLO_1V2": 0.4092920353982301
+        },
+        "REGULATION": {
+          "EN_UVLO_1V2": 1.0
+        }
+      },
+      "reachability": true,
+      "completeness": false,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "UVLO",
+        "STARTUP",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": true,
+      "outlier_reasons": [
+        "FSM validation: completeness=False"
+      ]
+    },
+    {
+      "run_id": "corner_nn_125c_vsup_4p5",
+      "corner_id": "",
+      "process": "nn",
+      "temp": "125",
+      "vsup": "4p5",
+      "run_id_parsed": true,
+      "n_signals": 35,
+      "signal_completeness_pct": 68.6,
+      "ntime": 1597,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 5,
+      "state_names": [
+        "DISABLED",
+        "UVLO",
+        "STARTUP",
+        "REGULATION",
+        "HIGH_POWER_MODE"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.625,
+      "missing_states": [
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_nn_n40c_vsup_5",
+      "corner_id": "",
+      "process": "nn",
+      "temp": "n40",
+      "vsup": "5",
+      "run_id_parsed": true,
+      "n_signals": 27,
+      "signal_completeness_pct": 52.9,
+      "ntime": 125599,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 2,
+      "state_names": [
+        "DISABLED",
+        "UVLO"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "STARTUP",
+        "REGULATION",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_nn_27c_vsup_5",
+      "corner_id": "",
+      "process": "nn",
+      "temp": "27",
+      "vsup": "5",
+      "run_id_parsed": true,
+      "n_signals": 35,
+      "signal_completeness_pct": 68.6,
+      "ntime": 3897,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 3,
+      "state_names": [
+        "DISABLED",
+        "STARTUP",
+        "STARTUP_2"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "UVLO",
+        "REGULATION",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_nn_n40c_vsup_5p5",
+      "corner_id": "",
+      "process": "nn",
+      "temp": "n40",
+      "vsup": "5p5",
+      "run_id_parsed": true,
+      "n_signals": 19,
+      "signal_completeness_pct": 37.3,
+      "ntime": 2938,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 2,
+      "state_names": [
+        "DISABLED",
+        "UVLO"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "STARTUP",
+        "REGULATION",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_nn_125c_vsup_5",
+      "corner_id": "",
+      "process": "nn",
+      "temp": "125",
+      "vsup": "5",
+      "run_id_parsed": true,
+      "n_signals": 27,
+      "signal_completeness_pct": 52.9,
+      "ntime": 2418,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 4,
+      "state_names": [
+        "DISABLED",
+        "STARTUP",
+        "STARTUP_2",
+        "STARTUP_3"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "UVLO",
+        "REGULATION",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_nn_27c_vsup_5p5",
+      "corner_id": "",
+      "process": "nn",
+      "temp": "27",
+      "vsup": "5p5",
+      "run_id_parsed": true,
+      "n_signals": 35,
+      "signal_completeness_pct": 68.6,
+      "ntime": 3918,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 7,
+      "state_names": [
+        "REGULATION",
+        "UVLO",
+        "STARTUP",
+        "REGULATION_2",
+        "REGULATION_3",
+        "REGULATION_4",
+        "OVERRIDE"
+      ],
+      "output_signature_summary": {
+        "REGULATION": {
+          "EN_UVLO_1V2": 0.8806896551724138
+        },
+        "UVLO": {
+          "EN_UVLO_1V2": 0.0
+        },
+        "STARTUP": {
+          "EN_UVLO_1V2": 0.0
+        },
+        "REGULATION_2": {
+          "EN_UVLO_1V2": 0.3091334894613583
+        },
+        "REGULATION_3": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_4": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "OVERRIDE": {
+          "EN_UVLO_1V2": 0.28654970760233917
+        }
+      },
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.5,
+      "missing_states": [
+        "DISABLED",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_nn_125c_vsup_5p5",
+      "corner_id": "",
+      "process": "nn",
+      "temp": "125",
+      "vsup": "5p5",
+      "run_id_parsed": true,
+      "n_signals": 43,
+      "signal_completeness_pct": 84.3,
+      "ntime": 2579,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 4,
+      "state_names": [
+        "DISABLED",
+        "REGULATION",
+        "REGULATION_2",
+        "REGULATION_3"
+      ],
+      "output_signature_summary": {
+        "DISABLED": {
+          "EN_UVLO_1V2": 0.4243119266055046
+        },
+        "REGULATION": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_2": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_3": {
+          "EN_UVLO_1V2": 1.0
+        }
+      },
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "UVLO",
+        "STARTUP",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ss_n40c_vsup_4p5",
+      "corner_id": "",
+      "process": "ss",
+      "temp": "n40",
+      "vsup": "4p5",
+      "run_id_parsed": true,
+      "n_signals": 19,
+      "signal_completeness_pct": 37.3,
+      "ntime": 3954,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 2,
+      "state_names": [
+        "DISABLED",
+        "UVLO"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "STARTUP",
+        "REGULATION",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ss_27c_vsup_4p5",
+      "corner_id": "",
+      "process": "ss",
+      "temp": "27",
+      "vsup": "4p5",
+      "run_id_parsed": true,
+      "n_signals": 19,
+      "signal_completeness_pct": 37.3,
+      "ntime": 2357,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 5,
+      "state_names": [
+        "DISABLED",
+        "STARTUP",
+        "STARTUP_2",
+        "STARTUP_3",
+        "STARTUP_4"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": false,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "UVLO",
+        "REGULATION",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": true,
+      "outlier_reasons": [
+        "FSM validation: completeness=False"
+      ]
+    },
+    {
+      "run_id": "corner_ss_125c_vsup_4p5",
+      "corner_id": "",
+      "process": "ss",
+      "temp": "125",
+      "vsup": "4p5",
+      "run_id_parsed": true,
+      "n_signals": 27,
+      "signal_completeness_pct": 52.9,
+      "ntime": 3198,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 3,
+      "state_names": [
+        "DISABLED",
+        "STARTUP",
+        "STARTUP_2"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "UVLO",
+        "REGULATION",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ss_n40c_vsup_5",
+      "corner_id": "",
+      "process": "ss",
+      "temp": "n40",
+      "vsup": "5",
+      "run_id_parsed": true,
+      "n_signals": 19,
+      "signal_completeness_pct": 37.3,
+      "ntime": 1030,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 2,
+      "state_names": [
+        "DISABLED",
+        "UVLO"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": false,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "STARTUP",
+        "REGULATION",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": true,
+      "outlier_reasons": [
+        "FSM validation: completeness=False"
+      ]
+    },
+    {
+      "run_id": "corner_ss_27c_vsup_5",
+      "corner_id": "",
+      "process": "ss",
+      "temp": "27",
+      "vsup": "5",
+      "run_id_parsed": true,
+      "n_signals": 35,
+      "signal_completeness_pct": 68.6,
+      "ntime": 3934,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 3,
+      "state_names": [
+        "DISABLED",
+        "REGULATION",
+        "STARTUP"
+      ],
+      "output_signature_summary": {
+        "DISABLED": {
+          "EN_UVLO_1V2": 0.0
+        },
+        "REGULATION": {
+          "EN_UVLO_1V2": 0.9925742574257426
+        },
+        "STARTUP": {
+          "EN_UVLO_1V2": 0.3053435114503817
+        }
+      },
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.375,
+      "missing_states": [
+        "UVLO",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ss_125c_vsup_5",
+      "corner_id": "",
+      "process": "ss",
+      "temp": "125",
+      "vsup": "5",
+      "run_id_parsed": true,
+      "n_signals": 35,
+      "signal_completeness_pct": 68.6,
+      "ntime": 3042,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 4,
+      "state_names": [
+        "DISABLED",
+        "STARTUP",
+        "STARTUP_2",
+        "STARTUP_3"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "UVLO",
+        "REGULATION",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ss_n40c_vsup_5p5",
+      "corner_id": "",
+      "process": "ss",
+      "temp": "n40",
+      "vsup": "5p5",
+      "run_id_parsed": true,
+      "n_signals": 19,
+      "signal_completeness_pct": 37.3,
+      "ntime": 3860,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 3,
+      "state_names": [
+        "DISABLED",
+        "STARTUP",
+        "STARTUP_2"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "UVLO",
+        "REGULATION",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ss_27c_vsup_5p5",
+      "corner_id": "",
+      "process": "ss",
+      "temp": "27",
+      "vsup": "5p5",
+      "run_id_parsed": true,
+      "n_signals": 35,
+      "signal_completeness_pct": 68.6,
+      "ntime": 2326,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 4,
+      "state_names": [
+        "DISABLED",
+        "UVLO",
+        "STARTUP",
+        "REGULATION"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.5,
+      "missing_states": [
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ss_125c_vsup_5p5",
+      "corner_id": "",
+      "process": "ss",
+      "temp": "125",
+      "vsup": "5p5",
+      "run_id_parsed": true,
+      "n_signals": 27,
+      "signal_completeness_pct": 52.9,
+      "ntime": 2472,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 6,
+      "state_names": [
+        "REGULATION",
+        "REGULATION_2",
+        "REGULATION_3",
+        "REGULATION_4",
+        "REGULATION_5",
+        "REGULATION_6"
+      ],
+      "output_signature_summary": {
+        "REGULATION": {
+          "EN_UVLO_1V2": 0.837014470677837
+        },
+        "REGULATION_2": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_3": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_4": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_5": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_6": {
+          "EN_UVLO_1V2": 1.0
+        }
+      },
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.125,
+      "missing_states": [
+        "DISABLED",
+        "UVLO",
+        "STARTUP",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ww_n40c_vsup_4p5",
+      "corner_id": "",
+      "process": "ww",
+      "temp": "n40",
+      "vsup": "4p5",
+      "run_id_parsed": true,
+      "n_signals": 40,
+      "signal_completeness_pct": 78.4,
+      "ntime": 1965,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 3,
+      "state_names": [
+        "REGULATION",
+        "REGULATION_2",
+        "REGULATION_3"
+      ],
+      "output_signature_summary": {
+        "REGULATION": {
+          "EN_UVLO_1V2": 0.7579415501905972
+        },
+        "REGULATION_2": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_3": {
+          "EN_UVLO_1V2": 1.0
+        }
+      },
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.125,
+      "missing_states": [
+        "DISABLED",
+        "UVLO",
+        "STARTUP",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ww_27c_vsup_4p5",
+      "corner_id": "",
+      "process": "ww",
+      "temp": "27",
+      "vsup": "4p5",
+      "run_id_parsed": true,
+      "n_signals": 24,
+      "signal_completeness_pct": 47.1,
+      "ntime": 1839,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 4,
+      "state_names": [
+        "DISABLED",
+        "STARTUP",
+        "STARTUP_2",
+        "STARTUP_3"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "UVLO",
+        "REGULATION",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ww_125c_vsup_4p5",
+      "corner_id": "",
+      "process": "ww",
+      "temp": "125",
+      "vsup": "4p5",
+      "run_id_parsed": true,
+      "n_signals": 43,
+      "signal_completeness_pct": 84.3,
+      "ntime": 2307,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": true,
+      "fsm_generation_failed": false,
+      "n_states_detected": 6,
+      "state_names": [
+        "REGULATION",
+        "REGULATION_2",
+        "REGULATION_3",
+        "REGULATION_4",
+        "REGULATION_5",
+        "REGULATION_6"
+      ],
+      "output_signature_summary": {
+        "REGULATION": {
+          "EN_UVLO_1V2": 0.7627772420443587
+        },
+        "REGULATION_2": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_3": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_4": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_5": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_6": {
+          "EN_UVLO_1V2": 1.0
+        }
+      },
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.125,
+      "missing_states": [
+        "DISABLED",
+        "UVLO",
+        "STARTUP",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ww_n40c_vsup_5",
+      "corner_id": "",
+      "process": "ww",
+      "temp": "n40",
+      "vsup": "5",
+      "run_id_parsed": true,
+      "n_signals": 24,
+      "signal_completeness_pct": 47.1,
+      "ntime": 4068,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 2,
+      "state_names": [
+        "REGULATION",
+        "REGULATION_2"
+      ],
+      "output_signature_summary": {
+        "REGULATION": {
+          "EN_UVLO_1V2": 0.8961076130509444
+        },
+        "REGULATION_2": {
+          "EN_UVLO_1V2": 1.0
+        }
+      },
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.125,
+      "missing_states": [
+        "DISABLED",
+        "UVLO",
+        "STARTUP",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ww_27c_vsup_5",
+      "corner_id": "",
+      "process": "ww",
+      "temp": "27",
+      "vsup": "5",
+      "run_id_parsed": true,
+      "n_signals": 27,
+      "signal_completeness_pct": 52.9,
+      "ntime": 2419,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 5,
+      "state_names": [
+        "DISABLED",
+        "STARTUP",
+        "STARTUP_2",
+        "STARTUP_3",
+        "STARTUP_4"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "UVLO",
+        "REGULATION",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ww_125c_vsup_5",
+      "corner_id": "",
+      "process": "ww",
+      "temp": "125",
+      "vsup": "5",
+      "run_id_parsed": true,
+      "n_signals": 19,
+      "signal_completeness_pct": 37.3,
+      "ntime": 3203,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": true,
+      "fsm_generation_failed": false,
+      "n_states_detected": 3,
+      "state_names": [
+        "DISABLED",
+        "STARTUP",
+        "STARTUP_2"
+      ],
+      "output_signature_summary": {},
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "UVLO",
+        "REGULATION",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ww_n40c_vsup_5p5",
+      "corner_id": "",
+      "process": "ww",
+      "temp": "n40",
+      "vsup": "5p5",
+      "run_id_parsed": true,
+      "n_signals": 32,
+      "signal_completeness_pct": 62.7,
+      "ntime": 4212,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 4,
+      "state_names": [
+        "DISABLED",
+        "REGULATION",
+        "REGULATION_2",
+        "REGULATION_3"
+      ],
+      "output_signature_summary": {
+        "DISABLED": {
+          "EN_UVLO_1V2": 0.33810375670840787
+        },
+        "REGULATION": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_2": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_3": {
+          "EN_UVLO_1V2": 1.0
+        }
+      },
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "UVLO",
+        "STARTUP",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ww_27c_vsup_5p5",
+      "corner_id": "",
+      "process": "ww",
+      "temp": "27",
+      "vsup": "5p5",
+      "run_id_parsed": true,
+      "n_signals": 35,
+      "signal_completeness_pct": 68.6,
+      "ntime": 2008,
+      "meta_raw": "corner=ww,temp=125,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "125",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 5,
+      "state_names": [
+        "DISABLED",
+        "REGULATION",
+        "REGULATION_2",
+        "REGULATION_3",
+        "REGULATION_4"
+      ],
+      "output_signature_summary": {
+        "DISABLED": {
+          "EN_UVLO_1V2": 0.3719512195121951
+        },
+        "REGULATION": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_2": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_3": {
+          "EN_UVLO_1V2": 1.0
+        },
+        "REGULATION_4": {
+          "EN_UVLO_1V2": 1.0
+        }
+      },
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.25,
+      "missing_states": [
+        "UVLO",
+        "STARTUP",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    },
+    {
+      "run_id": "corner_ww_125c_vsup_5p5",
+      "corner_id": "",
+      "process": "ww",
+      "temp": "125",
+      "vsup": "5p5",
+      "run_id_parsed": true,
+      "n_signals": 27,
+      "signal_completeness_pct": 52.9,
+      "ntime": 1516,
+      "meta_raw": "corner=ww,temp=27,vsup_max=5.5",
+      "meta_parsed": {
+        "corner": "ww",
+        "temp": "27",
+        "vsup_max": "5.5"
+      },
+      "meta_matches_run_id": false,
+      "fsm_generation_failed": false,
+      "n_states_detected": 2,
+      "state_names": [
+        "REGULATION",
+        "REGULATION_2"
+      ],
+      "output_signature_summary": {
+        "REGULATION": {
+          "EN_UVLO_1V2": 0.8223593964334706
+        },
+        "REGULATION_2": {
+          "EN_UVLO_1V2": 1.0
+        }
+      },
+      "reachability": true,
+      "completeness": true,
+      "determinism": true,
+      "speckg_coverage": 0.125,
+      "missing_states": [
+        "DISABLED",
+        "UVLO",
+        "STARTUP",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "OVERRIDE",
+        "SHUTDOWN"
+      ],
+      "outlier": false,
+      "outlier_reasons": []
+    }
+  ]
+}

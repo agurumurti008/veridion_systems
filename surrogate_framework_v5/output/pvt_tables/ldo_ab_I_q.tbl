@@ -1,0 +1,6 @@
+# $table_model data for parameter I_q
+# columns: p_idx vdd temp value
+# p_idx: 0=FF, 1=SS, 2=TT
+0 2 -40 2e-05
+1 1.5 125 2e-05
+2 1.8 27 2e-05

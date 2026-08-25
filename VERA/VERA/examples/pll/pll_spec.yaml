@@ -1,0 +1,66 @@
+# ============================================================================
+# VERA IP Specification — PLL
+# FILE: examples/pll/pll_spec.yaml
+# ============================================================================
+
+ip_name:     PLL_1G
+ip_type:     pll
+environment: mixed
+block_name:  PLL_TOP
+version:     1.0
+
+clock:
+  freq_mhz:  1000.0
+  freq_tol:  0.01
+  duty_min:  0.48
+  duty_max:  0.52
+
+pll:
+  fout_hz:        1_000_000_000
+  fref_hz:        50_000_000
+  lock_time_ns:   10_000
+  lock_tol_ppm:   100
+  jitter_rms_ps:  5.0
+  freq_err_ppm:   50
+
+digital_bounds:
+  - signal: pll_locked
+    width:  1
+    min:    0
+    max:    1
+  - signal: pll_div_out
+    width:  8
+    min:    0
+    max:    255
+
+ams_checks:
+  - name:    vera_pll_vco_ctrl
+    signal:  /vctrl
+    measure: value
+    min:     0.4
+    max:     1.4
+    unit:    V
+    context: "VCO control voltage within linear range"
+
+  - name:    vera_pll_cp_current
+    signal:  /icp
+    measure: value
+    min:     90e-6
+    max:     110e-6
+    unit:    A
+    context: "Charge pump current 100uA ±10%"
+
+power:
+  iavg_max_ua:  2000
+  ipeak_max_ua: 5000
+
+integration:
+  sim_tool:  xcelium
+  ams_tool:  spectre
+  uvm:       true
+  formal:    false
+
+report:
+  format:           json
+  path:             ./vera_reports/
+  waveform_loader:  simvision

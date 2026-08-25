@@ -1,0 +1,1612 @@
+# Current/Voltage-Backed Insights
+
+## Mux / supply-select verification
+
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to V_SUPPLY from VPWR
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from V_SUPPLY
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to V_SUPPLY from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to V_SUPPLY from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to V_SUPPLY from VPWR
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to V_SUPPLY from VPWR
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to V_SUPPLY from VPWR
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from V_SUPPLY
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to ISO from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from V_SUPPLY
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to ISO from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to ISO from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to VPWR from ISO
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from ISO
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to MOST_POS from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from MOST_POS
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** VPWR_SEL toggle: current shifted to FUN_DC from VPWR
+- **info** VPWR_SEL toggle: current shifted to VPWR from FUN_DC
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2_EXT from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2_EXT from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2_EXT from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2_EXT from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2_EXT from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2_EXT from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2_EXT from floop_out
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2_EXT from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2 from floop_out
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2_EXT from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2_EXT from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2_EXT from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2_EXT from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2_EXT from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to floop_out from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2_EXT from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to floop_out from VDD_1V2
+- **info** PAD_VDD1V2_SEL toggle: current shifted to VDD_1V2 from VDD_1V2_EXT
+
+## Per-state supply attribution
+
+- DISABLED: dominant supply VPWR (23103.4 uA)
+- REGULATION: dominant supply VPWR (1697.5 uA)
+- REGULATION_2: dominant supply FUN_DC (5998.6 uA)
+- REGULATION_3: dominant supply FUN_DC (71698.0 uA)
+- REGULATION_4: dominant supply FUN_DC (77335.9 uA)
+- DISABLED: dominant supply VPWR (20084.1 uA)
+- REGULATION: dominant supply VPWR (10803.9 uA)
+- REGULATION_2: dominant supply FUN_DC (10833.5 uA)
+- REGULATION_3: dominant supply FUN_DC (97141.0 uA)
+- REGULATION_4: dominant supply FUN_DC (75818.5 uA)
+- DISABLED: dominant supply VPWR (19364.1 uA)
+- REGULATION: dominant supply VPWR (3380.3 uA)
+- REGULATION_2: dominant supply FUN_DC (6088.8 uA)
+- REGULATION_3: dominant supply FUN_DC (143713.1 uA)
+- REGULATION_4: dominant supply FUN_DC (37872.1 uA)
+- DISABLED: dominant supply VPWR (20505.7 uA)
+- REGULATION: dominant supply VPWR (1754.3 uA)
+- REGULATION_2: dominant supply FUN_DC (6288.5 uA)
+- REGULATION_3: dominant supply FUN_DC (90386.3 uA)
+- REGULATION_4: dominant supply FUN_DC (85839.1 uA)
+- DISABLED: dominant supply VPWR (24577.6 uA)
+- REGULATION: dominant supply VPWR (11039.1 uA)
+- REGULATION_2: dominant supply FUN_DC (11763.2 uA)
+- REGULATION_3: dominant supply FUN_DC (93434.1 uA)
+- REGULATION_4: dominant supply FUN_DC (36690.7 uA)
+- DISABLED: dominant supply VPWR (23722.5 uA)
+- REGULATION: dominant supply VPWR (2799.2 uA)
+- REGULATION_2: dominant supply FUN_DC (6082.7 uA)
+- REGULATION_3: dominant supply FUN_DC (145715.1 uA)
+- REGULATION_4: dominant supply FUN_DC (39835.2 uA)
+- DISABLED: dominant supply VPWR (26136.5 uA)
+- REGULATION: dominant supply VPWR (1629.2 uA)
+- REGULATION_2: dominant supply FUN_DC (6522.9 uA)
+- REGULATION_3: dominant supply FUN_DC (85125.5 uA)
+- REGULATION_4: dominant supply FUN_DC (84224.7 uA)
+- DISABLED: dominant supply VPWR (28813.0 uA)
+- REGULATION: dominant supply VPWR (11067.9 uA)
+- REGULATION_2: dominant supply FUN_DC (11865.6 uA)
+- REGULATION_3: dominant supply FUN_DC (93851.5 uA)
+- REGULATION_4: dominant supply FUN_DC (36647.2 uA)
+- DISABLED: dominant supply FUN_DC (17994.5 uA)
+- REGULATION: dominant supply FUN_DC (18710.5 uA)
+- REGULATION_2: dominant supply FUN_DC (58288.4 uA)
+- REGULATION_3: dominant supply FUN_DC (147130.7 uA)
+- REGULATION_4: dominant supply FUN_DC (149366.1 uA)
+- DISABLED: dominant supply VPWR (28102.5 uA)
+- REGULATION: dominant supply VPWR (1871.5 uA)
+- REGULATION_2: dominant supply FUN_DC (6614.5 uA)
+- REGULATION_3: dominant supply FUN_DC (77456.8 uA)
+- REGULATION_4: dominant supply FUN_DC (81777.9 uA)
+- DISABLED: dominant supply VPWR (17222.9 uA)
+- REGULATION: dominant supply VPWR (1231.7 uA)
+- REGULATION_2: dominant supply FUN_DC (6830.6 uA)
+- REGULATION_3: dominant supply FUN_DC (110539.4 uA)
+- REGULATION_4: dominant supply FUN_DC (33763.3 uA)
+- DISABLED: dominant supply VPWR (17041.7 uA)
+- REGULATION: dominant supply VPWR (1248.4 uA)
+- REGULATION_2: dominant supply FUN_DC (6023.0 uA)
+- REGULATION_3: dominant supply FUN_DC (113209.5 uA)
+- REGULATION_4: dominant supply FUN_DC (37326.2 uA)
+- DISABLED: dominant supply VPWR (15289.2 uA)
+- REGULATION: dominant supply VPWR (1334.5 uA)
+- REGULATION_2: dominant supply FUN_DC (5443.6 uA)
+- REGULATION_3: dominant supply FUN_DC (74147.0 uA)
+- REGULATION_4: dominant supply FUN_DC (90306.0 uA)
+- DISABLED: dominant supply VPWR (20490.4 uA)
+- REGULATION: dominant supply VPWR (1317.6 uA)
+- REGULATION_2: dominant supply FUN_DC (6937.5 uA)
+- REGULATION_3: dominant supply FUN_DC (109707.4 uA)
+- REGULATION_4: dominant supply FUN_DC (35964.9 uA)
+- DISABLED: dominant supply VPWR (19769.1 uA)
+- REGULATION: dominant supply VPWR (1341.9 uA)
+- REGULATION_2: dominant supply FUN_DC (6002.7 uA)
+- REGULATION_3: dominant supply FUN_DC (128978.2 uA)
+- REGULATION_4: dominant supply FUN_DC (38298.3 uA)
+- DISABLED: dominant supply VPWR (17411.2 uA)
+- REGULATION: dominant supply VPWR (1447.8 uA)
+- REGULATION_2: dominant supply FUN_DC (5585.3 uA)
+- REGULATION_3: dominant supply FUN_DC (72958.1 uA)
+- REGULATION_4: dominant supply FUN_DC (90455.2 uA)
+- DISABLED: dominant supply VPWR (22802.3 uA)
+- REGULATION: dominant supply VPWR (1467.1 uA)
+- REGULATION_2: dominant supply FUN_DC (6693.9 uA)
+- REGULATION_3: dominant supply FUN_DC (108113.0 uA)
+- REGULATION_4: dominant supply FUN_DC (37766.4 uA)
+- DISABLED: dominant supply VPWR (21847.5 uA)
+- REGULATION: dominant supply VPWR (1374.3 uA)
+- REGULATION_2: dominant supply FUN_DC (6056.0 uA)
+- REGULATION_3: dominant supply FUN_DC (127909.2 uA)
+- REGULATION_4: dominant supply FUN_DC (38496.0 uA)
+- DISABLED: dominant supply VPWR (20745.5 uA)
+- REGULATION: dominant supply VPWR (1541.1 uA)
+- REGULATION_2: dominant supply FUN_DC (5712.9 uA)
+- REGULATION_3: dominant supply FUN_DC (69572.2 uA)
+- REGULATION_4: dominant supply FUN_DC (86165.8 uA)
+- DISABLED: dominant supply VPWR (9581.6 uA)
+- REGULATION: dominant supply VPWR (13901.9 uA)
+- REGULATION_2: dominant supply FUN_DC (14306.1 uA)
+- REGULATION_3: dominant supply FUN_DC (40574.3 uA)
+- REGULATION_4: dominant supply FUN_DC (37789.3 uA)
+- DISABLED: dominant supply VPWR (10561.4 uA)
+- REGULATION: dominant supply VPWR (10839.7 uA)
+- REGULATION_2: dominant supply FUN_DC (21502.7 uA)
+- REGULATION_3: dominant supply FUN_DC (139656.5 uA)
+- REGULATION_4: dominant supply FUN_DC (147719.7 uA)
+- DISABLED: dominant supply VPWR (16280.3 uA)
+- REGULATION: dominant supply VPWR (1427.2 uA)
+- REGULATION_2: dominant supply FUN_DC (5708.7 uA)
+- REGULATION_3: dominant supply FUN_DC (80198.5 uA)
+- REGULATION_4: dominant supply FUN_DC (88223.5 uA)
+- DISABLED: dominant supply VPWR (12353.3 uA)
+- REGULATION: dominant supply VPWR (13005.5 uA)
+- REGULATION_2: dominant supply FUN_DC (13513.0 uA)
+- REGULATION_3: dominant supply FUN_DC (36749.4 uA)
+- REGULATION_4: dominant supply FUN_DC (39511.1 uA)
+- DISABLED: dominant supply VPWR (22241.8 uA)
+- REGULATION: dominant supply VPWR (1354.9 uA)
+- REGULATION_2: dominant supply FUN_DC (6483.3 uA)
+- REGULATION_3: dominant supply FUN_DC (70740.3 uA)
+- REGULATION_4: dominant supply FUN_DC (90553.7 uA)
+- DISABLED: dominant supply VPWR (19273.7 uA)
+- REGULATION: dominant supply VPWR (1527.3 uA)
+- REGULATION_2: dominant supply FUN_DC (6059.6 uA)
+- REGULATION_3: dominant supply FUN_DC (73385.9 uA)
+- REGULATION_4: dominant supply FUN_DC (86760.2 uA)
+- DISABLED: dominant supply VPWR (16519.1 uA)
+- REGULATION: dominant supply VPWR (12755.5 uA)
+- REGULATION_2: dominant supply FUN_DC (12940.1 uA)
+- REGULATION_3: dominant supply FUN_DC (61360.0 uA)
+- REGULATION_4: dominant supply FUN_DC (45004.6 uA)
+- DISABLED: dominant supply VPWR (26515.6 uA)
+- REGULATION: dominant supply VPWR (1279.8 uA)
+- REGULATION_2: dominant supply FUN_DC (6743.3 uA)
+- REGULATION_3: dominant supply FUN_DC (69831.0 uA)
+- REGULATION_4: dominant supply FUN_DC (83371.6 uA)
+- DISABLED: dominant supply VPWR (23570.9 uA)
+- REGULATION: dominant supply VPWR (3575.9 uA)
+- REGULATION_2: dominant supply MOST_POS (6242.5 uA)
+- REGULATION_5: dominant supply VPWR (5309.0 uA)
+- DISABLED: dominant supply VPWR (19592.9 uA)
+- REGULATION: dominant supply VPWR (23372.6 uA)
+- REGULATION_2: dominant supply FUN_DC (23556.7 uA)
+- REGULATION_3: dominant supply VPWR (82800.1 uA)
+- REGULATION_5: dominant supply VPWR (77407.8 uA)
+- DISABLED: dominant supply VPWR (20437.2 uA)
+- REGULATION: dominant supply VPWR (29967.6 uA)
+- REGULATION_2: dominant supply FUN_DC (25160.4 uA)
+- REGULATION_3: dominant supply VPWR (91444.9 uA)
+- REGULATION_5: dominant supply VPWR (128537.5 uA)
+- DISABLED: dominant supply VPWR (21220.1 uA)
+- REGULATION: dominant supply VPWR (31908.2 uA)
+- REGULATION_2: dominant supply FUN_DC (24963.1 uA)
+- REGULATION_3: dominant supply VPWR (89499.8 uA)
+- REGULATION_5: dominant supply VPWR (70524.9 uA)
+- DISABLED: dominant supply VPWR (23748.8 uA)
+- REGULATION: dominant supply VPWR (26863.3 uA)
+- REGULATION_2: dominant supply FUN_DC (11139.1 uA)
+- REGULATION_3: dominant supply VPWR (84968.7 uA)
+- REGULATION_5: dominant supply VPWR (74096.2 uA)
+- DISABLED: dominant supply VPWR (24218.7 uA)
+- REGULATION: dominant supply VPWR (30348.6 uA)
+- REGULATION_2: dominant supply FUN_DC (12453.7 uA)
+- REGULATION_3: dominant supply VPWR (47448.6 uA)
+- REGULATION_5: dominant supply VPWR (137399.3 uA)
+- DISABLED: dominant supply VPWR (26869.8 uA)
+- REGULATION: dominant supply VPWR (33504.2 uA)
+- REGULATION_2: dominant supply FUN_DC (15858.8 uA)
+- REGULATION_3: dominant supply VPWR (42006.4 uA)
+- REGULATION_5: dominant supply VPWR (67481.8 uA)
+- DISABLED: dominant supply VPWR (27912.6 uA)
+- REGULATION: dominant supply VPWR (26642.7 uA)
+- REGULATION_2: dominant supply FUN_DC (11736.9 uA)
+- REGULATION_5: dominant supply VPWR (74703.8 uA)
+- DISABLED: dominant supply VPWR (26684.8 uA)
+- REGULATION: dominant supply VPWR (32699.4 uA)
+- REGULATION_2: dominant supply FUN_DC (12599.8 uA)
+- REGULATION_5: dominant supply VPWR (140424.6 uA)
+- DISABLED: dominant supply VPWR (29022.5 uA)
+- REGULATION: dominant supply VPWR (32443.4 uA)
+- REGULATION_2: dominant supply FUN_DC (16282.5 uA)
+- REGULATION_5: dominant supply VPWR (67266.5 uA)
+- DISABLED: dominant supply VPWR (18372.7 uA)
+- REGULATION: dominant supply VPWR (33223.0 uA)
+- REGULATION_2: dominant supply FUN_DC (19801.2 uA)
+- REGULATION_3: dominant supply VPWR (49345.9 uA)
+- REGULATION_5: dominant supply VPWR (75164.8 uA)
+- DISABLED: dominant supply VPWR (18275.7 uA)
+- REGULATION: dominant supply VPWR (35305.9 uA)
+- REGULATION_2: dominant supply FUN_DC (19952.3 uA)
+- REGULATION_3: dominant supply VPWR (62239.0 uA)
+- REGULATION_5: dominant supply VPWR (76154.0 uA)
+- DISABLED: dominant supply VPWR (16363.5 uA)
+- REGULATION: dominant supply VPWR (35219.5 uA)
+- REGULATION_2: dominant supply FUN_DC (20215.1 uA)
+- REGULATION_3: dominant supply VPWR (85091.9 uA)
+- REGULATION_5: dominant supply VPWR (70770.2 uA)
+- DISABLED: dominant supply VPWR (21629.4 uA)
+- REGULATION: dominant supply VPWR (32372.2 uA)
+- REGULATION_2: dominant supply FUN_DC (11140.6 uA)
+- REGULATION_3: dominant supply VPWR (53797.6 uA)
+- REGULATION_5: dominant supply VPWR (73289.0 uA)
+- DISABLED: dominant supply VPWR (21092.9 uA)
+- REGULATION: dominant supply VPWR (33585.0 uA)
+- REGULATION_2: dominant supply FUN_DC (12546.4 uA)
+- REGULATION_3: dominant supply VPWR (62589.0 uA)
+- REGULATION_5: dominant supply VPWR (92349.8 uA)
+- DISABLED: dominant supply VPWR (18422.5 uA)
+- REGULATION: dominant supply VPWR (34045.9 uA)
+- REGULATION_2: dominant supply FUN_DC (12979.0 uA)
+- REGULATION_3: dominant supply VPWR (48374.7 uA)
+- REGULATION_5: dominant supply VPWR (68724.8 uA)
+- DISABLED: dominant supply VPWR (24208.3 uA)
+- REGULATION: dominant supply VPWR (30644.2 uA)
+- REGULATION_2: dominant supply FUN_DC (11119.7 uA)
+- REGULATION_5: dominant supply VPWR (73602.6 uA)
+- DISABLED: dominant supply VPWR (23314.5 uA)
+- REGULATION: dominant supply VPWR (34259.5 uA)
+- REGULATION_2: dominant supply FUN_DC (12126.1 uA)
+- REGULATION_5: dominant supply VPWR (93087.6 uA)
+- DISABLED: dominant supply VPWR (22048.0 uA)
+- REGULATION: dominant supply VPWR (33569.7 uA)
+- REGULATION_2: dominant supply FUN_DC (13112.1 uA)
+- REGULATION_5: dominant supply VPWR (69590.0 uA)
+- DISABLED: dominant supply VPWR (19477.9 uA)
+- REGULATION: dominant supply VPWR (9791.7 uA)
+- REGULATION_2: dominant supply FUN_DC (7179.5 uA)
+- REGULATION_3: dominant supply VPWR (8551.6 uA)
+- REGULATION_5: dominant supply VPWR (5974.3 uA)
+- DISABLED: dominant supply VPWR (19515.6 uA)
+- REGULATION: dominant supply VPWR (4215.7 uA)
+- REGULATION_2: dominant supply MOST_POS (5361.9 uA)
+- REGULATION_3: dominant supply VPWR (3229.4 uA)
+- REGULATION_5: dominant supply VPWR (6053.5 uA)
+- DISABLED: dominant supply VPWR (16685.9 uA)
+- REGULATION: dominant supply VPWR (3770.9 uA)
+- REGULATION_2: dominant supply MOST_POS (4403.3 uA)
+- REGULATION_3: dominant supply VPWR (3233.1 uA)
+- REGULATION_5: dominant supply VPWR (5548.3 uA)
+- DISABLED: dominant supply VPWR (23389.7 uA)
+- REGULATION: dominant supply VPWR (4630.5 uA)
+- REGULATION_2: dominant supply MOST_POS (7251.2 uA)
+- REGULATION_3: dominant supply VPWR (4257.2 uA)
+- REGULATION_5: dominant supply VPWR (5648.7 uA)
+- DISABLED: dominant supply VPWR (22672.2 uA)
+- REGULATION: dominant supply VPWR (3647.6 uA)
+- REGULATION_2: dominant supply MOST_POS (7184.2 uA)
+- REGULATION_3: dominant supply VPWR (3512.9 uA)
+- REGULATION_5: dominant supply VPWR (5495.8 uA)
+- DISABLED: dominant supply VPWR (19674.8 uA)
+- REGULATION: dominant supply VPWR (3589.8 uA)
+- REGULATION_2: dominant supply MOST_POS (5829.7 uA)
+- REGULATION_3: dominant supply VPWR (3925.2 uA)
+- REGULATION_5: dominant supply VPWR (5556.1 uA)
+- DISABLED: dominant supply VPWR (25979.0 uA)
+- REGULATION: dominant supply VPWR (3897.9 uA)
+- REGULATION_2: dominant supply MOST_POS (8028.9 uA)
+- REGULATION_5: dominant supply VPWR (5122.3 uA)
+- DISABLED: dominant supply VPWR (27091.8 uA)
+- REGULATION: dominant supply VPWR (3452.9 uA)
+- REGULATION_2: dominant supply MOST_POS (7562.7 uA)
+- REGULATION_5: dominant supply VPWR (5239.6 uA)
+- DISABLED: dominant supply VPWR (18535.5 uA)
+- REGULATION: dominant supply ISO (14494.6 uA)
+- DISABLED: dominant supply VPWR (19044.7 uA)
+- REGULATION: dominant supply VPWR (21071.3 uA)
+- DISABLED: dominant supply VPWR (21606.4 uA)
+- REGULATION: dominant supply VPWR (22625.6 uA)
+- DISABLED: dominant supply VPWR (23158.4 uA)
+- REGULATION: dominant supply VPWR (14571.9 uA)
+- DISABLED: dominant supply VPWR (20976.1 uA)
+- REGULATION: dominant supply VPWR (21612.7 uA)
+- DISABLED: dominant supply VPWR (25944.8 uA)
+- REGULATION: dominant supply VPWR (23850.6 uA)
+- DISABLED: dominant supply VPWR (25532.6 uA)
+- REGULATION: dominant supply VPWR (15490.6 uA)
+- DISABLED: dominant supply VPWR (26702.1 uA)
+- REGULATION: dominant supply VPWR (22872.0 uA)
+- DISABLED: dominant supply VPWR (30097.8 uA)
+- REGULATION: dominant supply VPWR (24161.1 uA)
+- DISABLED: dominant supply VPWR (15761.9 uA)
+- REGULATION: dominant supply VPWR (13812.8 uA)
+- DISABLED: dominant supply VPWR (15863.6 uA)
+- REGULATION: dominant supply VPWR (17736.3 uA)
+- DISABLED: dominant supply VPWR (15415.1 uA)
+- REGULATION: dominant supply VPWR (20545.9 uA)
+- DISABLED: dominant supply VPWR (19460.2 uA)
+- REGULATION: dominant supply VPWR (13516.3 uA)
+- DISABLED: dominant supply VPWR (18955.7 uA)
+- REGULATION: dominant supply VPWR (17726.1 uA)
+- DISABLED: dominant supply VPWR (17238.2 uA)
+- REGULATION: dominant supply VPWR (20997.0 uA)
+- DISABLED: dominant supply VPWR (23258.0 uA)
+- REGULATION: dominant supply VPWR (13848.1 uA)
+- DISABLED: dominant supply VPWR (22006.6 uA)
+- REGULATION: dominant supply VPWR (18789.1 uA)
+- DISABLED: dominant supply VPWR (20463.9 uA)
+- REGULATION: dominant supply VPWR (21267.5 uA)
+- DISABLED: dominant supply VPWR (24488.8 uA)
+- REGULATION: dominant supply VPWR (11376.2 uA)
+- REGULATION_2: dominant supply MOST_POS (7032.1 uA)
+- REGULATION_5: dominant supply VPWR (10598.1 uA)
+- DISABLED_2: dominant supply VPWR (23250.9 uA)
+- DISABLED: dominant supply VPWR (22201.6 uA)
+- REGULATION: dominant supply VPWR (49578.1 uA)
+- REGULATION_2: dominant supply ISO (39287.3 uA)
+- REGULATION_5: dominant supply VPWR (101403.0 uA)
+- DISABLED_2: dominant supply VPWR (63565.4 uA)
+- DISABLED: dominant supply ISO (25813.6 uA)
+- REGULATION: dominant supply VPWR (53841.7 uA)
+- REGULATION_2: dominant supply ISO (43264.5 uA)
+- REGULATION_5: dominant supply VPWR (115596.2 uA)
+- DISABLED_2: dominant supply VPWR (62688.6 uA)
+- DISABLED: dominant supply ISO (30767.9 uA)
+- REGULATION: dominant supply VPWR (56257.6 uA)
+- REGULATION_2: dominant supply ISO (44769.7 uA)
+- REGULATION_5: dominant supply VPWR (130667.5 uA)
+- DISABLED_2: dominant supply VPWR (56759.7 uA)
+- DISABLED: dominant supply VPWR (26402.1 uA)
+- REGULATION: dominant supply VPWR (49576.2 uA)
+- REGULATION_2: dominant supply ISO (38971.2 uA)
+- REGULATION_5: dominant supply VPWR (102505.5 uA)
+- DISABLED_2: dominant supply VPWR (74356.6 uA)
+- DISABLED: dominant supply ISO (24963.8 uA)
+- REGULATION: dominant supply VPWR (53644.9 uA)
+- REGULATION_2: dominant supply ISO (42500.2 uA)
+- REGULATION_5: dominant supply VPWR (119719.1 uA)
+- DISABLED_2: dominant supply VPWR (66694.0 uA)
+- DISABLED: dominant supply ISO (29944.2 uA)
+- REGULATION: dominant supply VPWR (59009.2 uA)
+- REGULATION_2: dominant supply ISO (43609.7 uA)
+- REGULATION_5: dominant supply VPWR (127234.0 uA)
+- DISABLED_2: dominant supply VPWR (63789.1 uA)
+- DISABLED: dominant supply VPWR (30716.0 uA)
+- REGULATION: dominant supply VPWR (48135.8 uA)
+- REGULATION_2: dominant supply ISO (38536.7 uA)
+- REGULATION_5: dominant supply VPWR (105008.6 uA)
+- DISABLED_2: dominant supply VPWR (76307.2 uA)
+- DISABLED: dominant supply VPWR (26821.8 uA)
+- REGULATION: dominant supply VPWR (59420.9 uA)
+- REGULATION_2: dominant supply ISO (36994.8 uA)
+- REGULATION_5: dominant supply VPWR (148208.6 uA)
+- DISABLED_2: dominant supply VPWR (58147.6 uA)
+- DISABLED: dominant supply ISO (29608.0 uA)
+- REGULATION: dominant supply VPWR (55761.2 uA)
+- REGULATION_2: dominant supply ISO (42117.9 uA)
+- REGULATION_5: dominant supply VPWR (126218.6 uA)
+- DISABLED_2: dominant supply ISO (51014.4 uA)
+- DISABLED: dominant supply ISO (20418.7 uA)
+- REGULATION: dominant supply VPWR (47224.4 uA)
+- REGULATION_2: dominant supply ISO (38822.4 uA)
+- REGULATION_5: dominant supply VPWR (88912.2 uA)
+- DISABLED_2: dominant supply VPWR (59744.1 uA)
+- DISABLED: dominant supply ISO (25021.2 uA)
+- REGULATION: dominant supply VPWR (52406.4 uA)
+- REGULATION_2: dominant supply ISO (43701.4 uA)
+- REGULATION_5: dominant supply VPWR (100720.2 uA)
+- DISABLED_2: dominant supply VPWR (56830.9 uA)
+- DISABLED: dominant supply ISO (31055.5 uA)
+- REGULATION: dominant supply VPWR (63672.3 uA)
+- REGULATION_2: dominant supply ISO (48703.9 uA)
+- REGULATION_5: dominant supply VPWR (120735.7 uA)
+- DISABLED_2: dominant supply VPWR (52117.0 uA)
+- DISABLED: dominant supply VPWR (22686.6 uA)
+- REGULATION: dominant supply VPWR (47509.1 uA)
+- REGULATION_2: dominant supply ISO (38799.7 uA)
+- REGULATION_5: dominant supply VPWR (85150.1 uA)
+- DISABLED_2: dominant supply VPWR (61110.4 uA)
+- DISABLED: dominant supply ISO (24653.7 uA)
+- REGULATION: dominant supply VPWR (50246.9 uA)
+- REGULATION_2: dominant supply ISO (43679.7 uA)
+- REGULATION_5: dominant supply VPWR (101108.8 uA)
+- DISABLED_2: dominant supply VPWR (58037.3 uA)
+- DISABLED: dominant supply ISO (30503.1 uA)
+- REGULATION: dominant supply VPWR (63258.4 uA)
+- REGULATION_2: dominant supply ISO (48178.0 uA)
+- REGULATION_5: dominant supply VPWR (118935.4 uA)
+- DISABLED_2: dominant supply VPWR (50979.3 uA)
+- DISABLED: dominant supply VPWR (26889.8 uA)
+- REGULATION: dominant supply VPWR (46830.0 uA)
+- REGULATION_2: dominant supply ISO (38698.5 uA)
+- REGULATION_5: dominant supply VPWR (88970.2 uA)
+- DISABLED_2: dominant supply VPWR (59551.0 uA)
+- DISABLED: dominant supply ISO (24483.8 uA)
+- REGULATION: dominant supply VPWR (49371.6 uA)
+- REGULATION_2: dominant supply ISO (43393.5 uA)
+- REGULATION_5: dominant supply VPWR (102593.7 uA)
+- DISABLED_2: dominant supply VPWR (51600.2 uA)
+- DISABLED: dominant supply ISO (30460.7 uA)
+- REGULATION: dominant supply VPWR (60913.0 uA)
+- REGULATION_2: dominant supply ISO (47533.8 uA)
+- REGULATION_5: dominant supply VPWR (119520.2 uA)
+- DISABLED_2: dominant supply ISO (52777.1 uA)
+- DISABLED: dominant supply VPWR (14065.3 uA)
+- REGULATION: dominant supply VPWR (14009.6 uA)
+- REGULATION_2: dominant supply FUN_DC (13728.3 uA)
+- REGULATION_5: dominant supply VPWR (20822.5 uA)
+- DISABLED_2: dominant supply VPWR (31016.4 uA)
+- DISABLED: dominant supply VPWR (19061.4 uA)
+- REGULATION: dominant supply VPWR (13801.6 uA)
+- REGULATION_2: dominant supply MOST_POS (6221.2 uA)
+- REGULATION_5: dominant supply VPWR (10411.0 uA)
+- DISABLED_2: dominant supply VPWR (19300.6 uA)
+- DISABLED: dominant supply VPWR (17662.0 uA)
+- REGULATION: dominant supply VPWR (11899.1 uA)
+- REGULATION_2: dominant supply FUN_DC (5944.7 uA)
+- REGULATION_5: dominant supply VPWR (10167.5 uA)
+- DISABLED_2: dominant supply VPWR (19032.5 uA)
+- DISABLED: dominant supply VPWR (17728.7 uA)
+- REGULATION: dominant supply VPWR (13696.8 uA)
+- REGULATION_2: dominant supply FUN_DC (12527.0 uA)
+- REGULATION_5: dominant supply VPWR (20316.6 uA)
+- DISABLED_2: dominant supply VPWR (23797.1 uA)
+- DISABLED: dominant supply VPWR (22760.7 uA)
+- REGULATION: dominant supply VPWR (13781.9 uA)
+- REGULATION_2: dominant supply MOST_POS (7178.2 uA)
+- REGULATION_5: dominant supply VPWR (10711.0 uA)
+- DISABLED_2: dominant supply VPWR (20557.5 uA)
+- DISABLED: dominant supply VPWR (21013.7 uA)
+- REGULATION: dominant supply VPWR (11815.3 uA)
+- REGULATION_2: dominant supply FUN_DC (6227.0 uA)
+- REGULATION_5: dominant supply VPWR (10132.0 uA)
+- DISABLED_2: dominant supply VPWR (20188.8 uA)
+- DISABLED: dominant supply VPWR (15514.1 uA)
+- REGULATION: dominant supply VPWR (12777.7 uA)
+- REGULATION_2: dominant supply FUN_DC (12076.9 uA)
+- REGULATION_5: dominant supply VPWR (17313.3 uA)
+- DISABLED_2: dominant supply VPWR (19737.7 uA)
+- DISABLED: dominant supply VPWR (27473.7 uA)
+- REGULATION: dominant supply VPWR (13410.9 uA)
+- REGULATION_2: dominant supply MOST_POS (8570.7 uA)
+- REGULATION_5: dominant supply VPWR (10550.8 uA)
+- DISABLED_2: dominant supply VPWR (25698.3 uA)
+- DISABLED: dominant supply VPWR (23466.8 uA)
+- REGULATION: dominant supply VPWR (4361.6 uA)
+- REGULATION_2: dominant supply FUN_DC (15028.1 uA)
+- REGULATION_6: dominant supply VPWR (14989.1 uA)
+- REGULATION_7: dominant supply VPWR (15018.5 uA)
+- REGULATION_8: dominant supply VPWR (15047.7 uA)
+- REGULATION_9: dominant supply VPWR (15202.8 uA)
+- REGULATION_10: dominant supply VPWR (15201.1 uA)
+- REGULATION_11: dominant supply FUN_DC (9099.3 uA)
+- REGULATION_12: dominant supply FUN_DC (15206.3 uA)
+- DISABLED: dominant supply VPWR (19106.1 uA)
+- REGULATION: dominant supply VPWR (15026.4 uA)
+- REGULATION_2: dominant supply ISO (39405.3 uA)
+- REGULATION_6: dominant supply ISO (39393.6 uA)
+- REGULATION_7: dominant supply ISO (39412.1 uA)
+- REGULATION_8: dominant supply ISO (39405.2 uA)
+- REGULATION_9: dominant supply ISO (39384.5 uA)
+- REGULATION_10: dominant supply ISO (39384.5 uA)
+- REGULATION_11: dominant supply ISO (39385.0 uA)
+- REGULATION_12: dominant supply ISO (39383.8 uA)
+- DISABLED: dominant supply VPWR (19743.0 uA)
+- REGULATION: dominant supply VPWR (20675.3 uA)
+- REGULATION_2: dominant supply ISO (43345.0 uA)
+- REGULATION_6: dominant supply ISO (43503.9 uA)
+- REGULATION_7: dominant supply ISO (43352.1 uA)
+- REGULATION_8: dominant supply ISO (43345.1 uA)
+- REGULATION_9: dominant supply ISO (43321.9 uA)
+- REGULATION_10: dominant supply ISO (43321.7 uA)
+- REGULATION_11: dominant supply ISO (43338.4 uA)
+- REGULATION_12: dominant supply ISO (43320.9 uA)
+- DISABLED: dominant supply VPWR (22181.9 uA)
+- REGULATION: dominant supply VPWR (20552.2 uA)
+- REGULATION_2: dominant supply ISO (44892.0 uA)
+- REGULATION_6: dominant supply ISO (44906.5 uA)
+- REGULATION_7: dominant supply ISO (44894.5 uA)
+- REGULATION_8: dominant supply ISO (44884.7 uA)
+- REGULATION_9: dominant supply ISO (44852.2 uA)
+- REGULATION_10: dominant supply ISO (44862.3 uA)
+- REGULATION_11: dominant supply ISO (44936.2 uA)
+- REGULATION_12: dominant supply ISO (44852.3 uA)
+- DISABLED: dominant supply VPWR (23546.2 uA)
+- REGULATION: dominant supply VPWR (14636.8 uA)
+- REGULATION_2: dominant supply ISO (39060.8 uA)
+- REGULATION_6: dominant supply ISO (39168.0 uA)
+- REGULATION_7: dominant supply ISO (39066.8 uA)
+- REGULATION_8: dominant supply ISO (39061.0 uA)
+- REGULATION_9: dominant supply ISO (39043.4 uA)
+- REGULATION_10: dominant supply ISO (39043.4 uA)
+- REGULATION_11: dominant supply ISO (39043.1 uA)
+- REGULATION_12: dominant supply ISO (39042.6 uA)
+- DISABLED: dominant supply VPWR (21699.8 uA)
+- REGULATION: dominant supply VPWR (20061.3 uA)
+- REGULATION_2: dominant supply ISO (42582.4 uA)
+- REGULATION_6: dominant supply ISO (42731.3 uA)
+- REGULATION_7: dominant supply ISO (42588.9 uA)
+- REGULATION_8: dominant supply ISO (42582.7 uA)
+- REGULATION_9: dominant supply ISO (42559.3 uA)
+- REGULATION_10: dominant supply ISO (42559.1 uA)
+- REGULATION_11: dominant supply ISO (42581.7 uA)
+- REGULATION_12: dominant supply ISO (42558.2 uA)
+- DISABLED: dominant supply VPWR (26568.6 uA)
+- REGULATION: dominant supply VPWR (21154.7 uA)
+- REGULATION_2: dominant supply FUN_DC (45615.5 uA)
+- REGULATION_6: dominant supply VPWR (46139.8 uA)
+- REGULATION_7: dominant supply VPWR (45979.7 uA)
+- REGULATION_8: dominant supply VPWR (45979.7 uA)
+- REGULATION_9: dominant supply VPWR (45999.1 uA)
+- REGULATION_10: dominant supply VPWR (45940.9 uA)
+- REGULATION_11: dominant supply ISO (43772.8 uA)
+- REGULATION_12: dominant supply FUN_DC (45984.6 uA)
+- DISABLED: dominant supply VPWR (26586.8 uA)
+- REGULATION: dominant supply VPWR (14141.1 uA)
+- REGULATION_2: dominant supply ISO (38597.8 uA)
+- REGULATION_6: dominant supply ISO (38748.7 uA)
+- REGULATION_7: dominant supply ISO (38603.4 uA)
+- REGULATION_8: dominant supply ISO (38597.5 uA)
+- REGULATION_9: dominant supply ISO (38576.5 uA)
+- REGULATION_10: dominant supply ISO (38576.4 uA)
+- REGULATION_11: dominant supply ISO (38576.3 uA)
+- REGULATION_12: dominant supply ISO (38575.6 uA)
+- DISABLED: dominant supply VPWR (27653.3 uA)
+- REGULATION: dominant supply VPWR (21073.2 uA)
+- REGULATION_2: dominant supply ISO (41628.1 uA)
+- REGULATION_6: dominant supply ISO (41800.6 uA)
+- REGULATION_7: dominant supply ISO (41637.3 uA)
+- REGULATION_8: dominant supply ISO (41628.9 uA)
+- REGULATION_9: dominant supply ISO (41604.0 uA)
+- REGULATION_10: dominant supply ISO (41603.9 uA)
+- REGULATION_11: dominant supply ISO (41629.5 uA)
+- REGULATION_12: dominant supply ISO (41603.0 uA)
+- DISABLED: dominant supply VPWR (30636.1 uA)
+- REGULATION: dominant supply VPWR (21037.0 uA)
+- REGULATION_2: dominant supply FUN_DC (50680.6 uA)
+- REGULATION_6: dominant supply VPWR (50929.1 uA)
+- REGULATION_7: dominant supply VPWR (50722.9 uA)
+- REGULATION_8: dominant supply VPWR (50714.2 uA)
+- REGULATION_9: dominant supply VPWR (50720.1 uA)
+- REGULATION_10: dominant supply VPWR (50661.2 uA)
+- REGULATION_11: dominant supply ISO (42283.0 uA)
+- REGULATION_12: dominant supply FUN_DC (50713.1 uA)
+- DISABLED: dominant supply VPWR (16385.2 uA)
+- REGULATION: dominant supply VPWR (13150.8 uA)
+- REGULATION_2: dominant supply ISO (38922.2 uA)
+- REGULATION_6: dominant supply ISO (38923.8 uA)
+- REGULATION_7: dominant supply ISO (38928.4 uA)
+- REGULATION_8: dominant supply ISO (38923.2 uA)
+- REGULATION_9: dominant supply ISO (38905.1 uA)
+- REGULATION_10: dominant supply ISO (38905.2 uA)
+- REGULATION_11: dominant supply ISO (38909.4 uA)
+- REGULATION_12: dominant supply ISO (38904.4 uA)
+- DISABLED: dominant supply VPWR (16537.0 uA)
+- REGULATION: dominant supply VPWR (17957.2 uA)
+- REGULATION_2: dominant supply ISO (43802.2 uA)
+- REGULATION_6: dominant supply ISO (43853.1 uA)
+- REGULATION_7: dominant supply ISO (43807.5 uA)
+- REGULATION_8: dominant supply ISO (43802.4 uA)
+- REGULATION_9: dominant supply ISO (43781.7 uA)
+- REGULATION_10: dominant supply ISO (43781.4 uA)
+- REGULATION_11: dominant supply ISO (43792.4 uA)
+- REGULATION_12: dominant supply ISO (43780.7 uA)
+- DISABLED: dominant supply VPWR (16034.3 uA)
+- REGULATION: dominant supply VPWR (18819.9 uA)
+- REGULATION_2: dominant supply ISO (48822.9 uA)
+- REGULATION_6: dominant supply ISO (48967.8 uA)
+- REGULATION_7: dominant supply ISO (48832.8 uA)
+- REGULATION_8: dominant supply ISO (48821.4 uA)
+- REGULATION_9: dominant supply ISO (48788.5 uA)
+- REGULATION_10: dominant supply ISO (48788.9 uA)
+- REGULATION_11: dominant supply ISO (48821.3 uA)
+- REGULATION_12: dominant supply ISO (48787.2 uA)
+- DISABLED: dominant supply VPWR (20169.1 uA)
+- REGULATION: dominant supply VPWR (13165.6 uA)
+- REGULATION_2: dominant supply ISO (38887.5 uA)
+- REGULATION_6: dominant supply ISO (38984.7 uA)
+- REGULATION_7: dominant supply ISO (38892.9 uA)
+- REGULATION_8: dominant supply ISO (38887.4 uA)
+- REGULATION_9: dominant supply ISO (38870.1 uA)
+- REGULATION_10: dominant supply ISO (38869.8 uA)
+- REGULATION_11: dominant supply ISO (38873.9 uA)
+- REGULATION_12: dominant supply ISO (38869.1 uA)
+- DISABLED: dominant supply VPWR (19682.0 uA)
+- REGULATION: dominant supply VPWR (17077.0 uA)
+- REGULATION_2: dominant supply ISO (43750.0 uA)
+- REGULATION_6: dominant supply ISO (43801.3 uA)
+- REGULATION_7: dominant supply ISO (43755.8 uA)
+- REGULATION_8: dominant supply ISO (43749.6 uA)
+- REGULATION_9: dominant supply ISO (43729.8 uA)
+- REGULATION_10: dominant supply ISO (43729.6 uA)
+- REGULATION_11: dominant supply ISO (43738.0 uA)
+- REGULATION_12: dominant supply ISO (43728.9 uA)
+- DISABLED: dominant supply VPWR (17967.6 uA)
+- REGULATION: dominant supply VPWR (18936.8 uA)
+- REGULATION_2: dominant supply ISO (48268.8 uA)
+- REGULATION_6: dominant supply ISO (48451.0 uA)
+- REGULATION_7: dominant supply ISO (48276.9 uA)
+- REGULATION_8: dominant supply ISO (48266.1 uA)
+- REGULATION_9: dominant supply ISO (48233.4 uA)
+- REGULATION_10: dominant supply ISO (48233.9 uA)
+- REGULATION_11: dominant supply ISO (48272.0 uA)
+- REGULATION_12: dominant supply ISO (48231.9 uA)
+- DISABLED: dominant supply VPWR (24048.1 uA)
+- REGULATION: dominant supply VPWR (13109.3 uA)
+- REGULATION_2: dominant supply ISO (38780.5 uA)
+- REGULATION_6: dominant supply ISO (38890.7 uA)
+- REGULATION_7: dominant supply ISO (38785.6 uA)
+- REGULATION_8: dominant supply ISO (38780.2 uA)
+- REGULATION_9: dominant supply ISO (38762.5 uA)
+- REGULATION_10: dominant supply ISO (38762.6 uA)
+- REGULATION_11: dominant supply ISO (38766.9 uA)
+- REGULATION_12: dominant supply ISO (38761.7 uA)
+- DISABLED: dominant supply VPWR (22247.3 uA)
+- REGULATION: dominant supply VPWR (17768.3 uA)
+- REGULATION_2: dominant supply ISO (43476.2 uA)
+- REGULATION_6: dominant supply ISO (43551.7 uA)
+- REGULATION_7: dominant supply ISO (43481.0 uA)
+- REGULATION_8: dominant supply ISO (43474.5 uA)
+- REGULATION_9: dominant supply ISO (43455.0 uA)
+- REGULATION_10: dominant supply ISO (43454.9 uA)
+- REGULATION_11: dominant supply ISO (43468.1 uA)
+- REGULATION_12: dominant supply ISO (43454.2 uA)
+- DISABLED: dominant supply VPWR (21196.3 uA)
+- REGULATION: dominant supply VPWR (18928.6 uA)
+- REGULATION_2: dominant supply ISO (47578.8 uA)
+- REGULATION_6: dominant supply ISO (47807.4 uA)
+- REGULATION_7: dominant supply ISO (47585.4 uA)
+- REGULATION_8: dominant supply ISO (47573.1 uA)
+- REGULATION_9: dominant supply ISO (47542.0 uA)
+- REGULATION_10: dominant supply ISO (47542.6 uA)
+- REGULATION_11: dominant supply ISO (47582.8 uA)
+- REGULATION_12: dominant supply ISO (47540.9 uA)
+- DISABLED: dominant supply VPWR (14646.3 uA)
+- REGULATION: dominant supply VPWR (13066.6 uA)
+- REGULATION_2: dominant supply FUN_DC (14132.4 uA)
+- REGULATION_6: dominant supply VPWR (14525.2 uA)
+- REGULATION_7: dominant supply VPWR (15014.4 uA)
+- REGULATION_8: dominant supply VPWR (15041.3 uA)
+- REGULATION_9: dominant supply VPWR (16030.4 uA)
+- REGULATION_10: dominant supply VPWR (12262.4 uA)
+- REGULATION_11: dominant supply FUN_DC (9084.2 uA)
+- REGULATION_12: dominant supply FUN_DC (16092.8 uA)
+- DISABLED: dominant supply VPWR (19055.5 uA)
+- REGULATION: dominant supply VPWR (4420.9 uA)
+- REGULATION_2: dominant supply FUN_DC (14853.1 uA)
+- REGULATION_6: dominant supply VPWR (14922.4 uA)
+- REGULATION_7: dominant supply VPWR (14996.0 uA)
+- REGULATION_8: dominant supply VPWR (15032.5 uA)
+- REGULATION_9: dominant supply VPWR (15188.9 uA)
+- REGULATION_10: dominant supply VPWR (15184.2 uA)
+- REGULATION_11: dominant supply FUN_DC (8820.7 uA)
+- REGULATION_12: dominant supply FUN_DC (15200.9 uA)
+- DISABLED: dominant supply VPWR (16722.8 uA)
+- REGULATION: dominant supply VPWR (4211.7 uA)
+- REGULATION_2: dominant supply FUN_DC (14927.1 uA)
+- REGULATION_6: dominant supply VPWR (14943.5 uA)
+- REGULATION_7: dominant supply VPWR (14999.3 uA)
+- REGULATION_8: dominant supply VPWR (15032.7 uA)
+- REGULATION_9: dominant supply VPWR (15210.6 uA)
+- REGULATION_10: dominant supply VPWR (15209.7 uA)
+- REGULATION_11: dominant supply FUN_DC (8516.0 uA)
+- REGULATION_12: dominant supply FUN_DC (15206.9 uA)
+- DISABLED: dominant supply VPWR (12745.6 uA)
+- REGULATION: dominant supply VPWR (12916.3 uA)
+- REGULATION_2: dominant supply FUN_DC (16112.6 uA)
+- REGULATION_6: dominant supply VPWR (13248.9 uA)
+- REGULATION_7: dominant supply VPWR (13771.7 uA)
+- REGULATION_8: dominant supply VPWR (14610.1 uA)
+- REGULATION_9: dominant supply VPWR (10888.1 uA)
+- REGULATION_10: dominant supply VPWR (9210.1 uA)
+- REGULATION_11: dominant supply FUN_DC (8399.0 uA)
+- REGULATION_12: dominant supply FUN_DC (13220.3 uA)
+- DISABLED: dominant supply VPWR (22246.6 uA)
+- REGULATION: dominant supply VPWR (4442.0 uA)
+- REGULATION_2: dominant supply FUN_DC (14951.0 uA)
+- REGULATION_6: dominant supply VPWR (14946.9 uA)
+- REGULATION_7: dominant supply VPWR (14998.2 uA)
+- REGULATION_8: dominant supply VPWR (15032.8 uA)
+- REGULATION_9: dominant supply VPWR (15185.6 uA)
+- REGULATION_10: dominant supply VPWR (15181.5 uA)
+- REGULATION_11: dominant supply FUN_DC (9422.8 uA)
+- REGULATION_12: dominant supply FUN_DC (15200.4 uA)
+- DISABLED: dominant supply VPWR (19633.4 uA)
+- REGULATION: dominant supply VPWR (4244.8 uA)
+- REGULATION_2: dominant supply FUN_DC (14926.7 uA)
+- REGULATION_6: dominant supply VPWR (14949.8 uA)
+- REGULATION_7: dominant supply VPWR (15008.9 uA)
+- REGULATION_8: dominant supply VPWR (15037.6 uA)
+- REGULATION_9: dominant supply VPWR (15200.3 uA)
+- REGULATION_10: dominant supply VPWR (15197.1 uA)
+- REGULATION_11: dominant supply FUN_DC (8691.5 uA)
+- REGULATION_12: dominant supply FUN_DC (15202.8 uA)
+- DISABLED: dominant supply VPWR (14133.3 uA)
+- REGULATION: dominant supply VPWR (13420.3 uA)
+- REGULATION_2: dominant supply FUN_DC (18815.6 uA)
+- REGULATION_6: dominant supply VPWR (12789.7 uA)
+- REGULATION_7: dominant supply VPWR (12778.6 uA)
+- REGULATION_8: dominant supply VPWR (12775.7 uA)
+- REGULATION_9: dominant supply VPWR (14241.2 uA)
+- REGULATION_10: dominant supply VPWR (9860.4 uA)
+- REGULATION_11: dominant supply FUN_DC (8374.6 uA)
+- REGULATION_12: dominant supply FUN_DC (14754.6 uA)
+- DISABLED: dominant supply VPWR (27518.6 uA)
+- REGULATION: dominant supply VPWR (4432.7 uA)
+- REGULATION_2: dominant supply FUN_DC (15034.4 uA)
+- REGULATION_6: dominant supply VPWR (14932.1 uA)
+- REGULATION_7: dominant supply VPWR (14981.5 uA)
+- REGULATION_8: dominant supply VPWR (15030.3 uA)
+- REGULATION_9: dominant supply VPWR (15198.1 uA)
+- REGULATION_10: dominant supply VPWR (15195.1 uA)
+- REGULATION_11: dominant supply FUN_DC (9690.2 uA)
+- REGULATION_12: dominant supply FUN_DC (15200.1 uA)
+
+## Transition health (shoot-through / inrush)
+
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 4552.24 uF
+- REGULATION_3 inrush -> C_out estimate 1.23 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 0.53 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 11.58 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 85.41 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 1.65 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 3295.74 uF
+- REGULATION_3 inrush -> C_out estimate 10.25 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 0.61 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 4.38 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 68.47 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 2.28 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 3343.46 uF
+- REGULATION_3 inrush -> C_out estimate 6.27 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 0.61 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 8.02 uF
+- REGULATION inrush -> C_out estimate 734.42 uF
+- REGULATION_2 inrush -> C_out estimate 844.34 uF
+- REGULATION_3 inrush -> C_out estimate 841.79 uF
+- REGULATION_2 inrush -> C_out estimate 3397.89 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 1169.55 uF
+- REGULATION_3 inrush -> C_out estimate 4.87 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 1308.69 uF
+- REGULATION_3 inrush -> C_out estimate 2.32 uF
+- REGULATION_4 inrush -> C_out estimate 1748.02 uF
+- REGULATION_2 inrush -> C_out estimate 3.24 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 9015.07 uF
+- REGULATION_3 inrush -> C_out estimate 3.68 uF
+- REGULATION_2 inrush -> C_out estimate 3.23 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 5362.95 uF
+- REGULATION_3 inrush -> C_out estimate 2.08 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 2286.16 uF
+- REGULATION_3 inrush -> C_out estimate 4.52 uF
+- REGULATION_4 inrush -> C_out estimate 7346.51 uF
+- REGULATION_2 inrush -> C_out estimate 3.37 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 6445.33 uF
+- REGULATION_3 inrush -> C_out estimate 2.07 uF
+- REGULATION_2 inrush -> C_out estimate 3.07 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 4780.20 uF
+- REGULATION_3 inrush -> C_out estimate 1.82 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 1.69 uF
+- REGULATION_2 inrush -> C_out estimate 3.44 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 4174.55 uF
+- REGULATION_3 inrush -> C_out estimate 1.50 uF
+- REGULATION_2 inrush -> C_out estimate 3.09 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 4531.43 uF
+- REGULATION_3 inrush -> C_out estimate 1.38 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 35.01 uF
+- REGULATION_2 inrush -> C_out estimate 59.73 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 1249.55 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4 inrush -> C_out estimate 2571.76 uF
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 1641.82 uF
+- REGULATION inrush -> C_out estimate 8.87 uF
+- REGULATION_2 inrush -> C_out estimate 79.81 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 1692.72 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 5419.88 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 42.17 uF
+- REGULATION_2 inrush -> C_out estimate 171.45 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 9032.14 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4 inrush -> C_out estimate 9015.28 uF
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 8984.05 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 8785.86 uF
+- REGULATION_3 inrush -> C_out estimate 1.24 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 5264.31 uF
+- REGULATION_3 inrush -> C_out estimate 1.82 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 37.98 uF
+- REGULATION_2 inrush -> C_out estimate 102.55 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4 inrush -> C_out estimate 8030.00 uF
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 9119.21 uF
+- REGULATION_3 inrush -> C_out estimate 1.18 uF
+- REGULATION_3->REGULATION_4: excess total supply current during switch (crowbar)
+- REGULATION_4->REGULATION_2: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 48.20 uF
+- REGULATION_5 inrush -> C_out estimate 2.05 uF
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 7.10 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 4.56 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 62.35 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 1.37 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.37 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 1.45 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 39.53 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 1.26 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.26 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 2.70 uF
+- REGULATION_2 inrush -> C_out estimate 40545.51 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 1.48 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.48 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 4.64 uF
+- REGULATION inrush -> C_out estimate 55.94 uF
+- REGULATION_2 inrush -> C_out estimate 28678.45 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 1.27 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.27 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 15.93 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 113.52 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 1.04 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.04 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 2.77 uF
+- REGULATION_2 inrush -> C_out estimate 9249.61 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 1.27 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.27 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 4.44 uF
+- REGULATION inrush -> C_out estimate 53.91 uF
+- REGULATION_2 inrush -> C_out estimate 50801.97 uF
+- REGULATION_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.33 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 14.84 uF
+- REGULATION_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 406.24 uF
+- REGULATION_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.06 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 2.71 uF
+- REGULATION_2 inrush -> C_out estimate 4388.06 uF
+- REGULATION_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.32 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 3.79 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 86.34 uF
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 1.26 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.26 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 3.37 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 82.16 uF
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 1.24 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.24 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 3.02 uF
+- REGULATION_2 inrush -> C_out estimate 65983.03 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 1.13 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.32 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 4.40 uF
+- REGULATION inrush -> C_out estimate 83.26 uF
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 1.21 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.21 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 3.36 uF
+- REGULATION inrush -> C_out estimate 79.39 uF
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 1.20 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.20 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 3.06 uF
+- REGULATION_2 inrush -> C_out estimate 20069.19 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 1.21 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.32 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 4.92 uF
+- REGULATION_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 79.39 uF
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.27 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 3.41 uF
+- REGULATION_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 74.83 uF
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.23 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 3.04 uF
+- REGULATION_2 inrush -> C_out estimate 10106.77 uF
+- REGULATION_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.10 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 83.07 uF
+- REGULATION inrush -> C_out estimate 4220.04 uF
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 1523.14 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 57.78 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 20.03 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 33.48 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 47.21 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 3.52 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 4.69 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 7.35 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 6.77 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 56.98 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 0.78 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.20 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 6.16 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 5.67 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 52.71 uF
+- REGULATION_2->REGULATION_3: excess total supply current during switch (crowbar)
+- REGULATION_3 inrush -> C_out estimate 3.04 uF
+- REGULATION_3->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 8.54 uF
+- REGULATION_3 inrush -> C_out estimate 23.86 uF
+- REGULATION_5 inrush -> C_out estimate 121.17 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1.68 uF
+- REGULATION_5 inrush -> C_out estimate 21.09 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 44.41 uF
+- REGULATION_5 inrush -> C_out estimate 1.83 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 4.19 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 51.80 uF
+- REGULATION->DISABLED: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 94.09 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1218.06 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 2294.35 uF
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 13686.40 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 576.68 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 724.36 uF
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 7.93 uF
+- REGULATION inrush -> C_out estimate 772.55 uF
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 749.71 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1147.57 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 5763.43 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 10697.19 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 392.77 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 491.66 uF
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 8.06 uF
+- REGULATION inrush -> C_out estimate 773.74 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 748.86 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1167.97 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 5044.38 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 7867.04 uF
+- REGULATION inrush -> C_out estimate 514.30 uF
+- REGULATION->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 536.43 uF
+- REGULATION inrush -> C_out estimate 4429.18 uF
+- REGULATION_5 inrush -> C_out estimate 352.79 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 8.46 uF
+- REGULATION inrush -> C_out estimate 775.79 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 751.54 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1176.16 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 1636.03 uF
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 19201.21 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 819.05 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 927.81 uF
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 16.39 uF
+- REGULATION inrush -> C_out estimate 921.08 uF
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 886.57 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1131.11 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 1656.69 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 13576.61 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 722.78 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 831.13 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 15.91 uF
+- REGULATION inrush -> C_out estimate 924.86 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 886.81 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 1088.82 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 1763.15 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 9697.51 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 458.28 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 507.87 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 15.16 uF
+- REGULATION inrush -> C_out estimate 923.42 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 888.38 uF
+- REGULATION inrush -> C_out estimate 25.66 uF
+- REGULATION_2 inrush -> C_out estimate 62.42 uF
+- REGULATION inrush -> C_out estimate 476.96 uF
+- REGULATION_5 inrush -> C_out estimate 475.82 uF
+- REGULATION inrush -> C_out estimate 469.38 uF
+- REGULATION->DISABLED: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 171.99 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 217.02 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 54.79 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 95.21 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 50.63 uF
+- REGULATION inrush -> C_out estimate 30836.07 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 93.93 uF
+- REGULATION inrush -> C_out estimate 28.24 uF
+- REGULATION inrush -> C_out estimate 3468.92 uF
+- REGULATION_5 inrush -> C_out estimate 677.57 uF
+- REGULATION inrush -> C_out estimate 1142.21 uF
+- REGULATION->DISABLED: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 2406.22 uF
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 4896.38 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 5086.07 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 53.23 uF
+- REGULATION->DISABLED: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 100.48 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 51.60 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 98.79 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 30.46 uF
+- REGULATION_2 inrush -> C_out estimate 46.31 uF
+- REGULATION inrush -> C_out estimate 800.79 uF
+- REGULATION_5 inrush -> C_out estimate 968.93 uF
+- REGULATION->DISABLED: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION_5 inrush -> C_out estimate 74.36 uF
+- REGULATION_5->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 99.34 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 54.08 uF
+- REGULATION inrush -> C_out estimate 11179.60 uF
+- REGULATION->DISABLED: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->DISABLED_2: excess total supply current during switch (crowbar)
+- DISABLED_2->REGULATION_5: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 98.71 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_6: excess total supply current during switch (crowbar)
+- REGULATION_6 inrush -> C_out estimate 125.45 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_6: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_6: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION inrush -> C_out estimate 18.55 uF
+- REGULATION_12 inrush -> C_out estimate 1591.96 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_6: excess total supply current during switch (crowbar)
+- REGULATION_6 inrush -> C_out estimate 128.77 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_6: excess total supply current during switch (crowbar)
+- REGULATION_6 inrush -> C_out estimate 121.12 uF
+- REGULATION inrush -> C_out estimate 25.51 uF
+- REGULATION_7 inrush -> C_out estimate 86.41 uF
+- REGULATION_8 inrush -> C_out estimate 87.66 uF
+- REGULATION_9->REGULATION_10: excess total supply current during switch (crowbar)
+- REGULATION_10->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2->REGULATION_11: excess total supply current during switch (crowbar)
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_6: excess total supply current during switch (crowbar)
+- REGULATION_6 inrush -> C_out estimate 130.31 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_6: excess total supply current during switch (crowbar)
+- REGULATION_6 inrush -> C_out estimate 121.60 uF
+- REGULATION inrush -> C_out estimate 31.62 uF
+- REGULATION_7 inrush -> C_out estimate 103.76 uF
+- REGULATION_8 inrush -> C_out estimate 109.74 uF
+- REGULATION->REGULATION_11: excess total supply current during switch (crowbar)
+- REGULATION_11->REGULATION_12: excess total supply current during switch (crowbar)
+- REGULATION_12->REGULATION_2: excess total supply current during switch (crowbar)
+- REGULATION_2 inrush -> C_out estimate 31178.77 uF
+- DISABLED->REGULATION: excess total supply current during switch (crowbar)
+- REGULATION->REGULATION_6: excess total supply current during switch (crowbar)
+- REGULATION_6 inrush -> C_out estimate 131.23 uF
+
+## Per-state efficiency (mean P_out/P_in)
+
+| state | efficiency | n |
+|---|---|---|
+| DISABLED | -0.055 | 126 |
+| REGULATION | -0.024 | 126 |
+| REGULATION_2 | -0.182 | 108 |
+| REGULATION_3 | 0.121 | 45 |
+| REGULATION_4 | 0.099 | 27 |
+| REGULATION_5 | 0.058 | 54 |
+| DISABLED_2 | -0.247 | 27 |
+| REGULATION_6 | -0.391 | 27 |
+| REGULATION_7 | -0.398 | 27 |
+| REGULATION_8 | -0.406 | 27 |
+| REGULATION_9 | -0.408 | 27 |
+| REGULATION_10 | -0.413 | 27 |
+| REGULATION_11 | -0.393 | 27 |
+| REGULATION_12 | -0.414 | 27 |

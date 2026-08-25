@@ -1,0 +1,6 @@
+# $table_model data for parameter lambda_p
+# columns: p_idx vdd temp value
+# p_idx: 0=FF, 1=SS, 2=TT
+0 2 -40 0.03
+1 1.5 125 0.00100000031
+2 1.8 27 0.03

@@ -1,0 +1,53 @@
+# IP-class completeness profiles (core/fsm_completeness/ip_profiles.py).
+# Overrides/extends the built-in profiles when pyyaml is available. Each
+# profile declares the dominance hierarchy (fsm_role tiers, high->low), the
+# canonical states, the minimum transition set, and the transient captures
+# a class needs. `complete: false` marks a skeleton so the gap report flags
+# the profile itself.
+profiles:
+  LDO:
+    complete: true
+    dominance_hierarchy: [supply_ok, enable, fault, override, ready,
+                          mode_select, supply_select, output_select,
+                          scan_mode, trim]
+    canonical_states: [DISABLED, STARTUP, REGULATION, DROPOUT, FAULT, SCAN]
+    min_transitions:
+      - [DISABLED, STARTUP]
+      - [STARTUP, REGULATION]
+      - [REGULATION, DROPOUT]
+      - [DROPOUT, REGULATION]
+      - [REGULATION, FAULT]
+      - [FAULT, DISABLED]
+      - [REGULATION, DISABLED]
+    required_transients: [line_step, load_step, enable_inrush]
+    mode_split_roles: [mode_select]
+    settling_role: load_step
+
+  DCDC:
+    complete: false            # skeleton: class knowledge minimal but honest
+    dominance_hierarchy: [supply_ok, enable, fault, mode_select, scan_mode]
+    canonical_states: [DISABLED, SOFT_START, CCM, DCM, FAULT, HICCUP]
+    min_transitions:
+      - [DISABLED, SOFT_START]
+      - [SOFT_START, CCM]
+      - [CCM, DCM]
+      - [DCM, CCM]
+      - [CCM, FAULT]
+      - [FAULT, HICCUP]
+    required_transients: [line_step, load_step, soft_start]
+    mode_split_roles: [mode_select]
+    settling_role: load_step
+
+  PLL:
+    complete: false            # skeleton
+    dominance_hierarchy: [supply_ok, enable, reset, lock, mode_select]
+    canonical_states: [DISABLED, RESET, ACQUIRE, LOCKED, UNLOCKED]
+    min_transitions:
+      - [DISABLED, RESET]
+      - [RESET, ACQUIRE]
+      - [ACQUIRE, LOCKED]
+      - [LOCKED, UNLOCKED]
+      - [UNLOCKED, ACQUIRE]
+    required_transients: [reference_step, lock_acquire]
+    mode_split_roles: []
+    settling_role: lock_acquire

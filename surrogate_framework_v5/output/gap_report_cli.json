@@ -1,0 +1,538 @@
+{
+  "scorecard": {
+    "state_pct": 42.9,
+    "transition_pct": 28.6,
+    "richness_pct": 100.0,
+    "n_missing_states": 4,
+    "n_missing_transitions": 10,
+    "n_clipped": 0,
+    "n_current_gaps": 0,
+    "n_output_contradictions": 5,
+    "n_corners": 1
+  },
+  "gaps": [
+    {
+      "gap": "state STARTUP never observed",
+      "why": "reference state absent from all runs",
+      "recommended_run": {
+        "stimulus": "exercise entry into STARTUP",
+        "pins": [
+          "EN_LDO=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "STARTUP behavior defaults to nearest state; unmodeled"
+    },
+    {
+      "gap": "state DROPOUT never observed",
+      "why": "reference state absent from all runs",
+      "recommended_run": {
+        "stimulus": "exercise entry into DROPOUT",
+        "pins": [
+          "EN_LDO=1",
+          "V_SUPPLY->dropout"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "DROPOUT behavior defaults to nearest state; unmodeled"
+    },
+    {
+      "gap": "state FAULT never observed",
+      "why": "reference state absent from all runs",
+      "recommended_run": {
+        "stimulus": "exercise entry into FAULT",
+        "pins": [
+          "fault-inject"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "FAULT behavior defaults to nearest state; unmodeled"
+    },
+    {
+      "gap": "state SCAN never observed",
+      "why": "reference state absent from all runs",
+      "recommended_run": {
+        "stimulus": "exercise entry into SCAN",
+        "pins": [
+          "SCAN_MODE_VSUPPLY=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "SCAN behavior defaults to nearest state; unmodeled"
+    },
+    {
+      "gap": "transition DISABLED->STARTUP never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive DISABLED->STARTUP event",
+        "pins": [
+          "EN_LDO=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition DROPOUT->REGULATION_HP never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive DROPOUT->REGULATION_HP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition DROPOUT->REGULATION_LP never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive DROPOUT->REGULATION_LP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition FAULT->DISABLED never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive FAULT->DISABLED event",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition REGULATION_HP->DROPOUT never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive REGULATION_HP->DROPOUT event",
+        "pins": [
+          "EN_LDO=1",
+          "V_SUPPLY->dropout"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition REGULATION_HP->FAULT never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive REGULATION_HP->FAULT event",
+        "pins": [
+          "fault-inject"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition REGULATION_LP->DROPOUT never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive REGULATION_LP->DROPOUT event",
+        "pins": [
+          "EN_LDO=1",
+          "V_SUPPLY->dropout"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition REGULATION_LP->FAULT never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive REGULATION_LP->FAULT event",
+        "pins": [
+          "fault-inject"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition STARTUP->REGULATION_HP never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive STARTUP->REGULATION_HP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "transition STARTUP->REGULATION_LP never observed",
+      "why": "expected edge missing; guard unverified",
+      "recommended_run": {
+        "stimulus": "drive STARTUP->REGULATION_LP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "transition guard unvalidated by data"
+    },
+    {
+      "gap": "state REGULATION_3 dwell insufficient",
+      "why": "dwell < 3x settling; analog response not captured",
+      "recommended_run": {
+        "stimulus": "hold REGULATION_3 longer",
+        "pins": [
+          "EN_LDO=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "REGULATION_3 steady-state params under-constrained"
+    },
+    {
+      "gap": "state REGULATION_4 dwell insufficient",
+      "why": "dwell < 3x settling; analog response not captured",
+      "recommended_run": {
+        "stimulus": "hold REGULATION_4 longer",
+        "pins": [
+          "EN_LDO=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "REGULATION_4 steady-state params under-constrained"
+    },
+    {
+      "gap": "state REGULATION_5 dwell insufficient",
+      "why": "dwell < 3x settling; analog response not captured",
+      "recommended_run": {
+        "stimulus": "hold REGULATION_5 longer",
+        "pins": [
+          "EN_LDO=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "REGULATION_5 steady-state params under-constrained"
+    },
+    {
+      "gap": "state DISABLED_5 dwell insufficient",
+      "why": "dwell < 3x settling; analog response not captured",
+      "recommended_run": {
+        "stimulus": "hold DISABLED_5 longer",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "DISABLED_5 steady-state params under-constrained"
+    },
+    {
+      "gap": "state REGULATION_6 dwell insufficient",
+      "why": "dwell < 3x settling; analog response not captured",
+      "recommended_run": {
+        "stimulus": "hold REGULATION_6 longer",
+        "pins": [
+          "EN_LDO=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "REGULATION_6 steady-state params under-constrained"
+    },
+    {
+      "gap": "state REGULATION_8 dwell insufficient",
+      "why": "dwell < 3x settling; analog response not captured",
+      "recommended_run": {
+        "stimulus": "hold REGULATION_8 longer",
+        "pins": [
+          "EN_LDO=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "REGULATION_8 steady-state params under-constrained"
+    },
+    {
+      "gap": "state REGULATION_10 dwell insufficient",
+      "why": "dwell < 3x settling; analog response not captured",
+      "recommended_run": {
+        "stimulus": "hold REGULATION_10 longer",
+        "pins": [
+          "EN_LDO=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "REGULATION_10 steady-state params under-constrained"
+    },
+    {
+      "gap": "output-consistency: EN_UVLO_1V2 in DISABLED_2",
+      "why": "ready-role indicator observed at mean 0.769 but the DISABLED_2 family expects 0",
+      "recommended_run": {
+        "stimulus": "re-exercise DISABLED_2 and capture EN_UVLO_1V2; confirm the ready role assignment",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "emitted status-indicator drive may misrepresent this state"
+    },
+    {
+      "gap": "output-consistency: EN_UVLO_1V2 in DISABLED_3",
+      "why": "ready-role indicator observed at mean 0.809 but the DISABLED_3 family expects 0",
+      "recommended_run": {
+        "stimulus": "re-exercise DISABLED_3 and capture EN_UVLO_1V2; confirm the ready role assignment",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "emitted status-indicator drive may misrepresent this state"
+    },
+    {
+      "gap": "output-consistency: EN_UVLO_1V2 in DISABLED_4",
+      "why": "ready-role indicator observed at mean 1.0 but the DISABLED_4 family expects 0",
+      "recommended_run": {
+        "stimulus": "re-exercise DISABLED_4 and capture EN_UVLO_1V2; confirm the ready role assignment",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "emitted status-indicator drive may misrepresent this state"
+    },
+    {
+      "gap": "output-consistency: EN_UVLO_1V2 in DISABLED_5",
+      "why": "ready-role indicator observed at mean 1.0 but the DISABLED_5 family expects 0",
+      "recommended_run": {
+        "stimulus": "re-exercise DISABLED_5 and capture EN_UVLO_1V2; confirm the ready role assignment",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "emitted status-indicator drive may misrepresent this state"
+    },
+    {
+      "gap": "output-consistency: EN_UVLO_1V2 in DISABLED_6",
+      "why": "ready-role indicator observed at mean 1.0 but the DISABLED_6 family expects 0",
+      "recommended_run": {
+        "stimulus": "re-exercise DISABLED_6 and capture EN_UVLO_1V2; confirm the ready role assignment",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "emitted status-indicator drive may misrepresent this state"
+    },
+    {
+      "gap": "only 1/3 corners",
+      "why": "states/transitions not exercised across PVT",
+      "recommended_run": {
+        "stimulus": "repeat key runs at missing corners",
+        "pins": [],
+        "corner": "SS/FF",
+        "min_duration_s": 2.5e-05
+      },
+      "model_impact": "PVT parameter grid sparse"
+    }
+  ],
+  "decision": {
+    "option_1_provide_runs": [
+      {
+        "id": "R1",
+        "stimulus": "enter STARTUP",
+        "pins": [
+          "EN_LDO=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R2",
+        "stimulus": "enter DROPOUT",
+        "pins": [
+          "EN_LDO=1",
+          "V_SUPPLY->dropout"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R3",
+        "stimulus": "enter FAULT",
+        "pins": [
+          "fault-inject"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R4",
+        "stimulus": "enter SCAN",
+        "pins": [
+          "SCAN_MODE_VSUPPLY=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R5",
+        "stimulus": "DISABLED->STARTUP event",
+        "pins": [
+          "EN_LDO=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R6",
+        "stimulus": "DROPOUT->REGULATION_HP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R7",
+        "stimulus": "DROPOUT->REGULATION_LP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R8",
+        "stimulus": "FAULT->DISABLED event",
+        "pins": [
+          "EN_LDO=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R9",
+        "stimulus": "REGULATION_HP->DROPOUT event",
+        "pins": [
+          "EN_LDO=1",
+          "V_SUPPLY->dropout"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R10",
+        "stimulus": "REGULATION_HP->FAULT event",
+        "pins": [
+          "fault-inject"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R11",
+        "stimulus": "REGULATION_LP->DROPOUT event",
+        "pins": [
+          "EN_LDO=1",
+          "V_SUPPLY->dropout"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R12",
+        "stimulus": "REGULATION_LP->FAULT event",
+        "pins": [
+          "fault-inject"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R13",
+        "stimulus": "STARTUP->REGULATION_HP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=1"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      },
+      {
+        "id": "R14",
+        "stimulus": "STARTUP->REGULATION_LP event",
+        "pins": [
+          "EN_LDO=1",
+          "HIGH_POWER_MODE=0"
+        ],
+        "corner": "any",
+        "min_duration_s": 2.5e-05
+      }
+    ],
+    "option_2_proceed_limitations": [
+      "state STARTUP not characterized (no run enters it)",
+      "state DROPOUT not characterized (no run enters it)",
+      "state FAULT not characterized (no run enters it)",
+      "state SCAN not characterized (no run enters it)",
+      "transition DISABLED->STARTUP unverified",
+      "transition DROPOUT->REGULATION_HP unverified",
+      "transition DROPOUT->REGULATION_LP unverified",
+      "transition FAULT->DISABLED unverified",
+      "transition REGULATION_HP->DROPOUT unverified",
+      "transition REGULATION_HP->FAULT unverified",
+      "transition REGULATION_LP->DROPOUT unverified",
+      "transition REGULATION_LP->FAULT unverified",
+      "transition STARTUP->REGULATION_HP unverified",
+      "transition STARTUP->REGULATION_LP unverified",
+      "REGULATION_3 dwell too short for steady-state fit",
+      "REGULATION_4 dwell too short for steady-state fit",
+      "REGULATION_5 dwell too short for steady-state fit",
+      "DISABLED_5 dwell too short for steady-state fit",
+      "REGULATION_6 dwell too short for steady-state fit",
+      "REGULATION_8 dwell too short for steady-state fit",
+      "REGULATION_10 dwell too short for steady-state fit",
+      "output-consistency: EN_UVLO_1V2 contradicts DISABLED_2 (ready role)",
+      "output-consistency: EN_UVLO_1V2 contradicts DISABLED_3 (ready role)",
+      "output-consistency: EN_UVLO_1V2 contradicts DISABLED_4 (ready role)",
+      "output-consistency: EN_UVLO_1V2 contradicts DISABLED_5 (ready role)",
+      "output-consistency: EN_UVLO_1V2 contradicts DISABLED_6 (ready role)",
+      "corner coverage 1/3"
+    ]
+  },
+  "notices": []
+}

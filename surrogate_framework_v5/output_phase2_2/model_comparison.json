@@ -1,0 +1,581 @@
+{
+  "blut_path": "blut_files/regression_multi_corner_sref_ldo.bin",
+  "good_corners": 126,
+  "total_corners": 135,
+  "meta_key_kind": {
+    "corner": "categorical",
+    "temp": "continuous",
+    "vsup_max": "continuous"
+  },
+  "categorical_codes": {
+    "corner": {
+      "nn": -0.031476326058316115,
+      "ss": 0.1831277279070026,
+      "ww": -0.1811179640438765
+    }
+  },
+  "feature_names": [
+    "VPWR",
+    "VREF",
+    "FUN_DC",
+    "VDD_1V2_EXT",
+    "V_SUPPLY",
+    "meta_corner",
+    "meta_temp",
+    "meta_vsup_max"
+  ],
+  "output_names": [
+    "VDD_1V2",
+    "VPWR_I",
+    "FUN_DC_I",
+    "V_SUPPLY_I",
+    "VDD_1V2_EXT_I"
+  ],
+  "equation_source": "degree-2 polynomial",
+  "equation_parameters": {
+    "meta_corner": 2.530235929704971e-10,
+    "meta_temp": -4.293647960265167,
+    "meta_vsup_max": 5.04992848711764
+  },
+  "states": {
+    "0": {
+      "name": "DISABLED",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.08812531477960624,
+        "SMT": 0.06948466124636388,
+        "PINN": 0.18016867986811108,
+        "NODE": 3610793047.5850363
+      },
+      "best_black_box_model": "SMT",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.0553001*VPWR + 2.50757*VREF + -0.0553001*FUN_DC + 1.19357e-10*VDD_1V2_EXT + -0.0553001*V_SUPPLY + -3.87358*meta_corner + -0.000816542*meta_temp + 2.72479*meta_vsup_max + -0.00328677*VPWR*VPWR + -0.0798299*VPWR*VREF + -0.00328677*VPWR*FUN_DC + 1.02051e-10*VPWR*VDD_1V2_EXT + -0.00328677*VPWR*V_SUPPLY + -0.00731086*VPWR*meta_corner + 1.80256e-05*VPWR*meta_temp + 0.0175084*VPWR*meta_vsup_max + -1.83428*VREF*VREF + -0.0798299*VREF*FUN_DC + -0.0798299*VREF*V_SUPPLY + -0.539437*VREF*meta_corner + 0.00205421*VREF*meta_temp + -0.0798299*VREF*meta_vsup_max + -0.00328677*FUN_DC*FUN_DC + 1.02042e-10*FUN_DC*VDD_1V2_EXT + -0.00328677*FUN_DC*V_SUPPLY + -0.00731086*FUN_DC*meta_corner + 1.80256e-05*FUN_DC*meta_temp + 0.0175084*FUN_DC*meta_vsup_max + 1.02042e-10*VDD_1V2_EXT*V_SUPPLY + -4.80456e-09*VDD_1V2_EXT*meta_temp + 5.40559e-10*VDD_1V2_EXT*meta_vsup_max + -0.00328677*V_SUPPLY*V_SUPPLY + -0.00731086*V_SUPPLY*meta_corner + 1.80256e-05*V_SUPPLY*meta_temp + 0.0175084*V_SUPPLY*meta_vsup_max + -10.9159*meta_corner*meta_corner + 0.00500249*meta_corner*meta_temp + 0.76564*meta_corner*meta_vsup_max + 7.62487e-07*meta_temp*meta_temp + -0.00016457*meta_temp*meta_vsup_max + -0.276555*meta_vsup_max*meta_vsup_max + -6.2826",
+          "r2": 0.15867901326795952,
+          "source": "polynomial_deg2"
+        },
+        "VPWR_I": {
+          "equation": "-0.00341639*VPWR + -0.245978*VREF + -0.00341639*FUN_DC + -0.00341639*V_SUPPLY + 0.0492652*meta_corner + 0.00104268*meta_temp + -0.34398*meta_vsup_max + 0.000197343*VPWR*VPWR + 0.00874902*VPWR*VREF + 0.000197343*VPWR*FUN_DC + 0.000197343*VPWR*V_SUPPLY + -0.0012844*VPWR*meta_corner + -4.03947e-06*VPWR*meta_temp + 0.000327271*VPWR*meta_vsup_max + 0.172599*VREF*VREF + 0.00874902*VREF*FUN_DC + 0.00874902*VREF*V_SUPPLY + 0.0151835*VREF*meta_corner + -0.000214569*VREF*meta_temp + 0.00874902*VREF*meta_vsup_max + 0.000197343*FUN_DC*FUN_DC + 0.000197343*FUN_DC*V_SUPPLY + -0.0012844*FUN_DC*meta_corner + -4.03947e-06*FUN_DC*meta_temp + 0.000327271*FUN_DC*meta_vsup_max + 4.38768e-10*VDD_1V2_EXT*meta_temp + 0.000197343*V_SUPPLY*V_SUPPLY + -0.0012844*V_SUPPLY*meta_corner + -4.03947e-06*V_SUPPLY*meta_temp + 0.000327271*V_SUPPLY*meta_vsup_max + 0.192388*meta_corner*meta_corner + 0.00011622*meta_corner*meta_temp + -0.00764653*meta_corner*meta_vsup_max + -1.41928e-06*meta_temp*meta_temp + -0.000178229*meta_temp*meta_vsup_max + 0.0342964*meta_vsup_max*meta_vsup_max + 0.859283",
+          "r2": 0.15560293784069834,
+          "source": "polynomial_deg2"
+        },
+        "FUN_DC_I": {
+          "equation": "0.000182252*VPWR + 0.000692477*VREF + 0.000182252*FUN_DC + 0.000182252*V_SUPPLY + 0.0097997*meta_corner + -2.5775e-05*meta_temp + 0.00538818*meta_vsup_max + -6.5111e-06*VPWR*VPWR + -0.000124453*VPWR*VREF + -6.5111e-06*VPWR*FUN_DC + -6.5111e-06*VPWR*V_SUPPLY + -7.55995e-05*VPWR*meta_corner + 2.09003e-07*VPWR*meta_temp + -2.32918e-05*VPWR*meta_vsup_max + 0.00200021*VREF*VREF + -0.000124453*VREF*FUN_DC + -0.000124453*VREF*V_SUPPLY + -0.000137058*VREF*meta_corner + 2.05403e-06*VREF*meta_temp + -0.000124453*VREF*meta_vsup_max + -6.5111e-06*FUN_DC*FUN_DC + -6.5111e-06*FUN_DC*V_SUPPLY + -7.55995e-05*FUN_DC*meta_corner + 2.09003e-07*FUN_DC*meta_temp + -2.32918e-05*FUN_DC*meta_vsup_max + -6.5111e-06*V_SUPPLY*V_SUPPLY + -7.55995e-05*V_SUPPLY*meta_corner + 2.09003e-07*V_SUPPLY*meta_temp + -2.32918e-05*V_SUPPLY*meta_vsup_max + 0.00200285*meta_corner*meta_corner + 5.97893e-06*meta_corner*meta_temp + -0.00190037*meta_corner*meta_vsup_max + -3.26414e-08*meta_temp*meta_temp + 5.58687e-06*meta_temp*meta_vsup_max + -0.000543007*meta_vsup_max*meta_vsup_max + -0.0133605",
+          "r2": 0.13304345318092847,
+          "source": "polynomial_deg2"
+        },
+        "V_SUPPLY_I": {
+          "equation": "-8.6196e-06*VPWR + -0.000597364*VREF + -8.6196e-06*FUN_DC + -8.6196e-06*V_SUPPLY + -0.000103788*meta_corner + 8.36386e-08*meta_temp + -0.00052733*meta_vsup_max + 6.79808e-08*VPWR*VPWR + 1.84046e-05*VPWR*VREF + 6.79808e-08*VPWR*FUN_DC + 6.79808e-08*VPWR*V_SUPPLY + -1.95676e-07*VPWR*meta_corner + 1.99013e-09*VPWR*meta_temp + 1.55597e-06*VPWR*meta_vsup_max + 0.000683839*VREF*VREF + 1.84046e-05*VREF*FUN_DC + 1.84046e-05*VREF*V_SUPPLY + 0.000331789*VREF*meta_corner + -5.81476e-07*VREF*meta_temp + 1.84046e-05*VREF*meta_vsup_max + 6.79808e-08*FUN_DC*FUN_DC + 6.79808e-08*FUN_DC*V_SUPPLY + -1.95676e-07*FUN_DC*meta_corner + 1.99013e-09*FUN_DC*meta_temp + 1.55597e-06*FUN_DC*meta_vsup_max + 6.79808e-08*V_SUPPLY*V_SUPPLY + -1.95676e-07*V_SUPPLY*meta_corner + 1.99013e-09*V_SUPPLY*meta_temp + 1.55597e-06*V_SUPPLY*meta_vsup_max + -0.000550039*meta_corner*meta_corner + 2.821e-07*meta_corner*meta_temp + 2.08133e-05*meta_corner*meta_vsup_max + 5.05713e-10*meta_temp*meta_temp + -2.79995e-08*meta_temp*meta_vsup_max + 5.21333e-05*meta_vsup_max*meta_vsup_max + 0.00134055",
+          "r2": 0.6379589809745763,
+          "source": "polynomial_deg2"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "-7.17184e-08*VPWR + 1.62571e-06*VREF + -7.17184e-08*FUN_DC + -7.17184e-08*V_SUPPLY + 6.7553e-07*meta_corner + 1.74582e-10*meta_temp + 1.78248e-06*meta_vsup_max + 1.68317e-08*VPWR*VPWR + -1.10242e-07*VPWR*VREF + 1.68317e-08*VPWR*FUN_DC + 1.68317e-08*VPWR*V_SUPPLY + 4.61143e-08*VPWR*meta_corner + -1.91072e-08*VPWR*meta_vsup_max + 5.23635e-07*VREF*VREF + -1.10242e-07*VREF*FUN_DC + -1.10242e-07*VREF*V_SUPPLY + 6.9777e-07*VREF*meta_corner + 2.83288e-09*VREF*meta_temp + -1.10242e-07*VREF*meta_vsup_max + 1.68317e-08*FUN_DC*FUN_DC + 1.68317e-08*FUN_DC*V_SUPPLY + 4.61143e-08*FUN_DC*meta_corner + -1.91072e-08*FUN_DC*meta_vsup_max + 1.68317e-08*V_SUPPLY*V_SUPPLY + 4.61143e-08*V_SUPPLY*meta_corner + -1.91072e-08*V_SUPPLY*meta_vsup_max + 1.51055e-06*meta_corner*meta_corner + 3.328e-09*meta_corner*meta_temp + -3.76081e-07*meta_corner*meta_vsup_max + -6.27369e-10*meta_temp*meta_vsup_max + -1.72728e-07*meta_vsup_max*meta_vsup_max + -4.45992e-06",
+          "r2": 0.2707456498884112,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "1": {
+      "name": "REGULATION",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.03966130926771982,
+        "SMT": 0.0279267262452771,
+        "PINN": 0.4995934862748112,
+        "NODE": 44769819705.88514
+      },
+      "best_black_box_model": "SMT",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-110.081*VPWR + 0.661807*VREF + 36.5673*FUN_DC + -2.1644*VDD_1V2_EXT + 36.5673*V_SUPPLY + -2.04084*meta_corner + -0.000499181*meta_temp + 36.5673*meta_vsup_max + 7.76867*VPWR*VPWR + -77.0569*VPWR*VREF + 3.70726*VPWR*FUN_DC + 0.107272*VPWR*VDD_1V2_EXT + 3.70726*VPWR*V_SUPPLY + -255.318*VPWR*meta_corner + -0.0607959*VPWR*meta_temp + 3.70726*VPWR*meta_vsup_max + 0.463265*VREF*VREF + 25.5971*VREF*FUN_DC + -1.51508*VREF*VDD_1V2_EXT + 25.5971*VREF*V_SUPPLY + -1.42859*VREF*meta_corner + -0.000349427*VREF*meta_temp + 25.5971*VREF*meta_vsup_max + -3.13646*FUN_DC*FUN_DC + 0.107272*FUN_DC*VDD_1V2_EXT + -3.13646*FUN_DC*V_SUPPLY + 85.3557*FUN_DC*meta_corner + 0.0197452*FUN_DC*meta_temp + -3.13646*FUN_DC*meta_vsup_max + -1.03723*VDD_1V2_EXT*VDD_1V2_EXT + 0.107272*VDD_1V2_EXT*V_SUPPLY + 0.392012*VDD_1V2_EXT*meta_corner + -0.0109018*VDD_1V2_EXT*meta_temp + 0.107272*VDD_1V2_EXT*meta_vsup_max + -3.13646*V_SUPPLY*V_SUPPLY + 85.3557*V_SUPPLY*meta_corner + 0.0197452*V_SUPPLY*meta_temp + -3.13646*V_SUPPLY*meta_vsup_max + -24.5364*meta_corner*meta_corner + -0.0146513*meta_corner*meta_temp + 85.3557*meta_corner*meta_vsup_max + 7.55317e-05*meta_temp*meta_temp + 0.0197452*meta_temp*meta_vsup_max + -3.13646*meta_vsup_max*meta_vsup_max + 0.945439",
+          "r2": 0.6369359751673445,
+          "source": "polynomial_deg2"
+        },
+        "VPWR_I": {
+          "equation": "-0.932299*VPWR + -0.072752*VREF + 0.327848*FUN_DC + 0.0428121*VDD_1V2_EXT + 0.327848*V_SUPPLY + 0.0754747*meta_corner + -0.000218216*meta_temp + 0.327848*meta_vsup_max + 0.0568498*VPWR*VPWR + -0.652609*VPWR*VREF + 0.0356473*VPWR*FUN_DC + -0.00382738*VPWR*VDD_1V2_EXT + 0.0356473*VPWR*V_SUPPLY + -2.11886*VPWR*meta_corner + -0.000354529*VPWR*meta_temp + 0.0356473*VPWR*meta_vsup_max + -0.0509264*VREF*VREF + 0.229494*VREF*FUN_DC + 0.0299685*VREF*VDD_1V2_EXT + 0.229494*VREF*V_SUPPLY + 0.0528323*VREF*meta_corner + -0.000152751*VREF*meta_temp + 0.229494*VREF*meta_vsup_max + -0.0285638*FUN_DC*FUN_DC + -0.00382738*FUN_DC*VDD_1V2_EXT + -0.0285638*FUN_DC*V_SUPPLY + 0.698518*FUN_DC*meta_corner + 0.000141539*FUN_DC*meta_temp + -0.0285638*FUN_DC*meta_vsup_max + 0.0205076*VDD_1V2_EXT*VDD_1V2_EXT + -0.00382738*VDD_1V2_EXT*V_SUPPLY + -0.00775404*VDD_1V2_EXT*meta_corner + 9.57335e-06*VDD_1V2_EXT*meta_temp + -0.00382738*VDD_1V2_EXT*meta_vsup_max + -0.0285638*V_SUPPLY*V_SUPPLY + 0.698518*V_SUPPLY*meta_corner + 0.000141539*V_SUPPLY*meta_temp + -0.0285638*V_SUPPLY*meta_vsup_max + 0.325412*meta_corner*meta_corner + 0.000351086*meta_corner*meta_temp + 0.698518*meta_corner*meta_vsup_max + 8.98707e-07*meta_temp*meta_temp + 0.000141539*meta_temp*meta_vsup_max + -0.0285638*meta_vsup_max*meta_vsup_max + -0.103931",
+          "r2": 0.2261629206210375,
+          "source": "polynomial_deg2"
+        },
+        "FUN_DC_I": {
+          "equation": "-0.000832476*VPWR + -0.000221499*VREF + 0.000326488*FUN_DC + -2.76889e-05*VDD_1V2_EXT + 0.000326488*V_SUPPLY + -2.58054e-05*meta_corner + 5.91919e-10*meta_temp + 0.000326488*meta_vsup_max + 6.92322e-05*VPWR*VPWR + -0.000582733*VPWR*VREF + 3.42049e-05*VPWR*FUN_DC + 1.59247e-06*VPWR*VDD_1V2_EXT + 3.42049e-05*VPWR*V_SUPPLY + -0.000946317*VPWR*meta_corner + -5.02158e-07*VPWR*meta_temp + 3.42049e-05*VPWR*meta_vsup_max + -0.000155049*VREF*VREF + 0.000228542*VREF*FUN_DC + -1.93822e-05*VREF*VDD_1V2_EXT + 0.000228542*VREF*V_SUPPLY + -1.80638e-05*VREF*meta_corner + 4.14346e-10*VREF*meta_temp + 0.000228542*VREF*meta_vsup_max + -3.22674e-05*FUN_DC*FUN_DC + 1.59247e-06*FUN_DC*VDD_1V2_EXT + -3.22674e-05*FUN_DC*V_SUPPLY + 0.000317334*FUN_DC*meta_corner + 1.66439e-07*FUN_DC*meta_temp + -3.22674e-05*FUN_DC*meta_vsup_max + -1.32679e-05*VDD_1V2_EXT*VDD_1V2_EXT + 1.59247e-06*VDD_1V2_EXT*V_SUPPLY + 5.01496e-06*VDD_1V2_EXT*meta_corner + 1.03084e-07*VDD_1V2_EXT*meta_temp + 1.59247e-06*VDD_1V2_EXT*meta_vsup_max + -3.22674e-05*V_SUPPLY*V_SUPPLY + 0.000317334*V_SUPPLY*meta_corner + 1.66439e-07*V_SUPPLY*meta_temp + -3.22674e-05*V_SUPPLY*meta_vsup_max + 2.75078e-06*meta_corner*meta_corner + 8.35557e-08*meta_corner*meta_temp + 0.000317334*meta_corner*meta_vsup_max + 2.25241e-10*meta_temp*meta_temp + 1.66439e-07*meta_temp*meta_vsup_max + -3.22674e-05*meta_vsup_max*meta_vsup_max + -0.000316426",
+          "r2": 0.4138231329411626,
+          "source": "polynomial_deg2"
+        },
+        "V_SUPPLY_I": {
+          "equation": "-0.00165954*VPWR + 8.38705e-06*VREF + 0.000550533*FUN_DC + 9.45172e-05*VDD_1V2_EXT + 0.000550533*V_SUPPLY + 4.41089e-05*meta_corner + -3.69618e-08*meta_temp + 0.000550533*meta_vsup_max + 0.000141091*VPWR*VPWR + -0.00116168*VPWR*VREF + 7.02996e-05*VPWR*FUN_DC + -2.18676e-06*VPWR*VDD_1V2_EXT + 7.02996e-05*VPWR*V_SUPPLY + -0.00158217*VPWR*meta_corner + -1.0996e-06*VPWR*meta_temp + 7.02996e-05*VPWR*meta_vsup_max + 5.87093e-06*VREF*VREF + 0.000385373*VREF*FUN_DC + 6.61621e-05*VREF*VDD_1V2_EXT + 0.000385373*VREF*V_SUPPLY + 3.08762e-05*VREF*meta_corner + -2.58733e-08*VREF*meta_temp + 0.000385373*VREF*meta_vsup_max + -5.83788e-05*FUN_DC*FUN_DC + -2.18676e-06*FUN_DC*VDD_1V2_EXT + -5.83788e-05*FUN_DC*V_SUPPLY + 0.000522536*FUN_DC*meta_corner + 3.79388e-07*FUN_DC*meta_temp + -5.83788e-05*FUN_DC*meta_vsup_max + 4.53075e-05*VDD_1V2_EXT*VDD_1V2_EXT + -2.18676e-06*VDD_1V2_EXT*V_SUPPLY + -1.71188e-05*VDD_1V2_EXT*meta_corner + -3.34585e-07*VDD_1V2_EXT*meta_temp + -2.18676e-06*VDD_1V2_EXT*meta_vsup_max + -5.83788e-05*V_SUPPLY*V_SUPPLY + 0.000522536*V_SUPPLY*meta_corner + 3.79388e-07*V_SUPPLY*meta_temp + -5.83788e-05*V_SUPPLY*meta_vsup_max + 0.000265665*meta_corner*meta_corner + 6.80062e-07*meta_corner*meta_temp + 0.000522536*meta_corner*meta_vsup_max + 1.72503e-10*meta_temp*meta_temp + 3.79388e-07*meta_temp*meta_vsup_max + -5.83788e-05*meta_vsup_max*meta_vsup_max + 1.19815e-05",
+          "r2": 0.21166213254265065,
+          "source": "polynomial_deg2"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "2.55327e-07*VPWR + 6.56887e-07*VREF + -2.35232e-07*FUN_DC + 0.000826322*VDD_1V2_EXT + -2.35232e-07*V_SUPPLY + -7.0833e-07*meta_corner + -8.87401e-10*meta_temp + -2.35232e-07*meta_vsup_max + -3.24324e-07*VPWR*VPWR + 1.78729e-07*VPWR*VREF + -1.95146e-07*VPWR*FUN_DC + -8.59687e-05*VPWR*VDD_1V2_EXT + -1.95146e-07*VPWR*V_SUPPLY + -2.88593e-05*VPWR*meta_corner + 1.83371e-09*VPWR*meta_temp + -1.95146e-07*VPWR*meta_vsup_max + 4.59821e-07*VREF*VREF + -1.64662e-07*VREF*FUN_DC + 0.000578426*VREF*VDD_1V2_EXT + -1.64662e-07*VREF*V_SUPPLY + -4.95831e-07*VREF*meta_corner + -6.21181e-10*VREF*meta_temp + -1.64662e-07*VREF*meta_vsup_max + 1.63201e-07*FUN_DC*FUN_DC + -8.59687e-05*FUN_DC*VDD_1V2_EXT + 1.63201e-07*FUN_DC*V_SUPPLY + 9.69662e-06*FUN_DC*meta_corner + -5.1845e-10*FUN_DC*meta_temp + 1.63201e-07*FUN_DC*meta_vsup_max + 0.000395758*VDD_1V2_EXT*VDD_1V2_EXT + -8.59687e-05*VDD_1V2_EXT*V_SUPPLY + -0.000149662*VDD_1V2_EXT*meta_corner + 3.46087e-06*VDD_1V2_EXT*meta_temp + -8.59687e-05*VDD_1V2_EXT*meta_vsup_max + 1.63201e-07*V_SUPPLY*V_SUPPLY + 9.69662e-06*V_SUPPLY*meta_corner + -5.1845e-10*V_SUPPLY*meta_temp + 1.63201e-07*V_SUPPLY*meta_vsup_max + 1.22589e-07*meta_corner*meta_corner + 3.54722e-09*meta_corner*meta_temp + 9.69662e-06*meta_corner*meta_vsup_max + -5.1845e-10*meta_temp*meta_vsup_max + 1.63201e-07*meta_vsup_max*meta_vsup_max + 9.38409e-07",
+          "r2": 0.9998874150254691,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "2": {
+      "name": "REGULATION_2",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.20170629300177859,
+        "SMT": 0.08865419836323568,
+        "PINN": 0.4191422632461253,
+        "NODE": 14559405216.984417
+      },
+      "best_black_box_model": "SMT",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "897.452*VPWR + -4.24212*VREF + -283.752*FUN_DC + 0.000633988*VDD_1V2_EXT + -305.399*V_SUPPLY + -4.64366*meta_corner + 0.00385729*meta_temp + -305.399*meta_vsup_max + 36031.3*VPWR*VPWR + 628.217*VPWR*VREF + -24012.1*VPWR*FUN_DC + 0.00294618*VPWR*VDD_1V2_EXT + -24120.3*VPWR*V_SUPPLY + 377.471*VPWR*meta_corner + 0.406522*VPWR*meta_temp + -24120.3*VPWR*meta_vsup_max + -2.96943*VREF*VREF + -198.626*VREF*FUN_DC + 0.000458254*VREF*VDD_1V2_EXT + -213.779*VREF*V_SUPPLY + -3.25054*VREF*meta_corner + 0.00298663*VREF*meta_temp + -213.779*VREF*meta_vsup_max + 6145.08*FUN_DC*FUN_DC + 0.00294617*FUN_DC*VDD_1V2_EXT + 6080.14*FUN_DC*V_SUPPLY + -125.864*FUN_DC*meta_corner + 389.528*FUN_DC*meta_temp + 6080.14*FUN_DC*meta_vsup_max + 0.00294617*VDD_1V2_EXT*V_SUPPLY + 0.000119887*VDD_1V2_EXT*meta_corner + -0.0261711*VDD_1V2_EXT*meta_temp + 0.00294617*VDD_1V2_EXT*meta_vsup_max + 5971.9*V_SUPPLY*V_SUPPLY + -125.183*V_SUPPLY*meta_corner + -194.967*V_SUPPLY*meta_temp + 5971.9*V_SUPPLY*meta_vsup_max + -25.8491*meta_corner*meta_corner + 0.0127496*meta_corner*meta_temp + -125.183*meta_corner*meta_vsup_max + -1.20983e-05*meta_temp*meta_temp + -194.968*meta_temp*meta_vsup_max + 5971.9*meta_vsup_max*meta_vsup_max + -6.06007",
+          "r2": 0.401757089970314,
+          "source": "polynomial_deg2"
+        },
+        "VPWR_I": {
+          "equation": "-16.667*VPWR + -0.0428082*VREF + 6.36116*FUN_DC + 3.55371e-05*VDD_1V2_EXT + 5.16795*V_SUPPLY + 0.0642556*meta_corner + -0.00012633*meta_temp + 5.16795*meta_vsup_max + 2023.25*VPWR*VPWR + -11.6669*VPWR*VREF + -1343.32*VPWR*FUN_DC + 0.000165139*VPWR*VDD_1V2_EXT + -1349.29*VPWR*V_SUPPLY + -0.797751*VPWR*meta_corner + 0.0328331*VPWR*meta_temp + -1349.29*VPWR*meta_vsup_max + -0.029963*VREF*VREF + 4.45284*VREF*FUN_DC + 2.5686e-05*VREF*VDD_1V2_EXT + 3.61756*VREF*V_SUPPLY + 0.04498*VREF*meta_corner + -7.2374e-05*VREF*meta_temp + 3.61756*VREF*meta_vsup_max + 342.405*FUN_DC*FUN_DC + 0.000165139*FUN_DC*VDD_1V2_EXT + 338.826*FUN_DC*V_SUPPLY + 0.233784*FUN_DC*meta_corner + 21.4676*FUN_DC*meta_temp + 338.826*FUN_DC*meta_vsup_max + 0.000165139*VDD_1V2_EXT*V_SUPPLY + 6.71988e-06*VDD_1V2_EXT*meta_corner + -0.00146694*VDD_1V2_EXT*meta_temp + 0.000165139*VDD_1V2_EXT*meta_vsup_max + 332.859*V_SUPPLY*V_SUPPLY + 0.271343*V_SUPPLY*meta_corner + -10.7502*V_SUPPLY*meta_temp + 332.859*V_SUPPLY*meta_vsup_max + 0.0719486*meta_corner*meta_corner + 2.51975e-05*meta_corner*meta_temp + 0.271343*meta_corner*meta_vsup_max + 4.54926e-07*meta_temp*meta_temp + -10.7502*meta_temp*meta_vsup_max + 332.859*meta_vsup_max*meta_vsup_max + -0.0611489",
+          "r2": 0.1136410830752278,
+          "source": "polynomial_deg2"
+        },
+        "FUN_DC_I": {
+          "equation": "-95.7181*VPWR + 0.0692379*VREF + 31.568*FUN_DC + -1.39752e-05*VDD_1V2_EXT + 32.0547*V_SUPPLY + -0.0437999*meta_corner + 1.99165e-05*meta_temp + 32.0547*meta_vsup_max + -788.294*VPWR*VPWR + -67.0026*VPWR*VREF + 532.872*VPWR*FUN_DC + -6.49481e-05*VPWR*VDD_1V2_EXT + 535.305*VPWR*V_SUPPLY + -11.4167*VPWR*meta_corner + -0.00285991*VPWR*meta_temp + 535.305*VPWR*meta_vsup_max + 0.0484655*VREF*VREF + 22.0976*VREF*FUN_DC + -1.01021e-05*VREF*VDD_1V2_EXT + 22.4383*VREF*V_SUPPLY + -0.0306604*VREF*meta_corner + 7.62152e-06*VREF*meta_temp + 22.4383*VREF*meta_vsup_max + -138.297*FUN_DC*FUN_DC + -6.4948e-05*FUN_DC*VDD_1V2_EXT + -136.837*FUN_DC*V_SUPPLY + 3.82097*FUN_DC*meta_corner + -8.76005*FUN_DC*meta_temp + -136.837*FUN_DC*meta_vsup_max + -6.4948e-05*VDD_1V2_EXT*V_SUPPLY + -2.64288e-06*VDD_1V2_EXT*meta_corner + 0.000576938*VDD_1V2_EXT*meta_temp + -6.4948e-05*VDD_1V2_EXT*meta_vsup_max + -134.404*V_SUPPLY*V_SUPPLY + 3.80565*V_SUPPLY*meta_corner + 4.38145*V_SUPPLY*meta_temp + -134.404*V_SUPPLY*meta_vsup_max + -0.131211*meta_corner*meta_corner + -0.000300354*meta_corner*meta_temp + 3.80565*meta_corner*meta_vsup_max + -6.38334e-08*meta_temp*meta_temp + 4.38146*meta_temp*meta_vsup_max + -134.404*meta_vsup_max*meta_vsup_max + 0.0989092",
+          "r2": 0.16529659519304052,
+          "source": "polynomial_deg2"
+        },
+        "V_SUPPLY_I": {
+          "equation": "-0.203534*VPWR + 0.000123797*VREF + 0.0852799*FUN_DC + 7.78346e-07*VDD_1V2_EXT + 0.0590764*V_SUPPLY + -0.000200605*meta_corner + -5.08448e-07*meta_temp + 0.0590764*meta_vsup_max + 44.3083*VPWR*VPWR + -0.142474*VPWR*VREF + -29.4267*VPWR*FUN_DC + 3.61694e-06*VPWR*VDD_1V2_EXT + -29.5577*VPWR*V_SUPPLY + -0.0422554*VPWR*meta_corner + 0.000247141*VPWR*meta_temp + -29.5577*VPWR*meta_vsup_max + 8.67184e-05*VREF*VREF + 0.0596965*VREF*FUN_DC + 5.62586e-07*VREF*VDD_1V2_EXT + 0.0413535*VREF*V_SUPPLY + -0.0001404*VREF*meta_corner + -4.22528e-09*VREF*meta_temp + 0.0413535*VREF*meta_vsup_max + 7.50333*FUN_DC*FUN_DC + 3.61693e-06*FUN_DC*VDD_1V2_EXT + 7.42472*FUN_DC*V_SUPPLY + 0.013564*FUN_DC*meta_corner + 0.471595*FUN_DC*meta_temp + 7.42472*FUN_DC*meta_vsup_max + 3.61693e-06*VDD_1V2_EXT*V_SUPPLY + 1.47181e-07*VDD_1V2_EXT*meta_corner + -3.21296e-05*VDD_1V2_EXT*meta_temp + 3.61693e-06*VDD_1V2_EXT*meta_vsup_max + 7.2937*V_SUPPLY*V_SUPPLY + 0.0143888*V_SUPPLY*meta_corner + -0.23592*V_SUPPLY*meta_temp + 7.2937*V_SUPPLY*meta_vsup_max + 0.00132115*meta_corner*meta_corner + 3.89555e-07*meta_corner*meta_temp + 0.0143888*meta_corner*meta_vsup_max + -3.26631e-09*meta_temp*meta_temp + -0.235921*meta_temp*meta_vsup_max + 7.2937*meta_vsup_max*meta_vsup_max + 0.000176977",
+          "r2": 0.44724969590669095,
+          "source": "polynomial_deg2"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "0.00144137*VPWR + -5.60701e-07*VREF + -0.000478293*FUN_DC + -0.000481341*V_SUPPLY + 1.16469e-06*meta_corner + 1.64507e-09*meta_temp + -0.000481341*meta_vsup_max + 0.00464069*VPWR*VPWR + 0.00100896*VPWR*VREF + -0.00321828*VPWR*FUN_DC + 3.8756e-10*VPWR*VDD_1V2_EXT + -0.00323352*VPWR*V_SUPPLY + 0.000121111*VPWR*meta_corner + -5.09846e-07*VPWR*meta_temp + -0.00323352*VPWR*meta_vsup_max + -3.92485e-07*VREF*VREF + -0.000334805*VREF*FUN_DC + -0.000336939*VREF*V_SUPPLY + 8.15288e-07*VREF*meta_corner + 1.1893e-09*VREF*meta_temp + -0.000336939*VREF*meta_vsup_max + 0.000856002*FUN_DC*FUN_DC + 3.8756e-10*FUN_DC*VDD_1V2_EXT + 0.000846856*FUN_DC*V_SUPPLY + -4.05514e-05*FUN_DC*meta_corner + 5.50436e-05*FUN_DC*meta_temp + 0.000846856*FUN_DC*meta_vsup_max + 3.8756e-10*VDD_1V2_EXT*V_SUPPLY + -3.44271e-09*VDD_1V2_EXT*meta_temp + 3.8756e-10*VDD_1V2_EXT*meta_vsup_max + 0.000831614*V_SUPPLY*V_SUPPLY + -4.04554e-05*V_SUPPLY*meta_corner + -2.72671e-05*V_SUPPLY*meta_temp + 0.000831614*V_SUPPLY*meta_vsup_max + 1.29808e-06*meta_corner*meta_corner + 1.72829e-09*meta_corner*meta_temp + -4.04554e-05*meta_corner*meta_vsup_max + -2.72672e-05*meta_temp*meta_vsup_max + 0.000831614*meta_vsup_max*meta_vsup_max + -8.00989e-07",
+          "r2": 0.3692618041787975,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "3": {
+      "name": "REGULATION_3",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.005410431188784579,
+        "SMT": 0.007054420279846203,
+        "PINN": 0.30023589482267626,
+        "NODE": 3662161654.6897125
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-137.511*VPWR + 2.44701*VREF + 45.4074*FUN_DC + 5.44613e-08*VDD_1V2_EXT + 45.4074*V_SUPPLY + -1.64606*meta_corner + -0.00665971*meta_temp + 45.4074*meta_vsup_max + 13.9271*VPWR*VPWR + -96.258*VPWR*VREF + 4.97674*VPWR*FUN_DC + 2.33807e-07*VPWR*VDD_1V2_EXT + 4.97674*VPWR*V_SUPPLY + 2284.39*VPWR*meta_corner + 0.516364*VPWR*meta_temp + 4.97674*VPWR*meta_vsup_max + 1.71291*VREF*VREF + 31.7852*VREF*FUN_DC + 3.63763e-08*VREF*VDD_1V2_EXT + 31.7852*VREF*V_SUPPLY + -1.15224*VREF*meta_corner + -0.0046618*VREF*meta_temp + 31.7852*VREF*meta_vsup_max + -4.77941*FUN_DC*FUN_DC + 2.33813e-07*FUN_DC*VDD_1V2_EXT + -4.77941*FUN_DC*V_SUPPLY + -761.326*FUN_DC*meta_corner + -0.171184*FUN_DC*meta_temp + -4.77941*FUN_DC*meta_vsup_max + 2.33813e-07*VDD_1V2_EXT*V_SUPPLY + 9.51887e-09*VDD_1V2_EXT*meta_corner + -2.08086e-06*VDD_1V2_EXT*meta_temp + 2.33813e-07*VDD_1V2_EXT*meta_vsup_max + -4.77941*V_SUPPLY*V_SUPPLY + -761.326*V_SUPPLY*meta_corner + -0.171184*V_SUPPLY*meta_temp + -4.77941*V_SUPPLY*meta_vsup_max + -7.30316*meta_corner*meta_corner + 0.00362382*meta_corner*meta_temp + -761.326*meta_corner*meta_vsup_max + -8.51414e-06*meta_temp*meta_temp + -0.171184*meta_temp*meta_vsup_max + -4.77941*meta_vsup_max*meta_vsup_max + 3.49574",
+          "r2": 0.28392738936135653,
+          "source": "polynomial_deg2"
+        },
+        "VPWR_I": {
+          "equation": "-358.069*VPWR + 0.00609456*VREF + 119.355*FUN_DC + -7.1356e-08*VDD_1V2_EXT + 119.355*V_SUPPLY + 0.0033709*meta_corner + -1.95878e-05*meta_temp + 119.355*meta_vsup_max + 34.9555*VPWR*VPWR + -250.648*VPWR*VREF + 12.4926*VPWR*FUN_DC + -3.24543e-07*VPWR*VDD_1V2_EXT + 12.4926*VPWR*V_SUPPLY + -286.433*VPWR*meta_corner + -0.810312*VPWR*meta_temp + 12.4926*VPWR*meta_vsup_max + 0.00426623*VREF*VREF + 83.5484*VREF*FUN_DC + -5.04829e-08*VREF*VDD_1V2_EXT + 83.5484*VREF*V_SUPPLY + 0.00235963*VREF*meta_corner + -1.37315e-05*VREF*meta_temp + 83.5484*VREF*meta_vsup_max + -12.0721*FUN_DC*FUN_DC + -3.24536e-07*FUN_DC*VDD_1V2_EXT + -12.0721*FUN_DC*V_SUPPLY + 95.4775*FUN_DC*meta_corner + 0.270106*FUN_DC*meta_temp + -12.0721*FUN_DC*meta_vsup_max + -3.24536e-07*VDD_1V2_EXT*V_SUPPLY + -1.32067e-08*VDD_1V2_EXT*meta_corner + 2.88508e-06*VDD_1V2_EXT*meta_temp + -3.24536e-07*VDD_1V2_EXT*meta_vsup_max + -12.0721*V_SUPPLY*V_SUPPLY + 95.4775*V_SUPPLY*meta_corner + 0.270106*V_SUPPLY*meta_temp + -12.0721*V_SUPPLY*meta_vsup_max + -0.00229035*meta_corner*meta_corner + 4.61913e-06*meta_corner*meta_temp + 95.4775*meta_corner*meta_vsup_max + 2.01432e-08*meta_temp*meta_temp + 0.270106*meta_temp*meta_vsup_max + -12.0721*meta_vsup_max*meta_vsup_max + 0.00870658",
+          "r2": 0.9992200818874208,
+          "source": "polynomial_deg2"
+        },
+        "FUN_DC_I": {
+          "equation": "108.182*VPWR + 0.396414*VREF + -36.1459*FUN_DC + 1.96042e-08*VDD_1V2_EXT + -36.1459*V_SUPPLY + -0.166234*meta_corner + 0.00463158*meta_temp + -36.1459*meta_vsup_max + -9.14793*VPWR*VPWR + 75.7272*VPWR*VREF + -3.3001*VPWR*FUN_DC + 8.94947e-08*VPWR*VDD_1V2_EXT + -3.3001*VPWR*V_SUPPLY + 29.722*VPWR*meta_corner + 0.482656*VPWR*meta_temp + -3.3001*VPWR*meta_vsup_max + 0.27749*VREF*VREF + -25.3021*VREF*FUN_DC + 1.39208e-08*VREF*VDD_1V2_EXT + -25.3021*VREF*V_SUPPLY + -0.116364*VREF*meta_corner + 0.00324211*VREF*meta_temp + -25.3021*VREF*meta_vsup_max + 3.1816*FUN_DC*FUN_DC + 8.94927e-08*FUN_DC*VDD_1V2_EXT + 3.1816*FUN_DC*V_SUPPLY + -9.89054*FUN_DC*meta_corner + -0.161311*FUN_DC*meta_temp + 3.1816*FUN_DC*meta_vsup_max + 8.94927e-08*VDD_1V2_EXT*V_SUPPLY + 3.64171e-09*VDD_1V2_EXT*meta_corner + -7.95521e-07*VDD_1V2_EXT*meta_temp + 8.94927e-08*VDD_1V2_EXT*meta_vsup_max + 3.1816*V_SUPPLY*V_SUPPLY + -9.89054*V_SUPPLY*meta_corner + -0.161311*V_SUPPLY*meta_temp + 3.1816*V_SUPPLY*meta_vsup_max + 0.461157*meta_corner*meta_corner + 0.00110092*meta_corner*meta_temp + -9.89054*meta_corner*meta_vsup_max + -7.51947e-06*meta_temp*meta_temp + -0.161311*meta_temp*meta_vsup_max + 3.1816*meta_vsup_max*meta_vsup_max + 0.566306",
+          "r2": 0.49139204560607397,
+          "source": "polynomial_deg2"
+        },
+        "V_SUPPLY_I": {
+          "equation": "0.0350764*VPWR + 8.44293e-05*VREF + -0.0117095*FUN_DC + -0.0117095*V_SUPPLY + 0.000115479*meta_corner + -2.59666e-07*meta_temp + -0.0117095*meta_vsup_max + -0.00664559*VPWR*VPWR + 0.0245535*VPWR*VREF + -0.00229846*VPWR*FUN_DC + -0.00229846*VPWR*V_SUPPLY + -0.0765576*VPWR*meta_corner + -0.000224424*VPWR*meta_temp + -0.00229846*VPWR*meta_vsup_max + 5.91005e-05*VREF*VREF + -0.00819664*VREF*FUN_DC + -0.00819664*VREF*V_SUPPLY + 8.08355e-05*VREF*meta_corner + -1.81765e-07*VREF*meta_temp + -0.00819664*VREF*meta_vsup_max + 0.00225806*FUN_DC*FUN_DC + 0.00225806*FUN_DC*V_SUPPLY + 0.0255079*FUN_DC*meta_corner + 7.48353e-05*FUN_DC*meta_temp + 0.00225806*FUN_DC*meta_vsup_max + -1.45761e-10*VDD_1V2_EXT*meta_temp + 0.00225806*V_SUPPLY*V_SUPPLY + 0.0255079*V_SUPPLY*meta_corner + 7.48353e-05*V_SUPPLY*meta_temp + 0.00225806*V_SUPPLY*meta_vsup_max + -0.000142931*meta_corner*meta_corner + 4.25893e-08*meta_corner*meta_temp + 0.0255079*meta_corner*meta_vsup_max + -1.49819e-10*meta_temp*meta_temp + 7.48353e-05*meta_temp*meta_vsup_max + 0.00225806*meta_vsup_max*meta_vsup_max + 0.000120613",
+          "r2": 0.7212221053692502,
+          "source": "polynomial_deg2"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "0.000991703*VPWR + -7.17448e-07*VREF + -0.000330412*FUN_DC + -0.000330412*V_SUPPLY + 1.9728e-08*meta_corner + 3.6122e-09*meta_temp + -0.000330412*meta_vsup_max + -9.02365e-05*VPWR*VPWR + 0.000694192*VPWR*VREF + -3.24087e-05*VPWR*FUN_DC + -3.24087e-05*VPWR*V_SUPPLY + 0.00221618*VPWR*meta_corner + 2.58517e-06*VPWR*meta_temp + -3.24087e-05*VPWR*meta_vsup_max + -5.02214e-07*VREF*VREF + -0.000231288*VREF*FUN_DC + -0.000231288*VREF*V_SUPPLY + 1.38096e-08*VREF*meta_corner + 2.5286e-09*VREF*meta_temp + -0.000231288*VREF*meta_vsup_max + 3.12325e-05*FUN_DC*FUN_DC + 3.12325e-05*FUN_DC*V_SUPPLY + -0.000738729*FUN_DC*meta_corner + -8.62046e-07*FUN_DC*meta_temp + 3.12325e-05*FUN_DC*meta_vsup_max + 3.12325e-05*V_SUPPLY*V_SUPPLY + -0.000738729*V_SUPPLY*meta_corner + -8.62046e-07*V_SUPPLY*meta_temp + 3.12325e-05*V_SUPPLY*meta_vsup_max + -1.16834e-07*meta_corner*meta_corner + -1.6321e-09*meta_corner*meta_temp + -0.000738729*meta_corner*meta_vsup_max + -8.62046e-07*meta_temp*meta_vsup_max + 3.12325e-05*meta_vsup_max*meta_vsup_max + -1.02493e-06",
+          "r2": 0.7452511937853531,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "4": {
+      "name": "REGULATION_4",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.0033257987300969673,
+        "SMT": 0.003444174629451723,
+        "PINN": 0.2735778845545263,
+        "NODE": 14690993362.256153
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-3.73529*VPWR + 22.3624*VREF + -3.73529*FUN_DC + 1.19455e-09*VDD_1V2_EXT + -3.73529*V_SUPPLY + -1.84243*meta_corner + 0.0409356*meta_temp + -3.73529*meta_vsup_max + 0.22506*VPWR*VPWR + -2.6147*VPWR*VREF + 0.22506*VPWR*FUN_DC + 5.34618e-09*VPWR*VDD_1V2_EXT + 0.22506*VPWR*V_SUPPLY + 0.157837*VPWR*meta_corner + -0.00273003*VPWR*meta_temp + 0.22506*VPWR*meta_vsup_max + 15.6537*VREF*VREF + -2.6147*VREF*FUN_DC + 8.31627e-10*VREF*VDD_1V2_EXT + -2.6147*VREF*V_SUPPLY + -1.2897*VREF*meta_corner + 0.0286549*VREF*meta_temp + -2.6147*VREF*meta_vsup_max + 0.22506*FUN_DC*FUN_DC + 5.34618e-09*FUN_DC*VDD_1V2_EXT + 0.22506*FUN_DC*V_SUPPLY + 0.157837*FUN_DC*meta_corner + -0.00273003*FUN_DC*meta_temp + 0.22506*FUN_DC*meta_vsup_max + 5.34618e-09*VDD_1V2_EXT*V_SUPPLY + 2.17567e-10*VDD_1V2_EXT*meta_corner + -4.75243e-08*VDD_1V2_EXT*meta_temp + 5.34618e-09*VDD_1V2_EXT*meta_vsup_max + 0.22506*V_SUPPLY*V_SUPPLY + 0.157837*V_SUPPLY*meta_corner + -0.00273003*V_SUPPLY*meta_temp + 0.22506*V_SUPPLY*meta_vsup_max + -8.62135*meta_corner*meta_corner + -0.0275134*meta_corner*meta_temp + 0.157837*meta_corner*meta_vsup_max + 6.15077e-05*meta_temp*meta_temp + -0.00273003*meta_temp*meta_vsup_max + 0.22506*meta_vsup_max*meta_vsup_max + 31.9462",
+          "r2": 0.6928901238587424,
+          "source": "polynomial_deg2"
+        },
+        "VPWR_I": {
+          "equation": "1.31712e-05*VPWR + -0.0001017*VREF + 1.31712e-05*FUN_DC + 1.31712e-05*V_SUPPLY + 0.000376314*meta_corner + 1.94389e-07*meta_temp + 1.31712e-05*meta_vsup_max + -5.76415e-07*VPWR*VPWR + 9.21985e-06*VPWR*VREF + -5.76415e-07*VPWR*FUN_DC + -5.76415e-07*VPWR*V_SUPPLY + -2.60228e-05*VPWR*meta_corner + -9.07701e-09*VPWR*meta_temp + -5.76415e-07*VPWR*meta_vsup_max + -7.11902e-05*VREF*VREF + 9.21985e-06*VREF*FUN_DC + 9.21985e-06*VREF*V_SUPPLY + 0.000263419*VREF*meta_corner + 1.36072e-07*VREF*meta_temp + 9.21985e-06*VREF*meta_vsup_max + -5.76415e-07*FUN_DC*FUN_DC + -5.76415e-07*FUN_DC*V_SUPPLY + -2.60228e-05*FUN_DC*meta_corner + -9.07701e-09*FUN_DC*meta_temp + -5.76415e-07*FUN_DC*meta_vsup_max + -5.76415e-07*V_SUPPLY*V_SUPPLY + -2.60228e-05*V_SUPPLY*meta_corner + -9.07701e-09*V_SUPPLY*meta_temp + -5.76415e-07*V_SUPPLY*meta_vsup_max + -9.69717e-05*meta_corner*meta_corner + -2.45137e-06*meta_corner*meta_temp + -2.60228e-05*meta_corner*meta_vsup_max + 2.7074e-09*meta_temp*meta_temp + -9.07701e-09*meta_temp*meta_vsup_max + -5.76415e-07*meta_vsup_max*meta_vsup_max + -0.000145286",
+          "r2": 0.858543828355657,
+          "source": "polynomial_deg2"
+        },
+        "FUN_DC_I": {
+          "equation": "-0.476014*VPWR + 3.04232*VREF + -0.476014*FUN_DC + 1.84986e-10*VDD_1V2_EXT + -0.476014*V_SUPPLY + -4.45758*meta_corner + -0.00903014*meta_temp + -0.476014*meta_vsup_max + 0.0268393*VPWR*VPWR + -0.33321*VPWR*VREF + 0.0268393*VPWR*FUN_DC + 8.2831e-10*VPWR*VDD_1V2_EXT + 0.0268393*VPWR*V_SUPPLY + 0.310647*VPWR*meta_corner + 0.000629493*VPWR*meta_temp + 0.0268393*VPWR*meta_vsup_max + 2.12962*VREF*VREF + -0.33321*VREF*FUN_DC + 1.28848e-10*VREF*VDD_1V2_EXT + -0.33321*VREF*V_SUPPLY + -3.1203*VREF*meta_corner + -0.00632109*VREF*meta_temp + -0.33321*VREF*meta_vsup_max + 0.0268393*FUN_DC*FUN_DC + 8.2831e-10*FUN_DC*VDD_1V2_EXT + 0.0268393*FUN_DC*V_SUPPLY + 0.310647*FUN_DC*meta_corner + 0.000629493*FUN_DC*meta_temp + 0.0268393*FUN_DC*meta_vsup_max + 8.2831e-10*VDD_1V2_EXT*V_SUPPLY + -7.36329e-09*VDD_1V2_EXT*meta_temp + 8.2831e-10*VDD_1V2_EXT*meta_vsup_max + 0.0268393*V_SUPPLY*V_SUPPLY + 0.310647*V_SUPPLY*meta_corner + 0.000629493*V_SUPPLY*meta_temp + 0.0268393*V_SUPPLY*meta_vsup_max + 1.11986*meta_corner*meta_corner + 0.00819156*meta_corner*meta_temp + 0.310647*meta_corner*meta_vsup_max + -1.23968e-05*meta_temp*meta_temp + 0.000629493*meta_temp*meta_vsup_max + 0.0268393*meta_vsup_max*meta_vsup_max + 4.34617",
+          "r2": 0.788791544397532,
+          "source": "polynomial_deg2"
+        },
+        "V_SUPPLY_I": {
+          "equation": "-7.46146e-07*VPWR + 4.36699e-06*VREF + -7.46146e-07*FUN_DC + -7.46146e-07*V_SUPPLY + -7.41683e-06*meta_corner + -5.86938e-09*meta_temp + -7.46146e-07*meta_vsup_max + 4.5124e-08*VPWR*VPWR + -5.22302e-07*VPWR*VREF + 4.5124e-08*VPWR*FUN_DC + 4.5124e-08*VPWR*V_SUPPLY + 5.61859e-07*VPWR*meta_corner + 4.66806e-10*VPWR*meta_temp + 4.5124e-08*VPWR*meta_vsup_max + 3.05689e-06*VREF*VREF + -5.22302e-07*VREF*FUN_DC + -5.22302e-07*VREF*V_SUPPLY + -5.19178e-06*VREF*meta_corner + -4.10856e-09*VREF*meta_temp + -5.22302e-07*VREF*meta_vsup_max + 4.5124e-08*FUN_DC*FUN_DC + 4.5124e-08*FUN_DC*V_SUPPLY + 5.61859e-07*FUN_DC*meta_corner + 4.66806e-10*FUN_DC*meta_temp + 4.5124e-08*FUN_DC*meta_vsup_max + 4.5124e-08*V_SUPPLY*V_SUPPLY + 5.61859e-07*V_SUPPLY*meta_corner + 4.66806e-10*V_SUPPLY*meta_temp + 4.5124e-08*V_SUPPLY*meta_vsup_max + 4.58388e-06*meta_corner*meta_corner + 6.23943e-09*meta_corner*meta_temp + 5.61859e-07*meta_corner*meta_vsup_max + 4.66806e-10*meta_temp*meta_vsup_max + 4.5124e-08*meta_vsup_max*meta_vsup_max + 6.23856e-06",
+          "r2": 0.9869925501202368,
+          "source": "polynomial_deg2"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "7.62489e-07*VPWR + -4.69562e-06*VREF + 7.62489e-07*FUN_DC + 7.62489e-07*V_SUPPLY + 3.61348e-06*meta_corner + 5.41085e-10*meta_temp + 7.62489e-07*meta_vsup_max + -4.37396e-08*VPWR*VPWR + 5.33742e-07*VPWR*VREF + -4.37396e-08*VPWR*FUN_DC + -4.37396e-08*VPWR*V_SUPPLY + -2.26721e-07*VPWR*meta_corner + 1.04416e-10*VPWR*meta_temp + -4.37396e-08*VPWR*meta_vsup_max + -3.28693e-06*VREF*VREF + 5.33742e-07*VREF*FUN_DC + 5.33742e-07*VREF*V_SUPPLY + 2.52944e-06*VREF*meta_corner + 3.7876e-10*VREF*meta_temp + 5.33742e-07*VREF*meta_vsup_max + -4.37396e-08*FUN_DC*FUN_DC + -4.37396e-08*FUN_DC*V_SUPPLY + -2.26721e-07*FUN_DC*meta_corner + 1.04416e-10*FUN_DC*meta_temp + -4.37396e-08*FUN_DC*meta_vsup_max + -4.37396e-08*V_SUPPLY*V_SUPPLY + -2.26721e-07*V_SUPPLY*meta_corner + 1.04416e-10*V_SUPPLY*meta_temp + -4.37396e-08*V_SUPPLY*meta_vsup_max + -6.64964e-06*meta_corner*meta_corner + -1.66484e-08*meta_corner*meta_temp + -2.26721e-07*meta_corner*meta_vsup_max + 1.04416e-10*meta_temp*meta_vsup_max + -4.37396e-08*meta_vsup_max*meta_vsup_max + -6.70802e-06",
+          "r2": 0.37664851345773287,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "5": {
+      "name": "REGULATION_5",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.04919289565310397,
+        "SMT": 0.047950570626453866,
+        "PINN": 0.3907120745235709,
+        "NODE": 3662005179.8072166
+      },
+      "best_black_box_model": "SMT",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.818545*VPWR + -2.97722*VREF + 1.00148*FUN_DC + 1.00148*V_SUPPLY + 2.38381*meta_corner + 0.00261804*meta_temp + 1.00148*meta_vsup_max + -2.34152*VPWR*VPWR + -0.572982*VPWR*VREF + 1.42194*VPWR*FUN_DC + 1.42194*VPWR*V_SUPPLY + 4.86672*VPWR*meta_corner + 0.00730561*VPWR*meta_temp + 1.42194*VPWR*meta_vsup_max + -2.08406*VREF*VREF + 0.701038*VREF*FUN_DC + 0.701038*VREF*V_SUPPLY + 1.66867*VREF*meta_corner + 0.00183263*VREF*meta_temp + 0.701038*VREF*meta_vsup_max + -0.371784*FUN_DC*FUN_DC + -0.371784*FUN_DC*V_SUPPLY + -1.78865*FUN_DC*meta_corner + -0.00192854*FUN_DC*meta_temp + -0.371784*FUN_DC*meta_vsup_max + -0.371784*V_SUPPLY*V_SUPPLY + -1.78865*V_SUPPLY*meta_corner + -0.00192854*V_SUPPLY*meta_temp + -0.371784*V_SUPPLY*meta_vsup_max + -27.2841*meta_corner*meta_corner + -0.0075416*meta_corner*meta_temp + -1.78865*meta_corner*meta_vsup_max + -0.000120903*meta_temp*meta_temp + -0.00192854*meta_temp*meta_vsup_max + -0.371784*meta_vsup_max*meta_vsup_max + -4.25318",
+          "r2": 0.28994101519922255,
+          "source": "polynomial_deg2"
+        },
+        "VPWR_I": {
+          "equation": "-0.147502*VPWR + -0.328852*VREF + 0.123963*FUN_DC + 0.123963*V_SUPPLY + -0.100657*meta_corner + 0.000149809*meta_temp + 0.123963*meta_vsup_max + 0.105777*VPWR*VPWR + -0.103251*VPWR*VREF + -0.0455222*VPWR*FUN_DC + -0.0455222*VPWR*V_SUPPLY + 0.509059*VPWR*meta_corner + -0.00044651*VPWR*meta_temp + -0.0455222*VPWR*meta_vsup_max + -0.230197*VREF*VREF + 0.0867743*VREF*FUN_DC + 0.0867743*VREF*V_SUPPLY + -0.07046*VREF*meta_corner + 0.000104866*VREF*meta_temp + 0.0867743*VREF*meta_vsup_max + -0.000325408*FUN_DC*FUN_DC + -0.000325408*FUN_DC*V_SUPPLY + -0.149201*FUN_DC*meta_corner + 0.00018458*FUN_DC*meta_temp + -0.000325408*FUN_DC*meta_vsup_max + -0.000325408*V_SUPPLY*V_SUPPLY + -0.149201*V_SUPPLY*meta_corner + 0.00018458*V_SUPPLY*meta_temp + -0.000325408*V_SUPPLY*meta_vsup_max + 2.0366*meta_corner*meta_corner + -0.0014418*meta_corner*meta_temp + -0.149201*meta_corner*meta_vsup_max + -7.91805e-06*meta_temp*meta_temp + 0.00018458*meta_temp*meta_vsup_max + -0.000325408*meta_vsup_max*meta_vsup_max + -0.469789",
+          "r2": 0.6122821848769511,
+          "source": "polynomial_deg2"
+        },
+        "FUN_DC_I": {
+          "equation": "2.89895e-05*VPWR + -0.00030196*VREF + 5.69542e-05*FUN_DC + 5.69542e-05*V_SUPPLY + 0.00010578*meta_corner + 7.62092e-09*meta_temp + 5.69542e-05*meta_vsup_max + 3.7156e-06*VPWR*VPWR + 2.02927e-05*VPWR*VREF + -5.07208e-06*VPWR*FUN_DC + -5.07208e-06*VPWR*V_SUPPLY + 5.63737e-05*VPWR*meta_corner + 1.25005e-08*VPWR*meta_temp + -5.07208e-06*VPWR*meta_vsup_max + -0.000211372*VREF*VREF + 3.98679e-05*VREF*FUN_DC + 3.98679e-05*VREF*V_SUPPLY + 7.40462e-05*VREF*meta_corner + 5.33464e-09*VREF*meta_temp + 3.98679e-05*VREF*meta_vsup_max + -3.02368e-06*FUN_DC*FUN_DC + -3.02368e-06*FUN_DC*V_SUPPLY + -3.03621e-05*FUN_DC*meta_corner + -6.51874e-09*FUN_DC*meta_temp + -3.02368e-06*FUN_DC*meta_vsup_max + -3.02368e-06*V_SUPPLY*V_SUPPLY + -3.03621e-05*V_SUPPLY*meta_corner + -6.51874e-09*V_SUPPLY*meta_temp + -3.02368e-06*V_SUPPLY*meta_vsup_max + 3.74742e-05*meta_corner*meta_corner + 2.24409e-07*meta_corner*meta_temp + -3.03621e-05*meta_corner*meta_vsup_max + 5.54551e-10*meta_temp*meta_temp + -6.51874e-09*meta_temp*meta_vsup_max + -3.02368e-06*meta_vsup_max*meta_vsup_max + -0.000431372",
+          "r2": 0.628033702255596,
+          "source": "polynomial_deg2"
+        },
+        "V_SUPPLY_I": {
+          "equation": "0.000105051*VPWR + 0.000149368*VREF + -6.79179e-05*FUN_DC + -6.79179e-05*V_SUPPLY + 2.79839e-05*meta_corner + -6.81886e-07*meta_temp + -6.79179e-05*meta_vsup_max + -2.38317e-05*VPWR*VPWR + 7.35355e-05*VPWR*VREF + 4.20296e-06*VPWR*FUN_DC + 4.20296e-06*VPWR*V_SUPPLY + -3.35252e-05*VPWR*meta_corner + 4.84363e-07*VPWR*meta_temp + 4.20296e-06*VPWR*meta_vsup_max + 0.000104558*VREF*VREF + -4.75425e-05*VREF*FUN_DC + -4.75425e-05*VREF*V_SUPPLY + 1.95887e-05*VREF*meta_corner + -4.7732e-07*VREF*meta_temp + -4.75425e-05*VREF*meta_vsup_max + 4.45846e-06*FUN_DC*FUN_DC + 4.45846e-06*FUN_DC*V_SUPPLY + 7.90172e-06*FUN_DC*meta_corner + -9.53497e-08*FUN_DC*meta_temp + 4.45846e-06*FUN_DC*meta_vsup_max + 4.45846e-06*V_SUPPLY*V_SUPPLY + 7.90172e-06*V_SUPPLY*meta_corner + -9.53497e-08*V_SUPPLY*meta_temp + 4.45846e-06*V_SUPPLY*meta_vsup_max + -0.000793455*meta_corner*meta_corner + 6.19917e-07*meta_corner*meta_temp + 7.90172e-06*meta_corner*meta_vsup_max + 1.10906e-09*meta_temp*meta_temp + -9.53497e-08*meta_temp*meta_vsup_max + 4.45846e-06*meta_vsup_max*meta_vsup_max + 0.000213383",
+          "r2": 0.10422056133327218,
+          "source": "polynomial_deg2"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "1.62913e-06*VPWR + 1.90813e-06*VREF + -9.75982e-07*FUN_DC + -9.75982e-07*V_SUPPLY + 1.3227e-06*meta_corner + 6.15257e-09*meta_temp + -9.75982e-07*meta_vsup_max + 1.16369e-07*VPWR*VPWR + 1.14039e-06*VPWR*VREF + -2.24045e-07*VPWR*FUN_DC + -2.24045e-07*VPWR*V_SUPPLY + 1.62413e-06*VPWR*meta_corner + 1.49785e-09*VPWR*meta_temp + -2.24045e-07*VPWR*meta_vsup_max + 1.33569e-06*VREF*VREF + -6.83187e-07*VREF*FUN_DC + -6.83187e-07*VREF*V_SUPPLY + 9.25891e-07*VREF*meta_corner + 4.3068e-09*VREF*meta_temp + -6.83187e-07*VREF*meta_vsup_max + 1.24977e-07*FUN_DC*FUN_DC + 1.24977e-07*FUN_DC*V_SUPPLY + -6.69903e-07*FUN_DC*meta_corner + -1.12394e-09*FUN_DC*meta_temp + 1.24977e-07*FUN_DC*meta_vsup_max + 1.24977e-07*V_SUPPLY*V_SUPPLY + -6.69903e-07*V_SUPPLY*meta_corner + -1.12394e-09*V_SUPPLY*meta_temp + 1.24977e-07*V_SUPPLY*meta_vsup_max + 1.30504e-06*meta_corner*meta_corner + 8.50133e-09*meta_corner*meta_temp + -6.69903e-07*meta_corner*meta_vsup_max + -1.12394e-09*meta_temp*meta_vsup_max + 1.24977e-07*meta_vsup_max*meta_vsup_max + 2.72591e-06",
+          "r2": 0.08423709678522362,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "6": {
+      "name": "DISABLED_2",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.04151296327736675,
+        "SMT": 0.04582767645609467,
+        "PINN": 0.6649014984816334,
+        "NODE": 3632054715.815474
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.19689*VPWR + 1.23116*VREF + -0.19689*FUN_DC + -0.19689*V_SUPPLY + 0.323255*meta_corner + 0.00830382*meta_temp + -0.19689*meta_vsup_max + 0.0112183*VPWR*VPWR + -0.137823*VPWR*VREF + 0.0112183*VPWR*FUN_DC + 0.0112183*VPWR*V_SUPPLY + -0.00463106*VPWR*meta_corner + -0.0005636*VPWR*meta_temp + 0.0112183*VPWR*meta_vsup_max + 0.861813*VREF*VREF + -0.137823*VREF*FUN_DC + -0.137823*VREF*V_SUPPLY + 0.226278*VREF*meta_corner + 0.00581267*VREF*meta_temp + -0.137823*VREF*meta_vsup_max + 0.0112183*FUN_DC*FUN_DC + 0.0112183*FUN_DC*V_SUPPLY + -0.00463106*FUN_DC*meta_corner + -0.0005636*FUN_DC*meta_temp + 0.0112183*FUN_DC*meta_vsup_max + 0.0112183*V_SUPPLY*V_SUPPLY + -0.00463106*V_SUPPLY*meta_corner + -0.0005636*V_SUPPLY*meta_temp + 0.0112183*V_SUPPLY*meta_vsup_max + -43.5003*meta_corner*meta_corner + -0.00131829*meta_corner*meta_temp + -0.00463106*meta_corner*meta_vsup_max + 5.1313e-06*meta_temp*meta_temp + -0.0005636*meta_temp*meta_vsup_max + 0.0112183*meta_vsup_max*meta_vsup_max + 1.7588",
+          "r2": 0.5965792037897468,
+          "source": "polynomial_deg2"
+        },
+        "VPWR_I": {
+          "equation": "0.0631384*VPWR + -0.364246*VREF + 0.0631384*FUN_DC + 0.0631384*V_SUPPLY + -0.170061*meta_corner + 0.000445263*meta_temp + 0.0631384*meta_vsup_max + -0.00379163*VPWR*VPWR + 0.0441969*VPWR*VREF + -0.00379163*VPWR*FUN_DC + -0.00379163*VPWR*V_SUPPLY + 0.0105037*VPWR*meta_corner + -3.10828e-05*VPWR*meta_temp + -0.00379163*VPWR*meta_vsup_max + -0.254972*VREF*VREF + 0.0441969*VREF*FUN_DC + 0.0441969*VREF*V_SUPPLY + -0.119043*VREF*meta_corner + 0.000311684*VREF*meta_temp + 0.0441969*VREF*meta_vsup_max + -0.00379163*FUN_DC*FUN_DC + -0.00379163*FUN_DC*V_SUPPLY + 0.0105037*FUN_DC*meta_corner + -3.10828e-05*FUN_DC*meta_temp + -0.00379163*FUN_DC*meta_vsup_max + -0.00379163*V_SUPPLY*V_SUPPLY + 0.0105037*V_SUPPLY*meta_corner + -3.10828e-05*V_SUPPLY*meta_temp + -0.00379163*V_SUPPLY*meta_vsup_max + 1.47964*meta_corner*meta_corner + 0.000446405*meta_corner*meta_temp + 0.0105037*meta_corner*meta_vsup_max + -2.26743e-06*meta_temp*meta_temp + -3.10828e-05*meta_temp*meta_vsup_max + -0.00379163*meta_vsup_max*meta_vsup_max + -0.520352",
+          "r2": 0.10829313787393147,
+          "source": "polynomial_deg2"
+        },
+        "FUN_DC_I": {
+          "equation": "0.00201224*VPWR + -0.0119601*VREF + 0.00201224*FUN_DC + 0.00201224*V_SUPPLY + 0.00531014*meta_corner + 2.26674e-05*meta_temp + 0.00201224*meta_vsup_max + -0.000122329*VPWR*VPWR + 0.00140857*VPWR*VREF + -0.000122329*VPWR*FUN_DC + -0.000122329*VPWR*V_SUPPLY + -0.000351814*VPWR*meta_corner + -1.84326e-06*VPWR*meta_temp + -0.000122329*VPWR*meta_vsup_max + -0.00837207*VREF*VREF + 0.00140857*VREF*FUN_DC + 0.00140857*VREF*V_SUPPLY + 0.0037171*VREF*meta_corner + 1.58672e-05*VREF*meta_temp + 0.00140857*VREF*meta_vsup_max + -0.000122329*FUN_DC*FUN_DC + -0.000122329*FUN_DC*V_SUPPLY + -0.000351814*FUN_DC*meta_corner + -1.84326e-06*FUN_DC*meta_temp + -0.000122329*FUN_DC*meta_vsup_max + -0.000122329*V_SUPPLY*V_SUPPLY + -0.000351814*V_SUPPLY*meta_corner + -1.84326e-06*V_SUPPLY*meta_temp + -0.000122329*V_SUPPLY*meta_vsup_max + 0.00966379*meta_corner*meta_corner + 4.11893e-05*meta_corner*meta_temp + -0.000351814*meta_corner*meta_vsup_max + 7.81835e-08*meta_temp*meta_temp + -1.84326e-06*meta_temp*meta_vsup_max + -0.000122329*meta_vsup_max*meta_vsup_max + -0.0170859",
+          "r2": 0.08234105839170103,
+          "source": "polynomial_deg2"
+        },
+        "V_SUPPLY_I": {
+          "equation": "-5.43624e-05*VPWR + 0.000252764*VREF + -5.43624e-05*FUN_DC + -5.43624e-05*V_SUPPLY + -0.000676918*meta_corner + 1.36609e-06*meta_temp + -5.43624e-05*meta_vsup_max + 4.79572e-06*VPWR*VPWR + -3.80537e-05*VPWR*VREF + 4.79572e-06*VPWR*FUN_DC + 4.79572e-06*VPWR*V_SUPPLY + 6.94075e-05*VPWR*meta_corner + -1.32363e-07*VPWR*meta_temp + 4.79572e-06*VPWR*meta_vsup_max + 0.000176935*VREF*VREF + -3.80537e-05*VREF*FUN_DC + -3.80537e-05*VREF*V_SUPPLY + -0.000473843*VREF*meta_corner + 9.5626e-07*VREF*meta_temp + -3.80537e-05*VREF*meta_vsup_max + 4.79572e-06*FUN_DC*FUN_DC + 4.79572e-06*FUN_DC*V_SUPPLY + 6.94075e-05*FUN_DC*meta_corner + -1.32363e-07*FUN_DC*meta_temp + 4.79572e-06*FUN_DC*meta_vsup_max + 4.79572e-06*V_SUPPLY*V_SUPPLY + 6.94075e-05*V_SUPPLY*meta_corner + -1.32363e-07*V_SUPPLY*meta_temp + 4.79572e-06*V_SUPPLY*meta_vsup_max + 0.000196933*meta_corner*meta_corner + -2.06833e-07*meta_corner*meta_temp + 6.94075e-05*meta_corner*meta_vsup_max + 1.12806e-09*meta_temp*meta_temp + -1.32363e-07*meta_temp*meta_vsup_max + 4.79572e-06*meta_vsup_max*meta_vsup_max + 0.000361092",
+          "r2": 0.4608375339685855,
+          "source": "polynomial_deg2"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "-4.87209e-07*VPWR + 3.04505e-06*VREF + -4.87209e-07*FUN_DC + -4.87209e-07*V_SUPPLY + 1.97394e-06*meta_corner + -8.39604e-09*meta_temp + -4.87209e-07*meta_vsup_max + 2.73186e-08*VPWR*VPWR + -3.41047e-07*VPWR*VREF + 2.73186e-08*VPWR*FUN_DC + 2.73186e-08*VPWR*V_SUPPLY + -1.1475e-07*VPWR*meta_corner + 6.87742e-10*VPWR*meta_temp + 2.73186e-08*VPWR*meta_vsup_max + 2.13153e-06*VREF*VREF + -3.41047e-07*VREF*FUN_DC + -3.41047e-07*VREF*V_SUPPLY + 1.38176e-06*VREF*meta_corner + -5.87723e-09*VREF*meta_temp + -3.41047e-07*VREF*meta_vsup_max + 2.73186e-08*FUN_DC*FUN_DC + 2.73186e-08*FUN_DC*V_SUPPLY + -1.1475e-07*FUN_DC*meta_corner + 6.87742e-10*FUN_DC*meta_temp + 2.73186e-08*FUN_DC*meta_vsup_max + 2.73186e-08*V_SUPPLY*V_SUPPLY + -1.1475e-07*V_SUPPLY*meta_corner + 6.87742e-10*V_SUPPLY*meta_temp + 2.73186e-08*V_SUPPLY*meta_vsup_max + 1.22903e-06*meta_corner*meta_corner + 1.39056e-08*meta_corner*meta_temp + -1.1475e-07*meta_corner*meta_vsup_max + 6.87742e-10*meta_temp*meta_vsup_max + 2.73186e-08*meta_vsup_max*meta_vsup_max + 4.35007e-06",
+          "r2": 0.1733270322026318,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "7": {
+      "name": "REGULATION_6",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.009832650570009475,
+        "SMT": 0.0005535040435362284,
+        "PINN": 0.336724781403975,
+        "NODE": 3636170734.046869
+      },
+      "best_black_box_model": "SMT",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.249*VPWR + -1.21661*VREF + 0.249*FUN_DC + 0.249*V_SUPPLY + 1.92938*meta_corner + 0.00523922*meta_temp + 0.249*meta_vsup_max + -0.01303*VPWR*VPWR + 0.1743*VPWR*VREF + -0.01303*VPWR*FUN_DC + -0.01303*VPWR*V_SUPPLY + -0.137604*VPWR*meta_corner + -0.000332823*VPWR*meta_temp + -0.01303*VPWR*meta_vsup_max + -0.851629*VREF*VREF + 0.1743*VREF*FUN_DC + 0.1743*VREF*V_SUPPLY + 1.35057*VREF*meta_corner + 0.00366745*VREF*meta_temp + 0.1743*VREF*meta_vsup_max + -0.01303*FUN_DC*FUN_DC + -0.01303*FUN_DC*V_SUPPLY + -0.137604*FUN_DC*meta_corner + -0.000332823*FUN_DC*meta_temp + -0.01303*FUN_DC*meta_vsup_max + -0.01303*V_SUPPLY*V_SUPPLY + -0.137604*V_SUPPLY*meta_corner + -0.000332823*V_SUPPLY*meta_temp + -0.01303*V_SUPPLY*meta_vsup_max + -79.0543*meta_corner*meta_corner + 0.00172677*meta_corner*meta_temp + -0.137604*meta_corner*meta_vsup_max + 1.96107e-06*meta_temp*meta_temp + -0.000332823*meta_temp*meta_vsup_max + -0.01303*meta_vsup_max*meta_vsup_max + -1.73802",
+          "r2": 0.9902366983393618,
+          "source": "polynomial_deg2"
+        },
+        "VPWR_I": {
+          "equation": "-0.00406168*VPWR + 0.0313847*VREF + -0.00406168*FUN_DC + -0.00406168*V_SUPPLY + -0.133746*meta_corner + 5.68851e-05*meta_temp + -0.00406168*meta_vsup_max + 0.000237676*VPWR*VPWR + -0.00284317*VPWR*VREF + 0.000237676*VPWR*FUN_DC + 0.000237676*VPWR*V_SUPPLY + 0.0105516*VPWR*meta_corner + -4.02803e-07*VPWR*meta_temp + 0.000237676*VPWR*meta_vsup_max + 0.0219693*VREF*VREF + -0.00284317*VREF*FUN_DC + -0.00284317*VREF*V_SUPPLY + -0.0936223*VREF*meta_corner + 3.98196e-05*VREF*meta_temp + -0.00284317*VREF*meta_vsup_max + 0.000237676*FUN_DC*FUN_DC + 0.000237676*FUN_DC*V_SUPPLY + 0.0105516*FUN_DC*meta_corner + -4.02803e-07*FUN_DC*meta_temp + 0.000237676*FUN_DC*meta_vsup_max + 0.000237676*V_SUPPLY*V_SUPPLY + 0.0105516*V_SUPPLY*meta_corner + -4.02803e-07*V_SUPPLY*meta_temp + 0.000237676*V_SUPPLY*meta_vsup_max + 0.154278*meta_corner*meta_corner + 0.000411065*meta_corner*meta_temp + 0.0105516*meta_corner*meta_vsup_max + -1.2906e-07*meta_temp*meta_temp + -4.02803e-07*meta_temp*meta_vsup_max + 0.000237676*meta_vsup_max*meta_vsup_max + 0.0448353",
+          "r2": 0.45879679637133597,
+          "source": "polynomial_deg2"
+        },
+        "FUN_DC_I": {
+          "equation": "1.93854e-05*VPWR + -0.000109903*VREF + 1.93854e-05*FUN_DC + 1.93854e-05*V_SUPPLY + -7.72401e-06*meta_corner + -2.05359e-07*meta_temp + 1.93854e-05*meta_vsup_max + -1.20812e-06*VPWR*VPWR + 1.35698e-05*VPWR*VREF + -1.20812e-06*VPWR*FUN_DC + -1.20812e-06*VPWR*V_SUPPLY + 8.49227e-07*VPWR*meta_corner + 1.48458e-08*VPWR*meta_temp + -1.20812e-06*VPWR*meta_vsup_max + -7.69322e-05*VREF*VREF + 1.35698e-05*VREF*FUN_DC + 1.35698e-05*VREF*V_SUPPLY + -5.40681e-06*VREF*meta_corner + -1.43751e-07*VREF*meta_temp + 1.35698e-05*VREF*meta_vsup_max + -1.20812e-06*FUN_DC*FUN_DC + -1.20812e-06*FUN_DC*V_SUPPLY + 8.49227e-07*FUN_DC*meta_corner + 1.48458e-08*FUN_DC*meta_temp + -1.20812e-06*FUN_DC*meta_vsup_max + -1.20812e-06*V_SUPPLY*V_SUPPLY + 8.49227e-07*V_SUPPLY*meta_corner + 1.48458e-08*V_SUPPLY*meta_temp + -1.20812e-06*V_SUPPLY*meta_vsup_max + -5.35069e-05*meta_corner*meta_corner + 1.1641e-07*meta_corner*meta_temp + 8.49227e-07*meta_corner*meta_vsup_max + 2.43854e-10*meta_temp*meta_temp + 1.48458e-08*meta_temp*meta_vsup_max + -1.20812e-06*meta_vsup_max*meta_vsup_max + -0.000157004",
+          "r2": 0.9292234735973339,
+          "source": "polynomial_deg2"
+        },
+        "V_SUPPLY_I": {
+          "equation": "6.48393e-09*VPWR + -1.36248e-07*VREF + 6.48393e-09*FUN_DC + 6.48393e-09*V_SUPPLY + -2.74996e-06*meta_corner + -4.68717e-09*meta_temp + 6.48393e-09*meta_vsup_max + 4.38134e-10*VPWR*VPWR + 4.53875e-09*VPWR*VREF + 4.38134e-10*VPWR*FUN_DC + 4.38134e-10*VPWR*V_SUPPLY + 2.18079e-07*VPWR*meta_corner + 3.51897e-10*VPWR*meta_temp + 4.38134e-10*VPWR*meta_vsup_max + -9.53733e-08*VREF*VREF + 4.53875e-09*VREF*FUN_DC + 4.53875e-09*VREF*V_SUPPLY + -1.92497e-06*VREF*meta_corner + -3.28102e-09*VREF*meta_temp + 4.53875e-09*VREF*meta_vsup_max + 4.38134e-10*FUN_DC*FUN_DC + 4.38134e-10*FUN_DC*V_SUPPLY + 2.18079e-07*FUN_DC*meta_corner + 3.51897e-10*FUN_DC*meta_temp + 4.38134e-10*FUN_DC*meta_vsup_max + 4.38134e-10*V_SUPPLY*V_SUPPLY + 2.18079e-07*V_SUPPLY*meta_corner + 3.51897e-10*V_SUPPLY*meta_temp + 4.38134e-10*V_SUPPLY*meta_vsup_max + 1.78333e-07*meta_corner*meta_corner + 1.03253e-08*meta_corner*meta_temp + 2.18079e-07*meta_corner*meta_vsup_max + 3.51897e-10*meta_temp*meta_vsup_max + 4.38134e-10*meta_vsup_max*meta_vsup_max + -1.94639e-07",
+          "r2": 0.8308986105533656,
+          "source": "polynomial_deg2"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "4.91375e-08*VPWR + -3.08192e-07*VREF + 4.91375e-08*FUN_DC + 4.91375e-08*V_SUPPLY + -4.49713e-07*meta_corner + 4.99119e-10*meta_temp + 4.91375e-08*meta_vsup_max + -2.74926e-09*VPWR*VPWR + 3.43962e-08*VPWR*VREF + -2.74926e-09*VPWR*FUN_DC + -2.74926e-09*VPWR*V_SUPPLY + 4.96068e-08*VPWR*meta_corner + -2.74926e-09*VPWR*meta_vsup_max + -2.15735e-07*VREF*VREF + 3.43962e-08*VREF*FUN_DC + 3.43962e-08*VREF*V_SUPPLY + -3.14799e-07*VREF*meta_corner + 3.49383e-10*VREF*meta_temp + 3.43962e-08*VREF*meta_vsup_max + -2.74926e-09*FUN_DC*FUN_DC + -2.74926e-09*FUN_DC*V_SUPPLY + 4.96068e-08*FUN_DC*meta_corner + -2.74926e-09*FUN_DC*meta_vsup_max + -2.74926e-09*V_SUPPLY*V_SUPPLY + 4.96068e-08*V_SUPPLY*meta_corner + -2.74926e-09*V_SUPPLY*meta_vsup_max + 4.92981e-07*meta_corner*meta_corner + 6.82506e-09*meta_corner*meta_temp + 4.96068e-08*meta_corner*meta_vsup_max + -2.74926e-09*meta_vsup_max*meta_vsup_max + -4.40275e-07",
+          "r2": 0.35060121072098027,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "8": {
+      "name": "REGULATION_7",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.0007233304268760299,
+        "SMT": 0.00029475801443549403,
+        "PINN": 0.18841674876210004,
+        "NODE": 3652587357.057608
+      },
+      "best_black_box_model": "SMT",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "1.19687*VPWR + -7.40778*VREF + 1.19687*FUN_DC + 1.19687*V_SUPPLY + -9.65022*meta_corner + 0.00597583*meta_temp + 1.19687*meta_vsup_max + -0.0649848*VPWR*VPWR + 0.837811*VPWR*VREF + -0.0649848*VPWR*FUN_DC + -0.0649848*VPWR*V_SUPPLY + 0.70714*VPWR*meta_corner + -0.000374191*VPWR*meta_temp + -0.0649848*VPWR*meta_vsup_max + -5.18545*VREF*VREF + 0.837811*VREF*FUN_DC + 0.837811*VREF*V_SUPPLY + -6.75515*VREF*meta_corner + 0.00418308*VREF*meta_temp + 0.837811*VREF*meta_vsup_max + -0.0649848*FUN_DC*FUN_DC + -0.0649848*FUN_DC*V_SUPPLY + 0.70714*FUN_DC*meta_corner + -0.000374191*FUN_DC*meta_temp + -0.0649848*FUN_DC*meta_vsup_max + -0.0649848*V_SUPPLY*V_SUPPLY + 0.70714*V_SUPPLY*meta_corner + -0.000374191*V_SUPPLY*meta_temp + -0.0649848*V_SUPPLY*meta_vsup_max + -75.8083*meta_corner*meta_corner + 0.000930527*meta_corner*meta_temp + 0.70714*meta_corner*meta_vsup_max + -7.85879e-06*meta_temp*meta_temp + -0.000374191*meta_temp*meta_vsup_max + -0.0649848*meta_vsup_max*meta_vsup_max + -10.5825",
+          "r2": 0.9948468589806444,
+          "source": "polynomial_deg2"
+        },
+        "VPWR_I": {
+          "equation": "0.0165855*VPWR + -0.0947244*VREF + 0.0165855*FUN_DC + 0.0165855*V_SUPPLY + -0.0088868*meta_corner + 6.17598e-05*meta_temp + 0.0165855*meta_vsup_max + -0.000977522*VPWR*VPWR + 0.0116099*VPWR*VREF + -0.000977522*VPWR*FUN_DC + -0.000977522*VPWR*V_SUPPLY + 0.000631168*VPWR*meta_corner + -5.50628e-07*VPWR*meta_temp + -0.000977522*VPWR*meta_vsup_max + -0.0663071*VREF*VREF + 0.0116099*VREF*FUN_DC + 0.0116099*VREF*V_SUPPLY + -0.00622076*VREF*meta_corner + 4.32319e-05*VREF*meta_temp + 0.0116099*VREF*meta_vsup_max + -0.000977522*FUN_DC*FUN_DC + -0.000977522*FUN_DC*V_SUPPLY + 0.000631168*FUN_DC*meta_corner + -5.50628e-07*FUN_DC*meta_temp + -0.000977522*FUN_DC*meta_vsup_max + -0.000977522*V_SUPPLY*V_SUPPLY + 0.000631168*V_SUPPLY*meta_corner + -5.50628e-07*V_SUPPLY*meta_temp + -0.000977522*V_SUPPLY*meta_vsup_max + 0.224946*meta_corner*meta_corner + 0.000305997*meta_corner*meta_temp + 0.000631168*meta_corner*meta_vsup_max + 3.70312e-07*meta_temp*meta_temp + -5.50628e-07*meta_temp*meta_vsup_max + -0.000977522*meta_vsup_max*meta_vsup_max + -0.135321",
+          "r2": 0.7054557946025259,
+          "source": "polynomial_deg2"
+        },
+        "FUN_DC_I": {
+          "equation": "3.68113e-05*VPWR + -0.000219252*VREF + 3.68113e-05*FUN_DC + 3.68113e-05*V_SUPPLY + 3.33918e-06*meta_corner + -1.47197e-07*meta_temp + 3.68113e-05*meta_vsup_max + -2.20333e-06*VPWR*VPWR + 2.57679e-05*VPWR*VREF + -2.20333e-06*VPWR*FUN_DC + -2.20333e-06*VPWR*V_SUPPLY + -1.00654e-06*VPWR*meta_corner + 1.11799e-08*VPWR*meta_temp + -2.20333e-06*VPWR*meta_vsup_max + -0.000153476*VREF*VREF + 2.57679e-05*VREF*FUN_DC + 2.57679e-05*VREF*V_SUPPLY + 2.33743e-06*VREF*meta_corner + -1.03038e-07*VREF*meta_temp + 2.57679e-05*VREF*meta_vsup_max + -2.20333e-06*FUN_DC*FUN_DC + -2.20333e-06*FUN_DC*V_SUPPLY + -1.00654e-06*FUN_DC*meta_corner + 1.11799e-08*FUN_DC*meta_temp + -2.20333e-06*FUN_DC*meta_vsup_max + -2.20333e-06*V_SUPPLY*V_SUPPLY + -1.00654e-06*V_SUPPLY*meta_corner + 1.11799e-08*V_SUPPLY*meta_temp + -2.20333e-06*V_SUPPLY*meta_vsup_max + -9.34797e-05*meta_corner*meta_corner + 7.19346e-08*meta_corner*meta_temp + -1.00654e-06*meta_corner*meta_vsup_max + 1.11799e-08*meta_temp*meta_vsup_max + -2.20333e-06*meta_vsup_max*meta_vsup_max + -0.000313217",
+          "r2": 0.8692301523967492,
+          "source": "polynomial_deg2"
+        },
+        "V_SUPPLY_I": {
+          "equation": "8.67657e-07*VPWR + -5.7859e-06*VREF + 8.67657e-07*FUN_DC + 8.67657e-07*V_SUPPLY + -1.35898e-05*meta_corner + -1.3359e-08*meta_temp + 8.67657e-07*meta_vsup_max + -4.64343e-08*VPWR*VPWR + 6.0736e-07*VPWR*VREF + -4.64343e-08*VPWR*FUN_DC + -4.64343e-08*VPWR*V_SUPPLY + 9.98907e-07*VPWR*meta_corner + 9.68411e-10*VPWR*meta_temp + -4.64343e-08*VPWR*meta_vsup_max + -4.05013e-06*VREF*VREF + 6.0736e-07*VREF*FUN_DC + 6.0736e-07*VREF*V_SUPPLY + -9.51287e-06*VREF*meta_corner + -9.35131e-09*VREF*meta_temp + 6.0736e-07*VREF*meta_vsup_max + -4.64343e-08*FUN_DC*FUN_DC + -4.64343e-08*FUN_DC*V_SUPPLY + 9.98907e-07*FUN_DC*meta_corner + 9.68411e-10*FUN_DC*meta_temp + -4.64343e-08*FUN_DC*meta_vsup_max + -4.64343e-08*V_SUPPLY*V_SUPPLY + 9.98907e-07*V_SUPPLY*meta_corner + 9.68411e-10*V_SUPPLY*meta_temp + -4.64343e-08*V_SUPPLY*meta_vsup_max + 3.20616e-06*meta_corner*meta_corner + 3.54998e-09*meta_corner*meta_temp + 9.98907e-07*meta_corner*meta_vsup_max + 9.68411e-10*meta_temp*meta_vsup_max + -4.64343e-08*meta_vsup_max*meta_vsup_max + -8.26558e-06",
+          "r2": 0.7039253415892858,
+          "source": "polynomial_deg2"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "1.7516e-08*VPWR + -1.0644e-07*VREF + 1.7516e-08*FUN_DC + 1.7516e-08*V_SUPPLY + 4.33652e-07*meta_corner + 3.12828e-09*meta_temp + 1.7516e-08*meta_vsup_max + -9.69457e-10*VPWR*VPWR + 1.22612e-08*VPWR*VREF + -9.69457e-10*VPWR*FUN_DC + -9.69457e-10*VPWR*V_SUPPLY + -1.67261e-08*VPWR*meta_corner + -2.09598e-10*VPWR*meta_temp + -9.69457e-10*VPWR*meta_vsup_max + -7.45081e-08*VREF*VREF + 1.22612e-08*VREF*FUN_DC + 1.22612e-08*VREF*V_SUPPLY + 3.03556e-07*VREF*meta_corner + 2.1898e-09*VREF*meta_temp + 1.22612e-08*VREF*meta_vsup_max + -9.69457e-10*FUN_DC*FUN_DC + -9.69457e-10*FUN_DC*V_SUPPLY + -1.67261e-08*FUN_DC*meta_corner + -2.09598e-10*FUN_DC*meta_temp + -9.69457e-10*FUN_DC*meta_vsup_max + -9.69457e-10*V_SUPPLY*V_SUPPLY + -1.67261e-08*V_SUPPLY*meta_corner + -2.09598e-10*V_SUPPLY*meta_temp + -9.69457e-10*V_SUPPLY*meta_vsup_max + 1.00413e-06*meta_corner*meta_corner + 7.9085e-09*meta_corner*meta_temp + -1.67261e-08*meta_corner*meta_vsup_max + -2.09598e-10*meta_temp*meta_vsup_max + -9.69457e-10*meta_vsup_max*meta_vsup_max + -1.52057e-07",
+          "r2": 0.7112278346720184,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "9": {
+      "name": "REGULATION_8",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.004974954090956083,
+        "SMT": 0.0009193935404226303,
+        "PINN": 0.5142258381299757,
+        "NODE": 3626809713.955695
+      },
+      "best_black_box_model": "SMT",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.0215795*VPWR + 0.00596228*VREF + 0.0215795*FUN_DC + 0.0215795*V_SUPPLY + -0.206721*meta_corner + 0.0265276*meta_temp + 0.0215795*meta_vsup_max + 0.000286587*VPWR*VPWR + 0.0151056*VPWR*VREF + 0.000286587*VPWR*FUN_DC + 0.000286587*VPWR*V_SUPPLY + -0.899841*VPWR*meta_corner + -0.00157927*VPWR*meta_temp + 0.000286587*VPWR*meta_vsup_max + 0.0041736*VREF*VREF + 0.0151056*VREF*FUN_DC + 0.0151056*VREF*V_SUPPLY + -0.144705*VREF*meta_corner + 0.0185694*VREF*meta_temp + 0.0151056*VREF*meta_vsup_max + 0.000286587*FUN_DC*FUN_DC + 0.000286587*FUN_DC*V_SUPPLY + -0.899841*FUN_DC*meta_corner + -0.00157927*FUN_DC*meta_temp + 0.000286587*FUN_DC*meta_vsup_max + 0.000286587*V_SUPPLY*V_SUPPLY + -0.899841*V_SUPPLY*meta_corner + -0.00157927*V_SUPPLY*meta_temp + 0.000286587*V_SUPPLY*meta_vsup_max + -0.0400572*meta_corner*meta_corner + 0.148203*meta_corner*meta_temp + -0.899841*meta_corner*meta_vsup_max + -0.000198115*meta_temp*meta_temp + -0.00157927*meta_temp*meta_vsup_max + 0.000286587*meta_vsup_max*meta_vsup_max + 0.00851754",
+          "r2": 0.969698257796493,
+          "source": "polynomial_deg2"
+        },
+        "VPWR_I": {
+          "equation": "0.0011675*VPWR + 0.000323709*VREF + 0.0011675*FUN_DC + 0.0011675*V_SUPPLY + 0.000609*meta_corner + -0.000152058*meta_temp + 0.0011675*meta_vsup_max + -8.15588e-05*VPWR*VPWR + 0.000817251*VPWR*VREF + -8.15588e-05*VPWR*FUN_DC + -8.15588e-05*VPWR*V_SUPPLY + 0.00271286*VPWR*meta_corner + 1.2313e-05*VPWR*meta_temp + -8.15588e-05*VPWR*meta_vsup_max + 0.000226596*VREF*VREF + 0.000817251*VREF*FUN_DC + 0.000817251*VREF*V_SUPPLY + 0.0004263*VREF*meta_corner + -0.00010644*VREF*meta_temp + 0.000817251*VREF*meta_vsup_max + -8.15588e-05*FUN_DC*FUN_DC + -8.15588e-05*FUN_DC*V_SUPPLY + 0.00271286*FUN_DC*meta_corner + 1.2313e-05*FUN_DC*meta_temp + -8.15588e-05*FUN_DC*meta_vsup_max + -8.15588e-05*V_SUPPLY*V_SUPPLY + 0.00271286*V_SUPPLY*meta_corner + 1.2313e-05*V_SUPPLY*meta_temp + -8.15588e-05*V_SUPPLY*meta_vsup_max + 0.000119939*meta_corner*meta_corner + -0.000129963*meta_corner*meta_temp + 0.00271286*meta_corner*meta_vsup_max + 1.35583e-06*meta_temp*meta_temp + 1.2313e-05*meta_temp*meta_vsup_max + -8.15588e-05*meta_vsup_max*meta_vsup_max + 0.000462441",
+          "r2": 0.5333559372247958,
+          "source": "polynomial_deg2"
+        },
+        "FUN_DC_I": {
+          "equation": "1.55907e-06*VPWR + 4.34334e-07*VREF + 1.55907e-06*FUN_DC + 1.55907e-06*V_SUPPLY + -5.4093e-07*meta_corner + -3.33189e-07*meta_temp + 1.55907e-06*meta_vsup_max + -1.89895e-07*VPWR*VPWR + 1.09135e-06*VPWR*VREF + -1.89895e-07*VPWR*FUN_DC + -1.89895e-07*VPWR*V_SUPPLY + -2.28219e-06*VPWR*meta_corner + 2.21075e-08*VPWR*meta_temp + -1.89895e-07*VPWR*meta_vsup_max + 3.04034e-07*VREF*VREF + 1.09135e-06*VREF*FUN_DC + 1.09135e-06*VREF*V_SUPPLY + -3.78651e-07*VREF*meta_corner + -2.33232e-07*VREF*meta_temp + 1.09135e-06*VREF*meta_vsup_max + -1.89895e-07*FUN_DC*FUN_DC + -1.89895e-07*FUN_DC*V_SUPPLY + -2.28219e-06*FUN_DC*meta_corner + 2.21075e-08*FUN_DC*meta_temp + -1.89895e-07*FUN_DC*meta_vsup_max + -1.89895e-07*V_SUPPLY*V_SUPPLY + -2.28219e-06*V_SUPPLY*meta_corner + 2.21075e-08*V_SUPPLY*meta_temp + -1.89895e-07*V_SUPPLY*meta_vsup_max + -1.01629e-07*meta_corner*meta_corner + 2.31335e-07*meta_corner*meta_temp + -2.28219e-06*meta_corner*meta_vsup_max + 4.55486e-10*meta_temp*meta_temp + 2.21075e-08*meta_temp*meta_vsup_max + -1.89895e-07*meta_vsup_max*meta_vsup_max + 6.20477e-07",
+          "r2": 1.0,
+          "source": "polynomial_deg2"
+        },
+        "V_SUPPLY_I": {
+          "equation": "-2.50832e-10*VPWR + -2.50832e-10*FUN_DC + -2.50832e-10*V_SUPPLY + -2.50832e-10*meta_vsup_max + -1.75583e-10*VPWR*VREF + -2.57236e-10*VPWR*meta_corner + -1.75583e-10*VREF*FUN_DC + -1.75583e-10*VREF*V_SUPPLY + -1.75583e-10*VREF*meta_vsup_max + -2.57236e-10*FUN_DC*meta_corner + -2.57236e-10*V_SUPPLY*meta_corner + 1.12721e-10*meta_corner*meta_temp + -2.57236e-10*meta_corner*meta_vsup_max",
+          "r2": 1.0,
+          "source": "polynomial_deg2"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "-5.14346e-09*VPWR + -1.43442e-09*VREF + -5.14346e-09*FUN_DC + -5.14346e-09*V_SUPPLY + 5.70657e-09*meta_corner + 7.55634e-10*meta_temp + -5.14346e-09*meta_vsup_max + 6.71487e-10*VPWR*VPWR + -3.60042e-09*VPWR*VREF + 6.71487e-10*VPWR*FUN_DC + 6.71487e-10*VPWR*V_SUPPLY + 2.46752e-08*VPWR*meta_corner + 6.71487e-10*VPWR*meta_vsup_max + -1.00409e-09*VREF*VREF + -3.60042e-09*VREF*FUN_DC + -3.60042e-09*VREF*V_SUPPLY + 3.9946e-09*VREF*meta_corner + 5.28944e-10*VREF*meta_temp + -3.60042e-09*VREF*meta_vsup_max + 6.71487e-10*FUN_DC*FUN_DC + 6.71487e-10*FUN_DC*V_SUPPLY + 2.46752e-08*FUN_DC*meta_corner + 6.71487e-10*FUN_DC*meta_vsup_max + 6.71487e-10*V_SUPPLY*V_SUPPLY + 2.46752e-08*V_SUPPLY*meta_corner + 6.71487e-10*V_SUPPLY*meta_vsup_max + 1.07991e-09*meta_corner*meta_corner + 6.99282e-09*meta_corner*meta_temp + 2.46752e-08*meta_corner*meta_vsup_max + 6.71487e-10*meta_vsup_max*meta_vsup_max + -2.04917e-09",
+          "r2": 0.5097156527120272,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "10": {
+      "name": "REGULATION_9",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.0013170230964697038,
+        "SMT": 0.00042970340242648816,
+        "PINN": 0.42827846497233935,
+        "NODE": 3652701598.484857
+      },
+      "best_black_box_model": "SMT",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.106673*VPWR + -0.600244*VREF + 0.106673*FUN_DC + 0.106673*V_SUPPLY + 1.90878*meta_corner + 0.0157263*meta_temp + 0.106673*meta_vsup_max + -0.00307539*VPWR*VPWR + 0.0746709*VPWR*VREF + -0.00307539*VPWR*FUN_DC + -0.00307539*VPWR*V_SUPPLY + -0.125008*VPWR*meta_corner + -0.000987598*VPWR*meta_temp + -0.00307539*VPWR*meta_vsup_max + -0.420171*VREF*VREF + 0.0746709*VREF*FUN_DC + 0.0746709*VREF*V_SUPPLY + 1.33615*VREF*meta_corner + 0.0110084*VREF*meta_temp + 0.0746709*VREF*meta_vsup_max + -0.00307539*FUN_DC*FUN_DC + -0.00307539*FUN_DC*V_SUPPLY + -0.125008*FUN_DC*meta_corner + -0.000987598*FUN_DC*meta_temp + -0.00307539*FUN_DC*meta_vsup_max + -0.00307539*V_SUPPLY*V_SUPPLY + -0.125008*V_SUPPLY*meta_corner + -0.000987598*V_SUPPLY*meta_temp + -0.00307539*V_SUPPLY*meta_vsup_max + -72.123*meta_corner*meta_corner + 0.000766597*meta_corner*meta_temp + -0.125008*meta_corner*meta_vsup_max + -1.71749e-05*meta_temp*meta_temp + -0.000987598*meta_temp*meta_vsup_max + -0.00307539*meta_vsup_max*meta_vsup_max + -0.857491",
+          "r2": 0.9626585564023407,
+          "source": "polynomial_deg2"
+        },
+        "VPWR_I": {
+          "equation": "0.000140816*VPWR + -0.00089213*VREF + 0.000140816*FUN_DC + 0.000140816*V_SUPPLY + -0.0511853*meta_corner + 3.11606e-05*meta_temp + 0.000140816*meta_vsup_max + 4.46109e-05*VPWR*VPWR + 9.85709e-05*VPWR*VREF + 4.46109e-05*VPWR*FUN_DC + 4.46109e-05*VPWR*V_SUPPLY + 0.00415892*VPWR*meta_corner + 7.62271e-07*VPWR*meta_temp + 4.46109e-05*VPWR*meta_vsup_max + -0.000624491*VREF*VREF + 9.85709e-05*VREF*FUN_DC + 9.85709e-05*VREF*V_SUPPLY + -0.0358297*VREF*meta_corner + 2.18125e-05*VREF*meta_temp + 9.85709e-05*VREF*meta_vsup_max + 4.46109e-05*FUN_DC*FUN_DC + 4.46109e-05*FUN_DC*V_SUPPLY + 0.00415892*FUN_DC*meta_corner + 7.62271e-07*FUN_DC*meta_temp + 4.46109e-05*FUN_DC*meta_vsup_max + 4.46109e-05*V_SUPPLY*V_SUPPLY + 0.00415892*V_SUPPLY*meta_corner + 7.62271e-07*V_SUPPLY*meta_temp + 4.46109e-05*V_SUPPLY*meta_vsup_max + 0.299365*meta_corner*meta_corner + 0.000248891*meta_corner*meta_temp + 0.00415892*meta_corner*meta_vsup_max + 2.91852e-07*meta_temp*meta_temp + 7.62271e-07*meta_temp*meta_vsup_max + 4.46109e-05*meta_vsup_max*meta_vsup_max + -0.00127447",
+          "r2": 0.8028766485030692,
+          "source": "polynomial_deg2"
+        },
+        "FUN_DC_I": {
+          "equation": "1.57005e-05*VPWR + -9.17463e-05*VREF + 1.57005e-05*FUN_DC + 1.57005e-05*V_SUPPLY + -3.78424e-07*meta_corner + -1.66261e-07*meta_temp + 1.57005e-05*meta_vsup_max + -9.58956e-07*VPWR*VPWR + 1.09903e-05*VPWR*VREF + -9.58956e-07*VPWR*FUN_DC + -9.58956e-07*VPWR*V_SUPPLY + 5.72467e-08*VPWR*meta_corner + 1.1662e-08*VPWR*meta_temp + -9.58956e-07*VPWR*meta_vsup_max + -6.42224e-05*VREF*VREF + 1.09903e-05*VREF*FUN_DC + 1.09903e-05*VREF*V_SUPPLY + -2.64897e-07*VREF*meta_corner + -1.16383e-07*VREF*meta_temp + 1.09903e-05*VREF*meta_vsup_max + -9.58956e-07*FUN_DC*FUN_DC + -9.58956e-07*FUN_DC*V_SUPPLY + 5.72467e-08*FUN_DC*meta_corner + 1.1662e-08*FUN_DC*meta_temp + -9.58956e-07*FUN_DC*meta_vsup_max + -9.58956e-07*V_SUPPLY*V_SUPPLY + 5.72467e-08*V_SUPPLY*meta_corner + 1.1662e-08*V_SUPPLY*meta_temp + -9.58956e-07*V_SUPPLY*meta_vsup_max + -6.56776e-06*meta_corner*meta_corner + 1.75455e-08*meta_corner*meta_temp + 5.72467e-08*meta_corner*meta_vsup_max + 2.30267e-10*meta_temp*meta_temp + 1.1662e-08*meta_temp*meta_vsup_max + -9.58956e-07*meta_vsup_max*meta_vsup_max + -0.000131066",
+          "r2": 0.44912464924266615,
+          "source": "polynomial_deg2"
+        },
+        "V_SUPPLY_I": {
+          "equation": "-4.15961e-07*VPWR + 2.40603e-06*VREF + -4.15961e-07*FUN_DC + -4.15961e-07*V_SUPPLY + -3.19536e-06*meta_corner + -6.64734e-09*meta_temp + -4.15961e-07*meta_vsup_max + 2.55678e-08*VPWR*VPWR + -2.91173e-07*VPWR*VREF + 2.55678e-08*VPWR*FUN_DC + 2.55678e-08*VPWR*V_SUPPLY + 2.48189e-07*VPWR*meta_corner + 5.03921e-10*VPWR*meta_temp + 2.55678e-08*VPWR*meta_vsup_max + 1.68422e-06*VREF*VREF + -2.91173e-07*VREF*FUN_DC + -2.91173e-07*VREF*V_SUPPLY + -2.23675e-06*VREF*meta_corner + -4.65314e-09*VREF*meta_temp + -2.91173e-07*VREF*meta_vsup_max + 2.55678e-08*FUN_DC*FUN_DC + 2.55678e-08*FUN_DC*V_SUPPLY + 2.48189e-07*FUN_DC*meta_corner + 5.03921e-10*FUN_DC*meta_temp + 2.55678e-08*FUN_DC*meta_vsup_max + 2.55678e-08*V_SUPPLY*V_SUPPLY + 2.48189e-07*V_SUPPLY*meta_corner + 5.03921e-10*V_SUPPLY*meta_temp + 2.55678e-08*V_SUPPLY*meta_vsup_max + 9.06033e-07*meta_corner*meta_corner + 5.30635e-09*meta_corner*meta_temp + 2.48189e-07*meta_corner*meta_vsup_max + 5.03921e-10*meta_temp*meta_vsup_max + 2.55678e-08*meta_vsup_max*meta_vsup_max + 3.43719e-06",
+          "r2": 0.7239730798796588,
+          "source": "polynomial_deg2"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "-2.88503e-09*VPWR + -2.01391e-08*VREF + -2.88503e-09*FUN_DC + -2.88503e-09*V_SUPPLY + 6.81293e-07*meta_corner + 1.30241e-09*meta_temp + -2.88503e-09*meta_vsup_max + 4.62294e-10*VPWR*VPWR + -2.01952e-09*VPWR*VREF + 4.62294e-10*VPWR*FUN_DC + 4.62294e-10*VPWR*V_SUPPLY + -3.70354e-08*VPWR*meta_corner + 4.62294e-10*VPWR*meta_vsup_max + -1.40973e-08*VREF*VREF + -2.01952e-09*VREF*FUN_DC + -2.01952e-09*VREF*V_SUPPLY + 4.76905e-07*VREF*meta_corner + 9.11688e-10*VREF*meta_temp + -2.01952e-09*VREF*meta_vsup_max + 4.62294e-10*FUN_DC*FUN_DC + 4.62294e-10*FUN_DC*V_SUPPLY + -3.70354e-08*FUN_DC*meta_corner + 4.62294e-10*FUN_DC*meta_vsup_max + 4.62294e-10*V_SUPPLY*V_SUPPLY + -3.70354e-08*V_SUPPLY*meta_corner + 4.62294e-10*V_SUPPLY*meta_vsup_max + 2.24343e-06*meta_corner*meta_corner + 7.75622e-09*meta_corner*meta_temp + -3.70354e-08*meta_corner*meta_vsup_max + 4.62294e-10*meta_vsup_max*meta_vsup_max + -2.87701e-08",
+          "r2": 0.7983147736338151,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "11": {
+      "name": "REGULATION_10",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 2.023391301108079e-05,
+        "SMT": 1.101903663626717e-05,
+        "PINN": 0.44013448594309806,
+        "NODE": 3650499611.873494
+      },
+      "best_black_box_model": "SMT",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.107195*VPWR + 0.847913*VREF + -0.107195*FUN_DC + -0.107195*V_SUPPLY + 0.512502*meta_corner + 0.00742207*meta_temp + -0.107195*meta_vsup_max + 0.00793948*VPWR*VPWR + -0.0750364*VPWR*VREF + 0.00793948*VPWR*FUN_DC + 0.00793948*VPWR*V_SUPPLY + -0.0220217*VPWR*meta_corner + -0.00030641*VPWR*meta_temp + 0.00793948*VPWR*meta_vsup_max + 0.593539*VREF*VREF + -0.0750364*VREF*FUN_DC + -0.0750364*VREF*V_SUPPLY + 0.358751*VREF*meta_corner + 0.00519545*VREF*meta_temp + -0.0750364*VREF*meta_vsup_max + 0.00793948*FUN_DC*FUN_DC + 0.00793948*FUN_DC*V_SUPPLY + -0.0220217*FUN_DC*meta_corner + -0.00030641*FUN_DC*meta_temp + 0.00793948*FUN_DC*meta_vsup_max + 0.00793948*V_SUPPLY*V_SUPPLY + -0.0220217*V_SUPPLY*meta_corner + -0.00030641*V_SUPPLY*meta_temp + 0.00793948*V_SUPPLY*meta_vsup_max + -71.2391*meta_corner*meta_corner + -0.00112439*meta_corner*meta_temp + -0.0220217*meta_corner*meta_vsup_max + -2.66221e-05*meta_temp*meta_temp + -0.00030641*meta_temp*meta_vsup_max + 0.00793948*meta_vsup_max*meta_vsup_max + 1.2113",
+          "r2": 0.9501163026324939,
+          "source": "polynomial_deg2"
+        },
+        "VPWR_I": {
+          "equation": "0.000231819*VPWR + 0.0010131*VREF + 0.000231819*FUN_DC + 0.000231819*V_SUPPLY + -0.0353614*meta_corner + 3.53601e-05*meta_temp + 0.000231819*meta_vsup_max + 8.26169e-06*VPWR*VPWR + 0.000162273*VPWR*VREF + 8.26169e-06*VPWR*FUN_DC + 8.26169e-06*VPWR*V_SUPPLY + 0.00284296*VPWR*meta_corner + 2.18065e-06*VPWR*meta_temp + 8.26169e-06*VPWR*meta_vsup_max + 0.000709169*VREF*VREF + 0.000162273*VREF*FUN_DC + 0.000162273*VREF*V_SUPPLY + -0.024753*VREF*meta_corner + 2.47521e-05*VREF*meta_temp + 0.000162273*VREF*meta_vsup_max + 8.26169e-06*FUN_DC*FUN_DC + 8.26169e-06*FUN_DC*V_SUPPLY + 0.00284296*FUN_DC*meta_corner + 2.18065e-06*FUN_DC*meta_temp + 8.26169e-06*FUN_DC*meta_vsup_max + 8.26169e-06*V_SUPPLY*V_SUPPLY + 0.00284296*V_SUPPLY*meta_corner + 2.18065e-06*V_SUPPLY*meta_temp + 8.26169e-06*V_SUPPLY*meta_vsup_max + 0.355758*meta_corner*meta_corner + 0.000309345*meta_corner*meta_temp + 0.00284296*meta_corner*meta_vsup_max + -4.19697e-08*meta_temp*meta_temp + 2.18065e-06*meta_temp*meta_vsup_max + 8.26169e-06*meta_vsup_max*meta_vsup_max + 0.00144728",
+          "r2": 0.8212048940864588,
+          "source": "polynomial_deg2"
+        },
+        "FUN_DC_I": {
+          "equation": "2.35556e-06*VPWR + -1.31507e-05*VREF + 2.35556e-06*FUN_DC + 2.35556e-06*V_SUPPLY + 2.07485e-05*meta_corner + -9.21845e-08*meta_temp + 2.35556e-06*meta_vsup_max + -1.50621e-07*VPWR*VPWR + 1.64889e-06*VPWR*VREF + -1.50621e-07*VPWR*FUN_DC + -1.50621e-07*VPWR*V_SUPPLY + -1.66024e-06*VPWR*meta_corner + 6.16594e-09*VPWR*meta_temp + -1.50621e-07*VPWR*meta_vsup_max + -9.2055e-06*VREF*VREF + 1.64889e-06*VREF*FUN_DC + 1.64889e-06*VREF*V_SUPPLY + 1.45239e-05*VREF*meta_corner + -6.45292e-08*VREF*meta_temp + 1.64889e-06*VREF*meta_vsup_max + -1.50621e-07*FUN_DC*FUN_DC + -1.50621e-07*FUN_DC*V_SUPPLY + -1.66024e-06*FUN_DC*meta_corner + 6.16594e-09*FUN_DC*meta_temp + -1.50621e-07*FUN_DC*meta_vsup_max + -1.50621e-07*V_SUPPLY*V_SUPPLY + -1.66024e-06*V_SUPPLY*meta_corner + 6.16594e-09*V_SUPPLY*meta_temp + -1.50621e-07*V_SUPPLY*meta_vsup_max + -1.26203e-05*meta_corner*meta_corner + 7.58761e-08*meta_corner*meta_temp + -1.66024e-06*meta_corner*meta_vsup_max + 2.28948e-10*meta_temp*meta_temp + 6.16594e-09*meta_temp*meta_vsup_max + -1.50621e-07*meta_vsup_max*meta_vsup_max + -1.87867e-05",
+          "r2": 0.13174138879584552,
+          "source": "polynomial_deg2"
+        },
+        "V_SUPPLY_I": {
+          "equation": "-5.45171e-07*VPWR + 3.16251e-06*VREF + -5.45171e-07*FUN_DC + -5.45171e-07*V_SUPPLY + -4.54631e-06*meta_corner + -9.21023e-09*meta_temp + -5.45171e-07*meta_vsup_max + 3.34255e-08*VPWR*VPWR + -3.8162e-07*VPWR*VREF + 3.34255e-08*VPWR*FUN_DC + 3.34255e-08*VPWR*V_SUPPLY + 3.50704e-07*VPWR*meta_corner + 7.14823e-10*VPWR*meta_temp + 3.34255e-08*VPWR*meta_vsup_max + 2.21375e-06*VREF*VREF + -3.8162e-07*VREF*FUN_DC + -3.8162e-07*VREF*V_SUPPLY + -3.18242e-06*VREF*meta_corner + -6.44716e-09*VREF*meta_temp + -3.8162e-07*VREF*meta_vsup_max + 3.34255e-08*FUN_DC*FUN_DC + 3.34255e-08*FUN_DC*V_SUPPLY + 3.50704e-07*FUN_DC*meta_corner + 7.14823e-10*FUN_DC*meta_temp + 3.34255e-08*FUN_DC*meta_vsup_max + 3.34255e-08*V_SUPPLY*V_SUPPLY + 3.50704e-07*V_SUPPLY*meta_corner + 7.14823e-10*V_SUPPLY*meta_temp + 3.34255e-08*V_SUPPLY*meta_vsup_max + 1.64187e-06*meta_corner*meta_corner + 6.45656e-09*meta_corner*meta_temp + 3.50704e-07*meta_corner*meta_vsup_max + 7.14823e-10*meta_temp*meta_vsup_max + 3.34255e-08*meta_vsup_max*meta_vsup_max + 4.51787e-06",
+          "r2": 0.6626574468861067,
+          "source": "polynomial_deg2"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "6.96758e-10*VPWR + -1.84787e-08*VREF + 6.96758e-10*FUN_DC + 6.96758e-10*V_SUPPLY + 6.64442e-07*meta_corner + 1.48198e-09*meta_temp + 6.96758e-10*meta_vsup_max + 4.8773e-10*VPWR*VREF + -3.51886e-08*VPWR*meta_corner + -1.29351e-08*VREF*VREF + 4.8773e-10*VREF*FUN_DC + 4.8773e-10*VREF*V_SUPPLY + 4.6511e-07*VREF*meta_corner + 1.03739e-09*VREF*meta_temp + 4.8773e-10*VREF*meta_vsup_max + -3.51886e-08*FUN_DC*meta_corner + -3.51886e-08*V_SUPPLY*meta_corner + 3.2349e-06*meta_corner*meta_corner + 8.31294e-09*meta_corner*meta_temp + -3.51886e-08*meta_corner*meta_vsup_max + -2.63982e-08",
+          "r2": 0.8941838001968412,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "12": {
+      "name": "REGULATION_11",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 0.00039680304080328815,
+        "SMT": 0.0001597791142571127,
+        "PINN": 0.40564501692896315,
+        "NODE": 3647760184.454627
+      },
+      "best_black_box_model": "SMT",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.0021007*VPWR + 0.171744*VREF + -0.0021007*FUN_DC + -0.0021007*V_SUPPLY + -0.129303*meta_corner + 0.0105491*meta_temp + -0.0021007*meta_vsup_max + 0.00225089*VPWR*VPWR + -0.00147049*VPWR*VREF + 0.00225089*VPWR*FUN_DC + 0.00225089*VPWR*V_SUPPLY + 0.0205608*VPWR*meta_corner + -0.000522096*VPWR*meta_temp + 0.00225089*VPWR*meta_vsup_max + 0.120221*VREF*VREF + -0.00147049*VREF*FUN_DC + -0.00147049*VREF*V_SUPPLY + -0.0905118*VREF*meta_corner + 0.00738438*VREF*meta_temp + -0.00147049*VREF*meta_vsup_max + 0.00225089*FUN_DC*FUN_DC + 0.00225089*FUN_DC*V_SUPPLY + 0.0205608*FUN_DC*meta_corner + -0.000522096*FUN_DC*meta_temp + 0.00225089*FUN_DC*meta_vsup_max + 0.00225089*V_SUPPLY*V_SUPPLY + 0.0205608*V_SUPPLY*meta_corner + -0.000522096*V_SUPPLY*meta_temp + 0.00225089*V_SUPPLY*meta_vsup_max + -72.5323*meta_corner*meta_corner + -0.000174163*meta_corner*meta_temp + 0.0205608*meta_corner*meta_vsup_max + -3.00299e-05*meta_temp*meta_temp + -0.000522096*meta_temp*meta_vsup_max + 0.00225089*meta_vsup_max*meta_vsup_max + 0.245348",
+          "r2": 0.9524232960038796,
+          "source": "polynomial_deg2"
+        },
+        "VPWR_I": {
+          "equation": "-0.0232073*VPWR + 0.14034*VREF + -0.0232073*FUN_DC + -0.0232073*V_SUPPLY + -0.0559529*meta_corner + -1.39411e-05*meta_temp + -0.0232073*meta_vsup_max + 0.00136227*VPWR*VPWR + -0.0162451*VPWR*VREF + 0.00136227*VPWR*FUN_DC + 0.00136227*VPWR*V_SUPPLY + 0.00412668*VPWR*meta_corner + 1.62535e-06*VPWR*meta_temp + 0.00136227*VPWR*meta_vsup_max + 0.0982381*VREF*VREF + -0.0162451*VREF*FUN_DC + -0.0162451*VREF*V_SUPPLY + -0.039167*VREF*meta_corner + -9.75874e-06*VREF*meta_temp + -0.0162451*VREF*meta_vsup_max + 0.00136227*FUN_DC*FUN_DC + 0.00136227*FUN_DC*V_SUPPLY + 0.00412668*FUN_DC*meta_corner + 1.62535e-06*FUN_DC*meta_temp + 0.00136227*FUN_DC*meta_vsup_max + 0.00136227*V_SUPPLY*V_SUPPLY + 0.00412668*V_SUPPLY*meta_corner + 1.62535e-06*V_SUPPLY*meta_temp + 0.00136227*V_SUPPLY*meta_vsup_max + 0.0802842*meta_corner*meta_corner + 1.61391e-05*meta_corner*meta_temp + 0.00412668*meta_corner*meta_vsup_max + 6.27614e-08*meta_temp*meta_temp + 1.62535e-06*meta_temp*meta_vsup_max + 0.00136227*meta_vsup_max*meta_vsup_max + 0.200486",
+          "r2": 0.03427712019774487,
+          "source": "polynomial_deg2"
+        },
+        "FUN_DC_I": {
+          "equation": "0.0194684*VPWR + -0.116194*VREF + 0.0194684*FUN_DC + 0.0194684*V_SUPPLY + -0.0521524*meta_corner + -1.64556e-05*meta_temp + 0.0194684*meta_vsup_max + -0.00112632*VPWR*VPWR + 0.0136279*VPWR*VREF + -0.00112632*VPWR*FUN_DC + -0.00112632*VPWR*V_SUPPLY + 0.00411745*VPWR*meta_corner + 3.17282e-06*VPWR*meta_temp + -0.00112632*VPWR*meta_vsup_max + -0.0813356*VREF*VREF + 0.0136279*VREF*FUN_DC + 0.0136279*VREF*V_SUPPLY + -0.0365067*VREF*meta_corner + -1.15189e-05*VREF*meta_temp + 0.0136279*VREF*meta_vsup_max + -0.00112632*FUN_DC*FUN_DC + -0.00112632*FUN_DC*V_SUPPLY + 0.00411745*FUN_DC*meta_corner + 3.17282e-06*FUN_DC*meta_temp + -0.00112632*FUN_DC*meta_vsup_max + -0.00112632*V_SUPPLY*V_SUPPLY + 0.00411745*V_SUPPLY*meta_corner + 3.17282e-06*V_SUPPLY*meta_temp + -0.00112632*V_SUPPLY*meta_vsup_max + 0.0800065*meta_corner*meta_corner + 0.000202228*meta_corner*meta_temp + 0.00411745*meta_corner*meta_vsup_max + -7.43886e-08*meta_temp*meta_temp + 3.17282e-06*meta_temp*meta_vsup_max + -0.00112632*meta_vsup_max*meta_vsup_max + -0.165991",
+          "r2": 0.08292817726785806,
+          "source": "polynomial_deg2"
+        },
+        "V_SUPPLY_I": {
+          "equation": "-3.26906e-05*VPWR + 0.000208555*VREF + -3.26906e-05*FUN_DC + -3.26906e-05*V_SUPPLY + 0.000254986*meta_corner + -5.5103e-08*meta_temp + -3.26906e-05*meta_vsup_max + 2.13564e-06*VPWR*VPWR + -2.28834e-05*VPWR*VREF + 2.13564e-06*VPWR*FUN_DC + 2.13564e-06*VPWR*V_SUPPLY + -1.33542e-05*VPWR*meta_corner + 7.81536e-09*VPWR*meta_temp + 2.13564e-06*VPWR*meta_vsup_max + 0.000145988*VREF*VREF + -2.28834e-05*VREF*FUN_DC + -2.28834e-05*VREF*V_SUPPLY + 0.00017849*VREF*meta_corner + -3.85721e-08*VREF*meta_temp + -2.28834e-05*VREF*meta_vsup_max + 2.13564e-06*FUN_DC*FUN_DC + 2.13564e-06*FUN_DC*V_SUPPLY + -1.33542e-05*FUN_DC*meta_corner + 7.81536e-09*FUN_DC*meta_temp + 2.13564e-06*FUN_DC*meta_vsup_max + 2.13564e-06*V_SUPPLY*V_SUPPLY + -1.33542e-05*V_SUPPLY*meta_corner + 7.81536e-09*V_SUPPLY*meta_temp + 2.13564e-06*V_SUPPLY*meta_vsup_max + 0.000149615*meta_corner*meta_corner + -4.62889e-07*meta_corner*meta_temp + -1.33542e-05*meta_corner*meta_vsup_max + -1.82184e-09*meta_temp*meta_temp + 7.81536e-09*meta_temp*meta_vsup_max + 2.13564e-06*meta_vsup_max*meta_vsup_max + 0.000297935",
+          "r2": 0.0813863384424216,
+          "source": "polynomial_deg2"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "-3.82245e-10*VPWR + -1.63862e-08*VREF + -3.82245e-10*FUN_DC + -3.82245e-10*V_SUPPLY + 5.43829e-07*meta_corner + 2.22044e-10*meta_temp + -3.82245e-10*meta_vsup_max + -2.67572e-10*VPWR*VREF + -2.35052e-08*VPWR*meta_corner + -1.14703e-08*VREF*VREF + -2.67572e-10*VREF*FUN_DC + -2.67572e-10*VREF*V_SUPPLY + 3.8068e-07*VREF*meta_corner + 1.55431e-10*VREF*meta_temp + -2.67572e-10*VREF*meta_vsup_max + -2.35052e-08*FUN_DC*meta_corner + -2.35052e-08*V_SUPPLY*meta_corner + 4.77822e-06*meta_corner*meta_corner + 9.09289e-09*meta_corner*meta_temp + -2.35052e-08*meta_corner*meta_vsup_max + -2.34088e-08",
+          "r2": 0.6999239003506648,
+          "source": "polynomial_deg2"
+        }
+      }
+    },
+    "13": {
+      "name": "REGULATION_12",
+      "n_samples": 400,
+      "metrics": {
+        "GPR": 1.0352028085282308e-05,
+        "SMT": 1.072750755336883e-07,
+        "PINN": 0.4490529433543283,
+        "NODE": 3662828088.2854033
+      },
+      "best_black_box_model": "SMT",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "-0.125722*VPWR + 0.876396*VREF + -0.125722*FUN_DC + -0.125722*V_SUPPLY + 0.608784*meta_corner + 0.0119585*meta_temp + -0.125722*meta_vsup_max + 0.00971084*VPWR*VPWR + -0.0880054*VPWR*VREF + 0.00971084*VPWR*FUN_DC + 0.00971084*VPWR*V_SUPPLY + -0.0337996*VPWR*meta_corner + -0.000611285*VPWR*meta_temp + 0.00971084*VPWR*meta_vsup_max + 0.613477*VREF*VREF + -0.0880054*VREF*FUN_DC + -0.0880054*VREF*V_SUPPLY + 0.426149*VREF*meta_corner + 0.00837092*VREF*meta_temp + -0.0880054*VREF*meta_vsup_max + 0.00971084*FUN_DC*FUN_DC + 0.00971084*FUN_DC*V_SUPPLY + -0.0337996*FUN_DC*meta_corner + -0.000611285*FUN_DC*meta_temp + 0.00971084*FUN_DC*meta_vsup_max + 0.00971084*V_SUPPLY*V_SUPPLY + -0.0337996*V_SUPPLY*meta_corner + -0.000611285*V_SUPPLY*meta_temp + 0.00971084*V_SUPPLY*meta_vsup_max + -70.6611*meta_corner*meta_corner + -0.000151567*meta_corner*meta_temp + -0.0337996*meta_corner*meta_vsup_max + -3.19664e-05*meta_temp*meta_temp + -0.000611285*meta_temp*meta_vsup_max + 0.00971084*meta_vsup_max*meta_vsup_max + 1.25199",
+          "r2": 0.9484309665348014,
+          "source": "polynomial_deg2"
+        },
+        "VPWR_I": {
+          "equation": "3.07319e-07*VPWR + -2.03627e-06*VREF + 3.07319e-07*FUN_DC + 3.07319e-07*V_SUPPLY + -0.000113007*meta_corner + 2.76071e-07*meta_temp + 3.07319e-07*meta_vsup_max + -2.31119e-08*VPWR*VPWR + 2.15124e-07*VPWR*VREF + -2.31119e-08*VPWR*FUN_DC + -2.31119e-08*VPWR*V_SUPPLY + 7.70382e-06*VPWR*meta_corner + -2.81535e-08*VPWR*meta_temp + -2.31119e-08*VPWR*meta_vsup_max + -1.42539e-06*VREF*VREF + 2.15124e-07*VREF*FUN_DC + 2.15124e-07*VREF*V_SUPPLY + -7.91052e-05*VREF*meta_corner + 1.9325e-07*VREF*meta_temp + 2.15124e-07*VREF*meta_vsup_max + -2.31119e-08*FUN_DC*FUN_DC + -2.31119e-08*FUN_DC*V_SUPPLY + 7.70382e-06*FUN_DC*meta_corner + -2.81535e-08*FUN_DC*meta_temp + -2.31119e-08*FUN_DC*meta_vsup_max + -2.31119e-08*V_SUPPLY*V_SUPPLY + 7.70382e-06*V_SUPPLY*meta_corner + -2.81535e-08*V_SUPPLY*meta_temp + -2.31119e-08*V_SUPPLY*meta_vsup_max + -6.54156e-05*meta_corner*meta_corner + -6.28698e-08*meta_corner*meta_temp + 7.70382e-06*meta_corner*meta_vsup_max + 1.14487e-09*meta_temp*meta_temp + -2.81535e-08*meta_temp*meta_vsup_max + -2.31119e-08*meta_vsup_max*meta_vsup_max + -2.90895e-06",
+          "r2": 0.41915223956419456,
+          "source": "polynomial_deg2"
+        },
+        "FUN_DC_I": {
+          "equation": "0.000267143*VPWR + 0.000503608*VREF + 0.000267143*FUN_DC + 0.000267143*V_SUPPLY + -0.0307866*meta_corner + -5.27584e-05*meta_temp + 0.000267143*meta_vsup_max + 1.14494e-05*VPWR*VPWR + 0.000187*VPWR*VREF + 1.14494e-05*VPWR*FUN_DC + 1.14494e-05*VPWR*V_SUPPLY + 0.00254228*VPWR*meta_corner + 8.27407e-06*VPWR*meta_temp + 1.14494e-05*VPWR*meta_vsup_max + 0.000352525*VREF*VREF + 0.000187*VREF*FUN_DC + 0.000187*VREF*V_SUPPLY + -0.0215506*VREF*meta_corner + -3.69309e-05*VREF*meta_temp + 0.000187*VREF*meta_vsup_max + 1.14494e-05*FUN_DC*FUN_DC + 1.14494e-05*FUN_DC*V_SUPPLY + 0.00254228*FUN_DC*meta_corner + 8.27407e-06*FUN_DC*meta_temp + 1.14494e-05*FUN_DC*meta_vsup_max + 1.14494e-05*V_SUPPLY*V_SUPPLY + 0.00254228*V_SUPPLY*meta_corner + 8.27407e-06*V_SUPPLY*meta_temp + 1.14494e-05*V_SUPPLY*meta_vsup_max + 0.33307*meta_corner*meta_corner + 0.000296629*meta_corner*meta_temp + 0.00254228*meta_corner*meta_vsup_max + 1.14819e-07*meta_temp*meta_temp + 8.27407e-06*meta_temp*meta_vsup_max + 1.14494e-05*meta_vsup_max*meta_vsup_max + 0.00071944",
+          "r2": 0.8576734044814003,
+          "source": "polynomial_deg2"
+        },
+        "V_SUPPLY_I": {
+          "equation": "-5.05795e-07*VPWR + 2.9572e-06*VREF + -5.05795e-07*FUN_DC + -5.05795e-07*V_SUPPLY + -3.80763e-06*meta_corner + -8.4523e-09*meta_temp + -5.05795e-07*meta_vsup_max + 3.07753e-08*VPWR*VPWR + -3.54056e-07*VPWR*VREF + 3.07753e-08*VPWR*FUN_DC + 3.07753e-08*VPWR*V_SUPPLY + 2.88709e-07*VPWR*meta_corner + 6.49638e-10*VPWR*meta_temp + 3.07753e-08*VPWR*meta_vsup_max + 2.07004e-06*VREF*VREF + -3.54056e-07*VREF*FUN_DC + -3.54056e-07*VREF*V_SUPPLY + -2.66534e-06*VREF*meta_corner + -5.91661e-09*VREF*meta_temp + -3.54056e-07*VREF*meta_vsup_max + 3.07753e-08*FUN_DC*FUN_DC + 3.07753e-08*FUN_DC*V_SUPPLY + 2.88709e-07*FUN_DC*meta_corner + 6.49638e-10*FUN_DC*meta_temp + 3.07753e-08*FUN_DC*meta_vsup_max + 3.07753e-08*V_SUPPLY*V_SUPPLY + 2.88709e-07*V_SUPPLY*meta_corner + 6.49638e-10*V_SUPPLY*meta_temp + 3.07753e-08*V_SUPPLY*meta_vsup_max + 1.09688e-06*meta_corner*meta_corner + 6.76041e-09*meta_corner*meta_temp + 2.88709e-07*meta_corner*meta_vsup_max + 6.49638e-10*meta_temp*meta_vsup_max + 3.07753e-08*meta_vsup_max*meta_vsup_max + 4.22457e-06",
+          "r2": 0.7011515443777689,
+          "source": "polynomial_deg2"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "2.21963e-08*VPWR + -1.47242e-07*VREF + 2.21963e-08*FUN_DC + 2.21963e-08*V_SUPPLY + 5.97741e-07*meta_corner + 6.07677e-10*meta_temp + 2.21963e-08*meta_vsup_max + -1.33348e-09*VPWR*VPWR + 1.55374e-08*VPWR*VREF + -1.33348e-09*VPWR*FUN_DC + -1.33348e-09*VPWR*V_SUPPLY + -3.03146e-08*VPWR*meta_corner + -1.33348e-09*VPWR*meta_vsup_max + -1.03069e-07*VREF*VREF + 1.55374e-08*VREF*FUN_DC + 1.55374e-08*VREF*V_SUPPLY + 4.18418e-07*VREF*meta_corner + 4.25374e-10*VREF*meta_temp + 1.55374e-08*VREF*meta_vsup_max + -1.33348e-09*FUN_DC*FUN_DC + -1.33348e-09*FUN_DC*V_SUPPLY + -3.03146e-08*FUN_DC*meta_corner + -1.33348e-09*FUN_DC*meta_vsup_max + -1.33348e-09*V_SUPPLY*V_SUPPLY + -3.03146e-08*V_SUPPLY*meta_corner + -1.33348e-09*V_SUPPLY*meta_vsup_max + 2.90503e-06*meta_corner*meta_corner + 8.14238e-09*meta_corner*meta_temp + -3.03146e-08*meta_corner*meta_vsup_max + -1.33348e-09*meta_vsup_max*meta_vsup_max + -2.10346e-07",
+          "r2": 0.9041252662536404,
+          "source": "polynomial_deg2"
+        }
+      }
+    }
+  },
+  "fsm_validation": {
+    "reachability": true,
+    "completeness": true,
+    "determinism": true,
+    "speckg_coverage": 0.25
+  },
+  "analog_skeleton_equations_embedded": true
+}

@@ -1,0 +1,7 @@
+Complexity,Loss,Equation
+1,1.3789823e-11,"VDD_1V2_EXT_I"
+3,1.2508175e-11,"floop_out_I_idt * -25274.809"
+5,1.23519485e-11,"(floop_out_I_idt * -25275.568) + VDD_1V2_EXT_I"
+7,1.1628846e-11,"(-34853.832 - (1.6183225e-5 / ISO_I)) * floop_out_I_idt"
+9,1.1260186e-11,"floop_out_I_idt * (-34854.895 - (1.6159494e-5 / (ISO_I + floop_out_I_idt)))"
+11,1.0971794e-11,"(-34854.895 - (1.2530438e-5 / (ISO_I + (floop_out_I_idt + floop_out_I_idt)))) * floop_out_I_idt"

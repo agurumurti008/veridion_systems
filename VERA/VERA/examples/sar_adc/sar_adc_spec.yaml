@@ -1,0 +1,123 @@
+# ============================================================================
+# VERA IP Specification — SAR ADC 12-bit
+# FILE: examples/sar_adc/sar_adc_spec.yaml
+# DESC: Complete spec YAML for VERA auto-builder.
+#       This file drives automatic generation of SVA, Python, and SKILL
+#       checker suites for a 12-bit SAR ADC IP.
+# VERSION: 1.0
+# ============================================================================
+
+# --- Identity ---
+ip_name:     SAR_ADC_12B
+ip_type:     adc
+environment: mixed          # dms | ams | mixed
+block_name:  ADC_TOP
+version:     1.0
+
+# --- Clock ---
+clock:
+  freq_mhz:  50.0
+  freq_tol:  0.05            # 5% tolerance
+  duty_min:  0.45
+  duty_max:  0.55
+
+# --- ADC Parameters (drives Python & SKILL checkers) ---
+adc:
+  n_bits:    12
+  fs_hz:     1_000_000       # 1 MSPS
+  vref_v:    1.8
+  fin_hz:    97_656           # Input tone for dynamic tests (prime-related to fs)
+  vref_min_v: 1.79
+  vref_max_v: 1.81
+
+  # Dynamic specification
+  dynamic:
+    enob_min:       10.5     # bits
+    snr_min_db:     65.0     # dB
+    sfdr_min_db:    75.0     # dBc
+    thd_max_db:     -70.0    # dBc
+
+  # Static specification
+  static:
+    dnl_max_lsb:        0.5  # LSB
+    inl_max_lsb:        1.0  # LSB
+    missing_codes_max:  0
+
+# --- Digital Interface Bounds (drives SVA) ---
+digital_bounds:
+  - signal: adc_out
+    width:  12
+    min:    0
+    max:    4095
+    description: "ADC output code must be in valid range"
+
+  - signal: eoc
+    width:  1
+    min:    0
+    max:    1
+    description: "End-of-conversion flag"
+
+# --- AMS Checks (drives SKILL script) ---
+ams_checks:
+  - name:    vera_adc_vref_accuracy
+    signal:  /vref
+    measure: value
+    min:     1.79
+    max:     1.81
+    unit:    V
+    context: "VREF must be accurate to ±0.5%"
+
+  - name:    vera_adc_vdd_range
+    signal:  /vdd
+    measure: value
+    min:     1.71
+    max:     1.89
+    unit:    V
+    context: "VDD must be within ±5% of 1.8V"
+
+  - name:    vera_adc_bias_current
+    signal:  /ibias
+    measure: value
+    min:     9.0e-6
+    max:     11.0e-6
+    unit:    A
+    context: "Bias current 10uA ±10%"
+
+# --- Power Checks ---
+power:
+  iavg_max_ua:  500     # uA average
+  ipeak_max_ua: 2000    # uA peak during conversion
+
+# --- Parametric Checks for Generic Python Runner ---
+parametric_checks:
+  - name:    vera_adc_vout_dc
+    signal:  vout
+    measure: mean
+    min:     0.0
+    max:     1.8
+    unit:    V
+
+  - name:    vera_adc_supply_current
+    signal:  idd
+    measure: mean
+    min:     0.0
+    max:     500e-6
+    unit:    A
+
+# --- Integration Options ---
+integration:
+  sim_tool:      xcelium         # xcelium | vcs | questa | spectre
+  ams_tool:      spectre
+  uvm:           true
+  formal:        false
+  regression:    true
+
+# --- Checker Binding ---
+sva_bind_target:  tb.dut         # Where to bind SVA checker module
+uvm_env_path:     tb.env.adc_agent
+
+# --- Report ---
+report:
+  format:   json                 # json | html | junit
+  path:     ./vera_reports/
+  waveform_loader: simvision

@@ -1,0 +1,7 @@
+Complexity,Loss,Equation
+1,0.00028440997,"0.0010310636"
+3,8.096803e-5,"ISO_I_idt * 584.87396"
+5,3.0795807e-6,"ISO_I_idt * (VDD_1V2_I * -2716.4966)"
+7,1.2121868e-6,"VDD_1V2_I * ((VPWR_idt - V_SUPPLY_idt) * 112.315346)"
+9,1.1480565e-6,"(VDD_1V2_I * -107.90854) * (ISO_I_idt - (VPWR_idt - MOST_POS_idt))"
+11,1.0988764e-6,"(ISO_I_idt + (ISO_I_idt - (VPWR_idt - V_SUPPLY_idt))) * (VDD_1V2_I * -103.83059)"

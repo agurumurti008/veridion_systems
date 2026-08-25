@@ -1,0 +1,7 @@
+Complexity,Loss,Equation
+1,2.8227614e-14,"4.057074e-8"
+3,2.2989645e-14,"VDD_1V2_EXT_I * 0.4901362"
+5,1.7458882e-14,"VDD_1V2_EXT_I_idt / (0.2273866 - V_SUPPLY_idt)"
+8,1.2973367e-14,"(VDD_1V2_EXT_I_idt * exp(MOST_POS)) * VPWR_idt"
+10,1.0672185e-14,"((VPWR_idt * exp(FUN_DC)) - MOST_POS) * VDD_1V2_EXT_I_idt"
+12,5.3084033e-15,"VPWR_idt * (exp(VPWR_idt * (MOST_POS * FUN_DC)) * VDD_1V2_EXT_I_idt)"

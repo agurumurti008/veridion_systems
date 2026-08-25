@@ -1,0 +1,227 @@
+## ============================================================================
+## VERA CI/CD Integration Examples
+## FILE: scripts/integration/vera_cicd_examples/
+## ============================================================================
+
+## ---- FILE 1: .gitlab-ci.yml ----
+## GitLab CI pipeline with VERA quality gate
+##
+## stages:
+##   - compile
+##   - simulate
+##   - vera_check
+##   - report
+##
+## variables:
+##   VERA_HOME: "$CI_PROJECT_DIR/VERA"
+##   VERA_REPORT_DIR: "$CI_PROJECT_DIR/vera_reports"
+##
+## compile_rtl:
+##   stage: compile
+##   script:
+##     - source $VERA_HOME/vera_env.sh
+##     - xrun -compile -64bit -sv -uvm
+##         -f $VERA_HOME/scripts/integration/vera_xcelium.f
+##         -f my_ip_files.f
+##         -top vera_my_ip_tb_top
+##   artifacts:
+##     paths:
+##       - xcelium.d/
+##
+## simulate_regression:
+##   stage: simulate
+##   needs: [compile_rtl]
+##   script:
+##     - source $VERA_HOME/vera_env.sh
+##     - mkdir -p $VERA_REPORT_DIR
+##     - $VERA_HOME/scripts/regression/vera_regression.sh
+##         --sim xcelium
+##         --test_list tests/all_tests.list
+##         --vera_cfg cfg/vera_config.yaml
+##   artifacts:
+##     paths:
+##       - vera_reports/
+##     reports:
+##       junit: vera_reports/vera_junit.xml
+##
+## vera_quality_gate:
+##   stage: vera_check
+##   needs: [simulate_regression]
+##   script:
+##     - source $VERA_HOME/vera_env.sh
+##     - python3 $VERA_HOME/scripts/integration/vera_quality_gate.py
+##         --reports $VERA_REPORT_DIR/*.json
+##         --junit   $VERA_REPORT_DIR/vera_junit.xml
+##         --config  cfg/vera_gate_config.yaml
+##   artifacts:
+##     when: always
+##     reports:
+##       junit: vera_reports/vera_junit.xml
+##     paths:
+##       - vera_reports/vera_gate_result.json
+##
+## vera_dashboard:
+##   stage: report
+##   needs: [simulate_regression]
+##   when: always
+##   script:
+##     - source $VERA_HOME/vera_env.sh
+##     - python3 $VERA_HOME/automation/reporter/vera_dashboard.py
+##         --results_dir $VERA_REPORT_DIR
+##         --output $VERA_REPORT_DIR/vera_dashboard.html
+##   artifacts:
+##     paths:
+##       - vera_reports/vera_dashboard.html
+##     expose_as: "VERA Dashboard"
+
+## ============================================================================
+
+## ---- FILE 2: .github/workflows/vera_ci.yml ----
+## GitHub Actions workflow with VERA
+##
+## name: VERA Verification
+##
+## on:
+##   push:
+##     branches: [main, develop]
+##   pull_request:
+##
+## jobs:
+##   vera_regression:
+##     runs-on: [self-hosted, eda-tools]
+##     steps:
+##       - uses: actions/checkout@v3
+##
+##       - name: Setup VERA environment
+##         run: |
+##           source VERA/vera_env.sh
+##           pip3 install -r VERA/requirements.txt
+##
+##       - name: Compile design with VERA
+##         run: |
+##           source VERA/vera_env.sh
+##           xrun -compile -64bit -sv -uvm \
+##             -f VERA/scripts/integration/vera_xcelium.f \
+##             -f my_ip_files.f -top vera_my_ip_tb_top
+##
+##       - name: Run VERA regression
+##         run: |
+##           source VERA/vera_env.sh
+##           VERA/scripts/regression/vera_regression.sh \
+##             --sim xcelium \
+##             --test_list tests/all_tests.list
+##
+##       - name: VERA Quality Gate
+##         run: |
+##           python3 VERA/scripts/integration/vera_quality_gate.py \
+##             --reports vera_reports/*.json \
+##             --junit vera_reports/vera_junit.xml \
+##             --gh_summary "$GITHUB_STEP_SUMMARY"
+##
+##       - name: Publish VERA Dashboard
+##         uses: actions/upload-artifact@v3
+##         if: always()
+##         with:
+##           name: vera-dashboard
+##           path: vera_reports/vera_dashboard.html
+##
+##       - name: Publish Test Results
+##         uses: dorny/test-reporter@v1
+##         if: always()
+##         with:
+##           name: VERA Results
+##           path: vera_reports/vera_junit.xml
+##           reporter: java-junit
+
+## ============================================================================
+
+## ---- FILE 3: cfg/vera_gate_config.yaml ----
+## Quality gate configuration
+#
+# max_failures: 0
+# max_warnings: 20
+# min_pass_rate_pct: 95.0
+#
+# # These checkers MUST run (or gate fails)
+# required_checkers:
+#   - vera_adc_enob
+#   - vera_adc_dnl
+#   - vera_adc_inl
+#   - vera_pll_lock_time
+#   - vera_pll_jitter_rms
+#
+# # These checkers MUST NOT fail (zero tolerance)
+# blocked_checkers:
+#   - vera_sram_read_data
+#   - vera_uart_protocol_tx_stop_bit
+#   - vera_axi4_aw_valid_stable
+#
+# severity_block:
+#   ERROR: true
+#   WARNING: false
+
+## ============================================================================
+## VERA Jenkins Groovy Pipeline (Jenkinsfile)
+## ============================================================================
+##
+## pipeline {
+##   agent { label 'eda-tools' }
+##
+##   environment {
+##     VERA_HOME = "${WORKSPACE}/VERA"
+##     VERA_REPORT_DIR = "${WORKSPACE}/vera_reports"
+##   }
+##
+##   stages {
+##     stage('Setup') {
+##       steps {
+##         sh 'source $VERA_HOME/vera_env.sh && pip3 install -r $VERA_HOME/requirements.txt'
+##       }
+##     }
+##
+##     stage('Compile') {
+##       steps {
+##         sh '''source $VERA_HOME/vera_env.sh
+##               xrun -compile -64bit -sv -uvm \
+##                 -f $VERA_HOME/scripts/integration/vera_xcelium.f \
+##                 -f my_ip_files.f -top vera_my_ip_tb_top'''
+##       }
+##     }
+##
+##     stage('Simulate') {
+##       steps {
+##         sh '''source $VERA_HOME/vera_env.sh
+##               $VERA_HOME/scripts/regression/vera_regression.sh \
+##                 --sim xcelium \
+##                 --test_list tests/all_tests.list \
+##                 --vera_cfg cfg/vera_config.yaml'''
+##       }
+##     }
+##
+##     stage('VERA Quality Gate') {
+##       steps {
+##         sh '''python3 $VERA_HOME/scripts/integration/vera_quality_gate.py \
+##                 --reports $VERA_REPORT_DIR/*.json \
+##                 --junit $VERA_REPORT_DIR/vera_junit.xml'''
+##       }
+##       post {
+##         always {
+##           junit '$VERA_REPORT_DIR/vera_junit.xml'
+##           publishHTML target: [
+##             reportDir: 'vera_reports',
+##             reportFiles: 'vera_dashboard.html',
+##             reportName: 'VERA Dashboard'
+##           ]
+##         }
+##       }
+##     }
+##   }
+##
+##   post {
+##     failure {
+##       sh '''python3 $VERA_HOME/scripts/integration/vera_quality_gate.py \
+##               --reports $VERA_REPORT_DIR/*.json \
+##               --slack $SLACK_WEBHOOK_URL'''
+##     }
+##   }
+## }

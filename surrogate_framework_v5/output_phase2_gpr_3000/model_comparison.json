@@ -1,0 +1,536 @@
+{
+  "blut_path": "blut_files/regression_multi_corner_sref_ldo.bin",
+  "good_corners": 126,
+  "total_corners": 135,
+  "meta_key_kind": {
+    "corner": "categorical",
+    "temp": "continuous",
+    "vsup_max": "continuous"
+  },
+  "feature_names": [
+    "VPWR",
+    "VREF",
+    "FUN_DC",
+    "VDD_1V2_EXT",
+    "V_SUPPLY",
+    "meta_corner_nn",
+    "meta_corner_ss",
+    "meta_corner_ww",
+    "meta_temp",
+    "meta_vsup_max"
+  ],
+  "output_names": [
+    "VDD_1V2",
+    "VPWR_I",
+    "FUN_DC_I",
+    "V_SUPPLY_I",
+    "VDD_1V2_EXT_I"
+  ],
+  "equation_source": "pysr",
+  "equation_parameters": {
+    "meta_corner_nn": 0.6259932034870619,
+    "meta_corner_ss": 0.24006684948379078,
+    "meta_corner_ww": 0.13393994702914735,
+    "meta_temp": -4.293647960265167,
+    "meta_vsup_max": 5.04992848711764
+  },
+  "states": {
+    "0": {
+      "name": "DISABLED",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.05128675503673738
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "VREF * (meta_corner_nn - VREF)",
+          "r2": 0.17716265002869158,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "VREF * 0.041126497",
+          "r2": 0.07170812527321035,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "VREF * -0.00021942465",
+          "r2": 0.00804783147827226,
+          "source": "pysr_requested"
+        },
+        "V_SUPPLY_I": {
+          "equation": "VREF * 0.00022544723",
+          "r2": 0.4381557292878956,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "-6.364355e-7 / exp(VPWR)",
+          "r2": 0.09451355655747373,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "1": {
+      "name": "REGULATION",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.045390064265051024
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "(meta_corner_nn - ((V_SUPPLY / meta_temp) + VDD_1V2_EXT)) - 0.1248706",
+          "r2": 0.5089158400929668,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0.03181063 / exp(meta_corner_nn)",
+          "r2": 0.09520893290513344,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "(((meta_vsup_max * -1.023022) + (meta_vsup_max * 1.0230219)) * FUN_DC) / -1.2538127",
+          "r2": -0.0028218451796289123,
+          "source": "pysr_requested"
+        },
+        "V_SUPPLY_I": {
+          "equation": "VDD_1V2_EXT * 0.00025553588",
+          "r2": 0.0686414285129976,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "meta_corner_ss * (VDD_1V2_EXT * (0.1878143 ^ meta_vsup_max))",
+          "r2": 0.6214775842290671,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "2": {
+      "name": "REGULATION_2",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.08439392991297613
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "(VDD_1V2_EXT / 1.3543456e-12) + meta_corner_nn",
+          "r2": 0.3635731174251091,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "(V_SUPPLY - VPWR) ^ VREF",
+          "r2": 0.07005150901154811,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0.010260521 - ((meta_corner_nn * meta_temp) * 5.9347847e-5)",
+          "r2": 0.021490355878123313,
+          "source": "pysr_requested"
+        },
+        "V_SUPPLY_I": {
+          "equation": "0.00010063949 / exp(meta_corner_nn)",
+          "r2": 0.16336049859481172,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "(meta_temp ^ meta_corner_ss) * 1.1903831e-9",
+          "r2": 0.03524096073332894,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "3": {
+      "name": "REGULATION_3",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.012110618350351364
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "(meta_temp * 0.0033589804) + (0.7354823 ^ meta_corner_ss)",
+          "r2": 0.1471758443255774,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "sqrt(sqrt(FUN_DC - VPWR)) / exp(meta_corner_nn)",
+          "r2": 0.7179384364901908,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "(meta_corner_ss / meta_temp) - -0.11064038",
+          "r2": 0.18064718955429748,
+          "source": "pysr_requested"
+        },
+        "V_SUPPLY_I": {
+          "equation": "(V_SUPPLY - VPWR) * 0.044856936",
+          "r2": 0.23524564813789794,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "((meta_vsup_max - VPWR) ^ 0.0058348337) * -8.2952283e-7",
+          "r2": 0.21010013682949125,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "4": {
+      "name": "REGULATION_4",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.003440110796808851
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "0.6750668 ^ meta_corner_ss",
+          "r2": 0.4070920862519014,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "((-0.7931885 ^ meta_corner_ww) / (meta_temp * FUN_DC)) * -0.0011562345",
+          "r2": -16.04072848884873,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "(1.6288927 / meta_temp) + 0.086470686",
+          "r2": 0.361864156170874,
+          "source": "pysr_requested"
+        },
+        "V_SUPPLY_I": {
+          "equation": "exp(meta_temp * 0.21126595) * VDD_1V2_EXT",
+          "r2": 0.0716191245348925,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "meta_corner_nn * 2.0927114e-8",
+          "r2": 0.039993493203327235,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "5": {
+      "name": "REGULATION_5",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.02151189979607917
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "17.734211 / meta_temp",
+          "r2": 0.12875388599436288,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0.13132995 / exp(meta_corner_nn)",
+          "r2": 0.32137953610672554,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "(meta_corner_ss * exp(VPWR)) * -3.349362e-8",
+          "r2": 0.3857053367165926,
+          "source": "pysr_requested"
+        },
+        "V_SUPPLY_I": {
+          "equation": "exp(meta_corner_nn) * 5.3895974e-6",
+          "r2": 0.025145547484411557,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "(meta_temp * (1.5592729e-9 * meta_corner_ss)) - 4.0980222e-8",
+          "r2": 0.04292185263658377,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "6": {
+      "name": "DISABLED_2",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.039864094976554514
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "meta_corner_nn - 1.2501094",
+          "r2": 0.5233887675157509,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0.059411358 / exp(meta_corner_nn)",
+          "r2": 0.04259707324682449,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "(-0.46269885 ^ meta_corner_nn) * (1.9374716e-5 / (V_SUPPLY / meta_temp))",
+          "r2": -0.04114622079524355,
+          "source": "pysr_requested"
+        },
+        "V_SUPPLY_I": {
+          "equation": "(meta_corner_ss + V_SUPPLY) * 3.786347e-5",
+          "r2": 0.12201476660505217,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "meta_temp * (meta_corner_ss * 6.5788965e-9)",
+          "r2": 0.16420304543825381,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "7": {
+      "name": "REGULATION_6",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.0006351905110752224
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "(meta_corner_nn * (VPWR ^ 0.56206447)) + -1.4522996",
+          "r2": 0.9875538482491063,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0.028002143 / (meta_corner_nn + 1.0943004)",
+          "r2": 0.3723546272508248,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "(((3.8794441 ^ V_SUPPLY) * -6.6813555e-9) + 9.786783e-6) * meta_corner_nn",
+          "r2": 0.8182736848682893,
+          "source": "pysr_requested"
+        },
+        "V_SUPPLY_I": {
+          "equation": "(exp(sqrt(exp(FUN_DC ^ meta_corner_ss))) * meta_temp) * 1.2306385e-15",
+          "r2": 0.8134997811841911,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "(meta_temp ^ meta_corner_ss) * 3.5509453e-9",
+          "r2": 0.41375232761136493,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "8": {
+      "name": "REGULATION_7",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.000253005369111786
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "((meta_corner_nn * V_SUPPLY) ^ 0.5561609) - 1.4656484",
+          "r2": 0.9863930897847801,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0.01810873 - (meta_temp * -0.00011692533)",
+          "r2": 0.4086458386146873,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "meta_corner_nn * (-6.5588174e-5 - (-0.00034985054 / meta_vsup_max))",
+          "r2": 0.8454811568024656,
+          "source": "pysr_requested"
+        },
+        "V_SUPPLY_I": {
+          "equation": "meta_temp * (VDD_1V2_EXT * (meta_corner_ss / exp(V_SUPPLY / (VREF * -0.4162371))))",
+          "r2": 0.9094839363695636,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "(meta_temp ^ meta_corner_ss) * 3.7002321e-9",
+          "r2": 0.48649668024658055,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "9": {
+      "name": "REGULATION_8",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.0013095251019812088
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "((meta_corner_nn * 0.47112486) * V_SUPPLY) - 1.4851253",
+          "r2": 0.94959159759994,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "(meta_corner_nn * -0.012240113) + 0.026069034",
+          "r2": 0.23679579908533,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "((meta_corner_nn * 2.721065) ^ V_SUPPLY) * ((2.1131052e-6 / meta_vsup_max) + -3.924735e-7)",
+          "r2": 0.9265558538116755,
+          "source": "pysr_requested"
+        },
+        "V_SUPPLY_I": {
+          "equation": "VDD_1V2_EXT * (meta_temp * (((FUN_DC ^ meta_corner_ss) * VPWR) ^ FUN_DC))",
+          "r2": 0.8964074831956388,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "(meta_temp ^ meta_corner_ss) * 3.5985344e-9",
+          "r2": 0.32661403089075325,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "10": {
+      "name": "REGULATION_9",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.0007502260140066396
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "(meta_corner_nn * 2.3558204) - 1.4595085",
+          "r2": 0.9488414939710068,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "(0.023959162 - (meta_temp * (meta_corner_ss * -0.00018170338))) + (meta_corner_nn * -0.009569389)",
+          "r2": 0.8152327045804115,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "meta_corner_nn * ((V_SUPPLY * -4.873445e-6) - -2.4617542e-5)",
+          "r2": 0.2643002277619738,
+          "source": "pysr_requested"
+        },
+        "V_SUPPLY_I": {
+          "equation": "(9.669508e-14 * (meta_temp * exp(meta_vsup_max))) * exp(meta_vsup_max ^ meta_corner_ss)",
+          "r2": 0.7735847989870094,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "((meta_temp - -37.626545) ^ meta_corner_ss) * 2.8657816e-9",
+          "r2": 0.8787830973626425,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "11": {
+      "name": "REGULATION_10",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.0008168195835801765
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "log((meta_corner_nn + 1.2348759) - ((-45.265182 / meta_temp) ^ meta_corner_nn))",
+          "r2": 0.9740008849813366,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "0.015244789 - (((meta_temp * -6.907349e-5) - 0.003192626) / exp(meta_corner_nn - meta_corner_ss))",
+          "r2": 0.9114424427780302,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "1.0075229e-6 / (V_SUPPLY - ((meta_corner_ss * 0.17950268) * meta_temp))",
+          "r2": 0.14277344900379296,
+          "source": "pysr_requested"
+        },
+        "V_SUPPLY_I": {
+          "equation": "(meta_temp * (exp(log(VPWR) ^ VPWR) * VDD_1V2_EXT)) * meta_corner_ss",
+          "r2": 0.9352716599491124,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "((meta_temp * 2.8660658e-9) + 1.16080074e-7) * meta_corner_ss",
+          "r2": 0.9566348403822378,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "12": {
+      "name": "REGULATION_11",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 0.00015346774239119798
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "exp(meta_corner_nn + (6.3129 / meta_temp)) + -2.383977",
+          "r2": 0.9054831942350627,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "((meta_temp * 8.5312466e-5) + 0.00505587) / exp(V_SUPPLY ^ meta_corner_nn)",
+          "r2": 0.028559217137948845,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "((meta_corner_ss * meta_temp) * 7.709605e-5) + 0.011035271",
+          "r2": 0.035400677806362135,
+          "source": "pysr_requested"
+        },
+        "V_SUPPLY_I": {
+          "equation": "((FUN_DC + meta_corner_ss) * 3.6029058e-5) - 0.000108637265",
+          "r2": 0.10657200084634033,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "meta_corner_ss * (1.8781276e-7 - (meta_temp * -3.5796812e-9))",
+          "r2": 0.6980123512455769,
+          "source": "pysr_requested"
+        }
+      }
+    },
+    "13": {
+      "name": "REGULATION_12",
+      "n_samples": 3000,
+      "metrics": {
+        "GPR": 1.8298572970509529e-06
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": "(sqrt(V_SUPPLY + (91.38168 / meta_temp)) * meta_corner_nn) + -1.4729534",
+          "r2": 0.9755637484770332,
+          "source": "pysr_requested"
+        },
+        "VPWR_I": {
+          "equation": "(exp(FUN_DC) / meta_temp) * -1.4070043e-6",
+          "r2": 0.3372352031237671,
+          "source": "pysr_requested"
+        },
+        "FUN_DC_I": {
+          "equation": "0.022221725 / sqrt((0.9911508 ^ meta_temp) + meta_corner_nn)",
+          "r2": 0.8246767347481226,
+          "source": "pysr_requested"
+        },
+        "V_SUPPLY_I": {
+          "equation": "(meta_temp * (exp(VPWR ^ meta_corner_ss) * VDD_1V2_EXT)) / (0.09454076 ^ VPWR)",
+          "r2": 0.9223510925688325,
+          "source": "pysr_requested"
+        },
+        "VDD_1V2_EXT_I": {
+          "equation": "((meta_temp * 2.904899e-9) + 1.1423748e-7) * meta_corner_ss",
+          "r2": 0.9578716654895552,
+          "source": "pysr_requested"
+        }
+      }
+    }
+  },
+  "fsm_validation": {
+    "reachability": true,
+    "completeness": true,
+    "determinism": true,
+    "speckg_coverage": 0.25
+  },
+  "analog_skeleton_equations_embedded": true
+}

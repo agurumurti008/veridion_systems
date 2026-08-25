@@ -1,0 +1,835 @@
+{
+  "summary": {
+    "n_findings": 26,
+    "by_severity": {
+      "high": 4,
+      "medium": 5,
+      "info": 17
+    }
+  },
+  "findings": [
+    {
+      "analyzer": "3.1 supply-attribution",
+      "category": "unexpected-supply-domain",
+      "severity": "high",
+      "summary": "REGULATION_2 powered mainly from VPWR, not primary V_SUPPLY",
+      "evidence": {
+        "state": "REGULATION_2",
+        "dominant": "VPWR",
+        "primary": "V_SUPPLY",
+        "ranking": [
+          [
+            "VPWR",
+            39.77
+          ],
+          [
+            "V_SUPPLY",
+            10.17
+          ]
+        ]
+      },
+      "affected_pins": [
+        "VPWR",
+        "V_SUPPLY"
+      ],
+      "affected_states": [
+        "REGULATION_2"
+      ],
+      "recommended_action": "confirm intended supply for this state; possible mux/routing bug"
+    },
+    {
+      "analyzer": "3.4 mux-verification",
+      "category": "untested-mux",
+      "severity": "high",
+      "summary": "VPWR_SEL toggled but no candidate supply current redistributed \u2014 mux path unverified",
+      "evidence": {
+        "sel": "VPWR_SEL",
+        "run": "mux_bug",
+        "candidates": [
+          "VPWR",
+          "FUN_DC",
+          "ISO",
+          "MOST_POS",
+          "V_SUPPLY"
+        ],
+        "n_toggles": 1
+      },
+      "affected_pins": [
+        "VPWR_SEL",
+        "VPWR",
+        "FUN_DC",
+        "ISO",
+        "MOST_POS",
+        "V_SUPPLY"
+      ],
+      "affected_states": [],
+      "recommended_action": "provide a SEL-toggle run with all candidate supplies live to prove the selected path"
+    },
+    {
+      "analyzer": "3.3/3.7 drive-strength",
+      "category": "capacity-shortfall",
+      "severity": "high",
+      "summary": "VDD_1V2 sustains only 0.0825 mA in reg (spec 200 mA)",
+      "evidence": {
+        "observed_capacity_A": 8.2e-05,
+        "spec_max_load_A": 0.2,
+        "vout_min_V": 1.176
+      },
+      "affected_pins": [
+        "VDD_1V2"
+      ],
+      "affected_states": [],
+      "recommended_action": "provide a load-sweep run to full spec current; if real, raise pass-device drive"
+    },
+    {
+      "analyzer": "3.3/3.7 drive-strength",
+      "category": "drive-collapse",
+      "severity": "high",
+      "summary": "VDD_1V2 collapses below reg when demand exceeds capacity",
+      "evidence": {
+        "run": "mux_good",
+        "vout": 0.6,
+        "i_out_A": 0.0
+      },
+      "affected_pins": [
+        "VDD_1V2"
+      ],
+      "affected_states": [],
+      "recommended_action": "downstream loads on this rail see the sag; confirm current-limit/foldback intent"
+    },
+    {
+      "analyzer": "3.11 transition-health",
+      "category": "inrush-cout",
+      "severity": "medium",
+      "summary": "REGULATION inrush -> C_out estimate 0.00 uF",
+      "evidence": {
+        "from": "DISABLED",
+        "to": "REGULATION",
+        "C_out_est_F": 0.0,
+        "delta_v": 0.6,
+        "charge_C": 0.0,
+        "C_out_fitted_F": 4.7e-06
+      },
+      "affected_pins": [
+        "VDD_1V2"
+      ],
+      "affected_states": [
+        "DISABLED",
+        "REGULATION"
+      ],
+      "recommended_action": "inrush-derived C_out disagrees with fit; reconcile"
+    },
+    {
+      "analyzer": "3.11 transition-health",
+      "category": "inrush-cout",
+      "severity": "medium",
+      "summary": "REGULATION inrush -> C_out estimate 0.00 uF",
+      "evidence": {
+        "from": "DISABLED",
+        "to": "REGULATION",
+        "C_out_est_F": 0.0,
+        "delta_v": 0.6,
+        "charge_C": 0.0,
+        "C_out_fitted_F": 4.7e-06
+      },
+      "affected_pins": [
+        "VDD_1V2"
+      ],
+      "affected_states": [
+        "DISABLED",
+        "REGULATION"
+      ],
+      "recommended_action": "inrush-derived C_out disagrees with fit; reconcile"
+    },
+    {
+      "analyzer": "3.11 transition-health",
+      "category": "inrush-cout",
+      "severity": "medium",
+      "summary": "REGULATION inrush -> C_out estimate 0.00 uF",
+      "evidence": {
+        "from": "DISABLED",
+        "to": "REGULATION",
+        "C_out_est_F": 0.0,
+        "delta_v": 0.6,
+        "charge_C": 0.0,
+        "C_out_fitted_F": 4.7e-06
+      },
+      "affected_pins": [
+        "VDD_1V2"
+      ],
+      "affected_states": [
+        "DISABLED",
+        "REGULATION"
+      ],
+      "recommended_action": "inrush-derived C_out disagrees with fit; reconcile"
+    },
+    {
+      "analyzer": "3.11 transition-health",
+      "category": "inrush-cout",
+      "severity": "medium",
+      "summary": "REGULATION inrush -> C_out estimate 0.00 uF",
+      "evidence": {
+        "from": "DISABLED",
+        "to": "REGULATION",
+        "C_out_est_F": 0.0,
+        "delta_v": 0.6,
+        "charge_C": 0.0,
+        "C_out_fitted_F": 4.7e-06
+      },
+      "affected_pins": [
+        "VDD_1V2"
+      ],
+      "affected_states": [
+        "DISABLED",
+        "REGULATION"
+      ],
+      "recommended_action": "inrush-derived C_out disagrees with fit; reconcile"
+    },
+    {
+      "analyzer": "3.11 transition-health",
+      "category": "inrush-cout",
+      "severity": "medium",
+      "summary": "REGULATION inrush -> C_out estimate 0.00 uF",
+      "evidence": {
+        "from": "DISABLED",
+        "to": "REGULATION",
+        "C_out_est_F": 0.0,
+        "delta_v": 0.6,
+        "charge_C": 0.0,
+        "C_out_fitted_F": 4.7e-06
+      },
+      "affected_pins": [
+        "VDD_1V2"
+      ],
+      "affected_states": [
+        "DISABLED",
+        "REGULATION"
+      ],
+      "recommended_action": "inrush-derived C_out disagrees with fit; reconcile"
+    },
+    {
+      "analyzer": "3.1 supply-attribution",
+      "category": "supply-dominance",
+      "severity": "info",
+      "summary": "DISABLED: dominant supply V_SUPPLY (3.8 uA)",
+      "evidence": {
+        "state": "DISABLED",
+        "ranking_uA_mean_rms": [
+          [
+            "V_SUPPLY",
+            3.76,
+            6.91
+          ],
+          [
+            "VPWR",
+            0.16,
+            0.19
+          ]
+        ]
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "DISABLED"
+      ],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.1 supply-attribution",
+      "category": "supply-dominance",
+      "severity": "info",
+      "summary": "REGULATION: dominant supply V_SUPPLY (49.5 uA)",
+      "evidence": {
+        "state": "REGULATION",
+        "ranking_uA_mean_rms": [
+          [
+            "V_SUPPLY",
+            49.52,
+            49.61
+          ],
+          [
+            "VPWR",
+            0.47,
+            1.95
+          ]
+        ]
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "REGULATION"
+      ],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.1 supply-attribution",
+      "category": "supply-dominance",
+      "severity": "info",
+      "summary": "REGULATION_2: dominant supply VPWR (39.8 uA)",
+      "evidence": {
+        "state": "REGULATION_2",
+        "ranking_uA_mean_rms": [
+          [
+            "VPWR",
+            39.77,
+            39.81
+          ],
+          [
+            "V_SUPPLY",
+            10.17,
+            10.33
+          ]
+        ]
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "REGULATION_2"
+      ],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.1 supply-attribution",
+      "category": "supply-dominance",
+      "severity": "info",
+      "summary": "DISABLED: dominant supply V_SUPPLY (3.7 uA)",
+      "evidence": {
+        "state": "DISABLED",
+        "ranking_uA_mean_rms": [
+          [
+            "V_SUPPLY",
+            3.71,
+            6.91
+          ],
+          [
+            "VPWR",
+            0.11,
+            0.14
+          ]
+        ]
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "DISABLED"
+      ],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.1 supply-attribution",
+      "category": "supply-dominance",
+      "severity": "info",
+      "summary": "REGULATION: dominant supply V_SUPPLY (49.7 uA)",
+      "evidence": {
+        "state": "REGULATION",
+        "ranking_uA_mean_rms": [
+          [
+            "V_SUPPLY",
+            49.74,
+            49.79
+          ],
+          [
+            "VPWR",
+            0.16,
+            0.2
+          ]
+        ]
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "REGULATION"
+      ],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.1 supply-attribution",
+      "category": "supply-dominance",
+      "severity": "info",
+      "summary": "REGULATION_2: dominant supply V_SUPPLY (50.0 uA)",
+      "evidence": {
+        "state": "REGULATION_2",
+        "ranking_uA_mean_rms": [
+          [
+            "V_SUPPLY",
+            50.0,
+            50.0
+          ],
+          [
+            "VPWR",
+            0.14,
+            0.19
+          ]
+        ]
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "REGULATION_2"
+      ],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.1 supply-attribution",
+      "category": "supply-dominance",
+      "severity": "info",
+      "summary": "DISABLED: dominant supply V_SUPPLY (3.8 uA)",
+      "evidence": {
+        "state": "DISABLED",
+        "ranking_uA_mean_rms": [
+          [
+            "V_SUPPLY",
+            3.77,
+            6.92
+          ],
+          [
+            "VPWR",
+            0.29,
+            0.35
+          ]
+        ]
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "DISABLED"
+      ],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.1 supply-attribution",
+      "category": "supply-dominance",
+      "severity": "info",
+      "summary": "REGULATION: dominant supply V_SUPPLY (49.8 uA)",
+      "evidence": {
+        "state": "REGULATION",
+        "ranking_uA_mean_rms": [
+          [
+            "V_SUPPLY",
+            49.83,
+            49.86
+          ],
+          [
+            "VPWR",
+            0.14,
+            0.17
+          ]
+        ]
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "REGULATION"
+      ],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.1 supply-attribution",
+      "category": "supply-dominance",
+      "severity": "info",
+      "summary": "REGULATION_3: dominant supply V_SUPPLY (50.0 uA)",
+      "evidence": {
+        "state": "REGULATION_3",
+        "ranking_uA_mean_rms": [
+          [
+            "V_SUPPLY",
+            50.0,
+            50.0
+          ],
+          [
+            "VPWR",
+            0.17,
+            0.21
+          ]
+        ]
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "REGULATION_3"
+      ],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.1 supply-attribution",
+      "category": "supply-dominance",
+      "severity": "info",
+      "summary": "DISABLED: dominant supply V_SUPPLY (3.7 uA)",
+      "evidence": {
+        "state": "DISABLED",
+        "ranking_uA_mean_rms": [
+          [
+            "V_SUPPLY",
+            3.74,
+            6.88
+          ],
+          [
+            "VPWR",
+            0.08,
+            0.09
+          ]
+        ]
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "DISABLED"
+      ],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.1 supply-attribution",
+      "category": "supply-dominance",
+      "severity": "info",
+      "summary": "REGULATION: dominant supply V_SUPPLY (49.9 uA)",
+      "evidence": {
+        "state": "REGULATION",
+        "ranking_uA_mean_rms": [
+          [
+            "V_SUPPLY",
+            49.89,
+            49.91
+          ],
+          [
+            "VPWR",
+            0.18,
+            0.22
+          ]
+        ]
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "REGULATION"
+      ],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.1 supply-attribution",
+      "category": "supply-dominance",
+      "severity": "info",
+      "summary": "DISABLED: dominant supply V_SUPPLY (3.8 uA)",
+      "evidence": {
+        "state": "DISABLED",
+        "ranking_uA_mean_rms": [
+          [
+            "V_SUPPLY",
+            3.8,
+            6.96
+          ],
+          [
+            "VPWR",
+            0.08,
+            0.1
+          ]
+        ]
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "DISABLED"
+      ],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.1 supply-attribution",
+      "category": "supply-dominance",
+      "severity": "info",
+      "summary": "REGULATION: dominant supply V_SUPPLY (49.9 uA)",
+      "evidence": {
+        "state": "REGULATION",
+        "ranking_uA_mean_rms": [
+          [
+            "V_SUPPLY",
+            49.88,
+            49.91
+          ],
+          [
+            "VPWR",
+            0.16,
+            0.2
+          ]
+        ]
+      },
+      "affected_pins": [],
+      "affected_states": [
+        "REGULATION"
+      ],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.4 mux-verification",
+      "category": "mux-verified",
+      "severity": "info",
+      "summary": "VPWR_SEL toggle: current shifted to VPWR from V_SUPPLY",
+      "evidence": {
+        "sel": "VPWR_SEL",
+        "run": "mux_good",
+        "gained_uA": 32.12,
+        "dropped_uA": -32.42
+      },
+      "affected_pins": [
+        "VPWR_SEL",
+        "VPWR",
+        "V_SUPPLY"
+      ],
+      "affected_states": [],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.3/3.7 drive-strength",
+      "category": "param-bound",
+      "severity": "info",
+      "summary": "fitted capacity -> tighten I_lim upper bound to 8.25e-05 A",
+      "evidence": {
+        "param": "I_lim",
+        "suggested_upper_bound_A": 0.0001,
+        "basis": "observed sustained i_out"
+      },
+      "affected_pins": [
+        "VDD_1V2"
+      ],
+      "affected_states": [],
+      "recommended_action": "apply as a bound in the manifest, not an overwrite; refit within [lo, capacity]"
+    },
+    {
+      "analyzer": "3.5/3.9 vi-consistency",
+      "category": "impedance",
+      "severity": "info",
+      "summary": "VDD_1V2 Zout extracted",
+      "evidence": {
+        "rail": "VDD_1V2"
+      },
+      "affected_pins": [
+        "VDD_1V2"
+      ],
+      "affected_states": [],
+      "recommended_action": ""
+    },
+    {
+      "analyzer": "3.8 dummy-load-detect",
+      "category": "dummy-load-detected",
+      "severity": "info",
+      "summary": "SREF_ADD_LDO1V2_LOAD_MPOS classified internal load (+25.7 uA on assertion)",
+      "evidence": {
+        "pin": "SREF_ADD_LDO1V2_LOAD_MPOS",
+        "added_load_uA": 25.71,
+        "consistency": 1.0,
+        "n_edges": 2
+      },
+      "affected_pins": [
+        "SREF_ADD_LDO1V2_LOAD_MPOS"
+      ],
+      "affected_states": [],
+      "recommended_action": "accept taxonomy enrichment: SREF_ADD_LDO1V2_LOAD_MPOS -> internal_load (25.7 uA)"
+    }
+  ],
+  "current_coverage": {
+    "input_supply": {
+      "total": 5,
+      "with_current": 5
+    },
+    "ground": {
+      "total": 3,
+      "with_current": 2
+    },
+    "output_rail": {
+      "total": 3,
+      "with_current": 3
+    },
+    "sense": {
+      "total": 5,
+      "with_current": 3
+    },
+    "enable": {
+      "total": 1,
+      "with_current": 1
+    },
+    "control": {
+      "total": 6,
+      "with_current": 6
+    },
+    "select": {
+      "total": 2,
+      "with_current": 2
+    },
+    "load_control": {
+      "total": 1,
+      "with_current": 1
+    },
+    "bias": {
+      "total": 4,
+      "with_current": 4
+    }
+  },
+  "filter_logs": [
+    {
+      "signal": "V_SUPPLY_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 2.6097099489315484e-07,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": true,
+      "method": "medfilt+savgol"
+    },
+    {
+      "signal": "VDD_1V2_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 2.464262706395712e-07,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": false,
+      "method": "medfilt+savgol"
+    },
+    {
+      "signal": "VPWR_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 8.965663233605572e-07,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": false,
+      "method": "medfilt+savgol"
+    },
+    {
+      "signal": "V_SUPPLY_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 2.618630190910447e-07,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": true,
+      "method": "medfilt+savgol"
+    },
+    {
+      "signal": "VDD_1V2_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 2.4936533002316864e-07,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": false,
+      "method": "medfilt+savgol"
+    },
+    {
+      "signal": "VPWR_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 8.115822320936154e-07,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": false,
+      "method": "medfilt+savgol"
+    },
+    {
+      "signal": "V_SUPPLY_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 2.45977425754214e-07,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": true,
+      "method": "medfilt+savgol"
+    },
+    {
+      "signal": "VDD_1V2_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 2.312577317255832e-07,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": false,
+      "method": "medfilt+savgol"
+    },
+    {
+      "signal": "VPWR_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 8.97359174733913e-07,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": false,
+      "method": "medfilt+savgol"
+    },
+    {
+      "signal": "V_SUPPLY_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 2.506773210292623e-07,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": true,
+      "method": "medfilt+savgol"
+    },
+    {
+      "signal": "VDD_1V2_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 1e-15,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": true,
+      "method": "medfilt+savgol"
+    },
+    {
+      "signal": "VPWR_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 8.573173871730892e-07,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": false,
+      "method": "medfilt+savgol"
+    },
+    {
+      "signal": "V_SUPPLY_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 2.5187760009067644e-07,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": true,
+      "method": "medfilt+savgol"
+    },
+    {
+      "signal": "VDD_1V2_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 1e-15,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": true,
+      "method": "medfilt+savgol"
+    },
+    {
+      "signal": "VPWR_I",
+      "n": 1400,
+      "dt": 1.000714796283033e-07,
+      "noise_floor": 8.207337088490189e-07,
+      "median_kernel": 3,
+      "savgol_window": 71,
+      "savgol_polyorder": 2,
+      "decimation": 1,
+      "sign_stable": false,
+      "method": "medfilt+savgol"
+    }
+  ]
+}

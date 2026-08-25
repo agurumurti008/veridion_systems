@@ -1,0 +1,112 @@
+ {
+  "blut_path": "blut_files/regression_multi_corner_ldo.bin",
+  "strategies": {
+    "logic": {
+      "strategy": "logic",
+      "n_states": 10,
+      "state_names": [
+        "DISABLED",
+        "REGULATION",
+        "REGULATION_2",
+        "REGULATION_3",
+        "STARTUP",
+        "DISABLED_2",
+        "DISABLED_3",
+        "DISABLED_4",
+        "REGULATION_4",
+        "DISABLED_5"
+      ],
+      "n_transitions": 22,
+      "validation": {
+        "reachability": false,
+        "completeness": true,
+        "determinism": true,
+        "speckg_coverage": 0.375,
+        "missing_states": [
+          "UVLO",
+          "HIGH_POWER_MODE",
+          "SCAN_MODE",
+          "OVERRIDE",
+          "SHUTDOWN"
+        ],
+        "missing_transitions": [],
+        "warnings": [
+          "Unreachable states: ['DISABLED_5', 'DISABLED_2', 'DISABLED_3', 'DISABLED_4']",
+          "missing_transitions not evaluated: spec_kg.fsm_states is a custom state list, not the generic per-ip_type reference"
+        ],
+        "errors": []
+      },
+      "output_dir": "output_fsm_compare/logic"
+    },
+    "cluster": {
+      "strategy": "cluster",
+      "n_states": 7,
+      "state_names": [
+        "DISABLED",
+        "REGULATION",
+        "REGULATION_2",
+        "REGULATION_3",
+        "HIGH_POWER_MODE",
+        "SCAN_MODE",
+        "REGULATION_4"
+      ],
+      "n_transitions": 12,
+      "validation": {
+        "reachability": false,
+        "completeness": true,
+        "determinism": true,
+        "speckg_coverage": 0.5,
+        "missing_states": [
+          "UVLO",
+          "STARTUP",
+          "OVERRIDE",
+          "SHUTDOWN"
+        ],
+        "missing_transitions": [],
+        "warnings": [
+          "Unreachable states: ['REGULATION', 'REGULATION_2', 'REGULATION_3', 'SCAN_MODE']",
+          "missing_transitions not evaluated: spec_kg.fsm_states is a custom state list, not the generic per-ip_type reference"
+        ],
+        "errors": []
+      },
+      "output_dir": "output_fsm_compare/cluster"
+    },
+    "hybrid": {
+      "strategy": "hybrid",
+      "n_states": 10,
+      "state_names": [
+        "DISABLED",
+        "REGULATION",
+        "REGULATION_2",
+        "REGULATION_3",
+        "STARTUP",
+        "DISABLED_2",
+        "DISABLED_3",
+        "DISABLED_4",
+        "REGULATION_4",
+        "DISABLED_5"
+      ],
+      "n_transitions": 22,
+      "validation": {
+        "reachability": false,
+        "completeness": true,
+        "determinism": true,
+        "speckg_coverage": 0.375,
+        "missing_states": [
+          "UVLO",
+          "HIGH_POWER_MODE",
+          "SCAN_MODE",
+          "OVERRIDE",
+          "SHUTDOWN"
+        ],
+        "missing_transitions": [],
+        "warnings": [
+          "Unreachable states: ['DISABLED_5', 'DISABLED_2', 'DISABLED_3', 'DISABLED_4']",
+          "missing_transitions not evaluated: spec_kg.fsm_states is a custom state list, not the generic per-ip_type reference"
+        ],
+        "errors": []
+      },
+      "output_dir": "output_fsm_compare/hybrid"
+    }
+  }
+}

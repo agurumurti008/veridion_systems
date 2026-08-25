@@ -1,0 +1,6 @@
+# $table_model data for parameter hp_gm_scale
+# columns: p_idx vdd temp value
+# p_idx: 0=FF, 1=SS, 2=TT
+0 2 -40 3
+1 1.5 125 3
+2 1.8 27 3

@@ -1,0 +1,98 @@
+[
+  {
+    "from_state": "REGULATION",
+    "to_state": "DISABLED_2",
+    "guard": "(EN_LDO == 0 && HIGH_POWER_MODE == 1)",
+    "n_occurrences": 27,
+    "mean_abs_output_delta": {
+      "VDD_1V2": 0.14918117694280766,
+      "VPWR_I": 0.024187004849038744,
+      "FUN_DC_I": 0.0,
+      "V_SUPPLY_I": 1.0250875170135663e-05
+    }
+  },
+  {
+    "from_state": "REGULATION",
+    "to_state": "REGULATION_5",
+    "guard": "(HIGH_POWER_MODE == 1)",
+    "n_occurrences": 27,
+    "mean_abs_output_delta": {
+      "VDD_1V2": 0.14792098215332738,
+      "VPWR_I": 0.02483747037196601,
+      "FUN_DC_I": 0.0,
+      "V_SUPPLY_I": 2.6102135288291954e-05
+    }
+  },
+  {
+    "from_state": "REGULATION_3",
+    "to_state": "REGULATION_5",
+    "guard": "(VPWR_SEL == 1)",
+    "n_occurrences": 36,
+    "mean_abs_output_delta": {
+      "VDD_1V2": 0.12009677632401387,
+      "VPWR_I": 0.01517347892596869,
+      "FUN_DC_I": 0.0,
+      "V_SUPPLY_I": 7.329917938017318e-05
+    }
+  },
+  {
+    "from_state": "REGULATION_2",
+    "to_state": "REGULATION_3",
+    "guard": "(HIGH_POWER_MODE == 1)",
+    "n_occurrences": 63,
+    "mean_abs_output_delta": {
+      "VDD_1V2": 0.09898603766683549,
+      "VPWR_I": 0.011386867706841301,
+      "FUN_DC_I": 0.002512441197824147,
+      "V_SUPPLY_I": 5.4088497289206045e-05
+    }
+  },
+  {
+    "from_state": "REGULATION_2",
+    "to_state": "REGULATION_5",
+    "guard": "(HIGH_POWER_MODE == 1 && VPWR_SEL == 1)",
+    "n_occurrences": 18,
+    "mean_abs_output_delta": {
+      "VDD_1V2": 0.04824302262730069,
+      "VPWR_I": 0.015854142638595983,
+      "FUN_DC_I": 0.0,
+      "V_SUPPLY_I": 4.3680272129778234e-05
+    }
+  },
+  {
+    "from_state": "REGULATION_2",
+    "to_state": "REGULATION",
+    "guard": "(VPWR_SEL == 1)",
+    "n_occurrences": 27,
+    "mean_abs_output_delta": {
+      "VDD_1V2": 0.01299524638387892,
+      "VPWR_I": 0.00851014522076757,
+      "FUN_DC_I": 0.0,
+      "V_SUPPLY_I": 8.683900904313567e-05
+    }
+  },
+  {
+    "from_state": "REGULATION_5",
+    "to_state": "REGULATION",
+    "guard": "(HIGH_POWER_MODE == 0)",
+    "n_occurrences": 81,
+    "mean_abs_output_delta": {
+      "VDD_1V2": 0.0022154649098714194,
+      "VPWR_I": 0.006125047225160179,
+      "FUN_DC_I": 0.0,
+      "V_SUPPLY_I": 9.170401920309236e-05
+    }
+  },
+  {
+    "from_state": "REGULATION",
+    "to_state": "REGULATION_2",
+    "guard": "(VPWR_SEL == 0)",
+    "n_occurrences": 123,
+    "mean_abs_output_delta": {
+      "VDD_1V2": 0.0020565947866052147,
+      "VPWR_I": 0.001232705215310178,
+      "FUN_DC_I": 0.0,
+      "V_SUPPLY_I": 0.0001074403048551226
+    }
+  }
+]

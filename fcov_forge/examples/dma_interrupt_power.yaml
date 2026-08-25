@@ -1,0 +1,367 @@
+# FCovForge Example: DMA Controller + Interrupt Controller
+# Project: example_soc
+# Demonstrates: multi-covergroup features, all bin types, feature crosses
+
+project: example_soc
+
+metadata:
+  version: "1.0"
+  author: "Verification Team"
+  date: "2025-01-01"
+
+features:
+
+  # =========================================================================
+  # Feature 1: DMA Transfer
+  # Represents the DMA channel transfer operation with multiple covergroups
+  # =========================================================================
+  - name: dma_transfer
+    description: "DMA channel data transfer feature — covers width, burst, direction, and address alignment"
+    tags: [dma, transfer, bus]
+    source_doc: "specs/dma_spec_v2.1.pdf"
+
+    covergroups:
+
+      # CG1: Data width coverage
+      - name: data_width_cg
+        clock: "posedge clk"
+        condition: "dma_enable"
+        comment: "Covers all legal DMA transfer widths"
+        goal: 100
+
+        coverpoints:
+          - name: width_cp
+            variable: dma_width
+            comment: "Transfer data width in bits"
+            bins:
+              - name: BIN_8BIT
+                values: [8]
+              - name: BIN_16BIT
+                values: [16]
+              - name: BIN_32BIT
+                values: [32]
+              - name: BIN_64BIT
+                values: [64]
+              - name: BIN_128BIT
+                values: [128]
+              - name: BIN_ILLEGAL_WIDTH
+                type: illegal
+                values: [0, 1, 2, 4, 7, 9]
+
+          - name: burst_len_cp
+            variable: dma_burst_len
+            comment: "Number of beats in a burst"
+            bins:
+              - name: BIN_SINGLE
+                values: [1]
+              - name: BIN_SHORT
+                ranges: [[2, 4]]
+              - name: BIN_MEDIUM
+                ranges: [[5, 16]]
+              - name: BIN_LONG
+                ranges: [[17, 256]]
+              - name: BIN_MAX
+                values: [256]
+
+        crosses:
+          - name: width_x_burst
+            coverpoints: [width_cp, burst_len_cp]
+            comment: "Cross width with burst length"
+
+      # CG2: Transfer direction and mode
+      - name: transfer_mode_cg
+        clock: "posedge clk"
+        condition: "dma_enable"
+        comment: "Transfer direction, mode, and address increment"
+        goal: 100
+
+        coverpoints:
+          - name: direction_cp
+            variable: dma_direction
+            bins:
+              - name: BIN_MEM_TO_MEM
+                values: [0]
+              - name: BIN_MEM_TO_PERIPH
+                values: [1]
+              - name: BIN_PERIPH_TO_MEM
+                values: [2]
+              - name: BIN_PERIPH_TO_PERIPH
+                values: [3]
+
+          - name: addr_increment_cp
+            variable: dma_addr_inc
+            bins:
+              - name: BIN_FIXED
+                values: [0]
+              - name: BIN_INCREMENT
+                values: [1]
+              - name: BIN_DECREMENT
+                values: [2]
+              - name: BIN_AUTO
+                type: default
+
+          - name: state_cp
+            variable: dma_state
+            comment: "DMA state machine — state transitions"
+            bins:
+              - name: BIN_IDLE_TO_ACTIVE
+                type: transition
+                transitions:
+                  - [IDLE, ACTIVE]
+              - name: BIN_ACTIVE_TO_DONE
+                type: transition
+                transitions:
+                  - [ACTIVE, DONE]
+              - name: BIN_ACTIVE_TO_ERROR
+                type: transition
+                transitions:
+                  - [ACTIVE, ERROR]
+              - name: BIN_FULL_TRANSFER
+                type: transition
+                transitions:
+                  - [IDLE, ACTIVE, DONE]
+                  - [IDLE, ACTIVE, ACTIVE, DONE]
+              - name: BIN_ABORT_SEQ
+                type: transition
+                transitions:
+                  - [IDLE, ACTIVE, ERROR, IDLE]
+
+      # CG3: Address alignment
+      - name: addr_alignment_cg
+        clock: "posedge clk"
+        condition: "dma_start"
+        comment: "Source and destination address alignment"
+
+        coverpoints:
+          - name: src_align_cp
+            variable: "dma_src_addr[2:0]"
+            bins:
+              - name: BIN_ALIGNED_8B
+                values: [0]
+              - name: BIN_UNALIGNED
+                ranges: [[1, 7]]
+              - name: BIN_IGNORE_RSV
+                type: ignore
+                values: [8, 9, 10, 11, 12, 13, 14, 15]
+
+          - name: dst_align_cp
+            variable: "dma_dst_addr[2:0]"
+            bins:
+              - name: BIN_ALIGNED_8B
+                values: [0]
+              - name: BIN_UNALIGNED
+                ranges: [[1, 7]]
+
+          - name: addr_wildcard_cp
+            variable: "dma_src_addr[7:0]"
+            comment: "Wildcard-based address pattern coverage"
+            bins:
+              - name: BIN_UPPER_HALF
+                type: wildcard
+                pattern: "8'b1???????"
+              - name: BIN_LOWER_HALF
+                type: wildcard
+                pattern: "8'b0???????"
+
+  # =========================================================================
+  # Feature 2: Interrupt Handling
+  # =========================================================================
+  - name: interrupt_handling
+    description: "Interrupt controller — priority, masking, nesting, and source coverage"
+    tags: [interrupt, isr, priority]
+    source_doc: "specs/interrupt_spec_v1.5.pdf"
+
+    covergroups:
+
+      # CG1: Interrupt priority
+      - name: priority_cg
+        clock: "posedge clk"
+        condition: "irq_valid"
+        comment: "Interrupt priority levels"
+
+        coverpoints:
+          - name: priority_cp
+            variable: irq_priority
+            bins:
+              - name: BIN_CRITICAL
+                values: [0]
+              - name: BIN_HIGH
+                values: [1, 2]
+              - name: BIN_MEDIUM
+                ranges: [[3, 7]]
+              - name: BIN_LOW
+                ranges: [[8, 15]]
+              - name: BIN_DEFAULT_PRIO
+                type: default
+
+          - name: source_cp
+            variable: irq_source
+            comment: "Interrupt source ID"
+            bins:
+              - name: BIN_DMA_IRQ
+                values: [0, 1, 2, 3]
+              - name: BIN_UART_IRQ
+                values: [4, 5]
+              - name: BIN_SPI_IRQ
+                values: [6, 7]
+              - name: BIN_TIMER_IRQ
+                values: [8, 9, 10, 11]
+              - name: BIN_GPIO_IRQ
+                ranges: [[12, 31]]
+              - name: BIN_RSVD
+                type: ignore
+                ranges: [[32, 63]]
+
+        crosses:
+          - name: prio_x_source
+            coverpoints: [priority_cp, source_cp]
+            comment: "Priority vs source cross"
+
+      # CG2: Interrupt masking
+      - name: mask_cg
+        clock: "posedge clk"
+        comment: "Interrupt mask register coverage"
+
+        coverpoints:
+          - name: mask_cp
+            variable: irq_mask
+            bins:
+              - name: BIN_ALL_UNMASKED
+                values: [0]
+              - name: BIN_ALL_MASKED
+                type: wildcard
+                pattern: "32'hFFFFFFFF"
+              - name: BIN_PARTIAL
+                type: auto
+                auto_bin_max: 16
+
+      # CG3: Interrupt nesting
+      - name: nesting_cg
+        clock: "posedge clk"
+        condition: "isr_active"
+        comment: "Nested interrupt scenarios"
+
+        coverpoints:
+          - name: nest_depth_cp
+            variable: isr_nest_depth
+            bins:
+              - name: BIN_DEPTH_0
+                values: [0]
+              - name: BIN_DEPTH_1
+                values: [1]
+              - name: BIN_DEPTH_2
+                values: [2]
+              - name: BIN_DEPTH_3_PLUS
+                ranges: [[3, 7]]
+              - name: BIN_OVERFLOW
+                values: [8]
+              - name: BIN_ILLEGAL_DEPTH
+                type: illegal
+                ranges: [[9, 255]]
+
+          - name: nesting_state_cp
+            variable: isr_state
+            bins:
+              - name: BIN_PREEMPT
+                type: transition
+                transitions:
+                  - [ISR_ACTIVE, ISR_PREEMPT, ISR_RESUME]
+              - name: BIN_LATE_ARRIVAL
+                type: transition
+                transitions:
+                  - [ISR_ACTIVE, ISR_PENDING]
+
+  # =========================================================================
+  # Feature 3: Power Management
+  # =========================================================================
+  - name: power_management
+    description: "Device power states and transitions"
+    tags: [power, clk_gate, retention]
+    source_doc: "specs/power_spec_v1.0.pdf"
+
+    covergroups:
+      - name: power_state_cg
+        clock: "posedge clk"
+        comment: "Power state machine coverage"
+
+        coverpoints:
+          - name: pstate_cp
+            variable: power_state
+            bins:
+              - name: BIN_ACTIVE
+                values: [0]
+              - name: BIN_IDLE
+                values: [1]
+              - name: BIN_SLEEP
+                values: [2]
+              - name: BIN_DEEP_SLEEP
+                values: [3]
+              - name: BIN_OFF
+                values: [4]
+
+          - name: pstate_trans_cp
+            variable: power_state
+            bins:
+              - name: BIN_ACTIVE_TO_IDLE
+                type: transition
+                transitions: [[ACTIVE, IDLE]]
+              - name: BIN_IDLE_TO_SLEEP
+                type: transition
+                transitions: [[IDLE, SLEEP]]
+              - name: BIN_SLEEP_TO_DEEP
+                type: transition
+                transitions: [[SLEEP, DEEP_SLEEP]]
+              - name: BIN_WAKE_FROM_SLEEP
+                type: transition
+                transitions:
+                  - [SLEEP, ACTIVE]
+                  - [DEEP_SLEEP, IDLE, ACTIVE]
+              - name: BIN_FULL_POWER_CYCLE
+                type: transition
+                transitions:
+                  - [ACTIVE, IDLE, SLEEP, DEEP_SLEEP, IDLE, ACTIVE]
+
+# =============================================================================
+# Feature-Level Crosses
+# This is the novel abstraction — crossing entire features (or parts of them)
+# =============================================================================
+
+feature_crosses:
+
+  # Cross 1: DMA transfer width with interrupt priority
+  # Verifies DMA behavior does not degrade under high-priority interrupts
+  - name: dma_width_x_irq_priority
+    targets:
+      - dma_transfer.data_width_cg.width_cp
+      - interrupt_handling.priority_cg.priority_cp
+    comment: "Verify DMA transfer width behavior under all interrupt priority levels"
+    goal: 100
+
+  # Cross 2: Full DMA feature x interrupt nesting (CG-level cross)
+  # Verifies DMA operations are preserved during nested interrupts
+  - name: dma_mode_x_irq_nesting
+    targets:
+      - dma_transfer.transfer_mode_cg
+      - interrupt_handling.nesting_cg
+    comment: "DMA transfer modes under nested interrupt scenarios"
+    goal: 90
+
+  # Cross 3: Power state with DMA activity
+  - name: power_x_dma
+    targets:
+      - power_management.power_state_cg.pstate_cp
+      - dma_transfer.data_width_cg.width_cp
+    comment: "DMA transfer widths in different power states"
+    goal: 85
+    exclude_combinations:
+      - power_management.power_state_cg.pstate_cp.BIN_OFF: true
+        dma_transfer.data_width_cg.width_cp.BIN_64BIT: true
+
+  # Cross 4: Three-way cross — DMA direction x interrupt source x power state
+  - name: dma_dir_x_irq_src_x_power
+    targets:
+      - dma_transfer.transfer_mode_cg.direction_cp
+      - interrupt_handling.priority_cg.source_cp
+      - power_management.power_state_cg.pstate_cp
+    comment: "Three-way cross: DMA direction, interrupt source, and power state"
+    goal: 80
