@@ -1,0 +1,91 @@
+// Auto-generated Verilog-A — canonical PMOS-pass LDO core
+// (analog backbone only; FSM/pin wrapper comes from ab_codegen)
+`include "disciplines.vams"
+`include "constants.vams"
+
+module ldo_pmos_core(vin, vout, gnd, en, hp);
+    inout vin, vout, gnd;
+    input en, hp;
+    electrical vin, vout, gnd, en, hp;
+    electrical n_vg, n_vc;  // EA output node, compensator node
+
+    parameter real Gm_ea = 0.001;  // S — Error-amp transconductance
+    parameter real I_ea_max = 3.52938e-06;  // A — EA output current limit (slew limit on the gate node)
+    parameter real R_ea = 2e+06;  // Ohm — EA output resistance (gate-node leak; sets EA DC gain Gm_ea*R_ea)
+    parameter real C_ea = 2e-12;  // F — EA output-node capacitance (excl. pass-device Cgs)
+    parameter real Rz = 100000;  // Ohm — Compensator series resistance (zero at 1/(Rz*Cc))
+    parameter real Cc = 3e-11;  // F — Compensator capacitance (series Rz–Cc, Miller to v_out)
+    parameter real Kp = 0.01;  // A/V^2 — Pass PMOS transconductance factor (1/2·Kp·vov^2 in saturation)
+    parameter real Vth_p = 1;  // V — Pass PMOS |Vth|
+    parameter real lambda_p = 0.00100018;  // 1/V — Channel-length modulation (supply-coupling path in PSRR)
+    parameter real Cgd = 1e-11;  // F — Pass-device gate-drain cap (supply feed-forward into v_out)
+    parameter real Cgs = 2e-11;  // F — Pass-device gate-source cap (loads the EA node; supply path)
+    parameter real Rf1 = 2.20984e-06;  // Ohm — Top feedback resistor (v_out -> v_fb)
+    parameter real Rf2 = 26.9914;  // Ohm — Bottom feedback resistor (held fixed: only the ratio and the divider current are identifiable, so Rf1 floats and Rf2 anchors)
+    parameter real V_ref = 0.9;  // V — Bandgap reference at the EA positive input. Held fixed: from vout data only the product V_ref*(1+Rf1/Rf2) is identifiable, so the divider ratio (Rf1) floats and V_ref anchors — floating both is structurally degenerate (identifiability contract)
+    parameter real C_out = 4.7e-06;  // F — Output capacitor
+    parameter real R_esr = 0.3;  // Ohm — Output capacitor ESR (in series with C_out)
+    parameter real I_lim = 0.0511253;  // A — Soft current limit (tanh clamp on i_pass)
+    parameter real I_q = 2e-05;  // A — Quiescent supply current (added to I(vin), not load-delivered)
+    parameter real V_uvlo_r = 3.6;  // V — UVLO rising threshold on V_in (SREF value -> questionnaire)
+    parameter real V_uvlo_f = 3.4;  // V — UVLO falling threshold on V_in (SREF value -> questionnaire)
+    parameter real hp_gm_scale = 3;  // - — HIGH_POWER_MODE multiplier on {Gm_ea, I_ea_max}
+    parameter real hp_ilim_scale = 2;  // - — HIGH_POWER_MODE multiplier on I_lim
+    parameter real lp_iq_scale = 0.25;  // - — Low-power-mode multiplier on I_q
+    parameter real k_load = 0.001;  // S — Output-node shunt conductance (load-regulation slope term)
+
+    real v_fb, err, i_ea, i_comp, v_sg, vov, v_sd, i_sq, i_pass;
+    real gm_eff, ieamax_eff, ilim_eff, iq_eff, en_v, hp_v;
+
+    analog begin
+        en_v = (V(en, gnd) > 0.5) ? 1.0 : 0.0;
+        hp_v = (V(hp, gnd) > 0.5) ? 1.0 : 0.0;
+        gm_eff     = Gm_ea    * (hp_v > 0.5 ? hp_gm_scale   : 1.0);
+        ieamax_eff = I_ea_max * (hp_v > 0.5 ? hp_gm_scale   : 1.0);
+        ilim_eff   = I_lim    * (hp_v > 0.5 ? hp_ilim_scale : 1.0);
+        iq_eff     = I_q      * (hp_v > 0.5 ? 1.0 : lp_iq_scale);
+
+        v_fb  = V(vout, gnd) * Rf2 / (Rf1 + Rf2);
+        // Inverting gate drive (negative feedback with a PMOS pass
+        // device): v_fb above V_ref pushes the gate toward V_in.
+        err   = v_fb - V_ref;
+        // EA: gm-limited (slew-limited) transconductor, gated by en
+        i_ea  = en_v * ieamax_eff * tanh(gm_eff * err / ieamax_eff);
+        i_comp = (V(n_vg, gnd) - V(n_vc, gnd)) / Rz;
+
+        // Gate node: C_ea+Cgs load, R_ea leak (to vin when disabled)
+        I(n_vg) <+ (C_ea + Cgs) * ddt(V(n_vg, gnd));
+        I(n_vg) <+ -i_ea + i_comp;
+        I(n_vg) <+ en_v > 0.5 ? V(n_vg, gnd) / R_ea
+                              : (V(n_vg, gnd) - V(vin, gnd)) / R_ea;
+        I(n_vg) <+ -Cgs * ddt(V(vin, gnd));  // supply path via Cgs
+
+        // Compensator: series Rz–Cc, Miller to vout
+        I(n_vc) <+ Cc * ddt(V(n_vc, vout));
+        I(n_vc) <+ -i_comp;
+
+        // Pass PMOS: square-law with CLM; triode branch = dropout
+        v_sg = V(vin, gnd) - V(n_vg, gnd);
+        vov  = v_sg - Vth_p;
+        v_sd = V(vin, gnd) - V(vout, gnd);
+        if ((vov > 0) && (v_sd > 0)) begin
+            if (v_sd >= vov)
+                i_sq = 0.5 * Kp * vov * vov * (1 + lambda_p * v_sd);
+            else
+                i_sq = Kp * (vov * v_sd - 0.5 * v_sd * v_sd) * (1 + lambda_p * v_sd);
+        end else
+            i_sq = 0.0;
+        i_pass = ilim_eff * tanh(i_sq / ilim_eff);  // soft current limit
+
+        // Output node: pass current in, load/divider/k_load out,
+        // Cgd supply feed-forward, C_out + R_esr branch
+        I(vin, vout)  <+ i_pass;
+        I(vin, gnd)   <+ iq_eff * (en_v > 0.5 ? 1.0 : 0.05);
+        I(vout, gnd)  <+ V(vout, gnd) / (Rf1 + Rf2);
+        I(vout, gnd)  <+ k_load * V(vout, gnd);
+        I(vout, gnd)  <+ -Cgd * ddt(V(vin, gnd) - V(n_vg, gnd));
+        // C_out in series with R_esr: internal cap node folded into
+        // a single branch contribution
+        I(vout, gnd)  <+ C_out * ddt(V(vout, gnd) - R_esr * C_out * ddt(V(vout, gnd)));
+    end
+endmodule
