@@ -1,0 +1,1345 @@
+{
+  "rf_identification_by_process": {
+    "nn": {
+      "Rf1": 0.10461211720576495,
+      "Rf2": 377114.0400221876,
+      "n_samples": 11,
+      "n_total": 120385,
+      "tier": 1
+    },
+    "ss": {
+      "Rf1": 1.0907480196532342e-05,
+      "Rf2": 176.6194930646321,
+      "n_samples": 181,
+      "n_total": 79220,
+      "tier": 1
+    },
+    "ww": {
+      "Rf1": 0.0002794847287693704,
+      "Rf2": 3764.61466088316,
+      "n_samples": 8,
+      "n_total": 14716,
+      "tier": 1
+    }
+  },
+  "enable_trace_source": "FSM state name (matched ['DISABLED', 'SHUTDOWN'])",
+  "bypass_fraction_excluded": 0.0,
+  "process_lut": {
+    "nn": {
+      "Gm_ea": 0.001,
+      "I_ea_max": 0.0005211631403804954,
+      "R_ea": 2000000.0,
+      "C_ea": 2e-12,
+      "Rz": 100000.0,
+      "Cc": 3e-11,
+      "Kp": 0.010000000015718942,
+      "Vth_p": 0.9999999999971729,
+      "lambda_p": 0.0010000000119388217,
+      "Cgd": 1e-11,
+      "Cgs": 2e-11,
+      "Rf1": 0.10461211720576495,
+      "Rf2": 377114.0400221876,
+      "V_ref": 0.9,
+      "C_out": 4.7e-06,
+      "R_esr": 0.3,
+      "I_lim": 0.08503966400356364,
+      "I_q": 2e-05,
+      "V_uvlo_r": 3.6,
+      "V_uvlo_f": 3.4,
+      "hp_gm_scale": 3.0,
+      "hp_ilim_scale": 2.0,
+      "lp_iq_scale": 0.25,
+      "k_load": 0.0009999999999999994
+    },
+    "ss": {
+      "Gm_ea": 0.001,
+      "I_ea_max": 5.170916985322899e-05,
+      "R_ea": 2000000.0,
+      "C_ea": 2e-12,
+      "Rz": 100000.0,
+      "Cc": 3e-11,
+      "Kp": 0.010000000130692289,
+      "Vth_p": 0.9999999998245725,
+      "lambda_p": 0.0010000001082865644,
+      "Cgd": 1e-11,
+      "Cgs": 2e-11,
+      "Rf1": 1.0907480196532342e-05,
+      "Rf2": 176.6194930646321,
+      "V_ref": 0.9,
+      "C_out": 4.7e-06,
+      "R_esr": 0.3,
+      "I_lim": 1.4276097644772465,
+      "I_q": 2e-05,
+      "V_uvlo_r": 3.6,
+      "V_uvlo_f": 3.4,
+      "hp_gm_scale": 3.0,
+      "hp_ilim_scale": 2.0,
+      "lp_iq_scale": 0.25,
+      "k_load": 0.0009999999999999994
+    },
+    "ww": {
+      "Gm_ea": 0.001,
+      "I_ea_max": 0.00034534588611414283,
+      "R_ea": 2000000.0,
+      "C_ea": 2e-12,
+      "Rz": 100000.0,
+      "Cc": 3e-11,
+      "Kp": 2.0,
+      "Vth_p": 0.9999999999,
+      "lambda_p": 0.0010046390394577104,
+      "Cgd": 1e-11,
+      "Cgs": 2e-11,
+      "Rf1": 0.0002794847287693704,
+      "Rf2": 3764.61466088316,
+      "V_ref": 0.9,
+      "C_out": 4.7e-06,
+      "R_esr": 0.3,
+      "I_lim": 0.8616878488207438,
+      "I_q": 2e-05,
+      "V_uvlo_r": 3.6,
+      "V_uvlo_f": 3.4,
+      "hp_gm_scale": 3.0,
+      "hp_ilim_scale": 2.0,
+      "lp_iq_scale": 0.25,
+      "k_load": 0.000999992787268325
+    }
+  },
+  "assumptions": {
+    "A1_feedback_node_no_bias_current": "The feedback divider branch current equals the full v_out/(Rf1+Rf2) divider current \u2014 i.e. the error amplifier input draws negligible bias current at that node. Used whenever ANY tier of Rf1/Rf2 identification ran (always the case if VFB_I resolved).",
+    "tier2_closed_loop_v_fb_eq_v_ref": "not used (every process either ran Tier 1 or had no gray-box fit at all)",
+    "tier3_nominal_rf2_vref": "not used (every process resolved VFB_I)",
+    "iload_assumed_zero": "not used (--iload_current_signal given)",
+    "enable_trace": "Derived from FSM state name (matched ['DISABLED', 'SHUTDOWN']) (round-2 fix, item 1) \u2014 never a mandatory literal EN_LDO pin mapping.",
+    "bypass_excluded": "no --bypass_state_names pattern matched any detected state \u2014 nothing excluded.",
+    "voltage_temperature_not_separate_lut_axes": "Runs of the SAME process but different vin/temp are POOLED into one fit, not split into separate LUT entries \u2014 the template already models vin continuously through its own ODEs/dc_solve (item 2)."
+  },
+  "processes": {
+    "nn": {
+      "params": {
+        "Gm_ea": 0.001,
+        "I_ea_max": 0.0005211631403804954,
+        "R_ea": 2000000.0,
+        "C_ea": 2e-12,
+        "Rz": 100000.0,
+        "Cc": 3e-11,
+        "Kp": 0.010000000015718942,
+        "Vth_p": 0.9999999999971729,
+        "lambda_p": 0.0010000000119388217,
+        "Cgd": 1e-11,
+        "Cgs": 2e-11,
+        "Rf1": 0.10461211720576495,
+        "Rf2": 377114.0400221876,
+        "V_ref": 0.9,
+        "C_out": 4.7e-06,
+        "R_esr": 0.3,
+        "I_lim": 0.08503966400356364,
+        "I_q": 2e-05,
+        "V_uvlo_r": 3.6,
+        "V_uvlo_f": 3.4,
+        "hp_gm_scale": 3.0,
+        "hp_ilim_scale": 2.0,
+        "lp_iq_scale": 0.25,
+        "k_load": 0.0009999999999999994
+      },
+      "rf_identification": {
+        "Rf1": 0.10461211720576495,
+        "Rf2": 377114.0400221876,
+        "n_samples": 11,
+        "n_total": 120385,
+        "tier": 1
+      },
+      "n_runs_pooled": 8,
+      "n_transient_records": 8,
+      "n_dc_points": 48,
+      "per_stage_residuals": {
+        "dc": 2.615493579298348,
+        "linear": NaN,
+        "transient": 43.34605741200931
+      },
+      "frozen_params": [
+        "I_q",
+        "hp_gm_scale",
+        "hp_ilim_scale",
+        "lp_iq_scale"
+      ],
+      "identifiability": {
+        "Gm_ea": 0.012988034385026064,
+        "I_ea_max": 0.004244116231437382,
+        "R_ea": 0.007477322974365891,
+        "C_ea": 0.0014200280208660494,
+        "Rz": 0.004667715128781732,
+        "Cc": 0.014176648097687502,
+        "Kp": 0.020458020955702618,
+        "Vth_p": 0.032053908997932146,
+        "lambda_p": 0.021457212385051504,
+        "Cgd": 0.013492324644814107,
+        "Cgs": 0.0034237828624279123,
+        "C_out": 0.5332231610846373,
+        "R_esr": 0.11032973876292852,
+        "I_lim": 0.0313388682174156,
+        "I_q": 0.0,
+        "hp_gm_scale": 0.0,
+        "hp_ilim_scale": 0.0,
+        "lp_iq_scale": 0.0,
+        "k_load": 1.0
+      },
+      "spec_compliance": [
+        {
+          "spec": "Output_Voltage",
+          "model_value": 0.9002897512452532,
+          "min": 1.176,
+          "max": 1.224,
+          "nominal": 1.2,
+          "unit": "V",
+          "passes": false,
+          "evaluated": true
+        },
+        {
+          "spec": "Dropout_Voltage",
+          "model_value": null,
+          "min": 0.0,
+          "max": 0.2,
+          "nominal": 0.15,
+          "unit": "V",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "Load_Regulation",
+          "model_value": null,
+          "min": 0.0,
+          "max": 25.1,
+          "nominal": 12.5,
+          "unit": "mV/A",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "Line_Regulation",
+          "model_value": null,
+          "min": 0.0,
+          "max": 3.0,
+          "nominal": 1.5,
+          "unit": "mV/V",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "PSRR_at_1kHz",
+          "model_value": 65.29752816412211,
+          "min": 60.0,
+          "max": 100.0,
+          "nominal": 80.0,
+          "unit": "dB",
+          "passes": true,
+          "evaluated": true
+        },
+        {
+          "spec": "PSRR_at_1MHz",
+          "model_value": 61.781407085663204,
+          "min": 30.0,
+          "max": 60.0,
+          "nominal": 40.0,
+          "unit": "dB",
+          "passes": false,
+          "evaluated": true
+        },
+        {
+          "spec": "Output_Noise_RMS",
+          "model_value": null,
+          "min": 0.0,
+          "max": 30.0,
+          "nominal": 15.0,
+          "unit": "uVrms",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "Transient_Undershoot",
+          "model_value": null,
+          "min": 0.0,
+          "max": 100.0,
+          "nominal": 50.0,
+          "unit": "mV",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "Transient_Settling",
+          "model_value": 3.0000000000000004e-05,
+          "min": 0.0,
+          "max": 5.0,
+          "nominal": 2.5,
+          "unit": "us",
+          "passes": true,
+          "evaluated": true
+        },
+        {
+          "spec": "Output_Impedance_10MHz",
+          "model_value": null,
+          "min": 0.0,
+          "max": 50.0,
+          "nominal": 25.0,
+          "unit": "mOhm",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "Quiescent_Current",
+          "model_value": 5e-06,
+          "min": 0.0,
+          "max": 0.08,
+          "nominal": 0.05,
+          "unit": "mA",
+          "passes": true,
+          "evaluated": true
+        },
+        {
+          "spec": "Max_Load_Current",
+          "model_value": null,
+          "min": 200.0,
+          "max": 250.0,
+          "nominal": 220.0,
+          "unit": "mA",
+          "passes": null,
+          "evaluated": false
+        }
+      ],
+      "notes": [
+        "Stage LINEAR skipped: no AC data and no step transient with t_event.",
+        "Identifiability gate froze to defaults: I_q, hp_gm_scale, hp_ilim_scale, lp_iq_scale",
+        "Stage LINEAR skipped: no AC data and no step transient with t_event.",
+        "Re-polished identifiable params with frozen set pinned.",
+        "NN residual trained (final mse=1.623e-03, cap 10% RHS, applied to dv_co/dt only, backend=torch)."
+      ],
+      "sensitivity": {
+        "base_behaviors": {
+          "vout_dc": 0.9002897512452532,
+          "dropout_margin": 0.6787131958296921,
+          "iq": 5e-06,
+          "psrr_1kHz_dB": 65.29752816412211,
+          "zout_1kHz": 0.027241019930561012,
+          "phase_margin_deg": 63.568556266925995
+        },
+        "elasticities": {
+          "Gm_ea": {
+            "vout_dc": -0.00032158947007487616,
+            "dropout_margin": 0.0004467075154479459,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.13305736431364115,
+            "zout_1kHz": -1.0004084509901405,
+            "phase_margin_deg": -1.5995119514798954e-10
+          },
+          "I_ea_max": {
+            "vout_dc": -6.616649395804932e-11,
+            "dropout_margin": 9.611822096257561e-11,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 1.5825932578040848e-05,
+            "zout_1kHz": -0.00011823306595987922,
+            "phase_margin_deg": 2.2355163542695953e-14
+          },
+          "R_ea": {
+            "vout_dc": -0.000321589536247536,
+            "dropout_margin": 0.0004467076396360898,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.1138884185448264,
+            "zout_1kHz": -0.6988715058206607,
+            "phase_margin_deg": -0.02205727637209237
+          },
+          "C_ea": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -0.001157336204689914,
+            "zout_1kHz": 0.011486041978203609,
+            "phase_margin_deg": -0.02330119750422192
+          },
+          "Rz": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -0.0008021376992409826,
+            "zout_1kHz": 0.00487445598582516,
+            "phase_margin_deg": -0.020224307760435423
+          },
+          "Cc": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -0.01878829180943269,
+            "zout_1kHz": 0.18089509945045829,
+            "phase_margin_deg": 0.21402618212639124
+          },
+          "Kp": {
+            "vout_dc": 0.0009500086198899335,
+            "dropout_margin": 2.51904600262003,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.00014482668869352834,
+            "zout_1kHz": -0.5002010942950786,
+            "phase_margin_deg": 4.728899520004188e-10
+          },
+          "Vth_p": {
+            "vout_dc": -0.0005553639671911946,
+            "dropout_margin": 0.0007714579958359509,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -4.917081981122689e-06,
+            "zout_1kHz": 3.2171445913716475e-05,
+            "phase_margin_deg": -2.7644395236897817e-10
+          },
+          "lambda_p": {
+            "vout_dc": 3.878615509775708e-06,
+            "dropout_margin": 0.010284549738083135,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -0.00026109792991105106,
+            "zout_1kHz": -0.0019216137340632904,
+            "phase_margin_deg": 1.9944567684052355e-05
+          },
+          "Cgd": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -1.552993842064802e-05,
+            "zout_1kHz": 9.651644675859923e-05,
+            "phase_margin_deg": 0.0
+          },
+          "Cgs": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -3.2434951336769915e-05,
+            "zout_1kHz": 0.1140503225254621,
+            "phase_margin_deg": -0.23301839153967455
+          },
+          "Rf1": {
+            "vout_dc": 2.773951736192377e-07,
+            "dropout_margin": -3.853598672426569e-07,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 3.3757656393239206e-06,
+            "zout_1kHz": -3.625109892609016e-05,
+            "phase_margin_deg": -1.0059823594213179e-13
+          },
+          "Rf2": {
+            "vout_dc": -2.1726893879931016e-07,
+            "dropout_margin": 0.00015988987189964656,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 1.4501271039360771e-05,
+            "zout_1kHz": -9.357094594228605e-05,
+            "phase_margin_deg": -9.088724679087154e-07
+          },
+          "V_ref": {
+            "vout_dc": 0.9996548481105473,
+            "dropout_margin": -1.388582461034983,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -2.132759352607501e-05,
+            "zout_1kHz": 0.00839098585656873,
+            "phase_margin_deg": 4.972368264837878e-07
+          },
+          "C_out": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -5.6321254957992596e-05,
+            "zout_1kHz": 0.0004234013076171634,
+            "phase_margin_deg": 0.43801062562894943
+          },
+          "R_esr": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 1.704378950505964e-05,
+            "zout_1kHz": -7.098346295194506e-05,
+            "phase_margin_deg": 0.43837383206331443
+          },
+          "I_lim": {
+            "vout_dc": 0.00033267148992252945,
+            "dropout_margin": 0.8821128244532132,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 8.660759980948712e-05,
+            "zout_1kHz": -0.9425740583323954,
+            "phase_margin_deg": -7.013294254536221e-06
+          },
+          "I_q": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 1.0000000000000073,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "V_uvlo_r": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "V_uvlo_f": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "hp_gm_scale": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "hp_ilim_scale": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "lp_iq_scale": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 1.0000000000000073,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "k_load": {
+            "vout_dc": -2.268264095353472e-05,
+            "dropout_margin": -0.0601453658421439,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -1.1441951797221126e-05,
+            "zout_1kHz": 0.007842338352683663,
+            "phase_margin_deg": 0.00034271442805969987
+          }
+        }
+      }
+    },
+    "ss": {
+      "params": {
+        "Gm_ea": 0.001,
+        "I_ea_max": 5.170916985322899e-05,
+        "R_ea": 2000000.0,
+        "C_ea": 2e-12,
+        "Rz": 100000.0,
+        "Cc": 3e-11,
+        "Kp": 0.010000000130692289,
+        "Vth_p": 0.9999999998245725,
+        "lambda_p": 0.0010000001082865644,
+        "Cgd": 1e-11,
+        "Cgs": 2e-11,
+        "Rf1": 1.0907480196532342e-05,
+        "Rf2": 176.6194930646321,
+        "V_ref": 0.9,
+        "C_out": 4.7e-06,
+        "R_esr": 0.3,
+        "I_lim": 1.4276097644772465,
+        "I_q": 2e-05,
+        "V_uvlo_r": 3.6,
+        "V_uvlo_f": 3.4,
+        "hp_gm_scale": 3.0,
+        "hp_ilim_scale": 2.0,
+        "lp_iq_scale": 0.25,
+        "k_load": 0.0009999999999999994
+      },
+      "rf_identification": {
+        "Rf1": 1.0907480196532342e-05,
+        "Rf2": 176.6194930646321,
+        "n_samples": 181,
+        "n_total": 79220,
+        "tier": 1
+      },
+      "n_runs_pooled": 8,
+      "n_transient_records": 8,
+      "n_dc_points": 48,
+      "per_stage_residuals": {
+        "dc": 1.0486474964517996,
+        "linear": NaN,
+        "transient": 7.004414804157909
+      },
+      "frozen_params": [
+        "C_ea",
+        "Cc",
+        "Cgd",
+        "Gm_ea",
+        "I_q",
+        "R_ea",
+        "Rz",
+        "hp_gm_scale",
+        "hp_ilim_scale",
+        "lp_iq_scale"
+      ],
+      "identifiability": {
+        "Gm_ea": 0.0993231611334164,
+        "I_ea_max": 0.08095726742594483,
+        "R_ea": 9.900010677508348e-06,
+        "C_ea": 0.025140068344776625,
+        "Rz": 0.09147808986751349,
+        "Cc": 0.018947076988969722,
+        "Kp": 0.22897508677346703,
+        "Vth_p": 1.0,
+        "lambda_p": 0.11644617787267167,
+        "Cgd": 0.02708819316096739,
+        "Cgs": 0.03805071242672283,
+        "C_out": 0.0858775517955881,
+        "R_esr": 0.869791433782792,
+        "I_lim": 0.8821254916724025,
+        "I_q": 0.0,
+        "hp_gm_scale": 0.0,
+        "hp_ilim_scale": 0.0,
+        "lp_iq_scale": 0.0,
+        "k_load": 0.11026571388192055
+      },
+      "spec_compliance": [
+        {
+          "spec": "Output_Voltage",
+          "model_value": 0.9003297623585466,
+          "min": 1.176,
+          "max": 1.224,
+          "nominal": 1.2,
+          "unit": "V",
+          "passes": false,
+          "evaluated": true
+        },
+        {
+          "spec": "Dropout_Voltage",
+          "model_value": null,
+          "min": 0.0,
+          "max": 0.2,
+          "nominal": 0.15,
+          "unit": "V",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "Load_Regulation",
+          "model_value": null,
+          "min": 0.0,
+          "max": 25.1,
+          "nominal": 12.5,
+          "unit": "mV/A",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "Line_Regulation",
+          "model_value": null,
+          "min": 0.0,
+          "max": 3.0,
+          "nominal": 1.5,
+          "unit": "mV/V",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "PSRR_at_1kHz",
+          "model_value": 65.29951578438619,
+          "min": 60.0,
+          "max": 100.0,
+          "nominal": 80.0,
+          "unit": "dB",
+          "passes": true,
+          "evaluated": true
+        },
+        {
+          "spec": "PSRR_at_1MHz",
+          "model_value": 58.1820495455633,
+          "min": 30.0,
+          "max": 60.0,
+          "nominal": 40.0,
+          "unit": "dB",
+          "passes": true,
+          "evaluated": true
+        },
+        {
+          "spec": "Output_Noise_RMS",
+          "model_value": null,
+          "min": 0.0,
+          "max": 30.0,
+          "nominal": 15.0,
+          "unit": "uVrms",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "Transient_Undershoot",
+          "model_value": null,
+          "min": 0.0,
+          "max": 100.0,
+          "nominal": 50.0,
+          "unit": "mV",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "Transient_Settling",
+          "model_value": 3.0000000000000004e-05,
+          "min": 0.0,
+          "max": 5.0,
+          "nominal": 2.5,
+          "unit": "us",
+          "passes": true,
+          "evaluated": true
+        },
+        {
+          "spec": "Output_Impedance_10MHz",
+          "model_value": null,
+          "min": 0.0,
+          "max": 50.0,
+          "nominal": 25.0,
+          "unit": "mOhm",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "Quiescent_Current",
+          "model_value": 5e-06,
+          "min": 0.0,
+          "max": 0.08,
+          "nominal": 0.05,
+          "unit": "mA",
+          "passes": true,
+          "evaluated": true
+        },
+        {
+          "spec": "Max_Load_Current",
+          "model_value": null,
+          "min": 200.0,
+          "max": 250.0,
+          "nominal": 220.0,
+          "unit": "mA",
+          "passes": null,
+          "evaluated": false
+        }
+      ],
+      "notes": [
+        "Stage LINEAR skipped: no AC data and no step transient with t_event.",
+        "Identifiability gate froze to defaults: C_ea, Cc, Cgd, Gm_ea, I_q, R_ea, Rz, hp_gm_scale, hp_ilim_scale, lp_iq_scale",
+        "Stage LINEAR skipped: no AC data and no step transient with t_event.",
+        "Re-polished identifiable params with frozen set pinned.",
+        "NN residual trained (final mse=1.199e-03, cap 10% RHS, applied to dv_co/dt only, backend=torch)."
+      ],
+      "sensitivity": {
+        "base_behaviors": {
+          "vout_dc": 0.9003297623585466,
+          "dropout_margin": 0.7590748151932161,
+          "iq": 5e-06,
+          "psrr_1kHz_dB": 65.29951578438619,
+          "zout_1kHz": 0.017925740502399416,
+          "phase_margin_deg": 63.69140776243053
+        },
+        "elasticities": {
+          "Gm_ea": {
+            "vout_dc": -0.00036620655006435577,
+            "dropout_margin": 0.00052153079928876,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.1330430809491728,
+            "zout_1kHz": -1.0002368802194233,
+            "phase_margin_deg": -7.525294529440389e-10
+          },
+          "I_ea_max": {
+            "vout_dc": -9.926647839580674e-09,
+            "dropout_margin": 1.4123453183282709e-08,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -1.260434271998787e-06,
+            "zout_1kHz": -1.8300352140836501e-06,
+            "phase_margin_deg": -2.2312043671900938e-14
+          },
+          "R_ea": {
+            "vout_dc": -0.00036621647919695094,
+            "dropout_margin": 0.0005215449309910088,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.11389787281710458,
+            "zout_1kHz": -0.6989299777726914,
+            "phase_margin_deg": -0.022014731675400308
+          },
+          "C_ea": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -0.0011476457722686198,
+            "zout_1kHz": 0.011424720293928443,
+            "phase_margin_deg": -0.023256252870990722
+          },
+          "Rz": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -0.0007958059134554464,
+            "zout_1kHz": 0.0048359230301432835,
+            "phase_margin_deg": -0.020185298001621454
+          },
+          "Cc": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -0.018775865045826366,
+            "zout_1kHz": 0.18080798279769522,
+            "phase_margin_deg": 0.21361335663745373
+          },
+          "Kp": {
+            "vout_dc": 0.000927606187132067,
+            "dropout_margin": 2.1992559019775006,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.00010841714200795726,
+            "zout_1kHz": -0.49998187048665127,
+            "phase_margin_deg": 1.901175773217171e-09
+          },
+          "Vth_p": {
+            "vout_dc": -0.0005553190732997787,
+            "dropout_margin": 0.000790578836301493,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 1.244707998101598e-05,
+            "zout_1kHz": -5.569996914328502e-05,
+            "phase_margin_deg": -1.1387620849264802e-09
+          },
+          "lambda_p": {
+            "vout_dc": 3.78711627165207e-06,
+            "dropout_margin": 0.008978851014826837,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -0.00023265785330578673,
+            "zout_1kHz": -0.0020647896122215482,
+            "phase_margin_deg": 1.891706271907088e-05
+          },
+          "Cgd": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 1.9854521678328275e-06,
+            "zout_1kHz": -1.403995289946115e-05,
+            "phase_margin_deg": 0.0
+          },
+          "Cgs": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -3.939614339056916e-05,
+            "zout_1kHz": 0.11408304863553811,
+            "phase_margin_deg": -0.23256893283108077
+          },
+          "Rf1": {
+            "vout_dc": 6.175597320316904e-08,
+            "dropout_margin": -7.555880716626224e-08,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -1.6993766206825578e-05,
+            "zout_1kHz": 0.00011562550021311957,
+            "phase_margin_deg": -1.190124409459196e-10
+          },
+          "Rf2": {
+            "vout_dc": 8.446905349723403e-05,
+            "dropout_margin": 0.20041367440499536,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -5.932946993505505e-06,
+            "zout_1kHz": 0.04538365020098594,
+            "phase_margin_deg": -0.0019293318028744866
+          },
+          "V_ref": {
+            "vout_dc": 0.999533547585643,
+            "dropout_margin": -1.4233259465786607,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 4.655509013960736e-06,
+            "zout_1kHz": -0.052947553618831446,
+            "phase_margin_deg": 2.052656153469371e-06
+          },
+          "C_out": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -3.6954438969282364e-05,
+            "zout_1kHz": 0.0002778174809463439,
+            "phase_margin_deg": 0.43523672849870726
+          },
+          "R_esr": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 2.9053543739109027e-05,
+            "zout_1kHz": -0.0001867511831694714,
+            "phase_margin_deg": 0.43752377921683505
+          },
+          "I_lim": {
+            "vout_dc": 9.528760415246689e-07,
+            "dropout_margin": 0.002259168039809497,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -1.413959564374471e-05,
+            "zout_1kHz": -0.002491131950534093,
+            "phase_margin_deg": -1.9511324389985572e-08
+          },
+          "I_q": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 1.0000000000000073,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "V_uvlo_r": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "V_uvlo_f": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "hp_gm_scale": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "hp_ilim_scale": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "lp_iq_scale": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 1.0000000000000073,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "k_load": {
+            "vout_dc": -1.4928364118497518e-05,
+            "dropout_margin": -0.035393568019731425,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 1.3027124038415314e-05,
+            "zout_1kHz": -0.00809193070680127,
+            "phase_margin_deg": 0.0003407236872406106
+          }
+        }
+      }
+    },
+    "ww": {
+      "params": {
+        "Gm_ea": 0.001,
+        "I_ea_max": 0.00034534588611414283,
+        "R_ea": 2000000.0,
+        "C_ea": 2e-12,
+        "Rz": 100000.0,
+        "Cc": 3e-11,
+        "Kp": 2.0,
+        "Vth_p": 0.9999999999,
+        "lambda_p": 0.0010046390394577104,
+        "Cgd": 1e-11,
+        "Cgs": 2e-11,
+        "Rf1": 0.0002794847287693704,
+        "Rf2": 3764.61466088316,
+        "V_ref": 0.9,
+        "C_out": 4.7e-06,
+        "R_esr": 0.3,
+        "I_lim": 0.8616878488207438,
+        "I_q": 2e-05,
+        "V_uvlo_r": 3.6,
+        "V_uvlo_f": 3.4,
+        "hp_gm_scale": 3.0,
+        "hp_ilim_scale": 2.0,
+        "lp_iq_scale": 0.25,
+        "k_load": 0.000999992787268325
+      },
+      "rf_identification": {
+        "Rf1": 0.0002794847287693704,
+        "Rf2": 3764.61466088316,
+        "n_samples": 8,
+        "n_total": 14716,
+        "tier": 1
+      },
+      "n_runs_pooled": 8,
+      "n_transient_records": 8,
+      "n_dc_points": 48,
+      "per_stage_residuals": {
+        "dc": 1.6335599174017517,
+        "linear": NaN,
+        "transient": 22.41509742068022
+      },
+      "frozen_params": [
+        "C_ea",
+        "Cc",
+        "Cgd",
+        "Gm_ea",
+        "I_q",
+        "Kp",
+        "R_ea",
+        "hp_gm_scale",
+        "hp_ilim_scale",
+        "lp_iq_scale"
+      ],
+      "identifiability": {
+        "Gm_ea": 0.00019915496846020442,
+        "I_ea_max": 1.0,
+        "R_ea": 0.0001371083958055747,
+        "C_ea": 9.489275707051919e-05,
+        "Rz": 0.5547905773771458,
+        "Cc": 7.495647341037937e-05,
+        "Kp": 0.0005579760078775461,
+        "Vth_p": 0.002416927061289506,
+        "lambda_p": 0.8179079591261867,
+        "Cgd": 9.83260543976364e-05,
+        "Cgs": 0.27718840745889317,
+        "C_out": 0.4638929094272567,
+        "R_esr": 0.0016468083698845378,
+        "I_lim": 0.0030070641774852906,
+        "I_q": 0.0,
+        "hp_gm_scale": 0.0,
+        "hp_ilim_scale": 0.0,
+        "lp_iq_scale": 0.0,
+        "k_load": 0.8177366250226467
+      },
+      "spec_compliance": [
+        {
+          "spec": "Output_Voltage",
+          "model_value": 0.9018871790454607,
+          "min": 1.176,
+          "max": 1.224,
+          "nominal": 1.2,
+          "unit": "V",
+          "passes": false,
+          "evaluated": true
+        },
+        {
+          "spec": "Dropout_Voltage",
+          "model_value": 0.5599962080632147,
+          "min": 0.0,
+          "max": 0.2,
+          "nominal": 0.15,
+          "unit": "V",
+          "passes": false,
+          "evaluated": true
+        },
+        {
+          "spec": "Load_Regulation",
+          "model_value": null,
+          "min": 0.0,
+          "max": 25.1,
+          "nominal": 12.5,
+          "unit": "mV/A",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "Line_Regulation",
+          "model_value": null,
+          "min": 0.0,
+          "max": 3.0,
+          "nominal": 1.5,
+          "unit": "mV/V",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "PSRR_at_1kHz",
+          "model_value": 65.31562761098313,
+          "min": 60.0,
+          "max": 100.0,
+          "nominal": 80.0,
+          "unit": "dB",
+          "passes": true,
+          "evaluated": true
+        },
+        {
+          "spec": "PSRR_at_1MHz",
+          "model_value": 38.436803200651745,
+          "min": 30.0,
+          "max": 60.0,
+          "nominal": 40.0,
+          "unit": "dB",
+          "passes": true,
+          "evaluated": true
+        },
+        {
+          "spec": "Output_Noise_RMS",
+          "model_value": null,
+          "min": 0.0,
+          "max": 30.0,
+          "nominal": 15.0,
+          "unit": "uVrms",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "Transient_Undershoot",
+          "model_value": null,
+          "min": 0.0,
+          "max": 100.0,
+          "nominal": 50.0,
+          "unit": "mV",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "Transient_Settling",
+          "model_value": 2.418682235195986e-07,
+          "min": 0.0,
+          "max": 5.0,
+          "nominal": 2.5,
+          "unit": "us",
+          "passes": true,
+          "evaluated": true
+        },
+        {
+          "spec": "Output_Impedance_10MHz",
+          "model_value": null,
+          "min": 0.0,
+          "max": 50.0,
+          "nominal": 25.0,
+          "unit": "mOhm",
+          "passes": null,
+          "evaluated": false
+        },
+        {
+          "spec": "Quiescent_Current",
+          "model_value": 5e-06,
+          "min": 0.0,
+          "max": 0.08,
+          "nominal": 0.05,
+          "unit": "mA",
+          "passes": true,
+          "evaluated": true
+        },
+        {
+          "spec": "Max_Load_Current",
+          "model_value": null,
+          "min": 200.0,
+          "max": 250.0,
+          "nominal": 220.0,
+          "unit": "mA",
+          "passes": null,
+          "evaluated": false
+        }
+      ],
+      "notes": [
+        "Stage LINEAR skipped: no AC data and no step transient with t_event.",
+        "Identifiability gate froze to defaults: C_ea, Cc, Cgd, Gm_ea, I_q, Kp, R_ea, hp_gm_scale, hp_ilim_scale, lp_iq_scale",
+        "Stage LINEAR skipped: no AC data and no step transient with t_event.",
+        "Re-polished identifiable params with frozen set pinned.",
+        "NN residual trained (final mse=1.957e-03, cap 10% RHS, applied to dv_co/dt only, backend=torch)."
+      ],
+      "sensitivity": {
+        "base_behaviors": {
+          "vout_dc": 0.9018871790454607,
+          "dropout_margin": 3.8722994342993844,
+          "iq": 5e-06,
+          "psrr_1kHz_dB": 65.31562761098313,
+          "zout_1kHz": 0.0013283179043700295,
+          "phase_margin_deg": 87.87834518128291
+        },
+        "elasticities": {
+          "Gm_ea": {
+            "vout_dc": -0.002092612739887052,
+            "dropout_margin": 0.0004875577411203456,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.13299276171582214,
+            "zout_1kHz": -1.0000944482045409,
+            "phase_margin_deg": -6.694816385034415e-12
+          },
+          "I_ea_max": {
+            "vout_dc": -4.166102495844566e-08,
+            "dropout_margin": 9.727995583359038e-09,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 5.78092234683552e-06,
+            "zout_1kHz": -2.914663056465908e-05,
+            "phase_margin_deg": 0.0
+          },
+          "R_ea": {
+            "vout_dc": -0.0020926544110985348,
+            "dropout_margin": 0.00048756757584048,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.11391187296763446,
+            "zout_1kHz": -0.6990029012772444,
+            "phase_margin_deg": -0.00233628697014271
+          },
+          "C_ea": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -0.0011372494993481391,
+            "zout_1kHz": 0.011359452476549363,
+            "phase_margin_deg": -0.004430863860971033
+          },
+          "Rz": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -0.0007958691324231333,
+            "zout_1kHz": 0.0048360283034655695,
+            "phase_margin_deg": -0.04596073327645455
+          },
+          "Cc": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -0.018739494946449952,
+            "zout_1kHz": 0.18065556462050966,
+            "phase_margin_deg": 0.0004470726230078643
+          },
+          "Kp": {
+            "vout_dc": 6.260039200113166e-05,
+            "dropout_margin": 0.029144735665265407,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 1.350022406283526e-05,
+            "zout_1kHz": -0.5000601216618138,
+            "phase_margin_deg": 1.4958225014871579e-12
+          },
+          "Vth_p": {
+            "vout_dc": -0.0005544028835808314,
+            "dropout_margin": 0.00013228246800473396,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -9.439929107386748e-07,
+            "zout_1kHz": 2.4146719547220596e-05,
+            "phase_margin_deg": -1.2239870825682484e-10
+          },
+          "lambda_p": {
+            "vout_dc": 2.5666077650621323e-07,
+            "dropout_margin": 0.00011949302973306264,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -1.2095464786651839e-05,
+            "zout_1kHz": -0.002039572322791537,
+            "phase_margin_deg": 1.1254987331489794e-06
+          },
+          "Cgd": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 5.436359894685822e-07,
+            "zout_1kHz": -9.516885603377792e-06,
+            "phase_margin_deg": 0.0
+          },
+          "Cgs": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -3.4245903632282827e-06,
+            "zout_1kHz": 0.11396200821313424,
+            "phase_margin_deg": -0.04431218917044044
+          },
+          "Rf1": {
+            "vout_dc": 7.423984346587877e-08,
+            "dropout_margin": -1.7331145035682843e-08,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -5.066668241130782e-06,
+            "zout_1kHz": 8.588864786431777e-08,
+            "phase_margin_deg": -4.2853293285848306e-13
+          },
+          "Rf2": {
+            "vout_dc": 2.1970277434474243e-07,
+            "dropout_margin": 0.00013687104704244042,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -8.666012068953343e-07,
+            "zout_1kHz": 0.0023547745431814265,
+            "phase_margin_deg": -5.865916646796749e-06
+          },
+          "V_ref": {
+            "vout_dc": 0.997906142367092,
+            "dropout_margin": -0.23309688240901966,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -8.665373114248147e-06,
+            "zout_1kHz": -0.010527717313636047,
+            "phase_margin_deg": 2.6246453565107935e-08
+          },
+          "C_out": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -2.5266450203209174e-06,
+            "zout_1kHz": 1.899957593279147e-05,
+            "phase_margin_deg": 0.07264602401979237
+          },
+          "R_esr": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 2.9392257048054972e-06,
+            "zout_1kHz": -5.2701016886626255e-05,
+            "phase_margin_deg": 0.0726750776579766
+          },
+          "I_lim": {
+            "vout_dc": 1.4746040055193789e-07,
+            "dropout_margin": 6.865283455030219e-05,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 3.4915949491594755e-06,
+            "zout_1kHz": -0.00590471364550724,
+            "phase_margin_deg": -2.6622891447279487e-09
+          },
+          "I_q": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 1.0000000000000073,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "V_uvlo_r": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "V_uvlo_f": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "hp_gm_scale": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "hp_ilim_scale": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 0.0,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "lp_iq_scale": {
+            "vout_dc": 0.0,
+            "dropout_margin": 0.0,
+            "iq": 1.0000000000000073,
+            "psrr_1kHz_dB": 0.0,
+            "zout_1kHz": 0.0,
+            "phase_margin_deg": 0.0
+          },
+          "k_load": {
+            "vout_dc": -1.106490326362131e-06,
+            "dropout_margin": -0.0005151464248781812,
+            "iq": 0.0,
+            "psrr_1kHz_dB": -9.002522810650785e-07,
+            "zout_1kHz": -0.0086999160334964,
+            "phase_margin_deg": 2.2080551885528785e-05
+          }
+        }
+      }
+    }
+  },
+  "analog_core_files": {
+    "nn": "output_new/ex17_graybox_new_bin_round_3/ldo_analog_core_nn.vams",
+    "ss": "output_new/ex17_graybox_new_bin_round_3/ldo_analog_core_ss.vams",
+    "ww": "output_new/ex17_graybox_new_bin_round_3/ldo_analog_core_ww.vams"
+  },
+  "param_store_path": "output_new/ex17_graybox_new_bin_round_3/graybox_process_lut.blut"
+}

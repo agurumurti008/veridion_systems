@@ -1,0 +1,338 @@
+{
+  "blut_path": "blut_files/regression_multi_corner_sref_ldo.bin",
+  "good_corners": 126,
+  "total_corners": 135,
+  "meta_key_kind": {
+    "corner": "categorical",
+    "temp": "continuous",
+    "vsup_max": "continuous"
+  },
+  "categorical_codes": {
+    "corner": {
+      "nn": 0.34611365091200147,
+      "ss": -0.4768550977495011,
+      "ww": -0.7629366323800272
+    }
+  },
+  "feature_names": [
+    "VPWR",
+    "VREF",
+    "FUN_DC",
+    "V_SUPPLY",
+    "MOST_POS",
+    "meta_corner",
+    "meta_temp",
+    "meta_vsup_max",
+    "dVPWR_dt",
+    "dVREF_dt",
+    "dFUN_DC_dt",
+    "dV_SUPPLY_dt",
+    "dMOST_POS_dt",
+    "VPWR_idt",
+    "VREF_idt",
+    "FUN_DC_idt",
+    "V_SUPPLY_idt",
+    "MOST_POS_idt"
+  ],
+  "output_names": [
+    "VDD_1V2"
+  ],
+  "equation_source": "PySR (--include_symbolic)",
+  "equation_parameters": {
+    "meta_corner": -2.261319396203607e-09,
+    "meta_temp": -4.293647960265167,
+    "meta_vsup_max": 5.04992848711764
+  },
+  "sample_caps": {
+    "max_state_samples": 200000,
+    "max_gpr_smt_samples": 3000,
+    "max_pysr_samples": 5000
+  },
+  "denoising_evaluation": {
+    "state": "REGULATION",
+    "output": "VDD_1V2",
+    "n_samples": 332735,
+    "r2_by_variant": {
+      "unsmoothed": 0.5121991014729015,
+      "smoothed(w=11)": 0.5122066004687136
+    }
+  },
+  "graybox_fit": "see graybox_fit_report.json",
+  "states": {
+    "0": {
+      "name": "DISABLED",
+      "n_samples": 75704,
+      "metrics": {
+        "GPR": 0.16150625391789616,
+        "SMT": 0.3737002389579268,
+        "PINN": 0.06749794641485764,
+        "NODE": 18001657856.0
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": null,
+          "r2": null,
+          "source": "failed",
+          "error": "PythonCall.jl did not start properly"
+        }
+      }
+    },
+    "1": {
+      "name": "REGULATION",
+      "n_samples": 200000,
+      "metrics": {
+        "GPR": 0.25816735905642446,
+        "SMT": 0.5131090756687895,
+        "PINN": 0.2189174592070167,
+        "NODE": 220257714176.0
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": null,
+          "r2": null,
+          "source": "failed",
+          "error": "PythonCall.jl did not start properly"
+        }
+      }
+    },
+    "2": {
+      "name": "REGULATION_2",
+      "n_samples": 180379,
+      "metrics": {
+        "GPR": 0.49154509552866316,
+        "SMT": 0.7988276213373865,
+        "PINN": 0.4316531781258675,
+        "NODE": 72031821824.0
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": null,
+          "r2": null,
+          "source": "failed",
+          "error": "PythonCall.jl did not start properly"
+        }
+      }
+    },
+    "3": {
+      "name": "REGULATION_3",
+      "n_samples": 25338,
+      "metrics": {
+        "GPR": 0.0674175047937433,
+        "SMT": 0.08866798754999296,
+        "PINN": 0.0778650916176386,
+        "NODE": 17956315136.0
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": null,
+          "r2": null,
+          "source": "failed",
+          "error": "PythonCall.jl did not start properly"
+        }
+      }
+    },
+    "4": {
+      "name": "REGULATION_4",
+      "n_samples": 59280,
+      "metrics": {
+        "GPR": 0.02663446606314352,
+        "SMT": 0.061795671029144995,
+        "PINN": 0.022513892013908805,
+        "NODE": 72227176448.0
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": null,
+          "r2": null,
+          "source": "failed",
+          "error": "PythonCall.jl did not start properly"
+        }
+      }
+    },
+    "5": {
+      "name": "REGULATION_5",
+      "n_samples": 55918,
+      "metrics": {
+        "GPR": 0.4450354108710862,
+        "SMT": 0.5189452990357546,
+        "PINN": 0.2908712404916035,
+        "NODE": 18091145216.0
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": null,
+          "r2": null,
+          "source": "failed",
+          "error": "PythonCall.jl did not start properly"
+        }
+      }
+    },
+    "6": {
+      "name": "DISABLED_2",
+      "n_samples": 15387,
+      "metrics": {
+        "GPR": 0.20242362171993447,
+        "SMT": 0.764356335258899,
+        "PINN": 0.10707181369933069,
+        "NODE": 18208016384.0
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": null,
+          "r2": null,
+          "source": "failed",
+          "error": "PythonCall.jl did not start properly"
+        }
+      }
+    },
+    "7": {
+      "name": "REGULATION_6",
+      "n_samples": 45642,
+      "metrics": {
+        "GPR": 0.01060939020853808,
+        "SMT": 0.3306706926411198,
+        "PINN": 0.020666922795359827,
+        "NODE": 17779951616.0
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": null,
+          "r2": null,
+          "source": "failed",
+          "error": "PythonCall.jl did not start properly"
+        }
+      }
+    },
+    "8": {
+      "name": "REGULATION_7",
+      "n_samples": 37555,
+      "metrics": {
+        "GPR": 0.007344926487601456,
+        "SMT": 0.27355864921194084,
+        "PINN": 0.021722120923975168,
+        "NODE": 17952802816.0
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": null,
+          "r2": null,
+          "source": "failed",
+          "error": "PythonCall.jl did not start properly"
+        }
+      }
+    },
+    "9": {
+      "name": "REGULATION_8",
+      "n_samples": 32484,
+      "metrics": {
+        "GPR": 0.010550070569710288,
+        "SMT": 0.14912625378829802,
+        "PINN": 0.02243413362184706,
+        "NODE": 17923395584.0
+      },
+      "best_black_box_model": "GPR",
+      "equations": {
+        "VDD_1V2": {
+          "equation": null,
+          "r2": null,
+          "source": "failed",
+          "error": "PythonCall.jl did not start properly"
+        }
+      }
+    },
+    "10": {
+      "name": "REGULATION_9",
+      "n_samples": 13177,
+      "metrics": {
+        "GPR": 0.05639348438526024,
+        "SMT": 1.02943946713255,
+        "PINN": 0.039692321803422144,
+        "NODE": 18073559040.0
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": null,
+          "r2": null,
+          "source": "failed",
+          "error": "PythonCall.jl did not start properly"
+        }
+      }
+    },
+    "11": {
+      "name": "REGULATION_10",
+      "n_samples": 3654,
+      "metrics": {
+        "GPR": 0.15138272846357417,
+        "SMT": 1.2944975831677918,
+        "PINN": 0.07575468441487865,
+        "NODE": 18184622080.0
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": null,
+          "r2": null,
+          "source": "failed",
+          "error": "PythonCall.jl did not start properly"
+        }
+      }
+    },
+    "12": {
+      "name": "REGULATION_11",
+      "n_samples": 12995,
+      "metrics": {
+        "GPR": 0.16082684625321186,
+        "SMT": 1.2765024874984723,
+        "PINN": 0.0839870381432469,
+        "NODE": 18104133632.0
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": null,
+          "r2": null,
+          "source": "failed",
+          "error": "PythonCall.jl did not start properly"
+        }
+      }
+    },
+    "13": {
+      "name": "REGULATION_12",
+      "n_samples": 6094,
+      "metrics": {
+        "GPR": 0.14797645206107402,
+        "SMT": 1.2515291030521078,
+        "PINN": 0.05822037038274504,
+        "NODE": 17984937984.0
+      },
+      "best_black_box_model": "PINN",
+      "equations": {
+        "VDD_1V2": {
+          "equation": null,
+          "r2": null,
+          "source": "failed",
+          "error": "PythonCall.jl did not start properly"
+        }
+      }
+    }
+  },
+  "fsm_validation": {
+    "reachability": true,
+    "completeness": true,
+    "determinism": true,
+    "speckg_coverage": 0.25
+  },
+  "analog_skeleton_equations_embedded": true,
+  "has_ddt": false,
+  "has_idt": false
+}

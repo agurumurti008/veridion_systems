@@ -1,0 +1,42 @@
+// Auto-generated top-level wrapper — LDO (ww)
+// Instantiates BOTH the digital/FSM control skeleton
+// (ldo_fsm_model, from ldo_fsm_skeleton.vams) and the
+// fitted gray-box analog core (ldo_pmos_core, from
+// ldo_analog_core_ww.vams) — item 3's requested
+// integration.
+//
+// `include both source files ahead of this one when compiling.
+//
+// NOTE: ldo_fsm_model may ALSO drive V(VDD_1V2) via its own
+// fitted per-state equations (black-box). To avoid two drivers
+// on one node, the analog core's real-ODE output connects to a
+// SEPARATE probe net, VDD_1V2_analog_core — compare the two in
+// simulation as a model cross-check.
+//
+// Net names below are the SAME sanitized identifiers this
+// pipeline requested for vin/vout/gnd/en/hp — verify they match
+// ldo_fsm_skeleton.vams's actual port list before
+// simulating (a skeleton that doesn't expose one of these as a
+// port leaves that one wrapper net dangling, not a wiring error
+// elsewhere). Only these 5 shared nets are connected below — the
+// skeleton's other ports (further guard signals, ready/fault
+// status) are left unconnected; extend as needed.
+
+`include "disciplines.vams"
+
+module ldo_top_ww;
+    electrical VPWR, VDD_1V2, GND, EN_LDO, HIGH_POWER_MODE;
+    electrical VDD_1V2_analog_core;
+
+    ldo_fsm_model u_fsm_skeleton (
+        .VPWR(VPWR), .VDD_1V2(VDD_1V2), .GND(GND),
+        .EN_LDO(EN_LDO), .HIGH_POWER_MODE(HIGH_POWER_MODE)
+        /* extend with this module's remaining ports as needed */
+    );
+
+    ldo_pmos_core u_analog_core (
+        .vin(VPWR), .vout(VDD_1V2_analog_core), .gnd(GND),
+        .en(EN_LDO), .hp(HIGH_POWER_MODE)
+    );
+
+endmodule

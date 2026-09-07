@@ -183,6 +183,9 @@ Run:  uv run examples/example17_graybox_analog_template_fitting.py \\
           [--output_dir output/phase2_graybox_v1]
 
 uv run examples/example17_graybox_analog_template_fitting.py --correlation_json output_fsm_correlation_2/per_corner_correlation.json --blut_path blut_files/regression_multi_corner_sref_ldo.bin --signal_map_json configs/signal_map_ldo.json --fsm_strategy hybrid --fsm_tree_depth 4 --ip_type LDO --blut_input_signals VPWR,VREF,FUN_DC,V_SUPPLY,MOST_POS --blut_output_signals VDD_1V2 --models gpr,smt --vin_signal VPWR --hp_signal HIGH_POWER_MODE --vout_signal VDD_1V2 --vfb_voltage_signal VFB --vfb_current_signal VFB_I --vref_signal VREF --iload_current_signal VDD_1V2_I --regulation_state_name REGULATION --max_graybox_corners 8 --graybox_max_dc_points 6 --graybox_max_transient_samples 2000 --graybox_de_maxiter 12 --graybox_de_popsize 8 --enable_nn_residual --include_integral_features --smoothing_window 0 --evaluate_denoising --equation_degree 2 --include_symbolic --models gpr,smt,pinn,node --pinn_epochs 30 --node_epochs 20 --min_state_samples 30 --max_state_samples 200000 --max_gpr_smt_samples 3000 --max_pysr_samples 5000 --output_dir output_new/ex17_graybox_update_1
+uv run examples/example17_graybox_analog_template_fitting.py --correlation_json output_fsm_correlation_2/per_corner_correlation.json --blut_path blut_files/regression_multi_corner_sref_ldo.bin --signal_map_json configs/signal_map_ldo.json --fsm_strategy hybrid --fsm_tree_depth 4 --ip_type LDO --blut_input_signals VPWR,VREF,FUN_DC,V_SUPPLY,MOST_POS --blut_output_signals VDD_1V2 --models gpr,smt --vin_signal VPWR --hp_signal HIGH_POWER_MODE --vout_signal VDD_1V2 --vfb_voltage_signal VFB --vfb_current_signal VFB_I --vref_signal VREF --iload_current_signal VDD_1V2_I --regulation_state_name REGULATION --max_graybox_corners 8 --graybox_max_dc_points 6 --graybox_max_transient_samples 2000 --graybox_de_maxiter 12 --graybox_de_popsize 8 --enable_nn_residual --include_integral_features --smoothing_window 0 --evaluate_denoising --equation_degree 2 --include_symbolic --models gpr,smt,pinn,node --pinn_epochs 30 --node_epochs 20 --min_state_samples 30 --max_state_samples 200000 --max_gpr_smt_samples 3000 --max_pysr_samples 5000 --output_dir output_new/ex17_graybox_update_2_round_3
+uv run examples/example17_graybox_analog_template_fitting.py --blut_path blut_files/regression_multi_corner_sref_ldo.bin --signal_map_json configs/signal_map_ldo.json --fsm_strategy hybrid --fsm_tree_depth 4 --ip_type LDO --blut_input_signals VPWR,VREF,FUN_DC,V_SUPPLY,MOST_POS --blut_output_signals VDD_1V2 --vin_signal VPWR --hp_signal HIGH_POWER_MODE --vout_signal VDD_1V2 --vfb_voltage_signal VFB --vfb_current_signal VFB_I --vref_signal VREF --iload_current_signal VDD_1V2_I --regulation_state_name REGULATION --max_graybox_corners 8 --graybox_max_dc_points 6 --graybox_max_transient_samples 2000 --graybox_de_maxiter 12 --graybox_de_popsize 8 --enable_nn_residual --include_integral_features --smoothing_window 0 --evaluate_denoising --equation_degree 2 --include_symbolic --models gpr,smt,pinn,node --pinn_epochs 30 --node_epochs 20 --min_state_samples 30 --max_state_samples 200000 --max_gpr_smt_samples 3000 --max_pysr_samples 5000 --output_dir output_new/ex17_graybox_new_bin_round_3
+
 """
 
 import argparse
@@ -220,12 +223,19 @@ def build_parser():
     ap = argparse.ArgumentParser()
     ap.add_argument(
         "--correlation_json",
-        default=os.path.join(ROOT, "output", "per_corner_correlation.json"),
+        default="",
+        help="OPTIONAL (round-3 fix, item 2): if given and the file "
+        "exists, it is reused as-is (avoids recomputing an expensive "
+        "per-corner FSM pass against an unchanged BLUT). Leave empty "
+        "(default) and the per-corner correlation is computed "
+        "internally from --blut_path/--signal_map_json/--spec_json — "
+        "no external example9 pre-step required — and cached to "
+        "<output_dir>/per_corner_correlation.json for inspection/reuse.",
     )
     ap.add_argument(
         "--blut_path",
         default=None,
-        help="Defaults to the blut_path recorded in --correlation_json",
+        help="Required unless --correlation_json is given (see above).",
     )
     ap.add_argument("--spec_json", default=os.path.join(CFG, "LDO_1V2.json"))
     ap.add_argument(
@@ -347,9 +357,25 @@ def build_parser():
         "--regulation_state_name",
         default="",
         help="FSM state name substring marking settled closed-"
-        "loop regulation (Tier 2's v_fb~=V_ref window). "
-        "Empty auto-matches any state name containing "
-        '"REGULATION".',
+        "loop regulation (Tier 2's v_fb~=V_ref window, and "
+        "one of the two DC-point sources — round-3 fix, "
+        "item 1). Empty auto-matches any state name "
+        'containing "REGULATION".',
+    )
+    ap.add_argument(
+        "--dropout_state_name",
+        default="",
+        help="Round-3 fix, item 1: FSM state name substring "
+        "marking dropout (vin close to vout, pass device in "
+        "triode). Regulation-only DC points cannot identify "
+        "Kp/Vth_p/lambda_p (the loop compensates for pass-"
+        "device changes almost perfectly in regulation — "
+        "confirmed on a synthetic check where these stayed "
+        "pinned at their manifest defaults with regulation-"
+        "only data); DC points are now ALSO drawn from this "
+        "state when present, which is where those parameters "
+        "actually show up in vout. Empty auto-matches any "
+        'state name containing "DROPOUT".',
     )
     ap.add_argument(
         "--max_graybox_corners",
@@ -469,6 +495,123 @@ def _identify_rf_tier2(vout, ifb, v_ref, min_ifb=1e-9):
         "n_total": int(len(vout)),
         "tier": 2,
     }
+
+
+def _identify_rf_for_rows(
+    row_mask,
+    Y_np_full,
+    vout_idx,
+    vfb_idx,
+    ifb_idx,
+    vref_idx,
+    have_vfb_v,
+    have_vfb_i,
+    have_vref,
+    reg_sid,
+    seq,
+    args,
+):
+    """Tier-1/2/3 Rf1/Rf2 identification RESTRICTED to `row_mask` — round-
+    3 fix, item 1: previously computed ONCE globally (pooled across every
+    process), which silently forced identical Rf1/Rf2 onto every
+    process's fit regardless of whether the real resistors actually
+    shift with process corner. Called once per process now (with that
+    process's own row mask), so a genuine per-process difference (or
+    genuine absence of one — resistor sheet-rho often has its OWN,
+    separate PDK corner axis from the ff/ss/tt transistor corners, so
+    identical Rf1/Rf2 across process CAN be the physically correct
+    answer) is something the data shows, not something this script
+    imposes by sharing one fit across every process."""
+    rf_result = None
+    if have_vfb_v and have_vfb_i:
+        rf_result = _identify_rf_tier1(
+            Y_np_full[row_mask, vout_idx],
+            Y_np_full[row_mask, vfb_idx],
+            Y_np_full[row_mask, ifb_idx],
+        )
+    if rf_result is None and have_vfb_i and reg_sid is not None:
+        reg_mask = row_mask & (seq == reg_sid)
+        if reg_mask.any():
+            v_ref_used = args.v_ref_nominal
+            v_ref_source = f"--v_ref_nominal={args.v_ref_nominal:g} (assumed)"
+            if have_vref:
+                v_ref_used = float(np.median(Y_np_full[reg_mask, vref_idx]))
+                v_ref_source = (
+                    f"measured {args.vref_signal} median over regulation-state samples"
+                )
+            rf_result = _identify_rf_tier2(
+                Y_np_full[reg_mask, vout_idx], Y_np_full[reg_mask, ifb_idx], v_ref_used
+            )
+            if rf_result:
+                rf_result["v_ref_used"] = v_ref_used
+                rf_result["v_ref_source"] = v_ref_source
+    return rf_result
+
+
+def _parameter_sensitivity_map(
+    template, params, vin_nom=5.0, iload_nom=0.05, rel_step=0.01
+):
+    """Round-3 fix, item 4a: WHICH fitted parameter drives WHICH
+    observable behavior — a genuine, data-grounded "engineering insight"
+    mechanism (computed, not asserted), reusing the template's own
+    dc_solve/small_signal (the same views spec_compliance_table already
+    uses) plus a centered finite-difference ELASTICITY (%behavior change
+    per %parameter change), which keeps parameters of very different
+    natural units/scales (Ohms, Farads, Amps, dimensionless) comparable
+    in one table without ad-hoc normalization.
+
+    Behaviors tracked: DC output voltage, dropout margin, quiescent
+    current, PSRR@1kHz, output impedance@1kHz, phase margin — every one
+    already computable from the template as-is. Returns
+    {'base_behaviors': {...}, 'elasticities': {param: {behavior: value}}}."""
+
+    def _behaviors(p):
+        op = template.dc_solve(p, vin_nom, iload_nom)
+        ss = template.small_signal(p, op)
+        f = ss["freqs"]
+        psrr_1k = float(ss["psrr_db"][np.argmin(np.abs(f - 1e3))])
+        zout_1k = float(ss["zout"][np.argmin(np.abs(f - 1e3))])
+        T = ss["loop_gain"]
+        idx = np.where(np.abs(T) < 1.0)[0]
+        pm = float(180 + np.angle(T[idx[0]], deg=True)) if len(idx) else float("nan")
+        return {
+            "vout_dc": op["vout"],
+            "dropout_margin": op["dropout_margin"],
+            "iq": op["iq"],
+            "psrr_1kHz_dB": psrr_1k,
+            "zout_1kHz": zout_1k,
+            "phase_margin_deg": pm,
+        }
+
+    try:
+        base = _behaviors(params)
+    except Exception:
+        return {"base_behaviors": {}, "elasticities": {}}
+
+    elasticities = {}
+    for name, val in params.items():
+        if abs(val) < 1e-30:
+            continue
+        p_hi = dict(params)
+        p_hi[name] = val * (1 + rel_step)
+        p_lo = dict(params)
+        p_lo[name] = val * (1 - rel_step)
+        try:
+            hi = _behaviors(p_hi)
+            lo = _behaviors(p_lo)
+        except Exception:
+            continue
+        row = {}
+        for beh, b0 in base.items():
+            if not np.isfinite(b0) or abs(b0) < 1e-30:
+                continue
+            dbeh = hi.get(beh, np.nan) - lo.get(beh, np.nan)
+            if not np.isfinite(dbeh):
+                continue
+            row[beh] = float((dbeh / (2 * rel_step)) / b0)
+        if row:
+            elasticities[name] = row
+    return {"base_behaviors": base, "elasticities": elasticities}
 
 
 def _anchored_ldo_template(rf1, rf2, v_ref=None):
@@ -617,6 +760,7 @@ def _build_graybox_records_for_run(
     iload_idx,
     seq,
     reg_sid,
+    dropout_sid,
     en_eff,
     bypass_mask,
     args,
@@ -624,7 +768,19 @@ def _build_graybox_records_for_run(
     """(dc_points, transient_records) for ONE run's global rows [s, e) —
     bypass-state rows are excluded by splitting into their maximal
     BYPASS-free contiguous stretches (_contiguous_true_runs), each
-    becoming its OWN transient record (never spliced together)."""
+    becoming its OWN transient record (never spliced together).
+
+    Round-3 fix, item 1: DC points are now drawn from BOTH the
+    regulation state AND (if present) the dropout state. Regulation-only
+    DC points were confirmed (synthetic check, tight loop-gain
+    compensation) to leave Kp/Vth_p/lambda_p pinned at their manifest
+    defaults regardless of their true value — a well-regulated loop
+    adjusts the gate to hit v_fb=V_ref almost independently of the pass
+    device's exact I-V curve, so vout barely moves when Kp/Vth_p change
+    IN REGULATION. Dropout data (vin close to vout, pass device in
+    triode) is where those parameters actually show up in vout, so
+    omitting it — as the previous version did — was the direct cause of
+    those three parameters looking artificially process-invariant."""
     n = e - s
     vin_seg = X_np[s:e, vin_idx]
     hp_seg = X_np[s:e, hp_idx] if hp_idx is not None else np.zeros(n)
@@ -641,15 +797,17 @@ def _build_graybox_records_for_run(
         if b - a < 5:
             continue
         t_local = t_seg[a:b] - t_seg[a]
-        reg_local = (
-            (seq_seg[a:b] == reg_sid)
-            if reg_sid is not None
-            else np.zeros(b - a, dtype=bool)
-        )
-        reg_idx = np.where(reg_local)[0]
-        if len(reg_idx) > 0:
-            n_pick = min(args.graybox_max_dc_points, len(reg_idx))
-            picks = reg_idx[np.linspace(0, len(reg_idx) - 1, n_pick).astype(int)]
+        dc_state_masks = []
+        if reg_sid is not None:
+            dc_state_masks.append(seq_seg[a:b] == reg_sid)
+        if dropout_sid is not None:
+            dc_state_masks.append(seq_seg[a:b] == dropout_sid)
+        for state_local in dc_state_masks:
+            state_idx = np.where(state_local)[0]
+            if len(state_idx) == 0:
+                continue
+            n_pick = min(args.graybox_max_dc_points, len(state_idx))
+            picks = state_idx[np.linspace(0, len(state_idx) - 1, n_pick).astype(int)]
             for i in picks:
                 dc_points.append(
                     {
@@ -676,23 +834,236 @@ def _build_graybox_records_for_run(
     return dc_points, transient_records
 
 
+def _ensure_correlation(args, kg, sm):
+    """Round-3 fix, item 2 — self-sufficiency: no external example9
+    pre-step required. If --correlation_json is given and exists, reuse
+    it verbatim (cheap re-runs against an UNCHANGED BLUT shouldn't repeat
+    an expensive per-corner FSM pass — favors the long-term iterative-
+    agent-loop goal over blind recomputation). Otherwise compute it here,
+    reusing example9_per_corner_fsm_correlate's own resolve_corner_dims/
+    group_outliers (not reimplemented) against the SAME per-(run_id,
+    corner_id) loop that script uses, and cache the result to
+    <output_dir>/per_corner_correlation.json so it's inspectable and
+    reusable on the next run. The meta-trustworthiness Finding
+    diagnostics in example9's own report are intentionally NOT
+    duplicated here — this is the internal, load-bearing subset
+    (outlier/fsm_generation_failed per qid) this script actually
+    consumes, not a replacement for example9's own standalone report."""
+    if args.correlation_json and os.path.exists(args.correlation_json):
+        with open(args.correlation_json) as f:
+            return json.load(f)
+
+    if not args.blut_path:
+        raise ValueError(
+            "--blut_path is required when --correlation_json is not "
+            "given (correlation is now computed internally — see "
+            "module docstring item 2)."
+        )
+
+    print(
+        f"\n{'=' * 60}\n  0. Per-corner FSM correlation (self-sufficient — "
+        f"no --correlation_json given)\n{'=' * 60}"
+    )
+    from example9_per_corner_fsm_correlate import resolve_corner_dims, group_outliers
+    from digitwin.blut_reader_ext import open_blut
+    from core.fsm.signal_capture import SignalCapture
+    from core.fsm.state_detector import FSMStateDetector
+    from core.fsm.transition_learner import TransitionLearner
+    from core.fsm.fsm_codegen import FSMValidator
+
+    blut = open_blut(args.blut_path)
+    run_pairs = [(rid, cid) for rid, cmap in blut.runs.items() for cid in cmap.keys()]
+    if not run_pairs:
+        raise ValueError(f"{args.blut_path}: no runs found")
+
+    signal_map_size = len(sm.entries) if sm is not None else 0
+    rows = []
+    for rid, cid in run_pairs:
+        qid = rid if not cid else f"{rid}@{cid}"
+        run_meta_obj = blut.runs[rid][cid]
+        sc = SignalCapture(spec_kg=kg)
+        sc.load_from_blut(args.blut_path, run_id=qid, signal_map=sm)
+        n_t = len(sc.time)
+        lm, ln, _ = sc.get_logic_signal_matrix()
+        om, on, _ = sc.get_output_signal_matrix()
+        af = sc.get_analog_features(n_windows=min(10, max(2, n_t // 5)))
+        detector = FSMStateDetector(strategy=args.fsm_strategy, spec_kg=kg)
+        try:
+            seq = detector.detect(lm, ln, af, output_matrix=om, output_names=on)
+            learner = TransitionLearner(fsm_tree_depth=args.fsm_tree_depth)
+            transitions = learner.learn(
+                seq, lm, ln, detector.state_defs, boundary_mask=None
+            )
+            validator = FSMValidator(spec_kg=kg)
+            report = validator.validate(
+                detector.state_defs, transitions, ip_type=args.ip_type
+            )
+            failed = False
+        except Exception as e:
+            print(f"  {qid}: FSM generation failed — {e}")
+            report = None
+            failed = True
+
+        dims, dims_source, meta_dict, cid_dict = resolve_corner_dims(
+            run_meta_obj.meta, cid
+        )
+        row = {
+            "run_id": rid,
+            "corner_id": cid,
+            "qid": qid,
+            "dims": dims,
+            "dims_source": dims_source,
+            "n_signals": run_meta_obj.n_signals,
+            "signal_completeness_pct": (
+                round(100.0 * run_meta_obj.n_signals / signal_map_size, 1)
+                if signal_map_size
+                else None
+            ),
+            "ntime": run_meta_obj.ntime,
+            "meta_raw": run_meta_obj.meta,
+            "fsm_generation_failed": failed,
+            "n_states_detected": len(detector.state_defs) if not failed else 0,
+            "state_names": (
+                [d["name"] for d in detector.state_defs.values()] if not failed else []
+            ),
+            "reachability": report.reachability if report else False,
+            "completeness": report.completeness if report else False,
+            "determinism": report.determinism if report else False,
+            "speckg_coverage": round(report.speckg_coverage, 4) if report else 0.0,
+            "missing_states": list(report.missing_states) if report else [],
+        }
+        rows.append(row)
+        print(
+            f"  {qid:50s} n_signals={row['n_signals']:3d} "
+            f"states={row['n_states_detected']:2d}"
+        )
+
+    group_outliers(rows)
+    correlation = {
+        "blut_path": args.blut_path,
+        "fsm_strategy": args.fsm_strategy,
+        "corners": rows,
+    }
+    os.makedirs(args.output_dir, exist_ok=True)
+    corr_path = os.path.join(args.output_dir, "per_corner_correlation.json")
+    with open(corr_path, "w") as f:
+        json.dump(correlation, f, indent=2, default=str)
+    n_outliers = sum(1 for r in rows if r["outlier"])
+    print(
+        f"  computed correlation for {len(rows)} corner(s), "
+        f"{n_outliers} flagged outlier(s) — cached to {corr_path}"
+    )
+    return correlation
+
+
+def _generate_top_level_wrapper(
+    ip,
+    process,
+    va_path,
+    core_path,
+    vin_ident,
+    vout_ident,
+    gnd_ident,
+    en_ident,
+    hp_ident,
+    embedded_ok,
+    output_dir,
+):
+    """Item 3: instantiate BOTH the FSM control skeleton and the fitted
+    gray-box analog core in one top-level module — the "complete analog
+    model" integration the request asked for (with the usage also
+    described in comments below, per the request's own offered
+    alternative).
+
+    Net names on the FSM-skeleton side are the SAME sanitized (_vid)
+    identifiers this pipeline already used to REQUEST vin/vout/gnd/en/hp
+    — not re-parsed from the generated .vams text, since
+    FSMCodeGenerator.generate_veriloga's own port list is built from
+    exactly these names. If a real run's skeleton ends up NOT exposing
+    one of them as a port (possible depending on which kg.ports/guard
+    signals were actually detected), that one wrapper connection is
+    simply a dangling net — verify against the skeleton's own port list
+    before simulating (noted in the header comment). This wrapper also
+    only connects the 5 shared analog nets explicitly, by named
+    association — the FSM skeleton's other ports (additional guard
+    signals, ready/fault status) are left unconnected here; extend the
+    instantiation with them as needed for a specific testbench.
+
+    DRIVER-CONFLICT AVOIDANCE: when the FSM skeleton's own fitted per-
+    state equations are embedded (embedded_ok=True), it may ALSO drive
+    V(vout_ident) — wiring the analog core's real-ODE vout to the SAME
+    node would be two drivers on one net. Instead the analog core's vout
+    connects to a SEPARATE probe net, `<vout>_analog_core`, so the real-
+    ODE prediction and the black-box per-state equation's prediction are
+    BOTH observable in the same simulation — a free model cross-check —
+    rather than conflicting."""
+    from core.fsm.fsm_codegen import _vid
+
+    fsm_module = f"{ip.lower()}_fsm_model"
+    core_module = "ldo_pmos_core"
+    vout_core_net = f"{vout_ident}_analog_core" if embedded_ok else vout_ident
+
+    L = [
+        f"// Auto-generated top-level wrapper — {ip} ({process})",
+        f"// Instantiates BOTH the digital/FSM control skeleton",
+        f"// ({fsm_module}, from {os.path.basename(va_path)}) and the",
+        f"// fitted gray-box analog core ({core_module}, from",
+        f"// {os.path.basename(core_path)}) — item 3's requested",
+        f"// integration.",
+        f"//",
+        f"// `include both source files ahead of this one when compiling.",
+    ]
+    if embedded_ok:
+        L += [
+            f"//",
+            f"// NOTE: {fsm_module} may ALSO drive V({vout_ident}) via its own",
+            f"// fitted per-state equations (black-box). To avoid two drivers",
+            f"// on one node, the analog core's real-ODE output connects to a",
+            f"// SEPARATE probe net, {vout_core_net} — compare the two in",
+            f"// simulation as a model cross-check.",
+        ]
+    L += [
+        f"//",
+        f"// Net names below are the SAME sanitized identifiers this",
+        f"// pipeline requested for vin/vout/gnd/en/hp — verify they match",
+        f"// {os.path.basename(va_path)}'s actual port list before",
+        f"// simulating (a skeleton that doesn't expose one of these as a",
+        f"// port leaves that one wrapper net dangling, not a wiring error",
+        f"// elsewhere). Only these 5 shared nets are connected below — the",
+        f"// skeleton's other ports (further guard signals, ready/fault",
+        f"// status) are left unconnected; extend as needed.",
+        "",
+        '`include "disciplines.vams"',
+        "",
+        f"module {ip.lower()}_top_{_vid(process)};",
+        f"    electrical {vin_ident}, {vout_ident}, {gnd_ident}, {en_ident}, {hp_ident};",
+    ]
+    if embedded_ok:
+        L.append(f"    electrical {vout_core_net};")
+    L += [
+        "",
+        f"    {fsm_module} u_fsm_skeleton (",
+        f"        .{vin_ident}({vin_ident}), .{vout_ident}({vout_ident}), "
+        f".{gnd_ident}({gnd_ident}),",
+        f"        .{en_ident}({en_ident}), .{hp_ident}({hp_ident})",
+        f"        /* extend with this module's remaining ports as needed */",
+        f"    );",
+        "",
+        f"    {core_module} u_analog_core (",
+        f"        .vin({vin_ident}), .vout({vout_core_net}), .gnd({gnd_ident}),",
+        f"        .en({en_ident}), .hp({hp_ident})",
+        f"    );",
+        "",
+        "endmodule",
+    ]
+    path = os.path.join(output_dir, f"{ip.lower()}_top_{_vid(process)}.vams")
+    with open(path, "w") as f:
+        f.write("\n".join(L) + "\n")
+    return path
+
+
 def main() -> int:
     args = build_parser().parse_args()
-
-    with open(args.correlation_json) as f:
-        correlation = json.load(f)
-    blut_path = args.blut_path or correlation["blut_path"]
-    corners = correlation["corners"]
-    good = [r for r in corners if not r["outlier"] and not r["fsm_generation_failed"]]
-    good_qids = [r["qid"] for r in good]
-    if not good_qids:
-        print(
-            "FAIL: no non-outlier corners available in "
-            f"{args.correlation_json} — run example9 first."
-        )
-        return 1
-
-    os.makedirs(args.output_dir, exist_ok=True)
 
     import main as framework_main
     from core.fsm.signal_capture import SignalCapture
@@ -706,6 +1077,25 @@ def main() -> int:
 
     kg = framework_main._build_kg(args)
     sm = framework_main._resolve_signal_map(args)
+
+    try:
+        correlation = _ensure_correlation(args, kg, sm)
+    except ValueError as e:
+        print(f"FAIL: {e}")
+        return 1
+    blut_path = args.blut_path or correlation["blut_path"]
+    corners = correlation["corners"]
+    good = [r for r in corners if not r["outlier"] and not r["fsm_generation_failed"]]
+    good_qids = [r["qid"] for r in good]
+    if not good_qids:
+        print(
+            "FAIL: no non-outlier corners available — every corner was "
+            "flagged as an outlier or failed FSM generation."
+        )
+        return 1
+
+    os.makedirs(args.output_dir, exist_ok=True)
+
     requested_models = [m.strip().lower() for m in args.models.split(",")]
     for m in requested_models:
         if m not in IMPLEMENTED_MODELS:
@@ -864,6 +1254,7 @@ def main() -> int:
 
     # ── Step 3 (NEW — item 6): gray-box analog-template fitting ────────
     graybox_report = None
+    analog_core_paths = {}
     if not args.skip_graybox:
         print(
             f"\n{'=' * 60}\n  3. Gray-box analog-template fitting (item 6)\n{'=' * 60}"
@@ -891,6 +1282,19 @@ def main() -> int:
                 "V_ref) will have no settled window to use; falling "
                 "back further if Tier 1 is also unavailable."
             )
+        dropout_sid = next(
+            (
+                sid
+                for sid, d in detector.state_defs.items()
+                if (args.dropout_state_name or "DROPOUT") in d["name"]
+            ),
+            None,
+        )
+        print(
+            f"  DC-point sources (round-3 fix, item 1): "
+            f"regulation={'state ' + str(reg_sid) if reg_sid is not None else 'NONE'}  "
+            f"dropout={'state ' + str(dropout_sid) if dropout_sid is not None else 'NONE (Kp/Vth_p/lambda_p likely stay pinned at manifest defaults)'}"
+        )
 
         # Round-2 fix, items 1+3: enable/bypass derived from the FSM
         # state sequence (+ VDD_1V2 activity fallback), never a
@@ -921,70 +1325,15 @@ def main() -> int:
                 f"derived trace is what the fit actually uses)"
             )
 
-        rf_result = None
-        if have_vfb_v and have_vfb_i:
-            vfb_idx = output_names_full.index(args.vfb_voltage_signal)
-            ifb_idx = output_names_full.index(args.vfb_current_signal)
-            rf_result = _identify_rf_tier1(
-                Y_np_full[:, vout_idx], Y_np_full[:, vfb_idx], Y_np_full[:, ifb_idx]
-            )
-            if rf_result:
-                print(
-                    f"  Tier 1 identification (VFB voltage + VFB_I current, "
-                    f"assumption A1 only — no closed-loop assumption): "
-                    f"Rf1={rf_result['Rf1']:.4g} Ohm  "
-                    f"Rf2={rf_result['Rf2']:.4g} Ohm  "
-                    f"({rf_result['n_samples']}/{rf_result['n_total']} "
-                    f"samples used)"
-                )
-        if rf_result is None and have_vfb_i and reg_sid is not None:
-            ifb_idx = output_names_full.index(args.vfb_current_signal)
-            v_ref_used = args.v_ref_nominal
-            v_ref_source = f"--v_ref_nominal={args.v_ref_nominal:g} (assumed)"
-            if have_vref:
-                vref_idx = output_names_full.index(args.vref_signal)
-                reg_mask_all = seq == reg_sid
-                if reg_mask_all.any():
-                    v_ref_used = float(np.median(Y_np_full[reg_mask_all, vref_idx]))
-                    v_ref_source = (
-                        f"measured {args.vref_signal} median over "
-                        f"regulation-state samples"
-                    )
-            reg_mask_all = seq == reg_sid
-            rf_result = _identify_rf_tier2(
-                Y_np_full[reg_mask_all, vout_idx],
-                Y_np_full[reg_mask_all, ifb_idx],
-                v_ref_used,
-            )
-            if rf_result:
-                rf_result["v_ref_used"] = v_ref_used
-                rf_result["v_ref_source"] = v_ref_source
-                print(
-                    f"  Tier 2 identification (VFB_I current only — ADDS "
-                    f"the v_fb~=V_ref closed-loop assumption, restricted "
-                    f"to REGULATION-state samples, V_ref from "
-                    f"{v_ref_source}): Rf1={rf_result['Rf1']:.4g} Ohm  "
-                    f"Rf2={rf_result['Rf2']:.4g} Ohm  "
-                    f"({rf_result['n_samples']}/{rf_result['n_total']} "
-                    f"regulation samples used)"
-                )
-        if rf_result is None:
-            print(
-                "  Tier 3 fallback (unchanged template default): no usable "
-                "VFB_I data — Rf2/V_ref stay at LDO_PMOS_MANIFEST's "
-                "nominal defaults (ASSUMED, trusted, not measured) and "
-                "Rf1 floats via the existing nonlinear DC-stage fit."
-            )
+        vfb_idx = (
+            output_names_full.index(args.vfb_voltage_signal) if have_vfb_v else None
+        )
+        ifb_idx = (
+            output_names_full.index(args.vfb_current_signal) if have_vfb_i else None
+        )
+        vref_idx = output_names_full.index(args.vref_signal) if have_vref else None
 
-        if rf_result:
-            template = _anchored_ldo_template(
-                rf_result["Rf1"], rf_result["Rf2"], v_ref=rf_result.get("v_ref_used")
-            )
-        else:
-            from core.templates import LdoPmosTemplate
-
-            template = LdoPmosTemplate()
-
+        from core.templates import LdoPmosTemplate
         from core.fitting import SingleCornerFitter
         from core.fitting.state_delta_fitter import StateParamSet
         from core.pvt import save_param_store
@@ -1008,8 +1357,53 @@ def main() -> int:
         graybox_by_process = {}
         param_sets_for_lut = {}
         analog_core_paths = {}
+        rf_results_by_process = {}
         for process in processes_to_fit:
             qids_pooled = process_groups[process][: args.max_graybox_corners]
+
+            # Round-3 fix, item 1: Rf1/Rf2 identified from THIS process's
+            # own rows only (was pooled globally before, which forced
+            # identical Rf1/Rf2 onto every process's fit regardless of
+            # whether that's physically true).
+            process_row_mask = np.zeros(len(seq), dtype=bool)
+            for qid in qids_pooled:
+                k = good_qids.index(qid)
+                process_row_mask[bounds[k] : bounds[k + 1]] = True
+            rf_result = _identify_rf_for_rows(
+                process_row_mask,
+                Y_np_full,
+                vout_idx,
+                vfb_idx,
+                ifb_idx,
+                vref_idx,
+                have_vfb_v,
+                have_vfb_i,
+                have_vref,
+                reg_sid,
+                seq,
+                args,
+            )
+            rf_results_by_process[process] = rf_result
+            if rf_result:
+                print(
+                    f"  process {process}: Rf identification Tier "
+                    f"{rf_result['tier']} — Rf1={rf_result['Rf1']:.4g} Ohm  "
+                    f"Rf2={rf_result['Rf2']:.4g} Ohm  "
+                    f"({rf_result['n_samples']}/{rf_result['n_total']} samples)"
+                )
+                process_template = _anchored_ldo_template(
+                    rf_result["Rf1"],
+                    rf_result["Rf2"],
+                    v_ref=rf_result.get("v_ref_used"),
+                )
+            else:
+                print(
+                    f"  process {process}: Tier 3 fallback — no usable "
+                    f"VFB_I data for this process, Rf2/V_ref stay at "
+                    f"manifest nominal defaults, Rf1 floats via DC-stage fit"
+                )
+                process_template = LdoPmosTemplate()
+
             dc_points, transient_records = [], []
             for qid in qids_pooled:
                 k = good_qids.index(qid)
@@ -1028,6 +1422,7 @@ def main() -> int:
                     iload_idx,
                     seq,
                     reg_sid,
+                    dropout_sid,
                     en_eff,
                     bypass_mask,
                     args,
@@ -1042,7 +1437,7 @@ def main() -> int:
                 continue
 
             fitter = SingleCornerFitter(
-                template,
+                process_template,
                 spec_kg=kg,
                 de_maxiter=args.graybox_de_maxiter,
                 de_popsize=args.graybox_de_popsize,
@@ -1067,8 +1462,17 @@ def main() -> int:
                     f"frozen={result.frozen_params}  "
                     f"spec_compliance={n_pass}/{n_eval}"
                 )
+                # Item 4a: which of THIS process's fitted parameters
+                # actually drives which observable behavior — computed
+                # from the fitted template itself (dc_solve/small_signal),
+                # not asserted. See _parameter_sensitivity_map docstring.
+                sensitivity = _parameter_sensitivity_map(
+                    process_template, result.params
+                )
+
                 graybox_by_process[process] = {
                     "params": result.params,
+                    "rf_identification": rf_result,
                     "n_runs_pooled": len(qids_pooled),
                     "n_transient_records": len(transient_records),
                     "n_dc_points": len(dc_points),
@@ -1077,6 +1481,7 @@ def main() -> int:
                     "identifiability": result.identifiability,
                     "spec_compliance": result.spec_compliance,
                     "notes": result.notes,
+                    "sensitivity": sensitivity,
                 }
                 param_sets_for_lut[process] = StateParamSet(baseline=result.params)
 
@@ -1088,7 +1493,7 @@ def main() -> int:
                     args.output_dir, f"{ip}_analog_core_{_vid(process)}.vams"
                 )
                 with open(core_path, "w") as f:
-                    f.write(template.emit_veriloga_core(result.params))
+                    f.write(process_template.emit_veriloga_core(result.params))
                 analog_core_paths[process] = core_path
             except Exception as ex:
                 print(f"  process {process}: gray-box fit failed — {ex}")
@@ -1112,8 +1517,12 @@ def main() -> int:
         else:
             param_store_path = None
 
+        any_tier2 = any(
+            r and r.get("tier") == 2 for r in rf_results_by_process.values()
+        )
+        any_tier3 = any(r is None for r in rf_results_by_process.values())
         graybox_report = {
-            "rf_identification": rf_result,
+            "rf_identification_by_process": rf_results_by_process,
             "enable_trace_source": en_source,
             "bypass_fraction_excluded": float(bypass_mask.mean())
             if len(bypass_mask)
@@ -1128,18 +1537,22 @@ def main() -> int:
                     "ran (always the case if VFB_I resolved)."
                 ),
                 "tier2_closed_loop_v_fb_eq_v_ref": (
-                    "Only added when Tier 2 ran (VFB_I but no VFB voltage): "
-                    "in a settled REGULATION-state sample, the closed loop "
-                    "holds v_fb approximately equal to V_ref."
-                    if rf_result and rf_result.get("tier") == 2
-                    else "not used (Tier 1 ran, or no gray-box fit at all)"
+                    "Used for at least one process (VFB_I but no VFB "
+                    "voltage): in a settled REGULATION-state sample, the "
+                    "closed loop holds v_fb approximately equal to V_ref."
+                    if any_tier2
+                    else "not used (every process either ran Tier 1 or had "
+                    "no gray-box fit at all)"
                 ),
                 "tier3_nominal_rf2_vref": (
-                    "Rf2 and V_ref held at LDO_PMOS_MANIFEST's own nominal "
-                    "defaults (never measured) — only the ORIGINAL, already-"
-                    "shipped assumption, unchanged."
-                    if rf_result is None
-                    else "not used (VFB_I resolved)"
+                    "At least one process fell back to Rf2/V_ref held at "
+                    "LDO_PMOS_MANIFEST's own nominal defaults (never "
+                    "measured for that process) — only the ORIGINAL, "
+                    "already-shipped assumption, unchanged. Rf1/Rf2 are "
+                    "now identified PER PROCESS (round-3 fix, item 1), so "
+                    "other processes may still have resolved VFB_I."
+                    if any_tier3
+                    else "not used (every process resolved VFB_I)"
                 ),
                 "iload_assumed_zero": (
                     "iload assumed 0 in every gray-box DC/transient record "
@@ -1175,20 +1588,22 @@ def main() -> int:
             os.path.join(args.output_dir, "graybox_fit_report.json"), graybox_report
         )
         with open(os.path.join(args.output_dir, "graybox_fit_report.md"), "w") as f:
-            L = ["# Gray-Box Analog-Template Fitting (item 6 + round-2 fixes)", ""]
-            if rf_result:
-                L.append(
-                    f"**Rf1/Rf2 identification: Tier {rf_result['tier']}** "
-                    f"— Rf1={rf_result['Rf1']:.4g} Ohm, "
-                    f"Rf2={rf_result['Rf2']:.4g} Ohm "
-                    f"({rf_result['n_samples']}/{rf_result['n_total']} "
-                    f"samples)"
-                )
-            else:
-                L.append(
-                    "**Rf1/Rf2 identification: Tier 3 fallback** — "
-                    "manifest nominal defaults, Rf1 floats via DC-stage fit"
-                )
+            L = ["# Gray-Box Analog-Template Fitting (item 6 + round-3 fixes)", ""]
+            L.append("## Rf1/Rf2 identification, PER PROCESS (round-3 fix, item 1)")
+            L.append("")
+            L.append("| process | tier | Rf1 (Ohm) | Rf2 (Ohm) | samples |")
+            L.append("|---|---|---|---|---|")
+            for process, rf in rf_results_by_process.items():
+                if rf:
+                    L.append(
+                        f"| {process} | {rf['tier']} | {rf['Rf1']:.4g} | "
+                        f"{rf['Rf2']:.4g} | {rf['n_samples']}/{rf['n_total']} |"
+                    )
+                else:
+                    L.append(
+                        f"| {process} | 3 (fallback) | manifest default | "
+                        "manifest default | n/a |"
+                    )
             L += ["", "## Assumptions actually used", ""]
             for key, text in graybox_report["assumptions"].items():
                 L.append(f"- **{key}**: {text}")
@@ -1238,6 +1653,62 @@ def main() -> int:
             print(f"  Process-LUT param store: {param_store_path}")
         for process, p in analog_core_paths.items():
             print(f"  Analog core ({process}): {p}")
+
+        # Item 4a: consolidated "which parameter drives which behavior"
+        # report, ranked per behavior by |elasticity| — the engineering-
+        # insight mechanism the request asked to be BUILT (computed from
+        # the fitted templates, not asserted).
+        sens_json = {
+            p: r["sensitivity"]
+            for p, r in graybox_by_process.items()
+            if r.get("sensitivity")
+        }
+        if sens_json:
+            _write_json(
+                os.path.join(args.output_dir, "parameter_sensitivity_map.json"),
+                sens_json,
+            )
+            with open(
+                os.path.join(args.output_dir, "parameter_sensitivity_map.md"), "w"
+            ) as f:
+                L = [
+                    "# Parameter -> Behavior Sensitivity Map (item 4a)",
+                    "",
+                    "Elasticity = (% change in behavior) / (% change in "
+                    "parameter), centered finite difference at +-1% around "
+                    "each process's FITTED parameter vector. |elasticity| "
+                    ">> 0 means that parameter dominates that behavior; "
+                    "~0 means it barely matters for it (a real, computed "
+                    "result — not asserted).",
+                    "",
+                ]
+                for process, r in graybox_by_process.items():
+                    sens = r.get("sensitivity")
+                    if not sens or not sens.get("elasticities"):
+                        continue
+                    L += [f"## Process: {process}", ""]
+                    behaviors = sorted(sens["base_behaviors"].keys())
+                    for beh in behaviors:
+                        ranked = sorted(
+                            (
+                                (name, row.get(beh, 0.0))
+                                for name, row in sens["elasticities"].items()
+                            ),
+                            key=lambda kv: -abs(kv[1]),
+                        )
+                        top = [(n, v) for n, v in ranked if abs(v) > 1e-6][:6]
+                        if not top:
+                            continue
+                        L.append(
+                            f"**{beh}** (base={sens['base_behaviors'][beh]:.4g}): "
+                            + ", ".join(f"{n}={v:+.3g}" for n, v in top)
+                        )
+                    L.append("")
+                f.write("\n".join(L) + "\n")
+            print(
+                f"  Parameter sensitivity map: "
+                f"{os.path.join(args.output_dir, 'parameter_sensitivity_map.md')} (+ .json)"
+            )
 
     print(f"\n{'=' * 60}\n  4. Differential (ddt/idt) features\n{'=' * 60}")
     deriv_targets = [n for n in feature_names if not n.startswith("meta_")]
@@ -1570,12 +2041,38 @@ def main() -> int:
     print(f"    equation source: {eq_source_label}")
     print(f"    ddt() present: {has_ddt}   idt() present: {has_idt}")
     if graybox_report:
-        rf = graybox_report["rf_identification"]
+        tiers = {
+            p: (rf["tier"] if rf else "3 (fallback)")
+            for p, rf in graybox_report["rf_identification_by_process"].items()
+        }
         print(
-            f"    gray-box Rf1/Rf2: "
-            f"{'Tier ' + str(rf['tier']) if rf else 'Tier 3 fallback'}  "
+            f"    gray-box Rf1/Rf2 tier by process: {tiers}  "
             f"processes fitted: {len(graybox_report['processes'])}"
         )
+
+    # Item 3: wire the fitted analog core(s) and the FSM control skeleton
+    # into one top-level module per process — a real, simulatable
+    # "complete analog model" integration (usage documented in each
+    # wrapper's header comments).
+    top_wrapper_paths = {}
+    for process, core_path in analog_core_paths.items():
+        top_wrapper_paths[process] = _generate_top_level_wrapper(
+            args.ip_type,
+            process,
+            va_path,
+            core_path,
+            _vid(args.vin_signal),
+            _vid(vout_signal),
+            gnd_ident,
+            _vid(args.en_signal or "EN_LDO"),
+            _vid(args.hp_signal),
+            embedded_ok,
+            args.output_dir,
+        )
+    if top_wrapper_paths:
+        print(f"\n  Top-level analog-core + FSM-skeleton wrapper(s):")
+        for process, p in top_wrapper_paths.items():
+            print(f"    {process}: {p}")
 
     # ── Reports ──────────────────────────────────────────────────────────
     model_comparison = {
@@ -1735,11 +2232,14 @@ def main() -> int:
             "",
         ]
         if graybox_report:
-            rf = graybox_report["rf_identification"]
+            tiers = {
+                p: (rf["tier"] if rf else "3 (fallback)")
+                for p, rf in graybox_report["rf_identification_by_process"].items()
+            }
             L += [
-                "## Gray-box fit (item 6 + round-2 fixes)",
+                "## Gray-box fit (item 6 + round-3 fixes)",
                 "",
-                f"Rf1/Rf2 identification tier: {rf['tier'] if rf else '3 (fallback)'}",
+                f"Rf1/Rf2 identification tier BY PROCESS: {tiers}",
                 f"Processes fitted (pooled LUT entries): "
                 f"{len(graybox_report['processes'])}",
                 f"Enable trace source: {graybox_report['enable_trace_source']}",
@@ -1778,6 +2278,16 @@ def main() -> int:
             L.append(
                 f"- `{os.path.join(args.output_dir, 'graybox_fit_report.md')}` (+ .json)"
             )
+            L.append(
+                f"- `{os.path.join(args.output_dir, 'parameter_sensitivity_map.md')}` "
+                f"(+ .json) — item 4a engineering-insight mechanism"
+            )
+            for process, p in analog_core_paths.items():
+                L.append(f"- `{p}` — fitted analog core ({process})")
+            for process, p in top_wrapper_paths.items():
+                L.append(f"- `{p}` — top-level wrapper ({process}, item 3)")
+            if param_store_path:
+                L.append(f"- `{param_store_path}` — process LUT param store")
         L.append("")
         f.write("\n".join(L))
 
@@ -1791,6 +2301,9 @@ def main() -> int:
     if graybox_report:
         print(
             f"  Gray-box fit          {os.path.join(args.output_dir, 'graybox_fit_report.md')} (+ .json)"
+        )
+        print(
+            f"  Sensitivity map       {os.path.join(args.output_dir, 'parameter_sensitivity_map.md')} (+ .json)"
         )
     print(f"  Manifest / structure  {manifest_path}")
     return 0
